@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="104.0" layoutY="341.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button layoutX="104.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -37,7 +37,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="100.0" layoutY="174.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button layoutX="100.0" layoutY="168.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -47,5 +47,15 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
+      <TextArea layoutX="152.0" layoutY="401.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="66.0" layoutY="416.0" text="Classification:" />
+      <TextArea layoutX="318.0" layoutY="401.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="241.0" layoutY="416.0" text="Launch year:" />
+      <TextArea layoutX="150.0" layoutY="455.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="17.0" layoutY="470.0" text="Launch number of year:" />
+      <TextArea layoutX="419.0" layoutY="455.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="337.0" layoutY="470.0" text="Piece number:" />
+      <TextArea layoutX="214.0" layoutY="455.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="205.0" layoutY="472.0" text="," />
    </children>
 </AnchorPane>
