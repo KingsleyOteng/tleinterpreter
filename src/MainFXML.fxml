@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="655.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       <TextArea layoutX="100.0" layoutY="35.0" prefHeight="47.0" prefWidth="478.0" />
@@ -37,12 +36,12 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button layoutX="100.0" layoutY="168.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" layoutX="100.0" layoutY="168.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Label layoutX="197.0" layoutY="147.0" text="OPEN" textFill="#079e16">
+      <Label id="cateridge_load" layoutX="197.0" layoutY="147.0" text="OPEN" textFill="#101110">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -57,5 +56,6 @@
       <Label layoutX="337.0" layoutY="470.0" text="Piece number:" />
       <TextArea layoutX="214.0" layoutY="455.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="205.0" layoutY="472.0" text="," />
+      <TextArea layoutX="467.0" layoutY="401.0" prefHeight="47.0" prefWidth="97.0" />
    </children>
 </AnchorPane>
