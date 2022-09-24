@@ -24,14 +24,13 @@ public class NewFXMain extends Application {
     {
         Parent root = FXMLLoader.load(getClass().getResource("/MainFXML.fxml"));
         
-        Scene scene = new Scene(root, 600, 530);
+        Scene scene = new Scene(root, 600, 730);
     
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);
         stage.show();
     }
     
-
     /**
      * @param args the command line arguments
      */
