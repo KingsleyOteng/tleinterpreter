@@ -22,7 +22,7 @@
       </Label>
       <Label layoutX="14.0" layoutY="50.0" text="Line 1:" />
       <Label layoutX="14.0" layoutY="106.0" text="Line 2:" />
-      <Label layoutX="101.0" layoutY="247.0" text="OBSERVER VIEWING LOCATION" textFill="#e80e0e">
+      <Label layoutX="101.0" layoutY="247.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
