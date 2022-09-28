@@ -71,16 +71,9 @@
       <TextArea layoutX="152.0" layoutY="406.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea layoutX="148.0" layoutY="648.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea layoutX="395.0" layoutY="648.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="148.0" layoutY="706.0" prefHeight="47.0" prefWidth="35.0" />
-      <TextArea layoutX="290.0" layoutY="706.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="252.0" layoutY="660.0" text="2nd deriv of mean motion:" />
-      <Label layoutX="10.0" layoutY="658.0" text="1st deriv of mean motion:" />
-      <Label layoutX="19.0" layoutY="670.0" text="(ballistic coefficient)" />
-      <TextArea layoutX="150.0" layoutY="769.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="84.0" layoutY="721.0" text="Drag term:" />
-      <Label layoutX="198.0" layoutY="721.0" text="Ephemeris type:" />
-      <Label layoutX="52.0" layoutY="784.0" text="Element number:" />
-      <TextArea layoutX="339.0" layoutY="769.0" prefHeight="47.0" prefWidth="47.0" />
-      <Label layoutX="267.0" layoutY="784.0" text="Check sum:" />
+      <TextArea layoutX="148.0" layoutY="706.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="395.0" layoutY="706.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="11.0" layoutY="663.0" text="1st deriv of mean motion:" />
+      <Label layoutX="251.0" layoutY="663.0" text="2nd deriv of mean motion:" />
    </children>
 </AnchorPane>
