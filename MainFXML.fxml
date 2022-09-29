@@ -7,73 +7,98 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="905.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="741.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
-      <TextArea layoutX="100.0" layoutY="35.0" prefHeight="47.0" prefWidth="478.0" />
-      <TextArea layoutX="100.0" layoutY="91.0" prefHeight="47.0" prefWidth="478.0" />
-      <TextArea layoutX="102.0" layoutY="273.0" prefHeight="47.0" prefWidth="109.0" />
-      <TextArea layoutX="307.0" layoutY="273.0" prefHeight="47.0" prefWidth="109.0" />
-      <Label layoutX="14.0" layoutY="288.0" text="Longitude:" />
-      <Label layoutX="251.0" layoutY="288.0" text="Latitude:" />
+      <TextArea layoutX="100.0" layoutY="35.0" prefHeight="12.0" prefWidth="303.0" />
+      <TextArea layoutX="100.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
+      <TextArea layoutX="490.0" layoutY="184.0" prefHeight="18.0" prefWidth="109.0" />
+      <Label layoutX="37.0" layoutY="196.0" text="Longitude:" />
+      <Label layoutX="260.0" layoutY="196.0" text="Latitude:" />
       <Label layoutX="100.0" layoutY="9.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="50.0" text="Line 1:" />
-      <Label layoutX="14.0" layoutY="106.0" text="Line 2:" />
-      <Label layoutX="101.0" layoutY="247.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
+      <Label layoutX="56.0" layoutY="50.0" text="Line 1:" />
+      <Label layoutX="432.0" layoutY="47.0" text="Line 2:" />
+      <Label layoutX="95.0" layoutY="156.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="104.0" layoutY="329.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button layoutX="98.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Label layoutX="100.0" layoutY="147.0" text="SLOT STATUS: " textFill="#09032f">
+      <Label layoutX="102.0" layoutY="123.0" text="SLOT STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" layoutX="100.0" layoutY="168.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="478.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" layoutX="100.0" layoutY="82.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="703.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Label id="cateridge_load" layoutX="197.0" layoutY="147.0" text="OPEN" textFill="#101110">
+      <Label id="cateridge_load" layoutX="199.0" layoutY="123.0" text="OPEN" textFill="#101110">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextArea layoutX="152.0" layoutY="463.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="66.0" layoutY="478.0" text="Classification:" />
-      <TextArea layoutX="318.0" layoutY="463.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="241.0" layoutY="478.0" text="Launch year:" />
-      <TextArea layoutX="150.0" layoutY="517.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="17.0" layoutY="532.0" text="Launch number of year:" />
-      <TextArea layoutX="419.0" layoutY="517.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="337.0" layoutY="532.0" text="Piece number:" />
-      <TextArea layoutX="214.0" layoutY="517.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="315.0" layoutY="314.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="229.0" layoutY="330.0" text="Classification:" />
+      <TextArea layoutX="456.0" layoutY="315.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="384.0" layoutY="329.0" text="Launch year:" />
+      <TextArea layoutX="153.0" layoutY="369.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="20.0" layoutY="384.0" text="Launch number of year:" />
+      <TextArea layoutX="422.0" layoutY="369.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="340.0" layoutY="384.0" text="Piece number:" />
+      <TextArea layoutX="217.0" layoutY="369.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="203.0" layoutY="451.0" text=",">
          <font>
             <Font size="36.0" />
          </font></Label>
-      <TextArea layoutX="467.0" layoutY="463.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="150.0" layoutY="571.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="80.0" layoutY="586.0" text="Epoch date:" />
-      <Label layoutX="230.0" layoutY="586.0" text="Epoch time:" />
-      <TextArea layoutX="299.0" layoutY="571.0" prefHeight="47.0" prefWidth="99.0" />
-      <Line endX="383.06182861328125" layoutX="198.0" layoutY="633.0" startX="-100.0" />
-      <Line endX="383.06182861328125" layoutX="202.0" layoutY="390.0" startX="-100.0" />
-      <Label layoutX="98.0" layoutY="421.0" text="Satellite:" />
-      <TextArea layoutX="152.0" layoutY="406.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="148.0" layoutY="648.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="395.0" layoutY="648.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="148.0" layoutY="706.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="395.0" layoutY="706.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="11.0" layoutY="663.0" text="1st deriv of mean motion:" />
-      <Label layoutX="251.0" layoutY="663.0" text="2nd deriv of mean motion:" />
+      <TextArea layoutX="631.0" layoutY="314.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="150.0" layoutY="423.0" prefHeight="47.0" prefWidth="48.0" />
+      <Label layoutX="80.0" layoutY="438.0" text="Epoch date:" />
+      <Label layoutX="230.0" layoutY="438.0" text="Epoch time:" />
+      <TextArea layoutX="299.0" layoutY="423.0" prefHeight="47.0" prefWidth="99.0" />
+      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="207.0" layoutY="488.0" startX="-100.0" />
+      <Line endX="592.8341064453125" layoutX="201.0" layoutY="298.0" startX="-100.0" />
+      <Label layoutX="54.0" layoutY="333.0" text="Satellite:" />
+      <TextArea layoutX="108.0" layoutY="318.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="151.0" layoutY="497.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="398.0" layoutY="497.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="568.0" layoutY="496.0" prefHeight="47.0" prefWidth="35.0" />
+      <TextArea layoutX="710.0" layoutY="496.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="255.0" layoutY="509.0" text="2nd deriv of mean motion:" />
+      <Label layoutX="13.0" layoutY="507.0" text="1st deriv of mean motion:" />
+      <Label layoutX="22.0" layoutY="519.0" text="(ballistic coefficient)" />
+      <TextArea layoutX="152.0" layoutY="550.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="504.0" layoutY="511.0" text="Drag term:" />
+      <Label layoutX="618.0" layoutY="511.0" text="Ephemeris type:" />
+      <Label layoutX="54.0" layoutY="565.0" text="Element number:" />
+      <TextArea layoutX="341.0" layoutY="550.0" prefHeight="47.0" prefWidth="47.0" />
+      <Label layoutX="269.0" layoutY="565.0" text="Check sum:" />
+      <TextArea layoutX="475.0" layoutY="35.0" prefHeight="37.0" prefWidth="330.0" />
+      <Line endX="595.40869140625" layoutX="204.0" layoutY="147.0" startX="-100.0" />
+      <TextArea layoutX="310.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
+      <Label layoutX="99.0" layoutY="272.0" text="OBSERVER STATUS: " textFill="#09032f">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label id="cateridge_load" layoutX="236.0" layoutY="272.0" text="OPEN" textFill="#101110">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Button id="load_element_button" layoutX="484.0" layoutY="380.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+         <font>
+            <Font name="Optima Regular" size="16.0" />
+         </font>
+      </Button>
+      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="210.0" layoutY="604.0" startX="-100.0" />
    </children>
 </AnchorPane>
