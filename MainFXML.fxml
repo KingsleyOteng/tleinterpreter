@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="741.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       <TextArea layoutX="100.0" layoutY="35.0" prefHeight="12.0" prefWidth="303.0" />
       <TextArea layoutX="100.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
@@ -47,13 +47,13 @@
          </font>
       </Label>
       <TextArea layoutX="315.0" layoutY="314.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="229.0" layoutY="330.0" text="Classification:" />
+      <Label layoutX="229.0" layoutY="330.0" text="Classification:" textFill="#e312c2" />
       <TextArea layoutX="456.0" layoutY="315.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="384.0" layoutY="329.0" text="Launch year:" />
+      <Label layoutX="384.0" layoutY="329.0" text="Launch year:" textFill="#e312c2" />
       <TextArea layoutX="153.0" layoutY="369.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="20.0" layoutY="384.0" text="Launch number of year:" />
+      <Label layoutX="20.0" layoutY="384.0" text="Launch number of year:" textFill="#e312c2" />
       <TextArea layoutX="422.0" layoutY="369.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="340.0" layoutY="384.0" text="Piece number:" />
+      <Label layoutX="340.0" layoutY="384.0" text="Piece number:" textFill="#e312c2" />
       <TextArea layoutX="217.0" layoutY="369.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="203.0" layoutY="451.0" text=",">
          <font>
@@ -61,28 +61,26 @@
          </font></Label>
       <TextArea layoutX="631.0" layoutY="314.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea layoutX="150.0" layoutY="423.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="80.0" layoutY="438.0" text="Epoch date:" />
-      <Label layoutX="230.0" layoutY="438.0" text="Epoch time:" />
+      <Label layoutX="80.0" layoutY="438.0" text="Epoch date:" textFill="#e312c2" />
+      <Label layoutX="230.0" layoutY="438.0" text="Epoch time:" textFill="#e312c2" />
       <TextArea layoutX="299.0" layoutY="423.0" prefHeight="47.0" prefWidth="99.0" />
-      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="207.0" layoutY="488.0" startX="-100.0" />
-      <Line endX="592.8341064453125" layoutX="201.0" layoutY="298.0" startX="-100.0" />
-      <Label layoutX="54.0" layoutY="333.0" text="Satellite:" />
+      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="212.0" layoutY="482.0" startX="-100.0" />
+      <Line endX="592.8341064453125" layoutX="212.0" layoutY="298.0" startX="-100.0" />
+      <Label layoutX="54.0" layoutY="333.0" text="Satellite:" textFill="#e312c2" />
       <TextArea layoutX="108.0" layoutY="318.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="151.0" layoutY="497.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="398.0" layoutY="497.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="568.0" layoutY="496.0" prefHeight="47.0" prefWidth="35.0" />
-      <TextArea layoutX="710.0" layoutY="496.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="255.0" layoutY="509.0" text="2nd deriv of mean motion:" />
-      <Label layoutX="13.0" layoutY="507.0" text="1st deriv of mean motion:" />
-      <Label layoutX="22.0" layoutY="519.0" text="(ballistic coefficient)" />
-      <TextArea layoutX="152.0" layoutY="550.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="504.0" layoutY="511.0" text="Drag term:" />
-      <Label layoutX="618.0" layoutY="511.0" text="Ephemeris type:" />
-      <Label layoutX="54.0" layoutY="565.0" text="Element number:" />
-      <TextArea layoutX="341.0" layoutY="550.0" prefHeight="47.0" prefWidth="47.0" />
-      <Label layoutX="269.0" layoutY="565.0" text="Check sum:" />
+      <TextArea layoutX="106.0" layoutY="486.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="361.0" layoutY="486.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="809.0" layoutY="486.0" prefHeight="47.0" prefWidth="35.0" />
+      <TextArea layoutX="710.0" layoutY="552.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="22.0" layoutY="503.0" text="Mean motion:" textFill="#dd06c4" />
+      <TextArea layoutX="152.0" layoutY="552.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="719.0" layoutY="500.0" text="Mean anomaly:" textFill="#dd06c4" />
+      <Label layoutX="618.0" layoutY="565.0" text="Ephemeris type:" textFill="#dd06c4" />
+      <Label layoutX="54.0" layoutY="565.0" text="Element number:" textFill="#dd06c4" />
+      <TextArea layoutX="384.0" layoutY="552.0" prefHeight="47.0" prefWidth="47.0" />
+      <Label layoutX="269.0" layoutY="565.0" text="Revolution number:" textFill="#dd06c4" />
       <TextArea layoutX="475.0" layoutY="35.0" prefHeight="37.0" prefWidth="330.0" />
-      <Line endX="595.40869140625" layoutX="204.0" layoutY="147.0" startX="-100.0" />
+      <Line endX="595.40869140625" layoutX="212.0" layoutY="147.0" startX="-100.0" />
       <TextArea layoutX="310.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="272.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
@@ -94,11 +92,23 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" layoutX="484.0" layoutY="380.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" layoutX="484.0" layoutY="375.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#1710e3" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="210.0" layoutY="604.0" startX="-100.0" />
+      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="212.0" layoutY="655.0" startX="-100.0" />
+      <TextArea layoutX="152.0" layoutY="600.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="56.0" layoutY="618.0" text="Orbit inclination:" textFill="#dd06c4" />
+      <TextArea layoutX="361.0" layoutY="600.0" prefHeight="47.0" prefWidth="47.0" />
+      <Label layoutX="267.0" layoutY="618.0" text="Right ascension:" textFill="#dd06c4" />
+      <TextArea layoutX="543.0" layoutY="600.0" prefHeight="47.0" prefWidth="47.0" />
+      <Label layoutX="420.0" layoutY="617.0" text="Argument of perigree:" textFill="#dd06c4" />
+      <TextArea layoutX="673.0" layoutY="600.0" prefHeight="47.0" prefWidth="47.0" />
+      <Label layoutX="612.0" layoutY="617.0" text="Drag term:" textFill="#dd06c4" />
+      <TextArea layoutX="616.0" layoutY="486.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="471.0" layoutY="501.0" text="2nd deriv of mean motion:" textFill="#dd06c4" />
+      <Label layoutX="219.0" layoutY="493.0" text="1st deriv of mean motion:" textFill="#dd06c4" />
+      <Label layoutX="233.0" layoutY="507.0" text="(ballistic coefficient)" textFill="#dd06c4" />
    </children>
 </AnchorPane>
