@@ -9,24 +9,24 @@
 
 <AnchorPane id="AnchorPane" prefHeight="672.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
-      <TextArea layoutX="100.0" layoutY="35.0" prefHeight="12.0" prefWidth="303.0" />
-      <TextArea layoutX="100.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
-      <TextArea layoutX="490.0" layoutY="184.0" prefHeight="18.0" prefWidth="109.0" />
-      <Label layoutX="37.0" layoutY="196.0" text="Longitude:" />
-      <Label layoutX="260.0" layoutY="196.0" text="Latitude:" />
+      <TextArea layoutX="100.0" layoutY="44.0" prefHeight="12.0" prefWidth="303.0" />
+      <TextArea layoutX="100.0" layoutY="186.0" prefHeight="22.0" prefWidth="109.0" />
+      <TextArea layoutX="510.0" layoutY="186.0" prefHeight="18.0" prefWidth="109.0" />
+      <Label layoutX="34.0" layoutY="198.0" text="Longitude:" />
+      <Label layoutX="257.0" layoutY="198.0" text="Latitude:" />
       <Label layoutX="100.0" layoutY="9.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="56.0" layoutY="50.0" text="Line 1:" />
-      <Label layoutX="432.0" layoutY="47.0" text="Line 2:" />
+      <Label layoutX="53.0" layoutY="59.0" text="Line 1:" />
+      <Label layoutX="429.0" layoutY="56.0" text="Line 2:" />
       <Label layoutX="95.0" layoutY="156.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="98.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="98.0" layoutY="231.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -36,12 +36,12 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" layoutX="100.0" layoutY="82.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="703.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_load_element" layoutX="100.0" layoutY="89.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="28.0" prefWidth="703.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Label id="cateridge_load" layoutX="199.0" layoutY="123.0" text="OPEN" textFill="#101110">
+      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="199.0" layoutY="123.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -79,20 +79,20 @@
       <Label layoutX="54.0" layoutY="565.0" text="Element number:" textFill="#dd06c4" />
       <TextArea layoutX="384.0" layoutY="552.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="269.0" layoutY="565.0" text="Revolution number:" textFill="#dd06c4" />
-      <TextArea layoutX="475.0" layoutY="35.0" prefHeight="37.0" prefWidth="330.0" />
+      <TextArea layoutX="475.0" layoutY="44.0" prefHeight="37.0" prefWidth="330.0" />
       <Line endX="595.40869140625" layoutX="212.0" layoutY="147.0" startX="-100.0" />
-      <TextArea layoutX="310.0" layoutY="184.0" prefHeight="22.0" prefWidth="109.0" />
+      <TextArea layoutX="310.0" layoutY="186.0" prefHeight="22.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="272.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label id="cateridge_load" layoutX="236.0" layoutY="272.0" text="OPEN" textFill="#101110">
+      <Label id="cateridge_load" layoutX="236.0" layoutY="272.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" layoutX="484.0" layoutY="375.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#1710e3" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" layoutX="484.0" layoutY="375.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#1710e3" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -110,5 +110,11 @@
       <Label layoutX="471.0" layoutY="501.0" text="2nd deriv of mean motion:" textFill="#dd06c4" />
       <Label layoutX="219.0" layoutY="493.0" text="1st deriv of mean motion:" textFill="#dd06c4" />
       <Label layoutX="233.0" layoutY="507.0" text="(ballistic coefficient)" textFill="#dd06c4" />
+      <Label id="cateridge_load" layoutX="206.0" layoutY="372.0" text="," textFill="#101110">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="453.0" layoutY="198.0" text="Elevation:" />
    </children>
 </AnchorPane>

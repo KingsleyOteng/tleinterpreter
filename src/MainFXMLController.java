@@ -5,7 +5,11 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -14,6 +18,8 @@ import javafx.fxml.Initializable;
  */
 public class MainFXMLController implements Initializable {
 
+    @FXML
+    private Label label_slot_status;
     /**
      * Initializes the controller class.
      */
@@ -22,5 +28,20 @@ public class MainFXMLController implements Initializable {
         // TODO
         //
     }    
+    
+    @FXML
+    private void printHelloWorld(ActionEvent event) {
+        event.consume();
+        System.out.println("Hello, World!");
+        label_slot_status.setText("Hello World");
+    }
+    
+    @FXML
+    private void updateLoadStatus() {
+        
+       label_slot_status.setText("OK");
+        label_slot_status.setTextFill(Color.web("#228B22"));
+    }
+    
     
 }
