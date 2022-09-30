@@ -20,6 +20,9 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private Label label_slot_status;
+    
+    @FXML
+    private Label label_observer_status;
     /**
      * Initializes the controller class.
      */
@@ -40,8 +43,14 @@ public class MainFXMLController implements Initializable {
     private void updateLoadStatus() {
         
        label_slot_status.setText("OK");
-        label_slot_status.setTextFill(Color.web("#228B22"));
+        label_slot_status.setTextFill(Color.web("#238B23"));
     }
     
+     @FXML
+    private void updateObserverStatus() {
+        
+       label_observer_status.setText("OK");
+       label_observer_status.setTextFill(Color.web("#238B23"));
+    }
     
 }
