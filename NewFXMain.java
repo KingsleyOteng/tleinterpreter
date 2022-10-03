@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.util.regex.Pattern;  
 
 /**
  *
@@ -26,7 +27,7 @@ public class NewFXMain extends Application {
         
         Scene scene = new Scene(root, 860, 700);
         
-        String[] words = text.split("([\\W\\s]+)");
+        
        
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);

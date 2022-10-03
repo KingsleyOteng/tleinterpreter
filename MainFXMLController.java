@@ -5,6 +5,7 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -41,7 +42,15 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private void updateLoadStatus() {
+        Pattern p=Pattern.compile("\\s");  
+        String[] str=p.split("Pattern Split Method in Java regex");  
         
+   
+        
+        for(String str1:str)  
+        {  
+            System.out.println(" "+str1);  
+        }     
        label_slot_status.setText("OK - Set");
         label_slot_status.setTextFill(Color.web("#228B22"));
     }
