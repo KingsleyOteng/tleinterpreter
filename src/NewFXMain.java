@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.util.regex.Pattern;  
 
 /**
  *
@@ -25,6 +26,8 @@ public class NewFXMain extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/MainFXML.fxml"));
         
         Scene scene = new Scene(root, 860, 700);
+        
+        
        
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);
