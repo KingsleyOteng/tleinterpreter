@@ -25,6 +25,8 @@ public class NewFXMain extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/MainFXML.fxml"));
         
         Scene scene = new Scene(root, 860, 700);
+        
+        String[] words = text.split("([\\W\\s]+)");
        
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);
