@@ -37,7 +37,12 @@ public class MainFXMLController implements Initializable {
         //
     }    
     
- 
+    @FXML
+    private void printHelloWorld(ActionEvent event) {
+        event.consume();
+        System.out.println("");
+        label_slot_status.setText("");
+    }
     
     @FXML
     private void updateLoadStatus() {
