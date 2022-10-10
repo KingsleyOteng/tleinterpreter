@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="861.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
-      <TextArea layoutX="100.0" layoutY="42.0" prefHeight="12.0" prefWidth="303.0" />
+      <TextArea fx:id="line1_fields" layoutX="100.0" layoutY="42.0" prefHeight="12.0" prefWidth="303.0" />
       <TextArea layoutX="100.0" layoutY="220.0" prefHeight="22.0" prefWidth="109.0" />
       <TextArea layoutX="510.0" layoutY="220.0" prefHeight="18.0" prefWidth="109.0" />
       <Label layoutX="34.0" layoutY="232.0" text="Longitude:" />
@@ -26,7 +26,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="98.0" layoutY="265.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE SETTINGS" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="98.0" layoutY="265.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -41,7 +41,7 @@
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="199.0" layoutY="165.0" text="OPEN" textFill="#d00314">
+      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="165.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -92,7 +92,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE" textAlignment="JUSTIFY" textFill="#1710e3" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#1710e3" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -121,7 +121,7 @@
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <TextArea layoutX="100.0" layoutY="86.0" prefHeight="41.0" prefWidth="150.0" />
+      <TextArea layoutX="100.0" layoutY="86.0" prefHeight="9.0" prefWidth="150.0" />
       <Label layoutX="51.0" layoutY="91.0" text="Name:" />
       <Label layoutX="45.0" layoutY="101.0" text="(optional)" />
    </children>
