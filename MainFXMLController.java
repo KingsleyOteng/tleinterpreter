@@ -15,8 +15,9 @@ import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
+ *
+ * @author terra6partner
  */
-
 public class MainFXMLController implements Initializable {
 
     @FXML
@@ -35,6 +36,13 @@ public class MainFXMLController implements Initializable {
         // TODO
         //
     }    
+    
+    @FXML
+    private void printHelloWorld(ActionEvent event) {
+        event.consume();
+        System.out.println("");
+        label_slot_status.setText("");
+    }
     
     @FXML
     private void updateLoadStatus() {
