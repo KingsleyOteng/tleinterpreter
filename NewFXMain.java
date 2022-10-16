@@ -11,6 +11,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+// https://github.com/skyfielders/python-skyfield/tree/master/examples
+// https://rhodesmill.org/skyfield/
+
 
 /**
  *

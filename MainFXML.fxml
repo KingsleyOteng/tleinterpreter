@@ -19,8 +19,8 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="61.0" text="Line 1:" />
-      <Label layoutX="429.0" layoutY="54.0" text="Line 2:" />
+      <Label layoutX="53.0" layoutY="102.0" text="Line 2:" />
+      <Label layoutX="429.0" layoutY="101.0" text="Line 3:" />
       <Label layoutX="95.0" layoutY="190.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
@@ -36,7 +36,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_load_element" layoutX="100.0" layoutY="131.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="28.0" prefWidth="703.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_load_element" layoutX="108.0" layoutY="131.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="32.0" prefWidth="697.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="16.0" />
          </font>
@@ -79,7 +79,7 @@
       <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
       <TextArea layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="269.0" layoutY="598.0" text="Revolution number:" textFill="#e31234" />
-      <TextArea layoutX="475.0" layoutY="42.0" prefHeight="37.0" prefWidth="330.0" />
+      <TextArea layoutX="475.0" layoutY="89.0" prefHeight="37.0" prefWidth="330.0" />
       <Line endX="595.40869140625" layoutX="212.0" layoutY="186.0" startX="-100.0" />
       <TextArea layoutX="310.0" layoutY="220.0" prefHeight="22.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="306.0" text="OBSERVER STATUS: " textFill="#09032f">
@@ -121,9 +121,9 @@
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <TextArea layoutX="100.0" layoutY="86.0" prefHeight="9.0" prefWidth="150.0" />
-      <Label layoutX="51.0" layoutY="91.0" text="Name:" />
-      <Label layoutX="45.0" layoutY="101.0" text="(optional)" />
-      <TextArea layoutX="101.0" layoutY="42.0" prefHeight="41.0" prefWidth="312.0" />
+      <TextArea layoutX="108.0" layoutY="42.0" prefHeight="41.0" prefWidth="699.0" />
+      <Label layoutX="51.0" layoutY="46.0" text="Line 1:" />
+      <Label layoutX="46.0" layoutY="59.0" text="(Name)" />
+      <TextArea layoutX="108.0" layoutY="89.0" prefHeight="41.0" prefWidth="312.0" />
    </children>
 </AnchorPane>
