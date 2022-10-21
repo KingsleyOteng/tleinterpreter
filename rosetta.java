@@ -5,18 +5,27 @@
 
 /**
  *
- * @author terra6partner
+ * @author kingsley oteng-amoako
  */
 public class rosetta {
     
-    String SEASON[];
-    String SEASON_EVENTS[];
-    String SEASON_FLUX[];
-
-    public rosetta() {
-        this.SEASON = new String[]{"WINTER", "FALL", "SUMMER", "SPRING"};
-        this.SEASON_EVENTS = new String[]{"Winter Solstice","Autumnal Equinox","Summer Solstice","Vernal Equinox"};
-    }
+    String 
+     SEASON[], 
+     SEASON_EVENTS[],
+     SEASON_LINGO[],
+     DAILY_TWILIGHTS[],
+     NODES[],
+     CONJUNCTIONS[];
+   
+    public rosetta() 
+    {
+        this.NODES = new String[]{"Ascending", "Descending"};
+        this.CONJUNCTIONS = new String[]{"Opposition", "Conjunction"};
+        this.DAILY_TWILIGHTS = new String[]{"DAY", "CIVIL TWILIGHT", "NAUTICAL TWILIGHT", "ASTRONOMICAL TWILIGHT", "NIGHT"};
+        this.SEASON_EVENTS = new String[]{"Winter Solstice","Autumn Equinox","Summer Solstice","Vernal Equinox"};
+        this.SEASON_LINGO = new String[]{"December Solstice","September Equinox","June Solstice","March Equinox"};
+        this.SEASON = new String[]{"Winter", "Fall", "Summer", "Spring"};
+    }   
 
 }
     
