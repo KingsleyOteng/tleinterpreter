@@ -81,16 +81,14 @@ public class FXMLController implements Initializable {
  
                 // we just need to use \\Z as delimiter
                 sc.useDelimiter("\\n");
-                linesTextArea.setWrapText(true);
-                linesTextArea.setStyle("-fx-highlight-fill: #ADFF2F; -fx-highlight-text-fill: #B22222; -fx-font-size: 18px;");
-                
+              
+               
                 while (sc.hasNextLine()) 
                 {           
-                             linesTextArea.setStyle("-fx-highlight-fill: #ADFF2F; -fx-highlight-text-fill: #B22222; -fx-font-size: 18px;");
+                            linesTextArea.setWrapText(true);
+                            linesTextArea.setStyle("-fx-highlight-fill: #ADFF2F; -fx-highlight-text-fill: #B22122; -fx-font-size: 18px;");
                             // read text file
                             linesTextArea.appendText(sc.nextLine());
-                            linesTextArea.setStyle("-fx-highlight-fill: #ADFF2F; -fx-highlight-text-fill: #B22222; -fx-font-size: 18px;");
-                            // carriage return at the end of each line
                             linesTextArea.appendText("\r\n");
                 }
                 
