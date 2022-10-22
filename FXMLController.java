@@ -79,10 +79,9 @@ public class FXMLController implements Initializable {
                 File files = new File(file.getAbsolutePath());
                 Scanner sc = new Scanner(files);
  
-                // we just need to use \\Z as delimiter
+                // we just need to use \\n as delimiter
                 sc.useDelimiter("\\n");
               
-               
                 while (sc.hasNextLine()) 
                 {           
                             linesTextArea.setWrapText(true);
