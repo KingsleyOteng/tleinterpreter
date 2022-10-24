@@ -64,35 +64,34 @@ public class rosetta {
         rosetta.current_season = this.SEASON[current_season];
     };
    
-   
-   private String[] get_nodes()
+   private String get_nodes(int node)
     {
-        return this.NODES;
+        return this.NODES[node];
     };
    
-   private String[] get_conjunctions()
+   private String get_conjunctions(int conjunction)
     {
-        return this.CONJUNCTIONS;
+        return this.CONJUNCTIONS[conjunction];
     };
    
-   private String[] get_daily_twilights()
+   private String get_daily_twilights(int daily)
     {
-        return this.DAILY_TWILIGHTS;
+        return this.DAILY_TWILIGHTS[daily];
     };
    
-   private String[] get_season_events()
+   private String get_season_events(int season)
     {
-        return this.SEASON_EVENTS;
+        return this.SEASON_EVENTS[season];
     };
    
-   private String[] get_current_conjunctions()
+   private String get_current_conjunctions(int conjunction)
     {
-        return this.CONJUNCTIONS;
+        return this.CONJUNCTIONS[conjunction];
     };
    
-   private String[] get_current_season()
+   private String get_current_season(int season)
     {
-        return this.SEASON;
+        return this.SEASON[season];
     };
 }
     
