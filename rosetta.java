@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * rosetta
  * @author kingsley oteng-amoako
  */
 public class rosetta {
@@ -65,34 +65,34 @@ public class rosetta {
     };
    
    
-   private String get_nodes(int nodes)
+   private String[] get_nodes()
     {
-        return "";
+        return this.NODES;
     };
    
-   private String get_conjunctions(int conjunctions)
+   private String[] get_conjunctions()
     {
-        return "";
+        return this.CONJUNCTIONS;
     };
    
-   private String get_daily_twilights(int daily_twilights)
+   private String[] get_daily_twilights()
     {
-        return "";
+        return this.DAILY_TWILIGHTS;
     };
    
-   private String get_season_events(int season_events)
+   private String[] get_season_events()
     {
-        return "";
+        return this.SEASON_EVENTS;
     };
    
-   private String get_current_conjunctions(int current_conjunctions)
+   private String[] get_current_conjunctions()
     {
-        return "";
+        return this.CONJUNCTIONS;
     };
    
-   private String get_current_season(int current_season)
+   private String[] get_current_season()
     {
-        return "";
+        return this.SEASON;
     };
 }
     
