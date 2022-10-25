@@ -20,10 +20,8 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage stage) throws Exception
     {
-       Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
         Scene scene = new Scene(root, 860, 700);
-       
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);
         stage.show();
