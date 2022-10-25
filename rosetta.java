@@ -16,11 +16,6 @@ public class rosetta {
     private static String current_daily_twilights;
     private static String current_nodes;
     
-    private static double earth_to_sun = 148790000.00;
-    private static double earth_to_moon = 384400.00;
-    private static double radius_of_earth = 6371.00;
-    private static double radius_of_moon = 1737.40;
-    
     String 
      SEASON[], 
      SEASON_EVENTS[],
