@@ -15,6 +15,19 @@ public class rosetta {
     private static String current_season_lingo;
     private static String current_daily_twilights;
     private static String current_nodes;
+    private static String current_target;
+    
+    private static double earth_to_sun = 148790000.00;
+    private static double earth_to_moon = 384400.00;
+    private static double earth_to_mercury = 0.0;
+    private static double earth_to_jupiter = 0.0;
+    private static double earth_to_venus = 0.0;
+    private static double earth_to_saturn = 0.0;
+    private static double earth_to_uranus = 0.0;
+    private static double earth_to_neptune  = 0.0;
+    private static double earth_to_pluto = 0.0;
+    private static double radius_of_earth = 6371.00;
+    private static double radius_of_moon = 1737.40;
     
     String 
      SEASON[], 
@@ -22,6 +35,7 @@ public class rosetta {
      SEASON_LINGO[],
      DAILY_TWILIGHTS[],
      NODES[],
+     TARGET[],
      CONJUNCTIONS[];
    
     public rosetta() 
@@ -34,6 +48,11 @@ public class rosetta {
         this.SEASON = new String[]{"Winter", "Fall", "Summer", "Spring"};
     }   
 
+   private void set_target(int target)
+    {
+        rosetta.current_target = this.TARGET[target];
+    };
+   
    private void set_nodes(int nodes)
     {
         rosetta.current_nodes = this.NODES[nodes];
@@ -64,6 +83,10 @@ public class rosetta {
         rosetta.current_season = this.SEASON[current_season];
     };
    
+   private String get_target(int target)
+   {
+       return this.current_target;
+   }
    private String get_nodes(int node)
     {
         return this.NODES[node];
