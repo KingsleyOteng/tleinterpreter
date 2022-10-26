@@ -1,3 +1,7 @@
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -17,17 +21,21 @@ public class rosetta {
     private static String current_nodes;
     private static String current_target;
     
-    private static double earth_to_sun = 148790000.00;
-    private static double earth_to_moon = 384400.00;
-    private static double earth_to_mercury = 0.0;
-    private static double earth_to_jupiter = 0.0;
-    private static double earth_to_venus = 0.0;
-    private static double earth_to_saturn = 0.0;
-    private static double earth_to_uranus = 0.0;
-    private static double earth_to_neptune  = 0.0;
-    private static double earth_to_pluto = 0.0;
-    private static double radius_of_earth = 6371.00;
-    private static double radius_of_moon = 1737.40;
+    // in millions of kilometeres
+    private static final double earth_to_sun = 148.72;
+    private static final double earth_to_moon = 0.3844;
+    private static final double earth_to_mars = 97.74;
+    private static final double earth_to_mercury = 200.52;
+    private static final double earth_to_jupiter = 611.72;
+    private static final double earth_to_venus = 256.75;
+    private static final double earth_to_saturn = 1424.50;
+    private static final double earth_to_uranus = 2799.00;
+    private static final double earth_to_neptune  = 4385.70;
+    private static final double earth_to_pluto = 5195.70;
+    
+    // radius
+    private static final double radius_of_earth = .0006371;
+    private static final double radius_of_moon = .0017374;
     
     String 
      SEASON[], 
@@ -82,6 +90,7 @@ public class rosetta {
     {
         rosetta.current_season = this.SEASON[current_season];
     };
+   
    
    private String get_target(int target)
    {
