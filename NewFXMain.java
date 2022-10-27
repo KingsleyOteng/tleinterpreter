@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
+import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
 public class NewFXMain extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception
+    public void start(Stage stage) throws Exception, InvocationTargetException
     {
         Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
         Scene scene = new Scene(root, 860, 700);

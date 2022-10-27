@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -21,13 +22,20 @@ import javafx.scene.paint.Color;
 public class MainFXMLController implements Initializable {
 
     @FXML
-    private TextField line1_fields;
+    private TextField lf1;
+    
+    @FXML
+    private TextField lf2;
     
     @FXML
     private Label label_slot_status;
     
     @FXML
     private Label label_observer_status;
+    
+    @FXML
+    private Button btn_load_element;
+    
     /**
      * Initializes the controller class.
      */
@@ -47,18 +55,18 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateLoadStatus() {
         int count = 0;
-        String x = line1_fields.getText();
-        Pattern p=Pattern.compile("\\s");  
-        String[] str=p.split(x);  
+        //String x = line1_fields.getText();
+        //Pattern p=Pattern.compile("\\s");  
+        //String[] str=p.split(x);  
         
-        for(String str1:str)  
-        {  
-           count++; 
-        }     
+        //for(String str1:str)  
+        //{  
+       //    count++; 
+       // }     
         
         System.out.println("total: "+count);
        label_slot_status.setText("OK - Set");
-        label_slot_status.setTextFill(Color.web("#228B22"));
+       label_slot_status.setTextFill(Color.web("#228B22"));
     }
     
      @FXML
