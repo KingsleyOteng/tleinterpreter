@@ -117,8 +117,6 @@ while(matcher.find())
     i++;
 }
 
-        
-System.out.println("total: "+count);
 label_slot_status.setText("OK - Set");
 label_slot_status.setTextFill(Color.web("#228B22"));
 
