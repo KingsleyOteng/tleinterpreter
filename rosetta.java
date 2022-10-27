@@ -11,7 +11,8 @@ import java.math.BigInteger;
  * rosetta
  * @author kingsley oteng-amoako
  */
-public class rosetta {
+public class rosetta 
+    {
     
     private static String current_season;
     private static String current_conjunctions;
@@ -33,9 +34,21 @@ public class rosetta {
     private static final double earth_to_neptune  = 4385.70;
     private static final double earth_to_pluto = 5195.70;
     
-    // radius
-    private static final double radius_of_earth = .0006371;
-    private static final double radius_of_moon = .0017374;
+        // in millions of kilometeres
+    private static final BigDecimal earth_to_sun_big = new BigDecimal(148720000);
+    private static final BigDecimal earth_to_moon_big = new BigDecimal(384400.0);
+    private static final BigDecimal earth_to_mars_big = new BigDecimal(97740000.0);
+    private static final BigDecimal earth_to_mercury_big = new BigDecimal(200520000.0);
+    private static final BigDecimal earth_to_jupiter_big = new BigDecimal(611720000.0);
+    private static final BigDecimal earth_to_venus_big = new BigDecimal(256750000.0);
+    private static final BigDecimal earth_to_saturn_big = new BigDecimal(1424500000.0);
+    private static final BigDecimal earth_to_uranus_big = new BigDecimal(2799000000.0);
+    private static final BigDecimal earth_to_neptune_big  = new BigDecimal(4385700000.0);
+    private static final BigDecimal earth_to_pluto_big = new BigDecimal(5195700.0);
+    
+    // radius in millions of kilometres
+    private static final double radius_of_earth = 0.0006371;
+    private static final double radius_of_moon = 0.0017374;
     
     String 
      SEASON[], 
@@ -91,11 +104,11 @@ public class rosetta {
         rosetta.current_season = this.SEASON[current_season];
     };
    
-   
-   private String get_target(int target)
+   private String get_target()
    {
        return this.current_target;
    }
+   
    private String get_nodes(int node)
     {
         return this.NODES[node];
@@ -125,7 +138,8 @@ public class rosetta {
     {
         return this.SEASON[season];
     };
-}
+   
+    }
     
      
     

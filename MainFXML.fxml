@@ -59,7 +59,7 @@
          <font>
             <Font size="36.0" />
          </font></Label>
-      <TextArea layoutX="631.0" layoutY="341.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea layoutX="624.0" layoutY="341.0" prefHeight="47.0" prefWidth="70.0" />
       <TextArea layoutX="150.0" layoutY="450.0" prefHeight="47.0" prefWidth="48.0" />
       <Label layoutX="80.0" layoutY="465.0" text="Epoch date:" textFill="#e31234" />
       <Label layoutX="230.0" layoutY="465.0" text="Epoch time:" textFill="#e31234" />
@@ -125,6 +125,8 @@
       <Label layoutX="51.0" layoutY="46.0" text="Line 1:" textFill="#e32e12" />
       <Label layoutX="46.0" layoutY="59.0" text="(Name)" textFill="#e32e12" />
       <TextArea layoutX="108.0" layoutY="89.0" prefHeight="41.0" prefWidth="312.0" />
-      <Label layoutX="619.0" layoutY="355.0" text="x:" textFill="#e31234" />
+      <Label layoutX="587.0" layoutY="357.0" text="month" textFill="#e31234" />
+      <TextArea layoutX="734.0" layoutY="341.0" prefHeight="47.0" prefWidth="70.0" />
+      <Label layoutX="707.0" layoutY="356.0" text="day" textFill="#e31234" />
    </children>
 </AnchorPane>
