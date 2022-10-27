@@ -72,7 +72,27 @@ public class MainFXMLController implements Initializable {
        System.out.println(lf1.getText());
        System.out.println(matcher2.replaceAll("\t"));
        
-       System.out.println(Pattern.matches("(\\d)", "00047");
+       String text    =
+        "This is the text to be searched " +
+        "for occurrences of the http:// pattern.";
+     
+//String text1 = "2 00047 066.6626 011.9766 0252122 190.4009 169.1818 14.34618735877842";
+String text1 = lf1.getText();
+text1 = text1.substring(3,text1.length());
+Pattern pattern = Pattern.compile("([1234567890]+)([.1234567890]+)");
+Matcher matcher = pattern.matcher(text1);
+
+int i = 1;
+int y = 0;
+int x = 0;
+while(matcher.find()){
+    x = y;
+    y = matcher.end();
+    System.out.println("x"+x);
+    System.out.println("y"+y);
+    System.out.println(">"+text1.substring(x+1,y));
+    i++;
+}
 
         
         System.out.println("total: "+count);
