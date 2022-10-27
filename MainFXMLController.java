@@ -76,28 +76,52 @@ public class MainFXMLController implements Initializable {
         "This is the text to be searched " +
         "for occurrences of the http:// pattern.";
      
-//String text1 = "2 00047 066.6626 011.9766 0252122 190.4009 169.1818 14.34618735877842";
-String text1 = lf1.getText();
-text1 = text1.substring(3,text1.length());
+String tleLineOne = lf1.getText();
+String tleLineTwo = lf2.getText();
+
+//trim both lines of text
+tleLineOne = tleLineOne.substring(3,tleLineOne.length());
+tleLineTwo = tleLineTwo.substring(3,tleLineTwo.length());
+
+// extract from tle line 1
 Pattern pattern = Pattern.compile("([1234567890]+)([.1234567890]+)");
-Matcher matcher = pattern.matcher(text1);
+Matcher matcher = pattern.matcher(tleLineOne);
 
 int i = 1;
 int y = 0;
 int x = 0;
-while(matcher.find()){
+while(matcher.find())
+{
     x = y;
     y = matcher.end();
     System.out.println("x"+x);
     System.out.println("y"+y);
-    System.out.println(">"+text1.substring(x+1,y));
+    System.out.println(">"+tleLineOne.substring(x+1,y));
+    i++;
+}
+
+// extract from tle line 2
+Pattern pattern_next = Pattern.compile("([1234567890]+)([.1234567890]+)");
+Matcher matcher_next = pattern.matcher(tleLineTwo);
+
+i = 1;
+y = 0;
+x = 0;
+while(matcher.find())
+{
+    x = y;
+    y = matcher_next.end();
+    System.out.println("x"+x);
+    System.out.println("y"+y);
+    System.out.println("><><"+tleLineTwo.substring(x+1,y));
     i++;
 }
 
         
-        System.out.println("total: "+count);
-       label_slot_status.setText("OK - Set");
-       label_slot_status.setTextFill(Color.web("#228B22"));
+System.out.println("total: "+count);
+label_slot_status.setText("OK - Set");
+label_slot_status.setTextFill(Color.web("#228B22"));
+
     }
     
      @FXML
