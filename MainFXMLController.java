@@ -5,13 +5,14 @@
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 
 /**
@@ -22,10 +23,13 @@ import javafx.scene.paint.Color;
 public class MainFXMLController implements Initializable {
 
     @FXML
-    private TextField lf1;
+    private TextArea lf1;
     
     @FXML
-    private TextField lf2;
+    private TextArea lf2;
+    
+    @FXML
+    private TextArea lf3;
     
     @FXML
     private Label label_slot_status;
@@ -63,6 +67,13 @@ public class MainFXMLController implements Initializable {
         //{  
        //    count++; 
        // }     
+       Pattern replace = Pattern.compile("[2]");
+       Matcher matcher2 = replace.matcher(lf1.getText());
+       System.out.println(lf1.getText());
+       System.out.println(matcher2.replaceAll("\t"));
+       
+       System.out.println(Pattern.matches("(\\d)", "00047");
+
         
         System.out.println("total: "+count);
        label_slot_status.setText("OK - Set");
