@@ -40,6 +40,9 @@ public class MainFXMLController implements Initializable {
     @FXML
     private Button btn_load_element;
     
+    private static double line_one_array[] = new double[20];
+    private static double line_two_array[] = new double[20];
+    
     /**
      * Initializes the controller class.
      */
@@ -92,11 +95,13 @@ int y = 0;
 int x = 0;
 while(matcher.find())
 {
+    
     x = y;
     y = matcher.end();
     System.out.println("x"+x);
     System.out.println("y"+y);
     System.out.println(">"+tleLineOne.substring(x+1,y));
+    line_one_array[i]= Double.valueOf(tleLineOne.substring(x+1,y));
     i++;
 }
 
@@ -107,15 +112,17 @@ Matcher matcher_next = pattern.matcher(tleLineTwo);
 i = 1;
 y = 0;
 x = 0;
-while(matcher.find())
+while(matcher_next.find())
 {
     x = y;
     y = matcher_next.end();
     System.out.println("x"+x);
     System.out.println("y"+y);
     System.out.println("><><"+tleLineTwo.substring(x+1,y));
+    line_two_array[i]= Double.valueOf(tleLineTwo.substring(x+1,y));
     i++;
 }
+
 
 label_slot_status.setText("OK - Set");
 label_slot_status.setTextFill(Color.web("#228B22"));
