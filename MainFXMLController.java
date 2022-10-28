@@ -24,9 +24,9 @@ import java.net.URL;
  */
 public class MainFXMLController implements Initializable {
 
-    int i = 1;
-    int y = 0;
-    int x = 0;
+    //static int i = 1;
+    //static int y = 0;
+    //static int x = 0;
 
     @FXML
     private TextArea lf1;
@@ -92,7 +92,7 @@ public class MainFXMLController implements Initializable {
        tleLineTwo = tleLineTwo.substring(3,tleLineTwo.length());
 
         // extract from tle line 1
-       Pattern pattern = Pattern.compile("((\\+)?(\\s)?[1234567890]+)([.1234567890]+)");
+       Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890]+)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
 
         while(matcher.find())
@@ -110,9 +110,7 @@ public class MainFXMLController implements Initializable {
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
-        i = 1;
-        y = 0;
-        x = 0;
+        i = 1; y = 0; x = 0;
         while(matcher_next.find())
         {
             x = y;
@@ -128,7 +126,7 @@ public class MainFXMLController implements Initializable {
 
     }
     
-     @FXML
+    @FXML
     private void updateObserverStatus() {
         
        label_observer_status.setText("OK - Set");
