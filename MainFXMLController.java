@@ -92,7 +92,7 @@ public class MainFXMLController implements Initializable {
        tleLineTwo = tleLineTwo.substring(3,tleLineTwo.length());
 
         // extract from tle line 1
-       Pattern pattern = Pattern.compile("([1234567890]+)([.1234567890]+)");
+       Pattern pattern = Pattern.compile("((\\+)?(\\s)?[1234567890]+)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
 
         while(matcher.find())
