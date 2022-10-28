@@ -12,7 +12,7 @@ import java.math.BigInteger;
  * @author kingsley oteng-amoako
  */
 public class rosetta 
-    {
+{
     
     private static String current_season;
     private static String current_conjunctions;
@@ -139,7 +139,7 @@ public class rosetta
         return this.SEASON[season];
     };
    
-    }
+}
     
      
     
