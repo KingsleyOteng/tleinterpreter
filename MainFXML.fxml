@@ -68,9 +68,9 @@
       <Line endX="592.8341064453125" layoutX="212.0" layoutY="331.0" startX="-100.0" />
       <Label layoutX="54.0" layoutY="355.0" text="Satellite:" textFill="#e31234" />
       <TextArea fx:id="satellite" layoutX="108.0" layoutY="345.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="106.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="361.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea layoutX="809.0" layoutY="519.0" prefHeight="47.0" prefWidth="35.0" />
+      <TextArea fx:id="mean_motion" layoutX="106.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="first_value" layoutX="361.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="mean_anomaly" layoutX="809.0" layoutY="519.0" prefHeight="47.0" prefWidth="35.0" />
       <TextArea layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="22.0" layoutY="536.0" text="Mean motion:" textFill="#e31234" />
       <TextArea layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
@@ -106,7 +106,7 @@
       <Label layoutX="420.0" layoutY="650.0" text="Argument of perigree:" textFill="#e31234" />
       <TextArea layoutX="673.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="612.0" layoutY="650.0" text="Drag term:" textFill="#e31234" />
-      <TextArea layoutX="616.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="second_value" layoutX="616.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="471.0" layoutY="534.0" text="2nd deriv of mean motion:" textFill="#e31234" />
       <Label layoutX="219.0" layoutY="526.0" text="1st deriv of mean motion:" textFill="#e31234" />
       <Label layoutX="233.0" layoutY="540.0" text="(ballistic coefficient)" textFill="#e31234" />
