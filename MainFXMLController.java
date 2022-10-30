@@ -128,6 +128,13 @@ public class MainFXMLController implements Initializable {
         
         satellite.setText((line_one_array[1]));
         classification.setText((line_one_array[2]));
+        launch_year.setText((line_one_array[3]));
+        day.setText((line_one_array[4]));
+        launch_number_1.setText((line_one_array[5]));
+        launch_number_2.setText((line_one_array[6]));
+        piece_number.setText((line_one_array[7]));
+        epoch_date.setText((line_one_array[8]));
+        epoch_time.setText((line_one_array[9]));
         
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
