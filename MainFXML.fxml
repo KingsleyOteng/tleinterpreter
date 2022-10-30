@@ -51,11 +51,8 @@
       <Label layoutX="181.0" layoutY="355.0" text="Launch year:" textFill="#e31234" />
       <TextArea fx:id="launch_number" layoutX="425.0" layoutY="342.0" prefHeight="47.0" prefWidth="68.0" />
       <Label layoutX="335.0" layoutY="357.0" text="Launch number:" textFill="#e31234" />
-      <TextArea fx:id="launch_number_1" layoutX="153.0" layoutY="396.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="20.0" layoutY="411.0" text="Launch number of year:" textFill="#e31234" />
-      <TextArea fx:id="piece_number" layoutX="422.0" layoutY="396.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="340.0" layoutY="411.0" text="Piece number:" textFill="#e31234" />
-      <TextArea fx:id="launch_number_2" layoutX="217.0" layoutY="396.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="launch_number_1" layoutX="187.0" layoutY="396.0" prefHeight="47.0" prefWidth="92.0" />
+      <Label layoutX="26.0" layoutY="411.0" text="Launch catalogue sequence:" textFill="#e31234" />
       <Label layoutX="203.0" layoutY="451.0" text=",">
          <font>
             <Font size="36.0" />
@@ -130,9 +127,11 @@
       <Label layoutX="688.0" layoutY="355.0" text="time:" textFill="#e31234" />
       <TextArea fx:id="observation_year" layoutX="556.0" layoutY="342.0" prefHeight="47.0" prefWidth="48.0" />
       <Label layoutX="498.0" layoutY="344.0" prefHeight="41.0" prefWidth="67.0" text="Obs. year:" textFill="#e31234" />
-      <TextArea fx:id="month1" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0" />
+      <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="59.0" layoutX="325.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="525.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="59.0" layoutX="331.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="525.0" />
+      <Label layoutX="282.0" layoutY="411.0" text="Piece number:" textFill="#e31234" />
+      <TextArea fx:id="launch_number_11" layoutX="361.0" layoutY="395.0" prefHeight="47.0" prefWidth="92.0" />
       
    </children>
 </AnchorPane>

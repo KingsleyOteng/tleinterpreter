@@ -29,6 +29,8 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea satellite;
     @FXML
+    private TextArea observation_sec;
+    @FXML
     private TextArea observation_year;
     @FXML
     private TextArea observation_day;
@@ -161,6 +163,8 @@ public class MainFXMLController implements Initializable {
         
         observation_day.setText(String.valueOf(obs_day));
         observation_hour.setText(String.valueOf(obs_hour).substring(0,2)+String.valueOf(obs_min).substring(0,2));
+        observation_sec.setText(String.valueOf(obs_sec));
+        
         if (obs_y < 99)
         {
             observation_year.setText("19"+String.valueOf(obs_y));
