@@ -29,6 +29,14 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea satellite;
     @FXML
+    private TextArea observation_year;
+    @FXML
+    private TextArea observation_day;
+    @FXML
+    private TextArea observation_hour;
+    @FXML
+    private TextArea observation_time;
+    @FXML
     private TextArea launch_year;
     @FXML
     private TextArea launch_number;
@@ -126,10 +134,18 @@ public class MainFXMLController implements Initializable {
             i++;
         }
         
-        satellite.setText((line_one_array[1]));
         int launch_y = Integer.valueOf(line_one_array[2].substring(1,3));
         int launch_num = Integer.valueOf(line_one_array[2].substring(4,6));
-        launch_number.setText("19"+String.valueOf(launch_num));
+        int obs_y = Integer.valueOf(line_one_array[3].substring(1,3));
+        int obs_day = Integer.valueOf(line_one_array[3].substring(3,6));
+        double obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
+        
+        satellite.setText((line_one_array[1]));
+        
+         // set the launch number of that year
+        launch_number.setText(String.valueOf(launch_num));
+        
+        // set the launch year
         if (launch_y < 99)
         {
             launch_year.setText("19"+String.valueOf(launch_y));
@@ -138,12 +154,24 @@ public class MainFXMLController implements Initializable {
         {
             launch_year.setText("20"+String.valueOf(launch_y));
         };
-        day.setText((line_one_array[3]));
-        launch_number_1.setText((line_one_array[4]));
-        launch_number_2.setText((line_one_array[5]));
-        piece_number.setText((line_one_array[6]));
-        epoch_date.setText((line_one_array[7]));
-        epoch_time.setText((line_one_array[8]));
+        
+        observation_day.setText(String.valueOf(obs_day));
+        observation_hour.setText(String.valueOf(obs_hour%24));
+        if (obs_y < 99)
+        {
+            observation_year.setText("19"+String.valueOf(obs_y));
+        }
+        else
+        {
+            observation_year.setText("20"+String.valueOf(obs_y));
+        };
+        
+        //day.setText((line_one_array[3]));
+        //launch_number_1.setText((line_one_array[4]));
+        //launch_number_2.setText((line_one_array[5]));
+        //piece_number.setText((line_one_array[6]));
+        //epoch_date.setText((line_one_array[7]));
+        //epoch_time.setText((line_one_array[8]));
         
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
