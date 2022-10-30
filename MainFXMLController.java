@@ -156,7 +156,7 @@ public class MainFXMLController implements Initializable {
         };
         
         observation_day.setText(String.valueOf(obs_day));
-        observation_hour.setText(String.valueOf(obs_hour%24));
+        observation_hour.setText(String.valueOf(obs_hour));
         if (obs_y < 99)
         {
             observation_year.setText("19"+String.valueOf(obs_y));
