@@ -140,7 +140,7 @@ public class MainFXMLController implements Initializable {
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println("><><"+tleLineTwo.substring(x+1,y));
-            line_two_array[i]= Double.parseDouble(tleLineTwo.substring(x+1,y));
+            line_two_array[i]= (tleLineTwo.substring(x+1,y));
             i++;
         }
         label_slot_status.setText("OK - Set");

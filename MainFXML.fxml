@@ -46,11 +46,11 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextArea fx:id="classification" layoutX="315.0" layoutY="341.0" prefHeight="47.0" prefWidth="48.0" />
-      <Label layoutX="229.0" layoutY="355.0" text="Classification:" textFill="#e31234" />
+      <TextArea fx:id="classification" layoutX="273.0" layoutY="341.0" prefHeight="47.0" prefWidth="90.0" />
+      <Label layoutX="192.0" layoutY="355.0" text="Classification:" textFill="#e31234" />
       <TextArea fx:id="launch_year" layoutX="456.0" layoutY="342.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="384.0" layoutY="355.0" text="Launch year:" textFill="#e31234" />
-      <TextArea fx:id="launch_number" layoutX="153.0" layoutY="396.0" prefHeight="47.0" prefWidth="48.0" />
+      <TextArea fx:id="launch_number_1" layoutX="153.0" layoutY="396.0" prefHeight="47.0" prefWidth="48.0" />
       <Label layoutX="20.0" layoutY="411.0" text="Launch number of year:" textFill="#e31234" />
       <TextArea fx:id="piece_number" layoutX="422.0" layoutY="396.0" prefHeight="47.0" prefWidth="48.0" />
       <Label layoutX="340.0" layoutY="411.0" text="Piece number:" textFill="#e31234" />
@@ -60,14 +60,14 @@
             <Font size="36.0" />
          </font></Label>
       <TextArea fx:id="day" layoutX="612.0" layoutY="341.0" prefHeight="47.0" prefWidth="70.0" />
-      <TextArea fx:id="epoch_Date" layoutX="150.0" layoutY="450.0" prefHeight="47.0" prefWidth="48.0" />
+      <TextArea fx:id="epoch_date" layoutX="150.0" layoutY="450.0" prefHeight="47.0" prefWidth="48.0" />
       <Label layoutX="80.0" layoutY="465.0" text="Epoch date:" textFill="#e31234" />
       <Label layoutX="230.0" layoutY="465.0" text="Epoch time:" textFill="#e31234" />
       <TextArea fx:id="epoch_time" layoutX="299.0" layoutY="450.0" prefHeight="47.0" prefWidth="99.0" />
       <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="212.0" layoutY="508.0" startX="-100.0" />
       <Line endX="592.8341064453125" layoutX="212.0" layoutY="331.0" startX="-100.0" />
       <Label layoutX="54.0" layoutY="355.0" text="Satellite:" textFill="#e31234" />
-      <TextArea fx:id="satellite" layoutX="108.0" layoutY="345.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="satellite" layoutX="108.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0" />
       <TextArea fx:id="mean_motion" layoutX="106.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea fx:id="first_value" layoutX="361.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea fx:id="mean_anomaly" layoutX="809.0" layoutY="519.0" prefHeight="47.0" prefWidth="35.0" />
@@ -124,7 +124,7 @@
       <TextArea fx:id="lf2" layoutX="108.0" layoutY="89.0" prefHeight="41.0" prefWidth="226.0" />
       <TextArea fx:id="lf1" layoutX="108.0" layoutY="45.0" prefHeight="41.0" prefWidth="226.0" />
       <Label layoutX="29.0" layoutY="57.0" text="Name/Line1:" textFill="#e32e12" />
-      <TextArea fx:id="may" layoutX="726.0" layoutY="341.0" prefHeight="47.0" prefWidth="70.0" />
+      <TextArea fx:id="month" layoutX="726.0" layoutY="341.0" prefHeight="47.0" prefWidth="70.0" />
       <Label layoutX="585.0" layoutY="355.0" text="day:" textFill="#e31234" />
       <Label layoutX="685.0" layoutY="355.0" text="month:" textFill="#e31234" />
       
