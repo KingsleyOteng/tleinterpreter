@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +15,6 @@ import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import java.net.URL;
 
-
 /**
  * FXML Controller class
  *
@@ -28,6 +26,27 @@ public class MainFXMLController implements Initializable {
     static int y = 0;
     static int x = 0;
 
+    @FXML
+    private TextArea satellite;
+    @FXML
+    private TextArea classification;
+    @FXML
+    private TextArea launch_year;
+    @FXML
+    private TextArea day;
+    @FXML
+    private TextArea month;
+    @FXML
+    private TextArea epoch_time;
+    @FXML
+    private TextArea epoch_date;
+    @FXML
+    private TextArea launch_number_1;
+    @FXML
+    private TextArea launch_number_2;
+    @FXML
+    private TextArea piece_number;
+    
     @FXML
     private TextArea lf1;
     
@@ -46,8 +65,8 @@ public class MainFXMLController implements Initializable {
     @FXML
     private Button btn_load_element;
     
-    private static double line_one_array[] = new double[20];
-    private static double line_two_array[] = new double[20];
+    private static String line_one_array[] = new String[20];
+    private static String line_two_array[] = new String[20];
     
     /**
      * Initializes the controller class.
@@ -103,10 +122,13 @@ public class MainFXMLController implements Initializable {
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println(">"+tleLineOne.substring(x+1,y));
-            line_one_array[i]= Double.parseDouble(tleLineOne.substring(x+1,y));
+            line_one_array[i]= (tleLineOne.substring(x+1,y));
             i++;
         }
-
+        
+        satellite.setText((line_one_array[1]));
+        classification.setText((line_one_array[2]));
+        
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
