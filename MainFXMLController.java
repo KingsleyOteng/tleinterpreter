@@ -139,6 +139,10 @@ public class MainFXMLController implements Initializable {
         int obs_y = Integer.valueOf(line_one_array[3].substring(1,3));
         int obs_day = Integer.valueOf(line_one_array[3].substring(3,6));
         double obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
+        double obs_min = (obs_hour - (int) (obs_hour))*60;
+        double obs_sec = (obs_min - (int) (obs_hour));
+        obs_min = (int) (obs_min);
+        obs_hour = (int) (obs_hour);
         
         satellite.setText((line_one_array[1]));
         
@@ -156,7 +160,7 @@ public class MainFXMLController implements Initializable {
         };
         
         observation_day.setText(String.valueOf(obs_day));
-        observation_hour.setText(String.valueOf(obs_hour));
+        observation_hour.setText(String.valueOf(obs_hour).substring(0,2)+String.valueOf(obs_min).substring(0,2));
         if (obs_y < 99)
         {
             observation_year.setText("19"+String.valueOf(obs_y));
