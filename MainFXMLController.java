@@ -29,9 +29,9 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea satellite;
     @FXML
-    private TextArea classification;
-    @FXML
     private TextArea launch_year;
+    @FXML
+    private TextArea launch_number;
     @FXML
     private TextArea day;
     @FXML
@@ -127,14 +127,23 @@ public class MainFXMLController implements Initializable {
         }
         
         satellite.setText((line_one_array[1]));
-        classification.setText((line_one_array[2]));
-        launch_year.setText((line_one_array[3]));
-        day.setText((line_one_array[4]));
-        launch_number_1.setText((line_one_array[5]));
-        launch_number_2.setText((line_one_array[6]));
-        piece_number.setText((line_one_array[7]));
-        epoch_date.setText((line_one_array[8]));
-        epoch_time.setText((line_one_array[9]));
+        int launch_y = Integer.valueOf(line_one_array[2].substring(1,3));
+        int launch_num = Integer.valueOf(line_one_array[2].substring(4,6));
+        launch_number.setText("19"+String.valueOf(launch_num));
+        if (launch_y < 99)
+        {
+            launch_year.setText("19"+String.valueOf(launch_y));
+        }
+        else
+        {
+            launch_year.setText("20"+String.valueOf(launch_y));
+        };
+        day.setText((line_one_array[3]));
+        launch_number_1.setText((line_one_array[4]));
+        launch_number_2.setText((line_one_array[5]));
+        piece_number.setText((line_one_array[6]));
+        epoch_date.setText((line_one_array[7]));
+        epoch_time.setText((line_one_array[8]));
         
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
