@@ -22,8 +22,12 @@ import java.net.URL;
  */
 public class MainFXMLController implements Initializable {
 
-    static int i, y, x;
-
+    int i, y, x;
+    int obs_y;
+    int obs_day;
+    double obs_hour;
+    double obs_min;
+    double obs_sec;
 
     @FXML
     private TextArea satellite;
@@ -120,7 +124,7 @@ public class MainFXMLController implements Initializable {
        Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
        
-       int y=0; int x=0; int i=1;
+        y=0;  x=0;  i=1;
         while(matcher.find())
         {
 
@@ -138,11 +142,11 @@ public class MainFXMLController implements Initializable {
         String launch_y = (line_one_array[2].substring(0,2));
         String launch_num = (line_one_array[2].substring(2,5));
 //        String launch_catalogue_number = (line_one_array[2].substring(6,6));
-        int obs_y = Integer.valueOf(line_one_array[3].substring(0,2));
-        int obs_day = Integer.valueOf(line_one_array[3].substring(2,5));
-        double obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
-        double obs_min = (obs_hour - (int) (obs_hour))*60;
-        double obs_sec = (obs_min - (int) (obs_hour));
+        obs_y = Integer.valueOf(line_one_array[3].substring(0,2));
+        obs_day = Integer.valueOf(line_one_array[3].substring(2,5));
+        obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
+        obs_min = (obs_hour - (int) (obs_hour))*60;
+        obs_sec = (obs_min - (int) (obs_hour));
         obs_min = (int) (obs_min);
         obs_hour = (int) (obs_hour);
         
