@@ -22,9 +22,8 @@ import java.net.URL;
  */
 public class MainFXMLController implements Initializable {
 
-    static int i = 1;
-    static int y = 0;
-    static int x = 0;
+    static int i, y, x;
+
 
     @FXML
     private TextArea satellite;
@@ -58,25 +57,20 @@ public class MainFXMLController implements Initializable {
     private TextArea launch_number_2;
     @FXML
     private TextArea piece_number;
-    
     @FXML
     private TextArea lf1;
-    
     @FXML
     private TextArea lf2;
-    
     @FXML
     private TextArea lf3;
-    
     @FXML
     private Label label_slot_status;
-    
     @FXML
     private Label label_observer_status;
-    
     @FXML
     private Button btn_load_element;
     
+    //
     private static String line_one_array[] = new String[20];
     private static String line_two_array[] = new String[20];
     
