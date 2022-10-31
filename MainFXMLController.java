@@ -43,6 +43,8 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea launch_number;
     @FXML
+    private TextArea lcsequence;
+    @FXML
     private TextArea day;
     @FXML
     private TextArea month;
@@ -121,25 +123,29 @@ public class MainFXMLController implements Initializable {
        tleLineTwo = tleLineTwo.substring(3,tleLineTwo.length());
 
         // extract from tle line 1
-       Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890]+)([.1234567890]+)");
+       Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
-
+       
+       int y=0; int x=0; int i=1;
         while(matcher.find())
         {
 
-            x = y;
+            
             y = matcher.end();
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println(">"+tleLineOne.substring(x+1,y));
-            line_one_array[i]= (tleLineOne.substring(x+1,y));
+            line_one_array[i]= (tleLineOne.substring(x,y));
+            line_one_array[i]= line_one_array[i].trim();
             i++;
+            x = y+1;
         }
         
-        int launch_y = Integer.valueOf(line_one_array[2].substring(1,3));
-        int launch_num = Integer.valueOf(line_one_array[2].substring(4,6));
-        int obs_y = Integer.valueOf(line_one_array[3].substring(1,3));
-        int obs_day = Integer.valueOf(line_one_array[3].substring(3,6));
+        String launch_y = (line_one_array[2].substring(0,2));
+        String launch_num = (line_one_array[2].substring(2,5));
+//        String launch_catalogue_number = (line_one_array[2].substring(6,6));
+        int obs_y = Integer.valueOf(line_one_array[3].substring(0,2));
+        int obs_day = Integer.valueOf(line_one_array[3].substring(2,5));
         double obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
         double obs_min = (obs_hour - (int) (obs_hour))*60;
         double obs_sec = (obs_min - (int) (obs_hour));
@@ -152,26 +158,27 @@ public class MainFXMLController implements Initializable {
         launch_number.setText(String.valueOf(launch_num));
         
         // set the launch year
-        if (launch_y < 99)
+        if (Double.valueOf(launch_y) < 60)
         {
-            launch_year.setText("19"+String.valueOf(launch_y));
+            launch_year.setText("20"+String.valueOf(launch_y));
         }
         else
         {
-            launch_year.setText("20"+String.valueOf(launch_y));
+            launch_year.setText("19"+String.valueOf(launch_y));
         };
         
         observation_day.setText(String.valueOf(obs_day));
         observation_hour.setText(String.valueOf(obs_hour).substring(0,2)+String.valueOf(obs_min).substring(0,2));
         observation_sec.setText(String.valueOf(obs_sec));
+        //launch_catalogue_sequence.setText(launch_catalogue_number);
         
-        if (obs_y < 99)
+        if (obs_y < 60)
         {
-            observation_year.setText("19"+String.valueOf(obs_y));
+            observation_year.setText("20"+String.valueOf(obs_y));
         }
         else
         {
-            observation_year.setText("20"+String.valueOf(obs_y));
+            observation_year.setText("19"+String.valueOf(obs_y));
         };
         
         //day.setText((line_one_array[3]));
@@ -181,6 +188,22 @@ public class MainFXMLController implements Initializable {
         //epoch_date.setText((line_one_array[7]));
         //epoch_time.setText((line_one_array[8]));
         
+       Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
+       Matcher matcher_short = pattern_short.matcher(tleLineOne);
+       i=1; y = 0; x = 0;
+        while(matcher_short.find())
+        {  x = y;
+            y = matcher_short.end();
+            //System.out.println("x"+x);
+            //System.out.println("y"+y);
+            //System.out.println(">"+tleLineOne.substring(x+1,y));
+            if (y > 11)
+            {
+            String s = tleLineOne.substring(y-1,y);
+            lcsequence.setText(s.toString());
+            }
+            i++;
+        }
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
