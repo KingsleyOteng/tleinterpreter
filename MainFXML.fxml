@@ -94,11 +94,11 @@
          </font>
       </Button>
       <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="218.0" layoutY="759.0" startX="-100.0" />
-      <TextArea layoutX="108.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="meanmotion" layoutX="108.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="33.0" layoutY="651.0" text="Mean motion:" textFill="#e31234" />
-      <TextArea layoutX="543.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
+      <TextArea fx:id="perigree" layoutX="543.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="420.0" layoutY="650.0" text="Argument of perigree:" textFill="#e31234" />
-      <TextArea layoutX="673.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
+      <TextArea fx:id="dragterm" layoutX="673.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="612.0" layoutY="650.0" text="Drag term:" textFill="#e31234" />
       <TextArea id="rightascension" fx:id="rightascension" layoutX="578.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="388.0" layoutY="525.0" text="Right acension of ascending node:" textFill="#e31234" />
@@ -135,7 +135,7 @@
       <Label layoutX="449.0" layoutY="700.0" text="B-star drag:" textFill="#e31234" />
       <TextArea fx:id="mean_motion1111" layoutX="618.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
       <Label layoutX="224.0" layoutY="540.0" text="inclination:" textFill="#e31234" />
-      <TextArea fx:id="mean_motion2" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="meananomaly" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="225.0" layoutY="651.0" text="Mean anomaly:" textFill="#e31234" />
       
    </children>
