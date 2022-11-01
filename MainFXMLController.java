@@ -91,6 +91,14 @@ public class MainFXMLController implements Initializable {
     private TextArea meananomaly;
     @FXML
     private TextArea perigree;
+    @FXML
+    private TextArea dragterm;
+    @FXML
+    private TextArea firsttimederiv;
+    @FXML
+    private TextArea secondtimederiv;
+    @FXML
+    private TextArea bstardrag;
     
     //
     private static String line_one_array[] = new String[20];
