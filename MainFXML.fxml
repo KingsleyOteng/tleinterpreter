@@ -66,8 +66,8 @@
       <Line endX="592.8341064453125" layoutX="212.0" layoutY="331.0" startX="-100.0" />
       <Label layoutX="7.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
       <TextArea fx:id="satellite" layoutX="117.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0" />
-      <TextArea id="orbitinclination" fx:id="first_value" layoutX="283.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea id="eccentricity" fx:id="mean_anomaly" layoutX="758.0" layoutY="519.0" prefHeight="47.0" prefWidth="85.0" />
+      <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="283.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea id="eccentricity" fx:id="eccentricity" layoutX="758.0" layoutY="519.0" prefHeight="47.0" prefWidth="85.0" />
       <TextArea layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="685.0" layoutY="525.0" text="Eccentricity:" textFill="#e31234" />
@@ -100,7 +100,7 @@
       <Label layoutX="420.0" layoutY="650.0" text="Argument of perigree:" textFill="#e31234" />
       <TextArea layoutX="673.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="612.0" layoutY="650.0" text="Drag term:" textFill="#e31234" />
-      <TextArea id="rightascension" fx:id="second_value" layoutX="578.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea id="rightascension" fx:id="rightascension" layoutX="578.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="388.0" layoutY="525.0" text="Right acension of ascending node:" textFill="#e31234" />
       <Label layoutX="223.0" layoutY="526.0" text="Orbit" textFill="#e31234" />
       <Label layoutX="4.0" layoutY="713.0" text="(ballistic coefficient)" textFill="#e31234" />
