@@ -8,13 +8,13 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="704.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
+<AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="777.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       
       <TextArea fx:id="longitude" layoutX="100.0" layoutY="220.0" prefHeight="22.0" prefWidth="109.0" />
       <TextArea fx:id="elevation" layoutX="510.0" layoutY="220.0" prefHeight="18.0" prefWidth="109.0" />
       <Label layoutX="34.0" layoutY="232.0" text="Longitude:" textFill="#e32e12" />
-      <Label layoutX="257.0" layoutY="232.0" text="Latijtude:" textFill="#e32e12" />
+      <Label layoutX="257.0" layoutY="232.0" text="Latitude:" textFill="#e32e12" />
       <Label layoutX="100.0" layoutY="9.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
@@ -51,7 +51,7 @@
       <Label layoutX="191.0" layoutY="355.0" text="Launch year:" textFill="#e31234" />
       <TextArea fx:id="launch_number" layoutX="425.0" layoutY="342.0" prefHeight="47.0" prefWidth="68.0" />
       <Label layoutX="335.0" layoutY="357.0" text="Launch number:" textFill="#e31234" />
-      <TextArea fx:id="lcsequence" layoutX="187.0" layoutY="399.0" prefHeight="47.0" prefWidth="92.0" />
+      <TextArea fx:id="lcsequence" layoutX="187.0" layoutY="399.0" prefHeight="47.0" prefWidth="5.0" />
       <Label layoutX="26.0" layoutY="411.0" text="Launch catalogue sequence:" textFill="#e31234" />
       <Label layoutX="203.0" layoutY="451.0" text=",">
          <font>
@@ -66,13 +66,11 @@
       <Line endX="592.8341064453125" layoutX="212.0" layoutY="331.0" startX="-100.0" />
       <Label layoutX="7.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
       <TextArea fx:id="satellite" layoutX="117.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0" />
-      <TextArea fx:id="mean_motion" layoutX="106.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea fx:id="first_value" layoutX="361.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea fx:id="mean_anomaly" layoutX="809.0" layoutY="519.0" prefHeight="47.0" prefWidth="35.0" />
+      <TextArea id="orbitinclination" fx:id="first_value" layoutX="283.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea id="eccentricity" fx:id="mean_anomaly" layoutX="758.0" layoutY="519.0" prefHeight="47.0" prefWidth="85.0" />
       <TextArea layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="22.0" layoutY="536.0" text="Mean motion:" textFill="#e31234" />
       <TextArea layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="719.0" layoutY="533.0" text="Mean anomaly:" textFill="#e31234" />
+      <Label layoutX="685.0" layoutY="525.0" text="Eccentricity:" textFill="#e31234" />
       <Label layoutX="618.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
       <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
       <TextArea layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="47.0" />
@@ -95,19 +93,17 @@
             <Font name="Optima Regular" size="16.0" />
          </font>
       </Button>
-      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="212.0" layoutY="690.0" startX="-100.0" />
-      <TextArea layoutX="152.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="56.0" layoutY="651.0" text="Orbit inclination:" textFill="#e31234" />
-      <TextArea layoutX="361.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
-      <Label layoutX="267.0" layoutY="651.0" text="Right ascension:" textFill="#e31234" />
+      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="218.0" layoutY="759.0" startX="-100.0" />
+      <TextArea layoutX="108.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="33.0" layoutY="651.0" text="Mean motion:" textFill="#e31234" />
       <TextArea layoutX="543.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="420.0" layoutY="650.0" text="Argument of perigree:" textFill="#e31234" />
       <TextArea layoutX="673.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="612.0" layoutY="650.0" text="Drag term:" textFill="#e31234" />
-      <TextArea fx:id="second_value" layoutX="616.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="471.0" layoutY="534.0" text="2nd deriv of mean motion:" textFill="#e31234" />
-      <Label layoutX="219.0" layoutY="526.0" text="1st deriv of mean motion:" textFill="#e31234" />
-      <Label layoutX="233.0" layoutY="540.0" text="(ballistic coefficient)" textFill="#e31234" />
+      <TextArea id="rightascension" fx:id="second_value" layoutX="578.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="388.0" layoutY="525.0" text="Right acension of ascending node:" textFill="#e31234" />
+      <Label layoutX="223.0" layoutY="526.0" text="Orbit" textFill="#e31234" />
+      <Label layoutX="4.0" layoutY="713.0" text="(ballistic coefficient)" textFill="#e31234" />
       <Label id="cateridge_load" layoutX="206.0" layoutY="372.0" text="," textFill="#101110">
          <font>
             <Font name="Arial" size="24.0" />
@@ -130,6 +126,17 @@
       <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="59.0" layoutX="331.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="525.0" />
+      <TextArea fx:id="mean_motion1" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="39.0" layoutY="700.0" text="1st time deriv:" textFill="#e31234" />
+      <TextArea fx:id="mean_motion11" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="213.0" layoutY="700.0" text="2nd time deriv:" textFill="#e31234" />
+      <TextArea fx:id="mean_motion111" layoutX="401.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <TextArea fx:id="mean_motion112" layoutX="517.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="449.0" layoutY="700.0" text="B-star drag:" textFill="#e31234" />
+      <TextArea fx:id="mean_motion1111" layoutX="618.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <Label layoutX="224.0" layoutY="540.0" text="inclination:" textFill="#e31234" />
+      <TextArea fx:id="mean_motion2" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="225.0" layoutY="651.0" text="Mean anomaly:" textFill="#e31234" />
       
    </children>
 </AnchorPane>

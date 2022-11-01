@@ -73,6 +73,24 @@ public class MainFXMLController implements Initializable {
     private Label label_observer_status;
     @FXML
     private Button btn_load_element;
+    @FXML
+    private TextArea orbitinclination;
+    @FXML
+    private TextArea eccentricity;
+    @FXML
+    private TextArea rightascension;
+    @FXML
+    private TextArea elementnumber;
+    @FXML
+    private TextArea revolutionnumber;
+    @FXML
+    private TextArea ephemeristype;
+    @FXML
+    private TextArea meanmotion;
+    @FXML
+    private TextArea meananomaly;
+    @FXML
+    private TextArea perigree;
     
     //
     private static String line_one_array[] = new String[20];
@@ -142,8 +160,8 @@ public class MainFXMLController implements Initializable {
         String launch_y = (line_one_array[2].substring(0,2));
         String launch_num = (line_one_array[2].substring(2,5));
 //        String launch_catalogue_number = (line_one_array[2].substring(6,6));
-        obs_y = Integer.valueOf(line_one_array[3].substring(0,2));
-        obs_day = Integer.valueOf(line_one_array[3].substring(2,5));
+        obs_y = Integer.parseInt(line_one_array[3].substring(0,2));
+        obs_day = Integer.parseInt(line_one_array[3].substring(2,5));
         obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
         obs_min = (obs_hour - (int) (obs_hour))*60;
         obs_sec = (obs_min - (int) (obs_min))*60;
@@ -159,14 +177,14 @@ public class MainFXMLController implements Initializable {
         launch_number.setText(String.valueOf(launch_num));
         
         // set the launch year
-        if (Double.valueOf(launch_y) < 60)
+        if (Double.parseDouble(launch_y) < 60)
         {
             launch_year.setText("20"+String.valueOf(launch_y));
         }
         else
         {
             launch_year.setText("19"+String.valueOf(launch_y));
-        };
+        }
         
         observation_day.setText(String.valueOf(obs_day));
         observation_hour.setText(String.valueOf(obs_hour).substring(0,2)+String.valueOf(obs_min).substring(0,2));
