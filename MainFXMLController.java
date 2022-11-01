@@ -98,7 +98,11 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea secondtimederiv;
     @FXML
+    private TextArea secondtimederivexp;
+    @FXML
     private TextArea bstardrag;
+    @FXML
+    private TextArea bstardragexp;
     
     //
     private static String line_one_array[] = new String[20];
