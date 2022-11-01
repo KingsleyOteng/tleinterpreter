@@ -22,12 +22,21 @@ import java.net.URL;
  */
 public class MainFXMLController implements Initializable {
 
+    String tleLineOne;
+    String tleLineTwo;
+    String launch_y;
+    String launch_num;
+    String launch_catalogue_sequence;
+    
     int i, y, x;
     int obs_y;
     int obs_day;
+    int epochdate;
+    
     double obs_hour;
     double obs_min;
     double obs_sec;
+    double epochtime;
 
     @FXML
     private TextArea satellite;
@@ -143,8 +152,8 @@ public class MainFXMLController implements Initializable {
        // "This is the text to be searched " +
        // "for occurrences of the http:// pattern.";
      
-       String tleLineOne = lf1.getText();
-       String tleLineTwo = lf2.getText();
+       tleLineOne = lf1.getText();
+       tleLineTwo = lf2.getText();
 
         //trim both lines of text
        tleLineOne = tleLineOne.substring(3,tleLineOne.length());
@@ -169,8 +178,8 @@ public class MainFXMLController implements Initializable {
             x = y+1;
         }
         
-        String launch_y = (line_one_array[2].substring(0,2));
-        String launch_num = (line_one_array[2].substring(2,5));
+        launch_y = (line_one_array[2].substring(0,2));
+        launch_num = (line_one_array[2].substring(2,5));
 //        String launch_catalogue_number = (line_one_array[2].substring(6,6));
         obs_y = Integer.parseInt(line_one_array[3].substring(0,2));
         obs_day = Integer.parseInt(line_one_array[3].substring(2,5));
@@ -179,8 +188,8 @@ public class MainFXMLController implements Initializable {
         obs_sec = (obs_min - (int) (obs_min))*60;
         obs_min = (int) (obs_min);
         obs_hour = (int) (obs_hour);
-        int epochdate = (int)Double.parseDouble(line_one_array[3]);
-        double epochtime = Double.parseDouble(line_one_array[3]) - (int)Double.parseDouble(line_one_array[3]);
+        epochdate = (int)Double.parseDouble(line_one_array[3]);
+        epochtime = Double.parseDouble(line_one_array[3]) - (int)Double.parseDouble(line_one_array[3]);
         epoch_date.setText(String.valueOf(epochdate));
         epoch_time.setText(String.valueOf(epochtime));
         satellite.setText((line_one_array[1]));
@@ -221,17 +230,19 @@ public class MainFXMLController implements Initializable {
         
        Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
        Matcher matcher_short = pattern_short.matcher(tleLineOne);
+       
        i=1; y = 0; x = 0;
-        while(matcher_short.find())
-        {  x = y;
-            y = matcher_short.end();
+       while(matcher_short.find())
+       {  x = y;
+          y = matcher_short.end();
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println(">"+tleLineOne.substring(x+1,y));
             if (y > 11)
             {
-            String s = tleLineOne.substring(y-1,y);
-            lcsequence.setText(s.toString());
+               
+                launch_catalogue_sequence = tleLineOne.substring(y-1,y);
+                lcsequence.setText(launch_catalogue_sequence);
             }
             i++;
         }
@@ -251,12 +262,17 @@ public class MainFXMLController implements Initializable {
         }
         label_slot_status.setText("OK - Set");
         label_slot_status.setTextFill(Color.web("#228B22"));
+        
+        orbitinclination.setText(line_two_array[1]);
+  
+        
+        
 
     }
     
     @FXML
-    private void updateObserverStatus() {
-        
+    private void updateObserverStatus()
+    {
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
     }

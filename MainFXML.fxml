@@ -126,14 +126,14 @@
       <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="59.0" layoutX="331.0" layoutY="336.0" stroke="BLACK" strokeType="INSIDE" width="525.0" />
-      <TextArea fx:id="mean_motion1" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="firsttimederiv" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="39.0" layoutY="700.0" text="1st time deriv:" textFill="#e31234" />
-      <TextArea fx:id="mean_motion11" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="secondtimederiv" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="213.0" layoutY="700.0" text="2nd time deriv:" textFill="#e31234" />
-      <TextArea fx:id="mean_motion111" layoutX="401.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
-      <TextArea fx:id="mean_motion112" layoutX="517.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="secondtimederivexp" layoutX="401.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <TextArea fx:id="bstardrag" layoutX="517.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="449.0" layoutY="700.0" text="B-star drag:" textFill="#e31234" />
-      <TextArea fx:id="mean_motion1111" layoutX="618.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <TextArea fx:id="bstardragexp" layoutX="618.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
       <Label layoutX="224.0" layoutY="540.0" text="inclination:" textFill="#e31234" />
       <TextArea fx:id="meananomaly" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="225.0" layoutY="651.0" text="Mean anomaly:" textFill="#e31234" />
