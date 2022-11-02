@@ -275,9 +275,8 @@ public class MainFXMLController implements Initializable {
         dragterm.setText(line_two_array[1]);
         firsttimederiv.setText(line_two_array[1]);
         secondtimederiv.setText(line_two_array[1]);
-        
-        
-
+        bstardrag.setText(line_two_array[1]);
+        bstardragexp.setText(line_two_array[1]);
     }
     
     @FXML
