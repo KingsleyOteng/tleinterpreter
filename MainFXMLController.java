@@ -219,7 +219,7 @@ public class MainFXMLController implements Initializable {
         else
         {
             observation_year.setText("19"+String.valueOf(obs_y));
-        };
+        }
         
         
         //day.setText((line_one_array[3]));
@@ -241,7 +241,6 @@ public class MainFXMLController implements Initializable {
             //System.out.println(">"+tleLineOne.substring(x+1,y));
             if (y > 11)
             {
-               
                 launch_catalogue_sequence = tleLineOne.substring(y-1,y);
                 lcsequence.setText(launch_catalogue_sequence);
             }
