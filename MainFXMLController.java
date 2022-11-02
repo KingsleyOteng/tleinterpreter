@@ -270,8 +270,8 @@ public class MainFXMLController implements Initializable {
         elementnumber.setText(line_two_array[1]);
         revolutionnumber.setText(line_two_array[1]);
         ephemeristype.setText(line_two_array[1]);
-        meanmotion.setText(line_two_array[1]);
-        meananomaly.setText(line_two_array[1]);
+        meanmotion.setText(line_two_array[6]);
+        meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
         dragterm.setText(line_two_array[1]);
         firsttimederiv.setText(line_two_array[1]);
