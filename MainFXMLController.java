@@ -258,20 +258,21 @@ public class MainFXMLController implements Initializable {
             //System.out.println("y"+y);
             //System.out.println("><><"+tleLineTwo.substring(x+1,y));
             line_two_array[i]= (tleLineTwo.substring(x+1,y));
+            line_two_array[i] = line_two_array[i].trim();
             i++;
         }
         label_slot_status.setText("OK - Set");
         label_slot_status.setTextFill(Color.web("#228B22"));
         
-        orbitinclination.setText(line_two_array[1]);
-        rightascension.setText(line_two_array[1]);
-        eccentricity.setText(line_two_array[1]);
+        orbitinclination.setText(line_two_array[2]);
+        rightascension.setText(line_two_array[3]);
+        eccentricity.setText(line_two_array[4]);
         elementnumber.setText(line_two_array[1]);
         revolutionnumber.setText(line_two_array[1]);
         ephemeristype.setText(line_two_array[1]);
         meanmotion.setText(line_two_array[1]);
         meananomaly.setText(line_two_array[1]);
-        perigree.setText(line_two_array[1]);
+        perigree.setText(line_two_array[4]);
         dragterm.setText(line_two_array[1]);
         firsttimederiv.setText(line_two_array[1]);
         secondtimederiv.setText(line_two_array[1]);
