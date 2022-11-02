@@ -221,6 +221,7 @@ public class MainFXMLController implements Initializable {
             observation_year.setText("19"+String.valueOf(obs_y));
         };
         
+        
         //day.setText((line_one_array[3]));
         //launch_number_1.setText((line_one_array[4]));
         //launch_number_2.setText((line_one_array[5]));
