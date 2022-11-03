@@ -31,6 +31,7 @@ public class MainFXMLController implements Initializable {
     String launch_num;
     String launch_catalogue_sequence;
     
+    int subLen;
     int i, y, x;
     int obs_y;
     int obs_day;
@@ -180,6 +181,7 @@ public class MainFXMLController implements Initializable {
             i++;
             x = y+1;
         }
+        subLen = tleLineOne.length();
         
         launch_y = (line_one_array[2].substring(0,2));
         launch_num = (line_one_array[2].substring(2,5));
@@ -233,6 +235,7 @@ public class MainFXMLController implements Initializable {
         //epoch_time.setText((line_one_array[8]));
         
        Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
+       
        Matcher matcher_short = pattern_short.matcher(tleLineOne);
        
        i=1; y = 0; x = 0;
@@ -264,15 +267,16 @@ public class MainFXMLController implements Initializable {
             line_two_array[i] = line_two_array[i].trim();
             i++;
         }
+        subLen = tleLineTwo.length();
         label_slot_status.setText("OK - Set");
         label_slot_status.setTextFill(Color.web("#228B22"));
         
         orbitinclination.setText(line_two_array[2]);
         rightascension.setText(line_two_array[3]);
-        eccentricity.setText(line_two_array[4]);
-        elementnumber.setText(line_two_array[1]);
+        eccentricity.setText(String.valueOf(line_two_array[10]));
+        elementnumber.setText(String.valueOf(tleLineOne.substring(subLen-5,subLen-1)));
         revolutionnumber.setText(line_two_array[1]);
-        ephemeristype.setText(line_two_array[1]);
+        ephemeristype.setText(String.valueOf(tleLineOne.substring(subLen-7,subLen-5)));
         meanmotion.setText(line_two_array[6]);
         meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
