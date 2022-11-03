@@ -3,16 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
+import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import java.util.regex.Pattern;  
 
 /**
  *
@@ -21,14 +19,10 @@ import java.util.regex.Pattern;
 public class NewFXMain extends Application {
     
     @Override
-    public void start(Stage stage) throws Exception
+    public void start(Stage stage) throws Exception, InvocationTargetException
     {
-        Parent root = FXMLLoader.load(getClass().getResource("/MainFXML.fxml"));
-        
-        Scene scene = new Scene(root, 860, 700);
-        
-        
-       
+        Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
+        Scene scene = new Scene(root, 860, 780);
         stage.setTitle("TLE Interpreter");
         stage.setScene(scene);
         stage.show();
@@ -37,7 +31,8 @@ public class NewFXMain extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         launch(args);
     }
     
