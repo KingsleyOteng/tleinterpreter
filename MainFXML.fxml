@@ -66,11 +66,11 @@
       <Line endX="592.8341064453125" layoutX="212.0" layoutY="331.0" startX="-100.0" />
       <Label layoutX="7.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
       <TextArea fx:id="satellite" layoutX="117.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0" />
-      <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="283.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <TextArea id="eccentricity" fx:id="eccentricity" layoutX="758.0" layoutY="519.0" prefHeight="47.0" prefWidth="85.0" />
+      <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="89.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea id="eccentricity" fx:id="eccentricity" layoutX="564.0" layoutY="523.0" prefHeight="47.0" prefWidth="85.0" />
       <TextArea fx:id="ephemeristype" layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea fx:id="elementnumber" layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="685.0" layoutY="525.0" text="Eccentricity:" textFill="#e31234" />
+      <Label layoutX="491.0" layoutY="536.0" text="Eccentricity:" textFill="#e31234" />
       <Label layoutX="618.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
       <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
       <TextArea fx:id="revolutionnumber" layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="77.0" />
@@ -100,9 +100,9 @@
       <Label layoutX="420.0" layoutY="648.0" text="Argument of perigree:" textFill="#e31234" />
       <TextArea fx:id="dragterm" layoutX="724.0" layoutY="633.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="663.0" layoutY="647.0" text="Drag term:" textFill="#e31234" />
-      <TextArea id="rightascension" fx:id="rightascension" layoutX="578.0" layoutY="519.0" prefHeight="47.0" prefWidth="97.0" />
-      <Label layoutX="388.0" layoutY="525.0" text="Right acension of ascending node:" textFill="#e31234" />
-      <Label layoutX="223.0" layoutY="526.0" text="Orbit" textFill="#e31234" />
+      <TextArea id="rightascension" fx:id="rightascension" layoutX="384.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="194.0" layoutY="538.0" text="Right acension of ascending node:" textFill="#e31234" />
+      <Label layoutX="26.0" layoutY="530.0" text="Orbit" textFill="#e31234" />
       <Label layoutX="4.0" layoutY="725.0" text="(ballistic coefficient)" textFill="#e31234" />
       <Label id="cateridge_load" layoutX="206.0" layoutY="372.0" text="," textFill="#101110">
          <font>
@@ -134,7 +134,7 @@
       <TextArea fx:id="bstardrag" layoutX="517.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="449.0" layoutY="713.0" text="B-star drag:" textFill="#e31234" />
       <TextArea fx:id="bstardragexp" layoutX="618.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
-      <Label layoutX="224.0" layoutY="540.0" text="inclination:" textFill="#e31234" />
+      <Label layoutX="27.0" layoutY="544.0" text="inclination:" textFill="#e31234" />
       <TextArea fx:id="meananomaly" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="225.0" layoutY="648.0" text="Mean anomaly:" textFill="#e31234" />
       <Label layoutX="46.0" layoutY="658.0" text="(rev/day)" textFill="#e31234" />
