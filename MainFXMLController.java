@@ -233,7 +233,6 @@ public class MainFXMLController implements Initializable {
         //epoch_time.setText((line_one_array[8]));
         
        Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
-       
        Matcher matcher_short = pattern_short.matcher(tleLineOne);
        
        i=1; y = 0; x = 0;
