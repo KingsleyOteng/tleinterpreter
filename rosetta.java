@@ -13,26 +13,28 @@ import java.math.BigInteger;
  */
 public class rosetta 
 {
-    
-    private static String current_season;
-    private static String current_conjunctions;
-    private static String current_season_events;
-    private static String current_season_lingo;
-    private static String current_daily_twilights;
-    private static String current_nodes;
-    private static String current_target;
+    // internal variable
+    private static String           current_season;
+    private static String           current_conjunctions;
+    private static String           current_season_events;
+    private static String           current_season_lingo;
+    private static String           current_daily_twilights;
+    private static String           current_nodes;
+    private static String           current_target;
+    private static String           current_spin;
+    private static double           current_velocity;
     
     // in millions of kilometeres
-    private static final double earth_to_sun = 148.72;
-    private static final double earth_to_moon = 0.3844;
-    private static final double earth_to_mars = 97.74;
-    private static final double earth_to_mercury = 200.52;
-    private static final double earth_to_jupiter = 611.72;
-    private static final double earth_to_venus = 256.75;
-    private static final double earth_to_saturn = 1424.50;
-    private static final double earth_to_uranus = 2799.00;
-    private static final double earth_to_neptune  = 4385.70;
-    private static final double earth_to_pluto = 5195.70;
+    private static final double     earth_to_sun = 148.72;
+    private static final double     earth_to_moon = 0.3844;
+    private static final double     earth_to_mars = 97.74;
+    private static final double     earth_to_mercury = 200.52;
+    private static final double     earth_to_jupiter = 611.72;
+    private static final double     earth_to_venus = 256.75;
+    private static final double     earth_to_saturn = 1424.50;
+    private static final double     earth_to_uranus = 2799.00;
+    private static final double     earth_to_neptune  = 4385.70;
+    private static final double     earth_to_pluto = 5195.70;
     
         // in millions of kilometeres
     private static final BigDecimal earth_to_sun_big = new BigDecimal(148720000);

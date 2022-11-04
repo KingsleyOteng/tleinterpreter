@@ -171,8 +171,8 @@ public class MainFXMLController implements Initializable {
        Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
        
-        y=0;  x=0;  i=1;
-        while(matcher.find())
+       y=0;  x=0;  i=1;
+       while(matcher.find())
         {
 
             
