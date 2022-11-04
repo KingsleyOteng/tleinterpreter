@@ -13,6 +13,7 @@ import java.math.BigInteger;
  */
 public class rosetta 
 {
+    
     // internal variable
     private static String           current_season;
     private static String           current_conjunctions;
@@ -36,7 +37,7 @@ public class rosetta
     private static final double     earth_to_neptune  = 4385.70;
     private static final double     earth_to_pluto = 5195.70;
     
-        // in millions of kilometeres
+    // in millions of kilometeres
     private static final BigDecimal earth_to_sun_big = new BigDecimal(148720000);
     private static final BigDecimal earth_to_moon_big = new BigDecimal(384400.0);
     private static final BigDecimal earth_to_mars_big = new BigDecimal(97740000.0);
@@ -59,6 +60,7 @@ public class rosetta
     private static final double radius_of_uranus = 25362;
     private static final double radius_of_neptune = 24622;
     private static final double radius_of_pluto = 1188.3;
+    
     String 
      SEASON[], 
      SEASON_EVENTS[],
@@ -147,7 +149,6 @@ public class rosetta
     {
         return this.SEASON[season];
     };
-   
 }
     
      
