@@ -15,14 +15,14 @@
       <TextArea fx:id="elevation" layoutX="510.0" layoutY="220.0" prefHeight="18.0" prefWidth="109.0" />
       <Label layoutX="34.0" layoutY="232.0" text="Longitude:" textFill="#e32e12" />
       <Label layoutX="257.0" layoutY="232.0" text="Latitude:" textFill="#e32e12" />
-      <Label layoutX="100.0" layoutY="16.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+      <Label layoutX="120.0" layoutY="16.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
       <Label layoutX="53.0" layoutY="102.0" text="Line 2:" textFill="#e32e12" />
       <Label layoutX="429.0" layoutY="101.0" text="Line 3:" textFill="#e32e12" />
-      <Label layoutX="95.0" layoutY="190.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
+      <Label layoutX="102.0" layoutY="190.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
