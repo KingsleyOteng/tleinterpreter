@@ -49,9 +49,16 @@ public class rosetta
     private static final BigDecimal earth_to_pluto_big = new BigDecimal(5195700.0);
     
     // radius in millions of kilometres
-    private static final double radius_of_earth = 0.0006371;
-    private static final double radius_of_moon = 0.0017374;
-    
+    private static final double radius_of_earth = 6371;
+    private static final double radius_of_moon = 1737.4;
+    private static final double radius_of_mercury = 2439.7;
+    private static final double radius_of_venus = 6051.8;
+    private static final double radius_of_mars = 3389.5;
+    private static final double radius_of_jupiter = 69911;
+    private static final double radius_of_saturn = 58232;
+    private static final double radius_of_uranus = 25362;
+    private static final double radius_of_neptune = 24622;
+    private static final double radius_of_pluto = 1188.3;
     String 
      SEASON[], 
      SEASON_EVENTS[],
