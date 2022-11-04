@@ -137,8 +137,8 @@
       <Label layoutX="225.0" layoutY="648.0" text="Mean anomaly:" textFill="#e31234" />
       <Label layoutX="46.0" layoutY="658.0" text="(rev/day)" textFill="#e31234" />
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
-      <Label layoutX="657.0" layoutY="703.0" text="^" textFill="#e31234" />
-      <Label layoutX="402.0" layoutY="703.0" text="^" textFill="#e31234" />
+      <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
+      <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
       
    </children>
 </AnchorPane>

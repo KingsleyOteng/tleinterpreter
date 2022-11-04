@@ -118,11 +118,13 @@ public class MainFXMLController implements Initializable {
     private TextArea bstardragexp;
     
     //
-    private static String line_one_array[] = new String[20];
-    private static String line_two_array[] = new String[20];
+    private static final String line_one_array[] = new String[20];
+    private static final String line_two_array[] = new String[20];
     
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,13 +132,18 @@ public class MainFXMLController implements Initializable {
         //
     }    
     
-    @FXML
-    private void printHelloWorld(ActionEvent event) {
-        event.consume();
-        System.out.println("");
-        label_slot_status.setText("");
-    }
+   // @FXML
+    //private void printHelloWorld(ActionEvent event) {
+    //    event.consume();
+    //    System.out.println("");
+    //    label_slot_status.setText("");
+    //}
     
+    /**
+     * 
+     * @param url
+     * @param rb
+     */
     @FXML
     private void updateLoadStatus() {
         //String x = line1_fields.getText();
@@ -235,7 +242,6 @@ public class MainFXMLController implements Initializable {
         //epoch_time.setText((line_one_array[8]));
         
        Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
-       
        Matcher matcher_short = pattern_short.matcher(tleLineOne);
        
        i=1; y = 0; x = 0;
@@ -281,13 +287,18 @@ public class MainFXMLController implements Initializable {
         meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
         //dragterm.setText(line_two_array[1]);
+        
         firsttimederiv.setText(String.valueOf(tleLineOne.substring(subLen-36,subLen-24)));
         secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen-24,subLen-19)));
         secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen-19,subLen-17)));
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen-16,subLen-10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen-10,subLen-6)));
     }
-    
+    /**
+     * 
+     * @param url
+     * @param rb
+     */
     @FXML
     private void updateObserverStatus()
     {
