@@ -280,11 +280,12 @@ public class MainFXMLController implements Initializable {
         meanmotion.setText(line_two_array[6]);
         meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
-        dragterm.setText(line_two_array[1]);
-        firsttimederiv.setText(line_two_array[1]);
-        secondtimederiv.setText(line_two_array[1]);
-        bstardrag.setText(line_two_array[1]);
-        bstardragexp.setText(line_two_array[1]);
+        //dragterm.setText(line_two_array[1]);
+        firsttimederiv.setText(String.valueOf(tleLineOne.substring(subLen-36,subLen-24)));
+        secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen-24,subLen-19)));
+        secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen-19,subLen-17)));
+        bstardrag.setText(String.valueOf(tleLineOne.substring(subLen-16,subLen-10)));
+        bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen-10,subLen-6)));
     }
     
     @FXML
