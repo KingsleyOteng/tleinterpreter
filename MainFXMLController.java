@@ -140,6 +140,7 @@ public class MainFXMLController implements Initializable {
     
     /**
      * 
+     * Update the load status
      * @param url
      * @param rb
      */
@@ -295,7 +296,7 @@ public class MainFXMLController implements Initializable {
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen-10,subLen-6)));
     }
     /**
-     * 
+     * Update JavaFX file
      * @param url
      * @param rb
      */
