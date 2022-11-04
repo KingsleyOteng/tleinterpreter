@@ -246,7 +246,8 @@ public class MainFXMLController implements Initializable {
        
        i=1; y = 0; x = 0;
        while(matcher_short.find())
-       {  x = y;
+       {  
+          x = y;
           y = matcher_short.end();
             //System.out.println("x"+x);
             //System.out.println("y"+y);
