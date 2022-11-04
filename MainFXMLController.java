@@ -188,6 +188,7 @@ public class MainFXMLController implements Initializable {
             i++;
             x = y+1;
         }
+        
         subLen = tleLineOne.length();
         
         launch_y = (line_one_array[2].substring(0,2));
@@ -232,7 +233,6 @@ public class MainFXMLController implements Initializable {
         {
             observation_year.setText("19"+String.valueOf(obs_y));
         }
-        
         
         //day.setText((line_one_array[3]));
         //launch_number_1.setText((line_one_array[4]));
