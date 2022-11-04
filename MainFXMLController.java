@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -287,6 +286,7 @@ public class MainFXMLController implements Initializable {
         meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
         //dragterm.setText(line_two_array[1]);
+        
         
         firsttimederiv.setText(String.valueOf(tleLineOne.substring(subLen-36,subLen-24)));
         secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen-24,subLen-19)));
