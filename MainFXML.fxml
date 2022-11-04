@@ -88,9 +88,9 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="16.0" />
+            <Font name="Optima Regular" size="26.0" />
          </font>
       </Button>
       <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="218.0" layoutY="759.0" startX="-100.0" />
@@ -110,7 +110,7 @@
       <Label layoutX="453.0" layoutY="232.0" text="Elevation:" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update1" layoutX="711.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="CLS" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="16.0" />
+            <Font name="Optima Regular" size="24.0" />
          </font>
       </Button>
       <TextArea fx:id="lf1" layoutX="108.0" layoutY="89.0" prefHeight="41.0" prefWidth="226.0" />
