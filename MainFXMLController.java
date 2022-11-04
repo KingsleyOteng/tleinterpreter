@@ -152,25 +152,25 @@ public class MainFXMLController implements Initializable {
         
         //for(String str1:str)  
         //{  
-       //    count++; 
-       // }     
-       //Pattern replace = Pattern.compile("[2]");
-       //Matcher matcher2 = replace.matcher(lf1.getText());
-       //System.out.println(lf1.getText());
-       //System.out.println(matcher2.replaceAll("\t"));
+        //    count++; 
+        // }     
+        //Pattern replace = Pattern.compile("[2]");
+        //Matcher matcher2 = replace.matcher(lf1.getText());
+        //System.out.println(lf1.getText());
+        //System.out.println(matcher2.replaceAll("\t"));
        
-       //String text    =
-       // "This is the text to be searched " +
-       // "for occurrences of the http:// pattern.";
+        //String text    =
+        // "This is the text to be searched " +
+        // "for occurrences of the http:// pattern.";
      
        tleLineOne = lf1.getText();
        tleLineTwo = lf2.getText();
 
-        //trim both lines of text
+       //trim both lines of text
        tleLineOne = tleLineOne.substring(3,tleLineOne.length());
        tleLineTwo = tleLineTwo.substring(3,tleLineTwo.length());
 
-        // extract from tle line 1
+       // extract from tle line 1
        Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
        Matcher matcher = pattern.matcher(tleLineOne);
        
