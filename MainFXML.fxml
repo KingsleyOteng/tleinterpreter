@@ -15,7 +15,7 @@
       <TextArea fx:id="elevation" layoutX="510.0" layoutY="220.0" prefHeight="18.0" prefWidth="109.0" />
       <Label layoutX="34.0" layoutY="232.0" text="Longitude:" textFill="#e32e12" />
       <Label layoutX="257.0" layoutY="232.0" text="Latitude:" textFill="#e32e12" />
-      <Label layoutX="100.0" layoutY="9.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+      <Label layoutX="100.0" layoutY="16.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>

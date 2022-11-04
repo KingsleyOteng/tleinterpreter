@@ -192,7 +192,7 @@ public class MainFXMLController implements Initializable {
         
         launch_y = (line_one_array[2].substring(0,2));
         launch_num = (line_one_array[2].substring(2,5));
-//        String launch_catalogue_number = (line_one_array[2].substring(6,6));
+        // String launch_catalogue_number = (line_one_array[2].substring(6,6));
         obs_y = Integer.parseInt(line_one_array[3].substring(0,2));
         obs_day = Integer.parseInt(line_one_array[3].substring(2,5));
         obs_hour = 24 * (Double.parseDouble(line_one_array[3]) - (int)(Double.parseDouble(line_one_array[3])));
