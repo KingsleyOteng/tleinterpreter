@@ -21,9 +21,6 @@ import java.net.URL;
  */
 public class MainFXMLController implements Initializable {
     
-    
-    
-
     String tleLineOne;
     String tleLineTwo;
     String launch_y;
@@ -288,8 +285,7 @@ public class MainFXMLController implements Initializable {
         meananomaly.setText(line_two_array[5]);
         perigree.setText(line_two_array[4]);
         //dragterm.setText(line_two_array[1]);
-        
-        
+            
         firsttimederiv.setText(String.valueOf(tleLineOne.substring(subLen-36,subLen-24)));
         secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen-24,subLen-19)));
         secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen-19,subLen-17)));
