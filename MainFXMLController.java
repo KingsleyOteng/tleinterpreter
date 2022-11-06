@@ -113,7 +113,6 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea bstardragexp;
     
-    //
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
@@ -122,6 +121,7 @@ public class MainFXMLController implements Initializable {
      * @param url
      * @param rb
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -183,7 +183,7 @@ public class MainFXMLController implements Initializable {
             line_one_array[i]= (tleLineOne.substring(x,y));
             line_one_array[i]= line_one_array[i].trim();
             i++;
-            x = y+1;
+            x = y + 1;
         }
         
         subLen = tleLineOne.length();
@@ -303,5 +303,4 @@ public class MainFXMLController implements Initializable {
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
-    
 }
