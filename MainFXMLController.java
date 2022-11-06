@@ -230,6 +230,7 @@ public class MainFXMLController implements Initializable {
         {
             observation_year.setText("19"+String.valueOf(obs_y));
         }
+        System.out.println("hello"+this.checkSum(line_two_array));
         
         //day.setText((line_one_array[3]));
         //launch_number_1.setText((line_one_array[4]));
@@ -302,5 +303,25 @@ public class MainFXMLController implements Initializable {
     {
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
+    }
+    
+    private int checkSum(String[] strArray)
+    {
+        int stringLen = 0;
+        stringLen = strArray.length;
+        
+        int i = 0;
+        int total = 0;
+        
+        while(i < stringLen)
+        {  
+           if (strArray[i].equals('-'))
+                   {
+                    total++;
+                   }
+            i++;
+        
+        }
+        return total;
     }
 }
