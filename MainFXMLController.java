@@ -277,9 +277,9 @@ public class MainFXMLController implements Initializable {
         
         orbitinclination.setText(line_two_array[2]);
         rightascension.setText(line_two_array[3]);
-        eccentricity.setText(String.valueOf(line_two_array[10]));
+        eccentricity.setText(String.valueOf(tleLineTwo.substring(subLen-43,subLen-36)));
         elementnumber.setText(String.valueOf(tleLineOne.substring(subLen-5,subLen-1)));
-        revolutionnumber.setText(line_two_array[1]);
+        revolutionnumber.setText(String.valueOf(tleLineTwo.substring(subLen-6,subLen-1)));
         ephemeristype.setText(String.valueOf(tleLineOne.substring(subLen-7,subLen-5)));
         meanmotion.setText(line_two_array[6]);
         meananomaly.setText(line_two_array[5]);
