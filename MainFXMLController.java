@@ -121,7 +121,6 @@ public class MainFXMLController implements Initializable {
      * @param url
      * @param rb
      */
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
