@@ -83,7 +83,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label id="cateridge_load" fx:id="label_observer_status" layoutX="236.0" layoutY="306.0" text="OPEN" textFill="#101110">
+      <Label id="cateridge_load" fx:id="label_observer_status" layoutX="236.0" layoutY="306.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
