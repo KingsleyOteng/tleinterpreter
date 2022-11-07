@@ -255,6 +255,8 @@ public class MainFXMLController implements Initializable {
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println(">"+tleLineOne.substring(x+1,y));
+            
+            // extract from the range 10- 11 the ephemeris type
             if (y > 11)
             {
                 launch_catalogue_sequence = tleLineOne.substring(y-1,y);
