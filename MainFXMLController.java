@@ -135,6 +135,7 @@ public class MainFXMLController implements Initializable {
     //    label_slot_status.setText("");
     //}
     
+    
     /**
      * 
      * Update the load status
@@ -238,9 +239,7 @@ public class MainFXMLController implements Initializable {
         //launch_number_2.setText((line_one_array[5]));
         //piece_number.setText((line_one_array[6]));
         //epoch_date.setText((line_one_array[7]));
-        //epoch_time.setText((line_one_array[8]));
-        
-        
+        //epoch_time.setText((line_one_array[8]));    
         
        // Let us attempt to determine the ephemeris type from the data
        // By extracting a range of information from the TLE
@@ -301,6 +300,7 @@ public class MainFXMLController implements Initializable {
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen-16,subLen-10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen-10,subLen-6)));
     }
+    
     /**
      * Update JavaFX file
      * @param url
