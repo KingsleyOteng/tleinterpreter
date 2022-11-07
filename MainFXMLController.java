@@ -232,7 +232,6 @@ public class MainFXMLController implements Initializable {
         {
             observation_year.setText("19"+String.valueOf(obs_y));
         }
-
         
         //day.setText((line_one_array[3]));
         //launch_number_1.setText((line_one_array[4]));
@@ -241,6 +240,10 @@ public class MainFXMLController implements Initializable {
         //epoch_date.setText((line_one_array[7]));
         //epoch_time.setText((line_one_array[8]));
         
+        
+        
+       // Let us attempt to determine the ephemeris type from the data
+       // By extracting a range of information from the TLE
        Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
        Matcher matcher_short = pattern_short.matcher(tleLineOne);
        
@@ -252,6 +255,8 @@ public class MainFXMLController implements Initializable {
             //System.out.println("x"+x);
             //System.out.println("y"+y);
             //System.out.println(">"+tleLineOne.substring(x+1,y));
+            
+            // extract from the range 10- 11 the ephemeris type
             if (y > 11)
             {
                 launch_catalogue_sequence = tleLineOne.substring(y-1,y);

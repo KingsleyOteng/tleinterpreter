@@ -11,10 +11,10 @@
 <AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="777.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       
-      <TextArea fx:id="longitude" layoutX="100.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
-      <TextArea fx:id="elevation" layoutX="510.0" layoutY="211.0" prefHeight="18.0" prefWidth="109.0" />
-      <Label layoutX="34.0" layoutY="223.0" text="Longitude:" textFill="#e32e12" />
-      <Label layoutX="257.0" layoutY="223.0" text="Latitude:" textFill="#e32e12" />
+      <TextArea fx:id="longitude" layoutX="114.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
+      <TextArea fx:id="elevation" layoutX="524.0" layoutY="211.0" prefHeight="18.0" prefWidth="109.0" />
+      <Label layoutX="48.0" layoutY="223.0" text="Longitude:" textFill="#e32e12" />
+      <Label layoutX="271.0" layoutY="223.0" text="Latitude:" textFill="#e32e12" />
       <Label layoutX="109.0" layoutY="6.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="98.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="112.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
          <font>
             <Font name="Optima Regular" size="26.0" />
          </font>
@@ -77,7 +77,7 @@
       <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
       <TextArea fx:id="lf2" layoutX="475.0" layoutY="70.0" prefHeight="41.0" prefWidth="237.0" />
       <Line endX="595.40869140625" layoutX="212.0" layoutY="186.0" startX="-100.0" />
-      <TextArea fx:id="latitude" layoutX="310.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
+      <TextArea fx:id="latitude" layoutX="324.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="306.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
@@ -107,7 +107,7 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="453.0" layoutY="223.0" text="Elevation:" textFill="#e32e12" />
+      <Label layoutX="467.0" layoutY="223.0" text="Elevation:" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update1" layoutX="711.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" text="CLS" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
          <font>
             <Font name="Optima Regular" size="26.0" />
