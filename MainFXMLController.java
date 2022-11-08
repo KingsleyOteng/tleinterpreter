@@ -122,7 +122,12 @@ public class MainFXMLController implements Initializable {
   
     
     
-     @FXML
+    /**
+     * Update JavaFX file
+     * @param url
+     * @param rb
+     */
+    @FXML
     private Label hello2;
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
@@ -135,9 +140,6 @@ public class MainFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        menu_button_orientationx.setText("Click here!");
-        menu_button_orientationx.setDisable(false);
-        menu_button_orientationx.setText("Shutdown");
         menu_button_orientationx.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
     }    
     
@@ -329,11 +331,17 @@ public class MainFXMLController implements Initializable {
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
     
+    
+    /**
+     * Update JavaFX file
+     * @param url
+     * @param rb
+     */
     @FXML
     private void updateObserverStatus1()
     {
        //menu_button_orientationx.setText("OK - Set");
-       hello2.setText(menu_button_orientationx.getContextMenu());
+       hello2.setText(menu_button_orientationx.getText());
       //label_observer_status.setTextFill(Color.web("#228B22"));
     }
     
