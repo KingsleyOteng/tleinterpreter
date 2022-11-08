@@ -122,12 +122,7 @@ public class MainFXMLController implements Initializable {
   
     
     
-    /**
-     * Update JavaFX file
-     * @param url
-     * @param rb
-     */
-    @FXML
+     @FXML
     private Label hello2;
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
@@ -331,12 +326,6 @@ public class MainFXMLController implements Initializable {
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
     
-    
-    /**
-     * Update JavaFX file
-     * @param url
-     * @param rb
-     */
     @FXML
     private void updateObserverStatus1()
     {
