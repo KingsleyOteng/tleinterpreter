@@ -146,7 +146,7 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="11.0" layoutY="816.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="119.0" text="BUILD MOUNT" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="11.0" layoutY="816.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="119.0" text="BUILD MOUNT" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
          <font>
             <Font name="Optima Regular" size="14.0" />
          </font>
@@ -157,8 +157,16 @@
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <Label layoutX="158.0" layoutY="784.0" text="Altitude :" textFill="#e31234" />
-      <Label layoutX="158.0" layoutY="825.0" text="Azimuth :" textFill="#e31234" />
+      <Label layoutX="161.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#18b24e">
+         <font>
+            <Font name="Optima Regular" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="532.0" layoutY="785.0" text="Azimuth : 0.0 deg." textFill="#18b24e">
+         <font>
+            <Font name="Optima Regular" size="36.0" />
+         </font>
+      </Label>
       
       
    </children>
