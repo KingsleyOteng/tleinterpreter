@@ -151,13 +151,13 @@
             <Font name="Optima Regular" size="14.0" />
          </font>
       </Button>
-      <MenuButton layoutX="13.0" layoutY="779.0" mnemonicParsing="false" text="ALT-AZIMUTH">
+      <MenuButton fx:id="menu_button_orientationx" layoutX="13.0" layoutY="779.0" mnemonicParsing="false" onAction="#updateObserverStatus1" onContextMenuRequested="#updateObserverStatus1" onInputMethodTextChanged="#updateObserverStatus1" onKeyPressed="#updateObserverStatus1" onKeyReleased="#updateObserverStatus1" onKeyTyped="#updateObserverStatus1" onMouseClicked="#updateObserverStatus1" text="MOUNTS">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" text="Altitude-Azimuth " />
+          <MenuItem mnemonicParsing="false" text="Equitorial" />
         </items>
       </MenuButton>
-      <Label layoutX="161.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#18b24e">
+      <Label fx:id="hello2" layoutX="161.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#18b24e">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>

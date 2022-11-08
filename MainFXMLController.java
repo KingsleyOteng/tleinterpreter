@@ -13,6 +13,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import java.net.URL;
+import javafx.event.ActionEvent;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SplitMenuButton;
 
 /**
  * FXML Controller class
@@ -112,7 +117,13 @@ public class MainFXMLController implements Initializable {
     private TextArea bstardrag;
     @FXML
     private TextArea bstardragexp;
+    @FXML
+    private final MenuButton menu_button_orientationx = new MenuButton("Mounts");
+  
     
+    
+     @FXML
+    private Label hello2;
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
@@ -124,8 +135,10 @@ public class MainFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        //
+        menu_button_orientationx.setText("Click here!");
+        menu_button_orientationx.setDisable(false);
+        menu_button_orientationx.setText("Shutdown");
+        menu_button_orientationx.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
     }    
     
    // @FXML
@@ -160,6 +173,9 @@ public class MainFXMLController implements Initializable {
         //String text    =
         // "This is the text to be searched " +
         // "for occurrences of the http:// pattern.";
+      
+       menu_button_orientationx.setText("Shutdown");
+       menu_button_orientationx.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
      
        tleLineOne = lf1.getText();
        tleLineTwo = lf2.getText();
@@ -311,6 +327,14 @@ public class MainFXMLController implements Initializable {
     {
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
+    }
+    
+    @FXML
+    private void updateObserverStatus1()
+    {
+       //menu_button_orientationx.setText("OK - Set");
+       hello2.setText(menu_button_orientationx.getContextMenu());
+      //label_observer_status.setTextFill(Color.web("#228B22"));
     }
     
     private int checkSum(String strArray)
