@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="777.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
+<AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="888.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       
       <TextArea fx:id="longitude" layoutX="114.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
@@ -144,6 +144,11 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
+      <Button id="load_element_button" fx:id="btn_update21" cancelButton="true" layoutX="728.0" layoutY="770.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="119.0" text="SOLVE" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
+         <font>
+            <Font name="Optima Regular" size="26.0" />
+         </font>
+      </Button>
       
    </children>
 </AnchorPane>
