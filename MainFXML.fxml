@@ -2,8 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -146,26 +146,19 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="11.0" layoutY="794.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="105.0" text="BUILD" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="11.0" layoutY="816.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="119.0" text="BUILD MOUNT" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="18.0" />
+            <Font name="Optima Regular" size="14.0" />
          </font>
       </Button>
-      <Label layoutX="17.0" layoutY="770.0" text="MOUNTS" textFill="#e80e0e">
-         <font>
-            <Font name="Copperplate" size="21.0" />
-         </font>
-      </Label>
-      <TabPane layoutX="127.0" layoutY="764.0" prefHeight="97.0" prefWidth="677.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="ALT-AZIMUTH">
-               <content>
-                  <Label layoutX="56.0" layoutY="668.0" text="(rev/day)" textFill="#e31234" />
-               </content>
-            </Tab>
-          <Tab text="EQUITORIAL" />
-        </tabs>
-      </TabPane>
+      <MenuButton layoutX="13.0" layoutY="779.0" mnemonicParsing="false" text="ALT-AZIMUTH">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <Label layoutX="158.0" layoutY="784.0" text="Altitude :" textFill="#e31234" />
+      <Label layoutX="158.0" layoutY="825.0" text="Azimuth :" textFill="#e31234" />
       
       
    </children>
