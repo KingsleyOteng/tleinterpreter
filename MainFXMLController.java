@@ -44,6 +44,8 @@ public class MainFXMLController implements Initializable {
     double epochtime;
 
     @FXML
+    private final MenuItem item1 = new MenuItem("one");
+    @FXML
     private TextArea satellite;
     @FXML
     private TextArea observation_sec;
@@ -119,6 +121,8 @@ public class MainFXMLController implements Initializable {
     private TextArea bstardragexp;
     @FXML
     private final MenuButton menu_button_orientationx = new MenuButton("Mounts");
+    
+    
   
     
     
