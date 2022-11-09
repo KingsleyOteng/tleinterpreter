@@ -45,6 +45,7 @@ public class MainFXMLController implements Initializable {
 
     @FXML
     private final MenuItem item1 = new MenuItem("one");
+    
     @FXML
     private TextArea satellite;
     @FXML
