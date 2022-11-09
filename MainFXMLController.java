@@ -13,8 +13,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import java.net.URL;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
@@ -25,7 +28,7 @@ import javafx.scene.control.SplitMenuButton;
  * @author terra6partner
  */
 public class MainFXMLController implements Initializable {
-    
+    ObservableList list = FXCollections.observableArrayList();
     String tleLineOne;
     String tleLineTwo;
     String launch_y;
@@ -43,8 +46,7 @@ public class MainFXMLController implements Initializable {
     double obs_sec;
     double epochtime;
 
-    @FXML
-    private final MenuItem item1 = new MenuItem("one");
+
     
     @FXML
     private TextArea satellite;
@@ -121,11 +123,12 @@ public class MainFXMLController implements Initializable {
     @FXML
     private TextArea bstardragexp;
     @FXML
-    private final MenuButton menu_button_orientationx = new MenuButton("Mounts");
+    private ChoiceBox<String> choiceBox = new ChoiceBox();
     
+    private ObservableList<String> artistList = FXCollections.observableArrayList();
     
-  
-    
+    @FXML
+    private final MenuItem item1 = new MenuItem();
     
     /**
      * Update JavaFX file
@@ -137,6 +140,7 @@ public class MainFXMLController implements Initializable {
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -145,7 +149,12 @@ public class MainFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        menu_button_orientationx.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
+     
+     populateArtists();
+    
+
+     choiceBox.setItems(artistList);
+     
     }    
     
    // @FXML
@@ -164,6 +173,18 @@ public class MainFXMLController implements Initializable {
      */
     @FXML
     private void updateLoadStatus() {
+        
+        
+
+        // string array
+        String st[] = { "Arnab", "Andrew", "Ankit", "None" };
+ 
+        // create a choiceBox
+        choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
+ 
+    
+        
+        String hello;
         //String x = line1_fields.getText();
         //Pattern p=Pattern.compile("\\s");  
         //String[] str=p.split(x);  
@@ -180,9 +201,6 @@ public class MainFXMLController implements Initializable {
         //String text    =
         // "This is the text to be searched " +
         // "for occurrences of the http:// pattern.";
-      
-       menu_button_orientationx.setText("Shutdown");
-       menu_button_orientationx.getItems().addAll(new MenuItem("Burger"), new MenuItem("Hot Dog"));
      
        tleLineOne = lf1.getText();
        tleLineTwo = lf2.getText();
@@ -211,7 +229,7 @@ public class MainFXMLController implements Initializable {
             i++;
             x = y + 1;
         }
-        
+       
         subLen = tleLineOne.length();
         
         launch_y = (line_one_array[2].substring(0,2));
@@ -346,10 +364,10 @@ public class MainFXMLController implements Initializable {
     private void updateObserverStatus1()
     {
        //menu_button_orientationx.setText("OK - Set");
-       hello2.setText(menu_button_orientationx.getText());
+       // hello2.setText(menu_button_orientationx.getText());
       //label_observer_status.setTextFill(Color.web("#228B22"));
     }
-    
+  
     private int checkSum(String strArray)
     {
         int stringLen = 0;
@@ -379,5 +397,10 @@ public class MainFXMLController implements Initializable {
         
         }
         return total;
+    }
+    
+    private void populateArtists(){
+        artistList.add("Altitude-Azimuth");
+        artistList.add("Equitorial");
     }
 }
