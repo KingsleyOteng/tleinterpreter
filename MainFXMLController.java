@@ -393,6 +393,7 @@ public class MainFXMLController implements Initializable {
         return total;
     }
     
+    @FXML
     private void displayValue()
     {
             hello2.setText(choiceBox.getValue());
