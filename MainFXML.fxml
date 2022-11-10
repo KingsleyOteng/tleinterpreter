@@ -6,7 +6,6 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="862.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
@@ -122,7 +121,6 @@
       <Label layoutX="498.0" layoutY="344.0" prefHeight="41.0" prefWidth="67.0" text="Obs. year:" textFill="#e31234" />
       <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0" />
       <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="59.0" layoutX="331.0" layoutY="336.0" onContextMenuRequested="#displayValue" onScrollFinished="#displayValue" stroke="BLACK" strokeType="INSIDE" width="525.0" />
       <TextArea fx:id="firsttimederiv" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="39.0" layoutY="712.0" text="1st time deriv:" textFill="#e31234" />
       <TextArea fx:id="secondtimederiv" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
@@ -160,8 +158,8 @@
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="774.0" prefHeight="26.0" prefWidth="125.0" />
       <Label layoutX="20.0" layoutY="755.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="773.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefWidth="150.0" />
       
       
    </children>

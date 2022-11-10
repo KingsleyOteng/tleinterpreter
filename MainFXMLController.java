@@ -125,6 +125,9 @@ public class MainFXMLController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox = new ChoiceBox();
     
+    @FXML
+    private Label mount_label_1;
+    
     private ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
     
     @FXML
@@ -136,11 +139,7 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @FXML
-    private Label mount_label_1;
-    
-    @FXML
-    private Label mount_label_2;
-    
+    private Label hello2;
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
@@ -154,7 +153,7 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-     
+     mount_label_1.setText("hello");
      populateMounts();
      choiceBox.setItems(mountConfigurationList);
      
@@ -349,6 +348,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus()
     {
+        mount_label_1.setText("hello");
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
@@ -362,6 +362,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1()
     {
+        mount_label_1.setText("hello");
        //menu_button_orientationx.setText("OK - Set");
        // hello2.setText(menu_button_orientationx.getText());
       //label_observer_status.setTextFill(Color.web("#228B22"));
@@ -397,15 +398,10 @@ public class MainFXMLController implements Initializable {
         return total;
     }
     
-    @FXML
-    private void displayValue(ActionEvent event)
-    {
-            mount_label_1.setText(choiceBox.getValue());
-            mount_label_2.setText("hello");
-    }
     private void populateMounts()
     {
-        mountConfigurationList.add("Altitude-azimuth");
+        
+        mountConfigurationList.add("Altitude-Azimuth");
         mountConfigurationList.add("Equitorial");
     }
 }
