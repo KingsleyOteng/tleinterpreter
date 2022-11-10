@@ -158,7 +158,7 @@
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="755.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <Label layoutX="20.0" layoutY="751.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="773.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefWidth="150.0" />
       
       
