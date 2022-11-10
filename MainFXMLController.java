@@ -393,6 +393,10 @@ public class MainFXMLController implements Initializable {
         return total;
     }
     
+    private void displayValue()
+    {
+            hello2.setText(choiceBox.getValue());
+    }
     private void populateMounts()
     {
         mountConfigurationList.add("Altitude-azimuth");
