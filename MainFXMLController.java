@@ -153,7 +153,7 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-     mount_label_1.setText("hello");
+     //mount_label_1.setText("hello");
      populateMounts();
      choiceBox.setItems(mountConfigurationList);
      
@@ -362,7 +362,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1()
     {
-        mount_label_1.setText("hello");
+        mount_label_1.setText(choiceBox.getValue());
        //menu_button_orientationx.setText("OK - Set");
        // hello2.setText(menu_button_orientationx.getText());
       //label_observer_status.setTextFill(Color.web("#228B22"));
