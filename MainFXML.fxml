@@ -150,17 +150,17 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="15.0" layoutY="810.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" text="BUILD" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="15.0" layoutY="810.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="BUILD" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
          <font>
             <Font name="Optima Regular" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="hello2" layoutX="249.0" layoutY="792.0" text="Altitude : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="hello2" layoutX="178.0" layoutY="792.0" text="Altitude : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="565.0" layoutY="792.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
+      <Label layoutX="530.0" layoutY="792.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>
