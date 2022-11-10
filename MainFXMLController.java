@@ -125,7 +125,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox = new ChoiceBox();
     
-    private ObservableList<String> artistList = FXCollections.observableArrayList();
+    private ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
     
     @FXML
     private final MenuItem item1 = new MenuItem();
@@ -148,12 +148,11 @@ public class MainFXMLController implements Initializable {
      */
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb)
+    {
      
-     populateArtists();
-    
-
-     choiceBox.setItems(artistList);
+     populateMounts();
+     choiceBox.setItems(mountConfigurationList);
      
     }    
     
@@ -173,17 +172,13 @@ public class MainFXMLController implements Initializable {
      */
     @FXML
     private void updateLoadStatus() {
-        
-        
 
         // string array
         String st[] = { "Arnab", "Andrew", "Ankit", "None" };
  
         // create a choiceBox
         choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
- 
-    
-        
+  
         String hello;
         //String x = line1_fields.getText();
         //Pattern p=Pattern.compile("\\s");  
@@ -377,7 +372,6 @@ public class MainFXMLController implements Initializable {
         
         while(i < stringLen)
         {  
-            
            String stringPhrase = strArray;
            //System.out.println(strArray.subSequence(i,i+1));
            String x = (String) strArray.subSequence(i,i+1);
@@ -399,8 +393,9 @@ public class MainFXMLController implements Initializable {
         return total;
     }
     
-    private void populateArtists(){
-        artistList.add("Altitude-Azimuth");
-        artistList.add("Equitorial");
+    private void populateMounts()
+    {
+        mountConfigurationList.add("Altitude-Azimuth");
+        mountConfigurationList.add("Equitorial");
     }
 }
