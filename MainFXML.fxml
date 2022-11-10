@@ -150,17 +150,17 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="15.0" layoutY="818.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" text="BUILD" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="15.0" layoutY="810.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="201.0" text="BUILD" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
          <font>
             <Font name="Optima Regular" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="hello2" layoutX="249.0" layoutY="786.0" text="Altitude : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="hello2" layoutX="249.0" layoutY="792.0" text="Altitude : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="565.0" layoutY="786.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
+      <Label layoutX="565.0" layoutY="792.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>
@@ -196,8 +196,8 @@
           <MenuItem mnemonicParsing="false" text="Two" />
         </items>
       </SplitMenuButton>
-      <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="789.0" prefHeight="26.0" prefWidth="204.0" />
-      <Label layoutX="14.0" layoutY="768.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBox" layoutX="14.0" layoutY="781.0" prefHeight="26.0" prefWidth="204.0" />
+      <Label layoutX="14.0" layoutY="762.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
       
       
    </children>
