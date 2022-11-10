@@ -150,12 +150,12 @@
             <Font name="Optima Regular" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="hello2" layoutX="178.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="mount_label_1" layoutX="178.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="530.0" layoutY="785.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="mount_label_2" layoutX="530.0" layoutY="785.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="36.0" />
          </font>

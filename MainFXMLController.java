@@ -136,7 +136,11 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @FXML
-    private Label hello2;
+    private Label mount_label_1;
+    
+    @FXML
+    private Label mount_label_2;
+    
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
@@ -394,9 +398,10 @@ public class MainFXMLController implements Initializable {
     }
     
     @FXML
-    private void displayValue()
+    private void displayValue(ActionEvent event)
     {
-            hello2.setText(choiceBox.getValue());
+            mount_label_1.setText(choiceBox.getValue());
+            mount_label_2.setText("hello");
     }
     private void populateMounts()
     {
