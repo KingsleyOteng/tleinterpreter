@@ -395,7 +395,7 @@ public class MainFXMLController implements Initializable {
     
     private void populateMounts()
     {
-        mountConfigurationList.add("Altitude-Azimuth");
+        mountConfigurationList.add("Altitude-azimuth");
         mountConfigurationList.add("Equitorial");
     }
 }
