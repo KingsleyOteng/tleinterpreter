@@ -362,6 +362,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1()
     {
+        
         mount_label_1.setText(choiceBox.getValue());
        //menu_button_orientationx.setText("OK - Set");
        // hello2.setText(menu_button_orientationx.getText());
