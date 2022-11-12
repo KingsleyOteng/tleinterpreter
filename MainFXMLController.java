@@ -353,7 +353,6 @@ public class MainFXMLController implements Initializable {
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
     
-    
     /**
      * Update JavaFX file
      * @param url
