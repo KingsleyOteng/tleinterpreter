@@ -380,6 +380,7 @@ public class MainFXMLController implements Initializable {
            String stringPhrase = strArray;
            //System.out.println(strArray.subSequence(i,i+1));
            String x = (String) strArray.subSequence(i,i+1);
+           
            if (x.equals("-"))
                    {
                         total++;
