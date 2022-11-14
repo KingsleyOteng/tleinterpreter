@@ -127,6 +127,8 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private Label mount_label_1;
+    @FXML
+    private Label mount_label_2;
     
     private ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
     
@@ -348,7 +350,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus()
     {
-        mount_label_1.setText("hello");
+       mount_label_1.setText("hello");
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
@@ -361,8 +363,22 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1()
     {
-        
-        mount_label_1.setText(choiceBox.getValue());
+        if ("Equitorial".equals(choiceBox.getValue()))
+        {
+            mount_label_1.setText("Right ascension : ");
+            mount_label_2.setText("Declination: ");
+        }
+        else if ("Altitude-Azimuth".equals(choiceBox.getValue()))
+        {
+            mount_label_1.setText("Altitude : ");
+            mount_label_2.setText("Azimuth : ");
+        }
+        else
+        {
+            mount_label_1.setText("Altitude : ");
+            mount_label_2.setText("Azimuth : ");
+        }
+            
        //menu_button_orientationx.setText("OK - Set");
        // hello2.setText(menu_button_orientationx.getText());
       //label_observer_status.setTextFill(Color.web("#228B22"));
@@ -389,7 +405,7 @@ public class MainFXMLController implements Initializable {
                {
                    System.out.println("total>>"+total);
                     System.out.println("letter>>"+Integer.valueOf(x));
-                    total = total + Integer.valueOf(x);
+                    total = total + Integer.parseInt(x);
                     
                     System.out.println("out>>"+i);
                }
@@ -404,5 +420,6 @@ public class MainFXMLController implements Initializable {
         
         mountConfigurationList.add("Altitude-Azimuth");
         mountConfigurationList.add("Equitorial");
+        mountConfigurationList.add("Dobsonian");
     }
 }
