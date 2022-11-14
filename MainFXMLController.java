@@ -350,7 +350,6 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus()
     {
-       mount_label_1.setText("hello");
        label_observer_status.setText("OK - Set");
        label_observer_status.setTextFill(Color.web("#228B22"));
     }
@@ -364,20 +363,20 @@ public class MainFXMLController implements Initializable {
     private void updateObserverStatus1()
     {
         if ("Equitorial".equals(choiceBox.getValue()))
-        {
-            mount_label_1.setText("Right ascension : ");
-            mount_label_2.setText("Declination: ");
-        }
+            {
+                mount_label_1.setText("Right ascension : ");
+                mount_label_2.setText("Declination: ");
+            }
         else if ("Altitude-Azimuth".equals(choiceBox.getValue()))
-        {
-            mount_label_1.setText("Altitude : ");
-            mount_label_2.setText("Azimuth : ");
-        }
+            {
+                mount_label_1.setText("Altitude : ");
+                mount_label_2.setText("Azimuth : ");
+            }
         else
-        {
-            mount_label_1.setText("Altitude : ");
-            mount_label_2.setText("Azimuth : ");
-        }
+            {
+                mount_label_1.setText("Altitude : ");
+                mount_label_2.setText("Azimuth : ");
+            }
             
        //menu_button_orientationx.setText("OK - Set");
        // hello2.setText(menu_button_orientationx.getText());
@@ -417,7 +416,6 @@ public class MainFXMLController implements Initializable {
     
     private void populateMounts()
     {
-        
         mountConfigurationList.add("Altitude-Azimuth");
         mountConfigurationList.add("Equitorial");
         mountConfigurationList.add("Dobsonian");
