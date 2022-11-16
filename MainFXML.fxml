@@ -37,7 +37,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="53.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="41.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="20.0" />
          </font>
