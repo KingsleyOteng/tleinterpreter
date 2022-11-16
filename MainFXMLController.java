@@ -15,12 +15,8 @@ import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
 
 /**
  * FXML Controller class
@@ -30,7 +26,7 @@ import javafx.scene.control.SplitMenuButton;
 
 public class MainFXMLController implements Initializable {
 
-    ObservableList list = FXCollections.observableArrayList();
+    //ObservableList list = FXCollections.observableArrayList();
     String tleLineOne;
     String tleLineTwo;
     String launch_y;
@@ -58,34 +54,34 @@ public class MainFXMLController implements Initializable {
     private TextArea observation_day;
     @FXML
     private TextArea observation_hour;
-    @FXML
-    private TextArea observation_time;
+   // @FXML
+   // private TextArea observation_time;
     @FXML
     private TextArea launch_year;
     @FXML
     private TextArea launch_number;
     @FXML
     private TextArea lcsequence;
-    @FXML
-    private TextArea day;
-    @FXML
-    private TextArea month;
+   // @FXML
+   // private TextArea day;
+   // @FXML
+   // private TextArea month;
     @FXML
     private TextArea epoch_time;
     @FXML
     private TextArea epoch_date;
-    @FXML
-    private TextArea launch_number_1;
-    @FXML
-    private TextArea launch_number_2;
-    @FXML
-    private TextArea piece_number;
+    //@FXML
+    //private TextArea launch_number_1;
+    //@FXML
+   // private TextArea launch_number_2;
+    //@FXML
+   // private TextArea piece_number;
     @FXML
     private TextArea lf1;
     @FXML
     private TextArea lf2;
-    @FXML
-    private TextArea lf3;
+  //  @FXML
+   // private TextArea lf3;
     @FXML
     private Label label_slot_status;
     @FXML
@@ -110,8 +106,8 @@ public class MainFXMLController implements Initializable {
     private TextArea meananomaly;
     @FXML
     private TextArea perigree;
-    @FXML
-    private TextArea dragterm;
+   // @FXML
+   // private TextArea dragterm;
     @FXML
     private TextArea firsttimederiv;
     @FXML
@@ -141,8 +137,8 @@ public class MainFXMLController implements Initializable {
      * @param url
      * @param rb
      */
-    @FXML
-    private Label hello2;
+
+
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
 

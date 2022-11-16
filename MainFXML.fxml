@@ -27,9 +27,9 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="112.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="112.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" style="-fx-background-color: red;" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#fcf8f8" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="26.0" />
+            <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
       <Label layoutX="102.0" layoutY="169.0" text="SLOT STATUS: " textFill="#09032f">
@@ -37,9 +37,9 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_load_element" layoutX="108.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="32.0" prefWidth="604.0" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="#e51010" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="41.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="26.0" />
+            <Font name="Thonburi" size="20.0" />
          </font>
       </Button>
       <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="169.0" text="OPEN" textFill="#d00314">
@@ -86,9 +86,9 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#e32e12" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" style="-fx-background-color: red;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="26.0" />
+            <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
       <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="218.0" layoutY="754.0" startX="-100.0" />
@@ -108,7 +108,7 @@
       <Label layoutX="467.0" layoutY="223.0" text="Elevation:" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update1" layoutX="711.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: RED;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="26.0" />
+            <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
       <TextArea fx:id="lf1" layoutX="100.0" layoutY="70.0" prefHeight="41.0" prefWidth="226.0" />
@@ -138,14 +138,14 @@
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
       <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="727.0" layoutY="639.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="119.0" style="-fx-background-color: red;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="26.0" />
+            <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="20.0" layoutY="803.0" mnemonicParsing="false" onAction="#updateObserverStatus1" prefHeight="40.0" prefWidth="94.0" text="BUILD" textAlignment="JUSTIFY" textFill="#055b29" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="20.0" layoutY="803.0" mnemonicParsing="false" onAction="#updateObserverStatus1" prefHeight="43.0" prefWidth="101.0" style="-fx-background-color: green;" text="BUILD" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Optima Regular" size="14.0" />
+            <Font name="Optima Regular" size="23.0" />
          </font>
       </Button>
       <Label fx:id="mount_label_1" layoutX="178.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#b02d19">
@@ -158,8 +158,8 @@
             <Font name="Optima Regular" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="751.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
-      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="773.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefWidth="150.0" />
+      <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
       
       
    </children>
