@@ -153,11 +153,11 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         //mount_label_1.setText("hello");
         populateMounts();
         choiceBox.setItems(mountConfigurationList);
-
     }
 
     // @FXML
@@ -174,8 +174,8 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @FXML
-    private void updateLoadStatus() {
-
+    private void updateLoadStatus() 
+    {
         // string array
         String st[] = {"Arnab", "Andrew", "Ankit", "None"};
 
@@ -339,7 +339,8 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @FXML
-    private void updateObserverStatus() {
+    private void updateObserverStatus() 
+    {
         label_observer_status.setText("OK - Set");
         label_observer_status.setTextFill(Color.web("#228B22"));
     }
@@ -351,7 +352,8 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @FXML
-    private void updateObserverStatus1() {
+    private void updateObserverStatus1() 
+    {
         if ("Equatorial".equals(choiceBox.getValue())) {
             // set to equatorial mount parameters
             mount_label_1.setText("Right ascension : ");
@@ -375,7 +377,8 @@ public class MainFXMLController implements Initializable {
         //label_observer_status.setTextFill(Color.web("#228B22"));
     }
 
-    private int checkSum(String strArray) {
+    private int checkSum(String strArray) 
+    {
         int stringLen = 0;
         stringLen = strArray.length();
         int i = 1;
@@ -400,7 +403,8 @@ public class MainFXMLController implements Initializable {
         return total;
     }
 
-    private void populateMounts() {
+    private void populateMounts() 
+    {
         mountConfigurationList.add("Altitude-azimuth");
         mountConfigurationList.add("Equatorial");
         mountConfigurationList.add("Dobsonian");
