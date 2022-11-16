@@ -155,6 +155,7 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        btn_load_element.setTextFill(Color.RED);
         //mount_label_1.setText("hello");
         populateMounts();
         choiceBox.setItems(mountConfigurationList);
