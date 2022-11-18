@@ -198,7 +198,7 @@ public class MainFXMLController implements Initializable {
         tleLineOne = lf1.getText();
         tleLineTwo = lf2.getText();
         
-        if (tleLineOne == "")
+        if ((tleLineOne.equals("")) || (tleLineTwo.equals("")))
         {
             System.out.println("hello");
             return;
