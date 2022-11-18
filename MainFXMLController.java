@@ -197,6 +197,15 @@ public class MainFXMLController implements Initializable {
         // "for occurrences of the http:// pattern.";
         tleLineOne = lf1.getText();
         tleLineTwo = lf2.getText();
+        
+        if (tleLineOne == "")
+        {
+            System.out.println("hello");
+            return;
+        }
+            
+        
+                    
 
         System.out.println("hello" + this.checkSum(tleLineOne));
 
