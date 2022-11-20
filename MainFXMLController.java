@@ -203,10 +203,8 @@ public class MainFXMLController implements Initializable {
             System.out.println("hello");
             return;
         }
-
-                
+             
         //System.out.println("hello" + this.checkSum(tleLineOne));
-
         //trim both lines of text
         tleLineOne = tleLineOne.substring(3, tleLineOne.length());
         tleLineTwo = tleLineTwo.substring(3, tleLineTwo.length());
@@ -231,7 +229,6 @@ public class MainFXMLController implements Initializable {
         }
 
         subLen = tleLineOne.length();
-
         launch_y = (line_one_array[2].substring(0, 2));
         launch_num = (line_one_array[2].substring(2, 5));
         // String launch_catalogue_number = (line_one_array[2].substring(6,6));
@@ -317,7 +314,6 @@ public class MainFXMLController implements Initializable {
         subLen = tleLineTwo.length();
         label_slot_status.setText("OK - Set");
         label_slot_status.setTextFill(Color.web("#228B22"));
-
         orbitinclination.setText(line_two_array[2]);
         rightascension.setText(line_two_array[3]);
         eccentricity.setText(String.valueOf(tleLineTwo.substring(subLen - 43, subLen - 36)));
