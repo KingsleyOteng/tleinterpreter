@@ -3,20 +3,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.paint.Color;
-import javafx.fxml.Initializable;
+
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.io.Serializable;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
+import javafx.fxml.Initializable;import javafx.scene.control.MenuItem;
+
+import org.hipparchus.geometry.euclidean.threed.Vector3D;
+import org.hipparchus.linear.DecompositionSolver;
+import org.hipparchus.linear.MatrixUtils;
+import org.hipparchus.linear.QRDecomposition;
+import org.hipparchus.linear.RealMatrix;
+import org.hipparchus.util.FastMath;
+import org.hipparchus.util.MathArrays;
+
+import org.orekit.errors.OrekitIllegalArgumentException;
+import org.orekit.errors.OrekitInternalError;
+import org.orekit.errors.OrekitMessages;
+import org.orekit.frames.Frame;
+import org.orekit.frames.Transform;
+import org.orekit.time.AbsoluteDate;
+import org.orekit.time.TimeInterpolable;
+import org.orekit.time.TimeShiftable;
+import org.orekit.time.TimeStamped;
+import org.orekit.utils.PVCoordinates;
+import org.orekit.utils.PVCoordinatesProvider;
+import org.orekit.utils.TimeStampedPVCoordinates;
 
 /**
  * FXML Controller class
@@ -152,6 +174,10 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        // TLE
+        final String line1 = "1 42807U 17039E   21032.21352857  .00000081  00000-0  21984-4 0  9999";
+        final String line2 = "2 42807  86.3951  93.5661 0002498  92.7212 267.4270 14.34217473188743";
+        final TLE atle = new TLE(line1, line2);
         btn_load_element.setTextFill(Color.RED);
         //mount_label_1.setText("hello");
         populateMounts();
