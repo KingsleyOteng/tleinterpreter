@@ -199,10 +199,10 @@ public class MainFXMLController implements Initializable {
         tleLineTwo = lf2.getText();
         
         if ((tleLineOne.equals("")) || (tleLineTwo.equals("")))
-        {
-            System.out.println("hello");
-            return;
-        }
+            {
+                System.out.println("hello");
+                return;
+            }
              
         //System.out.println("hello" + this.checkSum(tleLineOne));
         //trim both lines of text
@@ -249,22 +249,28 @@ public class MainFXMLController implements Initializable {
         launch_number.setText(String.valueOf(launch_num));
 
         // set the launch year
-        if (Double.parseDouble(launch_y) < 60) {
-            launch_year.setText("20" + String.valueOf(launch_y));
-        } else {
-            launch_year.setText("19" + String.valueOf(launch_y));
-        }
+        if (Double.parseDouble(launch_y) < 60) 
+            {
+                launch_year.setText("20" + String.valueOf(launch_y));
+            } 
+            else 
+            {
+                launch_year.setText("19" + String.valueOf(launch_y));
+            }
 
         observation_day.setText(String.valueOf(obs_day));
         observation_hour.setText(String.valueOf(obs_hour).substring(0, 2) + String.valueOf(obs_min).substring(0, 2));
         observation_sec.setText(String.valueOf(obs_sec));
         //launch_catalogue_sequence.setText(launch_catalogue_number);
 
-        if (obs_y < 60) {
-            observation_year.setText("20" + String.valueOf(obs_y));
-        } else {
-            observation_year.setText("19" + String.valueOf(obs_y));
-        }
+        if (obs_y < 60) 
+            {
+                observation_year.setText("20" + String.valueOf(obs_y));
+            } 
+            else 
+            {
+                observation_year.setText("19" + String.valueOf(obs_y));
+            }
 
         //day.setText((line_one_array[3]));
         //launch_number_1.setText((line_one_array[4]));
@@ -300,6 +306,7 @@ public class MainFXMLController implements Initializable {
         i = 1;
         y = 0;
         x = 0;
+        
         while (matcher_next.find()) {
             x = y;
             y = matcher_next.end();
