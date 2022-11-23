@@ -85,7 +85,8 @@ public class MainFXMLController implements Initializable {
     double longitude;
     double azimuth;
     double elevation;
-
+  
+        
     @FXML
     private TextArea satellite;
     @FXML
@@ -240,18 +241,19 @@ public class MainFXMLController implements Initializable {
             date
         );
 
-    // determine the latitude and longitude of propogaed item
-    latitude = FastMath.toDegrees(geodetic.getLatitude());
-    longitude = FastMath.toDegrees(geodetic.getLongitude());
+        // determine the latitude and longitude of propogaed item
+        latitude = FastMath.toDegrees(geodetic.getLatitude());
+        longitude = FastMath.toDegrees(geodetic.getLongitude());
 
-    // from the sensor determine the observation parameters in azimuth-elevation
-    azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
-    azimuth = FastMath.toDegrees(azimuth); 
-    elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
+        // from the sensor determine the observation parameters in azimuth-elevation
+        azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
+        azimuth = FastMath.toDegrees(azimuth); 
+        elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-    System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+        //
+        System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
 
-       
+
         
 
     }
