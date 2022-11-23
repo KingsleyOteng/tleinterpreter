@@ -173,10 +173,9 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        // TLE
-        final String line1 = "1 25544U 98067A 06052.34767361 .00013949 00000-0 97127-4 0 3934";
-        final String line2 = "2 25544 051.6421 063.2734 0007415 308.6263 249.9177 15.74668600414901";
-        
+        //final String line1 = "1 25544U 98067A 06052.34767361 .00013949 00000-0 97127-4 0 3934";
+       // final String line2 = "2 25544 051.6421 063.2734 0007415 308.6263 249.9177 15.74668600414901";
+        // data file loaded
        // TLE aOrkitTle = new TLE(line1, line2);
         btn_load_element.setTextFill(Color.RED);
         //mount_label_1.setText("hello");
