@@ -67,6 +67,8 @@ public class MainFXMLController implements Initializable {
     String launch_y;
     String launch_num;
     String launch_catalogue_sequence;
+    
+    TopocentricFrame aoiTopoFrame;
 
     int subLen;
     int i, y, x;
@@ -216,7 +218,7 @@ public class MainFXMLController implements Initializable {
         GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
     
         // determine topocentric frame of reference
-        final TopocentricFrame aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
+        aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
         
         // create a TLE object
         final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
