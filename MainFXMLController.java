@@ -4,6 +4,7 @@
  */
 
 
+import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -38,6 +39,19 @@ import org.hipparchus.linear.QRDecomposition;
 import org.hipparchus.linear.MatrixUtils;
 import org.hipparchus.linear.DecompositionSolver;
 import org.hipparchus.geometry.euclidean.threed.Vector3D;
+import org.orekit.bodies.GeodeticPoint;
+import org.orekit.bodies.OneAxisEllipsoid;
+import org.orekit.data.DataContext;
+import org.orekit.data.DataProvidersManager;
+import org.orekit.data.DirectoryCrawler;
+import org.orekit.frames.FactoryManagedFrame;
+import org.orekit.frames.FramesFactory;
+import org.orekit.frames.TopocentricFrame;
+import org.orekit.propagation.SpacecraftState;
+import org.orekit.propagation.analytical.tle.TLEPropagator;
+import org.orekit.time.TimeScalesFactory;
+import org.orekit.utils.Constants;
+import org.orekit.utils.IERSConventions;
 
 /**
  * FXML Controller class
@@ -64,6 +78,13 @@ public class MainFXMLController implements Initializable {
     double obs_min;
     double obs_sec;
     double epochtime;
+    double aoi_lat = 0;
+    double aoi_lon = 0;
+    double aoi_alt = 0;
+    double latitude;
+    double longitude;
+    double azimuth;
+    double elevation;
 
     @FXML
     private TextArea satellite;
@@ -173,10 +194,11 @@ public class MainFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        //final String line1 = "1 25544U 98067A 06052.34767361 .00013949 00000-0 97127-4 0 3934";
-       // final String line2 = "2 25544 051.6421 063.2734 0007415 308.6263 249.9177 15.74668600414901";
-        // data file loaded
-       // TLE aOrkitTle = new TLE(line1, line2);
+        
+        // initial orbit propogation constants
+        File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
+        DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
+        manager.addProvider(new DirectoryCrawler(orekitData));
         
         btn_load_element.setTextFill(Color.RED);
         
@@ -184,6 +206,56 @@ public class MainFXMLController implements Initializable {
         
         populateMounts();
         choiceBox.setItems(mountConfigurationList);
+        
+        
+
+    
+     // 
+        FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+        OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
+            Constants.WGS84_EARTH_FLATTENING,
+            ITRF);
+        
+        // area of interest, lat lon point
+    GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
+    // to frame
+    final TopocentricFrame aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
+        
+         //create a TLE object
+        final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
+        final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
+        final TLE tle = new TLE(line1, line2);
+        final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+        
+        // now
+        AbsoluteDate abd = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
+  
+        // get spacecraft state
+        SpacecraftState spacecraftState = propagator.propagate(abd);
+    
+        // 
+        PVCoordinates pvCoordinates = spacecraftState.getPVCoordinates(ITRF);
+    
+        //
+        GeodeticPoint geodeticPoint = earth.transform(
+            pvCoordinates.getPosition(),
+            ITRF,
+            abd);
+
+    // determine the latitude and longitude of propogaed item
+    latitude = FastMath.toDegrees(geodeticPoint.getLatitude());
+    longitude = FastMath.toDegrees(geodeticPoint.getLongitude());
+
+    // from the sensor determine the observation parameters in azimuth-elevation
+    azimuth = aoiTopoFrame.getAzimuth(pvCoordinates.getPosition(), spacecraftState.getFrame(), abd);
+    azimuth = FastMath.toDegrees(azimuth); 
+    elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(pvCoordinates.getPosition(), spacecraftState.getFrame(), abd));
+
+    System.out.println("Propagated at " + abd + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+
+       
+        
+
     }
 
     // @FXML
@@ -368,6 +440,8 @@ public class MainFXMLController implements Initializable {
         secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen - 19, subLen - 17)));
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6)));
+        
+       
     }
 
     /**
