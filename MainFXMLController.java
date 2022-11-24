@@ -204,6 +204,7 @@ public class MainFXMLController implements Initializable {
         manager.addProvider(new DirectoryCrawler(orekitData));
         
         btn_load_element.setTextFill(Color.RED);
+        
         populateMounts();
         choiceBox.setItems(mountConfigurationList);
         
@@ -431,6 +432,7 @@ public class MainFXMLController implements Initializable {
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6)));
         
+       
     }
 
     /**
