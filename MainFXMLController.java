@@ -277,7 +277,7 @@ public class MainFXMLController implements Initializable {
         // create a choiceBox
         choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
 
-        String hello;
+        //String hello;
         //String x = line1_fields.getText();
         //Pattern p=Pattern.compile("\\s");  
         //String[] str=p.split(x);  
@@ -312,7 +312,8 @@ public class MainFXMLController implements Initializable {
         Matcher matcher = pattern.matcher(tleLineOne);
 
         y = 0; x = 0; i = 1;
-        while (matcher.find()) {
+        while (matcher.find()) 
+        {
 
             y = matcher.end();
             //System.out.println("x"+x);
@@ -344,8 +345,8 @@ public class MainFXMLController implements Initializable {
         // set the launch number of that year
         launch_number.setText(String.valueOf(launch_num));
 
-        // set the launch year
-        if (Double.parseDouble(launch_y) < 60) 
+            // set the launch year
+            if (Double.parseDouble(launch_y) < 60) 
             {
                 launch_year.setText("20" + String.valueOf(launch_y));
             } 
@@ -357,9 +358,9 @@ public class MainFXMLController implements Initializable {
         observation_day.setText(String.valueOf(obs_day));
         observation_hour.setText(String.valueOf(obs_hour).substring(0, 2) + String.valueOf(obs_min).substring(0, 2));
         observation_sec.setText(String.valueOf(obs_sec));
-        //launch_catalogue_sequence.setText(launch_catalogue_number);
-
-        if (obs_y < 60) 
+        
+            //launch_catalogue_sequence.setText(launch_catalogue_number);
+            if (obs_y < 60) 
             {
                 observation_year.setText("20" + String.valueOf(obs_y));
             } 
@@ -396,6 +397,7 @@ public class MainFXMLController implements Initializable {
             }
             i++;
         }
+        
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
