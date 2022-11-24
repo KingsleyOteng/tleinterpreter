@@ -13,9 +13,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
  * @author terra6partner
  */
+
 public class NewFXMain extends Application {
     
     @Override

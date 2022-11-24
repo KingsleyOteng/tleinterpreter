@@ -11,9 +11,9 @@ import java.math.BigInteger;
  * rosetta
  * @author kingsley oteng-amoako
  */
+
 public class rosetta 
 {
-    
     // internal variable
     private static String           current_season;
     private static String           current_conjunctions;
