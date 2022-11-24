@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.io.Serializable;
+//import java.io.Serializable;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.collections.FXCollections;
@@ -455,38 +455,50 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1() 
     {
-        if ("Equatorial".equals(choiceBox.getValue())) {
-            // set to equatorial mount parameters
-            mount_label_1.setText("Right ascension : ");
-            mount_label_2.setText("Declination: ");
-        } else if ("Altitude-azimuth".equals(choiceBox.getValue())) {
-            // set to altitude azimuth mount parameters
-            mount_label_1.setText("Altitude : ");
-            mount_label_2.setText("Azimuth : ");
-        } else if ("German equatorial".equals(choiceBox.getValue())) {
-            // set to german equatorial mount parameters
-            mount_label_1.setText("Declination axis : ");
-            mount_label_2.setText("Polar axis : ");
-        } else {
+            if (null == choiceBox.getValue()) 
+        {
             // set to dobsonian mount parameters
             mount_label_1.setText("Altitude : ");
             mount_label_2.setText("Azimuth : ");
-        }
-
+        } 
+            else switch (choiceBox.getValue()) 
+        {
+            case "Equatorial":
+                // set to equatorial mount parameters
+                mount_label_1.setText("Right ascension : ");
+                mount_label_2.setText("Declination: ");
+                break;
         //menu_button_orientationx.setText("OK - Set");
         // hello2.setText(menu_button_orientationx.getText());
         //label_observer_status.setTextFill(Color.web("#228B22"));
+            case "Altitude-azimuth":
+                // set to altitude azimuth mount parameters
+                mount_label_1.setText("Altitude : ");
+                mount_label_2.setText("Azimuth : ");
+                break;
+            case "German equatorial":
+                // set to german equatorial mount parameters
+                mount_label_1.setText("Declination axis : ");
+                mount_label_2.setText("Polar axis : ");
+                break;
+            default:
+                // set to dobsonian mount parameters
+                mount_label_1.setText("Altitude : ");
+                mount_label_2.setText("Azimuth : ");
+                break;
+        }
+
     }
 
     private int checkSum(String strArray) 
     {
-        int stringLen = 0;
+        int stringLen;
         stringLen = strArray.length();
         int i = 1;
         int total = 0;
 
         while (i < stringLen) {
-            String stringPhrase = strArray;
+            //String stringPhrase = strArray;
             //System.out.println(strArray.subSequence(i,i+1));
             String x = (String) strArray.subSequence(i, i + 1);
 
