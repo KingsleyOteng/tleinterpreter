@@ -381,35 +381,36 @@ public class MainFXMLController implements Initializable {
 
         i = 1; y = 0;  x = 0;
         while (matcher_short.find()) 
-        {
-            x = y;
-            y = matcher_short.end();
-            //System.out.println("x"+x);
-            //System.out.println("y"+y);
-            //System.out.println(">"+tleLineOne.substring(x+1,y));
-
-            // extract from the range 10- 11 the ephemeris type
-            if (y > 11) 
             {
-                launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
-                lcsequence.setText(launch_catalogue_sequence);
+                x = y;
+                y = matcher_short.end();
+                //System.out.println("x"+x);
+                //System.out.println("y"+y);
+                //System.out.println(">"+tleLineOne.substring(x+1,y));
+
+                // extract from the range 10- 11 the ephemeris type
+                if (y > 11) 
+                {
+                    launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
+                    lcsequence.setText(launch_catalogue_sequence);
+                }
+                i++;
             }
-            i++;
-        }
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
         i = 1; y = 0; x = 0;
-        while (matcher_next.find()) {
-            x = y;
-            y = matcher_next.end();
-            //System.out.println("x"+x);
-            //System.out.println("y"+y);
-            //System.out.println("><><"+tleLineTwo.substring(x+1,y));
-            line_two_array[i] = (tleLineTwo.substring(x + 1, y));
-            line_two_array[i] = line_two_array[i].trim();
-            i++;
-        }
+        while (matcher_next.find()) 
+            {
+                x = y;
+                y = matcher_next.end();
+                //System.out.println("x"+x);
+                //System.out.println("y"+y);
+                //System.out.println("><><"+tleLineTwo.substring(x+1,y));
+                line_two_array[i] = (tleLineTwo.substring(x + 1, y));
+                line_two_array[i] = line_two_array[i].trim();
+                i++;
+            }
 
         subLen = tleLineTwo.length();
         label_slot_status.setText("OK - Set");
@@ -429,8 +430,7 @@ public class MainFXMLController implements Initializable {
         secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen - 24, subLen - 19)));
         secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen - 19, subLen - 17)));
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
-        bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6)));
-        
+        bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6))); 
     }
 
     /**
@@ -487,7 +487,6 @@ public class MainFXMLController implements Initializable {
                 mount_label_2.setText("Azimuth : ");
                 break;
         }
-
     }
 
     private int checkSum(String strArray) 
