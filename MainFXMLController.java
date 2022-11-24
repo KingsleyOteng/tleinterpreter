@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.io.Serializable;
+//import java.io.Serializable;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.collections.FXCollections;
@@ -19,26 +19,26 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.fxml.Initializable;import javafx.scene.control.MenuItem;
-import org.orekit.utils.TimeStampedPVCoordinates;
-import org.orekit.utils.PVCoordinatesProvider;
+// import org.orekit.utils.TimeStampedPVCoordinates;
+// import org.orekit.utils.PVCoordinatesProvider;
 import org.orekit.utils.PVCoordinates;
-import org.orekit.time.TimeStamped;
-import org.orekit.time.TimeInterpolable;
+// import org.orekit.time.TimeStamped;
+// import org.orekit.time.TimeInterpolable;
 import org.orekit.time.AbsoluteDate;
-import org.orekit.time.TimeShiftable;
-import org.orekit.errors.OrekitIllegalArgumentException;
-import org.orekit.errors.OrekitInternalError;
+// import org.orekit.time.TimeShiftable;
+// import org.orekit.errors.OrekitIllegalArgumentException;
+// import org.orekit.errors.OrekitInternalError;
 import org.orekit.propagation.analytical.tle.TLE;
-import org.orekit.errors.OrekitMessages;
-import org.orekit.frames.Frame;
-import org.orekit.frames.Transform;
-import org.hipparchus.util.MathArrays;
+// import org.orekit.errors.OrekitMessages;
+// import org.orekit.frames.Frame;
+// import org.orekit.frames.Transform;
+// import org.hipparchus.util.MathArrays;
 import org.hipparchus.util.FastMath;
-import org.hipparchus.linear.RealMatrix;
-import org.hipparchus.linear.QRDecomposition;
-import org.hipparchus.linear.MatrixUtils;
-import org.hipparchus.linear.DecompositionSolver;
-import org.hipparchus.geometry.euclidean.threed.Vector3D;
+//import org.hipparchus.linear.RealMatrix;
+//import org.hipparchus.linear.QRDecomposition;
+//import org.hipparchus.linear.MatrixUtils;
+//import org.hipparchus.linear.DecompositionSolver;
+//import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.bodies.GeodeticPoint;
 import org.orekit.bodies.OneAxisEllipsoid;
 import org.orekit.data.DataContext;
@@ -204,8 +204,7 @@ public class MainFXMLController implements Initializable {
         manager.addProvider(new DirectoryCrawler(orekitData));
         
         btn_load_element.setTextFill(Color.RED);
-        
-        populateMounts();
+        this.populateMounts();
         choiceBox.setItems(mountConfigurationList);
         
         // 
@@ -432,7 +431,6 @@ public class MainFXMLController implements Initializable {
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6)));
         
-       
     }
 
     /**
