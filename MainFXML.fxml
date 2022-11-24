@@ -105,7 +105,7 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="467.0" layoutY="223.0" text="Elevation:" textFill="#e32e12" />
+      <Label layoutX="467.0" layoutY="223.0" text="Altitude:" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update1" layoutX="711.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: RED;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />

@@ -204,7 +204,6 @@ public class MainFXMLController implements Initializable {
         manager.addProvider(new DirectoryCrawler(orekitData));
         
         btn_load_element.setTextFill(Color.RED);
-        
         populateMounts();
         choiceBox.setItems(mountConfigurationList);
         
@@ -252,12 +251,8 @@ public class MainFXMLController implements Initializable {
         azimuth = FastMath.toDegrees(azimuth); 
         elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-        //
+        // let us see how this has been propogated
         System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-
-
-        
-
     }
 
     // @FXML
@@ -316,9 +311,7 @@ public class MainFXMLController implements Initializable {
         Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
         Matcher matcher = pattern.matcher(tleLineOne);
 
-        y = 0;
-        x = 0;
-        i = 1;
+        y = 0; x = 0; i = 1;
         while (matcher.find()) {
 
             y = matcher.end();
@@ -386,9 +379,7 @@ public class MainFXMLController implements Initializable {
         Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
         Matcher matcher_short = pattern_short.matcher(tleLineOne);
 
-        i = 1;
-        y = 0;
-        x = 0;
+        i = 1; y = 0;  x = 0;
         while (matcher_short.find()) 
         {
             x = y;
@@ -408,10 +399,7 @@ public class MainFXMLController implements Initializable {
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
-        i = 1;
-        y = 0;
-        x = 0;
-        
+        i = 1; y = 0; x = 0;
         while (matcher_next.find()) {
             x = y;
             y = matcher_next.end();
@@ -443,7 +431,6 @@ public class MainFXMLController implements Initializable {
         bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
         bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6)));
         
-       
     }
 
     /**
