@@ -8,7 +8,7 @@ import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-//import java.io.Serializable;
+import java.io.Serializable;
 import javafx.fxml.FXML;
 import java.net.URL;
 import javafx.collections.FXCollections;
@@ -34,11 +34,11 @@ import org.orekit.propagation.analytical.tle.TLE;
 // import org.orekit.frames.Transform;
 // import org.hipparchus.util.MathArrays;
 import org.hipparchus.util.FastMath;
-//import org.hipparchus.linear.RealMatrix;
-//import org.hipparchus.linear.QRDecomposition;
-//import org.hipparchus.linear.MatrixUtils;
-//import org.hipparchus.linear.DecompositionSolver;
-//import org.hipparchus.geometry.euclidean.threed.Vector3D;
+import org.hipparchus.linear.RealMatrix;
+import org.hipparchus.linear.QRDecomposition;
+import org.hipparchus.linear.MatrixUtils;
+import org.hipparchus.linear.DecompositionSolver;
+import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.bodies.GeodeticPoint;
 import org.orekit.bodies.OneAxisEllipsoid;
 import org.orekit.data.DataContext;
@@ -455,44 +455,32 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1() 
     {
-            if (null == choiceBox.getValue()) 
-        {
+        if ("Equatorial".equals(choiceBox.getValue())) {
+            // set to equatorial mount parameters
+            mount_label_1.setText("Right ascension : ");
+            mount_label_2.setText("Declination: ");
+        } else if ("Altitude-azimuth".equals(choiceBox.getValue())) {
+            // set to altitude azimuth mount parameters
+            mount_label_1.setText("Altitude : ");
+            mount_label_2.setText("Azimuth : ");
+        } else if ("German equatorial".equals(choiceBox.getValue())) {
+            // set to german equatorial mount parameters
+            mount_label_1.setText("Declination axis : ");
+            mount_label_2.setText("Polar axis : ");
+        } else {
             // set to dobsonian mount parameters
             mount_label_1.setText("Altitude : ");
             mount_label_2.setText("Azimuth : ");
-        } 
-            else switch (choiceBox.getValue()) 
-        {
-            case "Equatorial":
-                // set to equatorial mount parameters
-                mount_label_1.setText("Right ascension : ");
-                mount_label_2.setText("Declination: ");
-                break;
+        }
+
         //menu_button_orientationx.setText("OK - Set");
         // hello2.setText(menu_button_orientationx.getText());
         //label_observer_status.setTextFill(Color.web("#228B22"));
-            case "Altitude-azimuth":
-                // set to altitude azimuth mount parameters
-                mount_label_1.setText("Altitude : ");
-                mount_label_2.setText("Azimuth : ");
-                break;
-            case "German equatorial":
-                // set to german equatorial mount parameters
-                mount_label_1.setText("Declination axis : ");
-                mount_label_2.setText("Polar axis : ");
-                break;
-            default:
-                // set to dobsonian mount parameters
-                mount_label_1.setText("Altitude : ");
-                mount_label_2.setText("Azimuth : ");
-                break;
-        }
-
     }
 
     private int checkSum(String strArray) 
     {
-        //int stringLen = 0;
+        int stringLen = 0;
         stringLen = strArray.length();
         int i = 1;
         int total = 0;
