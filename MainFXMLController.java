@@ -381,21 +381,21 @@ public class MainFXMLController implements Initializable {
 
         i = 1; y = 0;  x = 0;
         while (matcher_short.find()) 
-            {
-                x = y;
-                y = matcher_short.end();
-                //System.out.println("x"+x);
-                //System.out.println("y"+y);
-                //System.out.println(">"+tleLineOne.substring(x+1,y));
+        {
+            x = y;
+            y = matcher_short.end();
+            //System.out.println("x"+x);
+            //System.out.println("y"+y);
+            //System.out.println(">"+tleLineOne.substring(x+1,y));
 
-                // extract from the range 10- 11 the ephemeris type
-                if (y > 11) 
-                {
-                    launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
-                    lcsequence.setText(launch_catalogue_sequence);
-                }
-                i++;
+            // extract from the range 10- 11 the ephemeris type
+            if (y > 11) 
+            {
+                launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
+                lcsequence.setText(launch_catalogue_sequence);
             }
+            i++;
+        }
         // extract from tle line 2
         Matcher matcher_next = pattern.matcher(tleLineTwo);
 
