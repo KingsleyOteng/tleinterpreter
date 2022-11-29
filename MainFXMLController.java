@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 //import java.io.Serializable;
 import javafx.fxml.FXML;
 import java.net.URL;
+import java.text.DecimalFormat;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
@@ -198,6 +199,7 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         
+        DecimalFormat df = new DecimalFormat("0.00");
         // initial orbit propogation constants
         File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
         DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
@@ -253,6 +255,9 @@ public class MainFXMLController implements Initializable {
 
         // let us see how this has been propogated
         System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+        mount_label_1.setText("Altitude: " + String.valueOf(df.format(azimuth)));
+        mount_label_2.setText("Elevation: " + String.valueOf(df.format(elevation)));
+        
     }
 
     // @FXML
