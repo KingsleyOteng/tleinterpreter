@@ -261,8 +261,8 @@ public class MainFXMLController implements Initializable {
         
         // generate labels consistent with true output
         
-        mount_label_1.setText("Altitude: " + String.valueOf(df.format(azimuth)));
-        mount_label_2.setText("Elevation: " + String.valueOf(df.format(elevation)));
+        mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
+        mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
         
     }
 
