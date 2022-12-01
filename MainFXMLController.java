@@ -510,11 +510,6 @@ public class MainFXMLController implements Initializable {
         azimuth = FastMath.toDegrees(azimuth); 
         elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-        // let us see how this has been propogated
-        
-        System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-        
-        
         // generate labels consistent with true output
         mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
