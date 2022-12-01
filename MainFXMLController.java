@@ -167,6 +167,25 @@ public class MainFXMLController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
+    
+     @FXML
+    private ChoiceBox<String> obsMonBox 
+            = new ChoiceBox();
+    @FXML
+    private ChoiceBox<String> obsDayBox 
+            = new ChoiceBox();
+    @FXML
+    private ChoiceBox<String> obsTimeHourBox 
+            = new ChoiceBox();
+    @FXML
+    private ChoiceBox<String> obsYearBox 
+            = new ChoiceBox();
+    @FXML
+    private ChoiceBox<String> obsTimeMinBox 
+            = new ChoiceBox();
+
+    
+    
     @FXML
     private Label mount_label_1;
     @FXML
@@ -175,8 +194,9 @@ public class MainFXMLController implements Initializable {
     private final MenuItem item1 = new MenuItem();
 
     private ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
-
-   
+    private ObservableList<String> obsDateList = FXCollections.observableArrayList();
+    private ObservableList<String> obsTimeHourList = FXCollections.observableArrayList();
+    private ObservableList<String> obsTimeMinList = FXCollections.observableArrayList();
 
     /**
      * Update JavaFX file
@@ -208,6 +228,12 @@ public class MainFXMLController implements Initializable {
         btn_load_element.setTextFill(Color.RED);
         this.populateMounts();
         choiceBox.setItems(mountConfigurationList);
+        obsMonBox.setItems(mountConfigurationList);
+        obsDayBox.setItems(mountConfigurationList);
+        obsTimeHourBox.setItems(mountConfigurationList);
+        obsYearBox.setItems(mountConfigurationList);
+        obsTimeMinBox.setItems(mountConfigurationList);
+
         
         // 
         FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
@@ -581,6 +607,57 @@ public class MainFXMLController implements Initializable {
         mountConfigurationList.add("Equatorial");
         mountConfigurationList.add("Dobsonian");
         mountConfigurationList.add("German equatorial");
+        
+        obsTimeHourList.add("12");
+        obsTimeHourList.add("11");
+        obsTimeHourList.add("10");
+        obsTimeHourList.add("09");
+        obsTimeHourList.add("08");
+        obsTimeHourList.add("07");
+        obsTimeHourList.add("06");
+        obsTimeHourList.add("05");
+        obsTimeHourList.add("04");
+        obsTimeHourList.add("03");
+        obsTimeHourList.add("02");
+        obsTimeHourList.add("01");
+        obsTimeHourList.add("00");
+        obsTimeHourList.add("13");
+        obsTimeHourList.add("14");
+        obsTimeHourList.add("15");
+        obsTimeHourList.add("16");
+        obsTimeHourList.add("17");
+        obsTimeHourList.add("18");
+        obsTimeHourList.add("19");
+        obsTimeHourList.add("20");
+        obsTimeHourList.add("21");
+        obsTimeHourList.add("22");
+        obsTimeHourList.add("23");
+        
+        obsTimeMinList.add("12");
+        obsTimeMinList.add("11");
+        obsTimeMinList.add("10");
+        obsTimeMinList.add("09");
+        obsTimeMinList.add("08");
+        obsTimeMinList.add("07");
+        obsTimeMinList.add("06");
+        obsTimeMinList.add("05");
+        obsTimeMinList.add("04");
+        obsTimeMinList.add("03");
+        obsTimeMinList.add("02");
+        obsTimeMinList.add("01");
+        obsTimeMinList.add("00");
+        obsTimeMinList.add("13");
+        obsTimeMinList.add("14");
+        obsTimeMinList.add("15");
+        obsTimeMinList.add("16");
+        obsTimeMinList.add("17");
+        obsTimeMinList.add("18");
+        obsTimeMinList.add("19");
+        obsTimeMinList.add("20");
+        obsTimeMinList.add("21");
+        obsTimeMinList.add("22");
+        obsTimeMinList.add("23");
+
     }
     
 }
