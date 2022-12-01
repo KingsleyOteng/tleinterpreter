@@ -181,7 +181,7 @@ public class MainFXMLController implements Initializable {
     private ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsTimeMinBox 
+    private ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
 
     
@@ -230,9 +230,9 @@ public class MainFXMLController implements Initializable {
         choiceBox.setItems(mountConfigurationList);
         obsMonBox.setItems(mountConfigurationList);
         obsDayBox.setItems(mountConfigurationList);
-        obsTimeHourBox.setItems(mountConfigurationList);
+        obsTimeHourBox.setItems(obsTimeHourList);
         obsYearBox.setItems(mountConfigurationList);
-        obsTimeMinBox.setItems(mountConfigurationList);
+        obsTimeMnBox.setItems(obsTimeMinList);
 
         
         // 
@@ -608,19 +608,19 @@ public class MainFXMLController implements Initializable {
         mountConfigurationList.add("Dobsonian");
         mountConfigurationList.add("German equatorial");
         
-        obsTimeHourList.add("12");
-        obsTimeHourList.add("11");
-        obsTimeHourList.add("10");
-        obsTimeHourList.add("09");
-        obsTimeHourList.add("08");
-        obsTimeHourList.add("07");
-        obsTimeHourList.add("06");
-        obsTimeHourList.add("05");
-        obsTimeHourList.add("04");
-        obsTimeHourList.add("03");
-        obsTimeHourList.add("02");
-        obsTimeHourList.add("01");
         obsTimeHourList.add("00");
+        obsTimeHourList.add("01");
+        obsTimeHourList.add("02");
+        obsTimeHourList.add("03");
+        obsTimeHourList.add("04");
+        obsTimeHourList.add("05");
+        obsTimeHourList.add("06");
+        obsTimeHourList.add("07");
+        obsTimeHourList.add("08");
+        obsTimeHourList.add("09");
+        obsTimeHourList.add("10");
+        obsTimeHourList.add("11");
+        obsTimeHourList.add("12");
         obsTimeHourList.add("13");
         obsTimeHourList.add("14");
         obsTimeHourList.add("15");
@@ -633,19 +633,20 @@ public class MainFXMLController implements Initializable {
         obsTimeHourList.add("22");
         obsTimeHourList.add("23");
         
-        obsTimeMinList.add("12");
-        obsTimeMinList.add("11");
-        obsTimeMinList.add("10");
-        obsTimeMinList.add("09");
-        obsTimeMinList.add("08");
-        obsTimeMinList.add("07");
-        obsTimeMinList.add("06");
-        obsTimeMinList.add("05");
-        obsTimeMinList.add("04");
-        obsTimeMinList.add("03");
-        obsTimeMinList.add("02");
-        obsTimeMinList.add("01");
+
         obsTimeMinList.add("00");
+            obsTimeMinList.add("01");
+            obsTimeMinList.add("02");
+              obsTimeMinList.add("03");
+               obsTimeMinList.add("04");
+        obsTimeMinList.add("05");
+        obsTimeMinList.add("06");
+         obsTimeMinList.add("07");
+           obsTimeMinList.add("08");
+              obsTimeMinList.add("09");
+                    obsTimeMinList.add("10");
+        obsTimeMinList.add("11");
+              obsTimeMinList.add("12");
         obsTimeMinList.add("13");
         obsTimeMinList.add("14");
         obsTimeMinList.add("15");
@@ -657,6 +658,42 @@ public class MainFXMLController implements Initializable {
         obsTimeMinList.add("21");
         obsTimeMinList.add("22");
         obsTimeMinList.add("23");
+        obsTimeMinList.add("24");
+        obsTimeMinList.add("25");
+        obsTimeMinList.add("26");
+        obsTimeMinList.add("27");
+        obsTimeMinList.add("28");
+        obsTimeMinList.add("29");
+        obsTimeMinList.add("30");
+        obsTimeMinList.add("31");
+        obsTimeMinList.add("32");
+        obsTimeMinList.add("33");
+        obsTimeMinList.add("34");
+        obsTimeMinList.add("35");
+        obsTimeMinList.add("36");
+        obsTimeMinList.add("37");
+        obsTimeMinList.add("38");
+        obsTimeMinList.add("39");
+        obsTimeMinList.add("40");
+        obsTimeMinList.add("41");
+        obsTimeMinList.add("42");
+        obsTimeMinList.add("43");
+        obsTimeMinList.add("44");
+        obsTimeMinList.add("45");
+        obsTimeMinList.add("46");
+        obsTimeMinList.add("47");
+        obsTimeMinList.add("48");
+        obsTimeMinList.add("49");
+        obsTimeMinList.add("50");
+        obsTimeMinList.add("51");
+        obsTimeMinList.add("52");
+        obsTimeMinList.add("53");
+         obsTimeMinList.add("54");
+        obsTimeMinList.add("55");
+        obsTimeMinList.add("56");
+        obsTimeMinList.add("57");
+        obsTimeMinList.add("58");
+        obsTimeMinList.add("59");
 
     }
     
