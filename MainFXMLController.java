@@ -468,6 +468,9 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1() 
     {
+        double latitude = 0.0;
+        double longitude = 0.0;
+        
             if (null == choiceBox.getValue()) 
         {
             // set to dobsonian mount parameters
