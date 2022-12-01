@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="112.0" layoutY="255.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="34.0" prefWidth="704.0" style="-fx-background-color: red;" text="BUILD STATE " textAlignment="JUSTIFY" textFill="#fcf8f8" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="681.0" layoutY="193.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="127.0" prefWidth="135.0" style="-fx-background-color: red;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -160,6 +160,17 @@
       </Label>
       <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
+      <TextArea fx:id="longitude1" layoutX="139.0" layoutY="257.0" prefHeight="9.0" prefWidth="55.0" />
+      <TextArea fx:id="elevation1" layoutX="582.0" layoutY="257.0" prefHeight="41.0" prefWidth="44.0" />
+      <Label layoutX="22.0" layoutY="269.0" text="OBS. DATE:" textFill="#e32e12" />
+      <Label layoutX="390.0" layoutY="270.0" text="OBS. TIME   (HH:MM:SS)" textFill="#e32e12" />
+      <TextArea fx:id="latitude1" layoutX="528.0" layoutY="257.0" prefHeight="41.0" prefWidth="0.0" />
+      <TextArea fx:id="longitude11" layoutX="234.0" layoutY="257.0" prefHeight="9.0" prefWidth="55.0" />
+      <TextArea fx:id="longitude111" layoutX="321.0" layoutY="257.0" prefHeight="9.0" prefWidth="55.0" />
+      <Label layoutX="99.0" layoutY="269.0" text="(MON)" textFill="#e32e12" />
+      <Label layoutX="199.0" layoutY="269.0" text="(DAY)" textFill="#e32e12" />
+      <Label layoutX="295.0" layoutY="269.0" text="(YY)" textFill="#e32e12" />
+      <Label layoutX="575.0" layoutY="269.0" text=":" textFill="#e32e12" />
       
       
    </children>

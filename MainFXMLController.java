@@ -468,8 +468,52 @@ public class MainFXMLController implements Initializable {
     @FXML
     private void updateObserverStatus1() 
     {
-        double latitude = 0.0;
-        double longitude = 0.0;
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+        // 
+        FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+        OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
+            Constants.WGS84_EARTH_FLATTENING,
+            ITRF);
+        
+        
+        // create a TLE object
+        final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
+        final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
+        final TLE tle = new TLE(line1, line2);
+        final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+        
+        // obtain current time
+        AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
+  
+        // obtain spacecraft state
+        SpacecraftState spaceCraftState = propagator.propagate(date);
+    
+        // determine PVCoordinates
+        PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
+    
+        // transform to earths geodectic points
+        GeodeticPoint geodetic = earth.transform
+        (
+            coord.getPosition(),
+            ITRF,
+            date
+        );
+
+        // determine the latitude and longitude of propogaed item
+        latitude = FastMath.toDegrees(geodetic.getLatitude());
+        longitude = FastMath.toDegrees(geodetic.getLongitude());
+
+        // from the sensor determine the observation parameters in azimuth-elevation
+        
+        azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
+        azimuth = FastMath.toDegrees(azimuth); 
+        elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
+
+        // generate labels consistent with true output
+        mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
+        mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+        
         
             if (null == choiceBox.getValue()) 
         {
