@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="718.0" layoutY="193.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="127.0" prefWidth="135.0" style="-fx-background-color: red;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="730.0" layoutY="182.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -39,7 +39,7 @@
       </Label>
       <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="41.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Thonburi" size="20.0" />
+            <Font name="Thonburi" size="15.0" />
          </font>
       </Button>
       <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="169.0" text="OPEN" textFill="#d00314">
@@ -74,7 +74,7 @@
       <TextArea fx:id="revolutionnumber" layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="77.0" />
       <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
       <TextArea fx:id="lf2" layoutX="475.0" layoutY="70.0" prefHeight="41.0" prefWidth="237.0" />
-      <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="186.0" startX="-100.0" startY="4.0000152587890625" />
+      <Line endX="548.640380859375" endY="4.0" layoutX="160.0" layoutY="186.0" startX="-100.0" startY="4.0000152587890625" />
       <TextArea fx:id="latitude" layoutX="324.0" layoutY="211.0" prefHeight="22.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="306.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
@@ -86,12 +86,12 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="484.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" style="-fx-background-color: red;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="545.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="312.0" style="-fx-background-color: red;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
-      <Line endX="586.3247680664062" endY="-3.0517578125E-5" layoutX="218.0" layoutY="754.0" startX="-100.0" />
+      <Line endX="499.055908203125" endY="-6.103515625E-5" layoutX="218.0" layoutY="754.0" startX="-100.0" />
       <TextArea fx:id="meanmotion" layoutX="108.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="33.0" layoutY="645.0" text="Mean motion:" textFill="#e31234" />
       <TextArea fx:id="perigree" layoutX="543.0" layoutY="633.0" prefHeight="47.0" prefWidth="109.0" />
@@ -106,7 +106,7 @@
          </font>
       </Label>
       <Label layoutX="467.0" layoutY="223.0" text="Altitude:" textFill="#e32e12" />
-      <Button id="load_element_button" fx:id="btn_update1" layoutX="711.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: RED;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update1" layoutX="730.0" layoutY="6.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: RED;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -136,7 +136,7 @@
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
       <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
-      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="727.0" layoutY="639.0" mnemonicParsing="false" prefHeight="109.0" prefWidth="119.0" style="-fx-background-color: red;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="730.0" layoutY="640.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
