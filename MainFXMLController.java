@@ -828,11 +828,10 @@ public class MainFXMLController implements Initializable {
             // Clock with the UTC timezone
             LocalDate currentdate = LocalDate.now();
             LocalTime localTime = LocalTime.now();
-            Month cMonth = currentdate.getMonth();
+            //Month cMonth = currentdate.getMonth();
             int currentDay = currentdate.getDayOfMonth();
             int currentYear = currentdate.getYear();
-          
-            String currentMonth = cMonth.toString();
+            String currentMonth = (currentdate.getMonth()).toString();
             
             if (null != currentMonth)
         
@@ -851,19 +850,25 @@ public class MainFXMLController implements Initializable {
                     case "OCTOBER"      ->  currentMonth = "OCT";
                     case "NOVEMBER"     ->  currentMonth = "NOV";
                     case "DECEMBER"     ->  currentMonth = "DEC";
-                    default             ->                    {};
+                    default             ->                    {}
                 };
            
             // set default day to today
-            obsMonBox.setValue(currentMonth);
-            obsDayBox.setValue(String.format("%d", currentDay));
-            obsYearBox.setValue(String.format("%d", currentYear));
+            obsMonBox
+                    .setValue(currentMonth);
+            obsDayBox
+                    .setValue(String.format("%d", currentDay));
+            obsYearBox
+                    .setValue(String.format("%d", currentYear));
             
             
             // set default observation time to next hour
-            obsTimeHourBox.setValue(String.format("%d",localTime.getHour()+1));
-            obsTimeMnBox.setValue(String.format("%d",localTime.getMinute()));
-            obsTimeSecBox.setValue("00");
+            obsTimeHourBox
+                    .setValue(String.format("%d",localTime.getHour()+1));
+            obsTimeMnBox
+                    .setValue(String.format("%d",localTime.getMinute()));
+            obsTimeSecBox
+                    .setValue("00");
         }
     
 }
