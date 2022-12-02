@@ -12,6 +12,10 @@ import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Month;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
@@ -257,7 +261,7 @@ public class MainFXMLController implements Initializable {
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
-
+            this.setCurrentDateTime();
             // 
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
@@ -819,10 +823,19 @@ public class MainFXMLController implements Initializable {
     
     private void setCurrentDateTime()
         {
+            // Clock with the UTC timezone
+            LocalDate currentdate = LocalDate.now();
+            Month cMonth = currentdate.getMonth();
+            int currentDay = currentdate.getDayOfMonth();
+            int currentYear = currentdate.getYear();
+            String currentMonth = String.format("%d", cMonth);
+            
+            
+            
             // set default day to today
             obsMonBox.setValue("DEC");
-            obsDayBox.setValue("01");
-            obsYearBox.setValue("2022");
+            obsDayBox.setValue(String.format("%d", currentDay));
+            obsYearBox.setValue(String.format("%d", currentYear));
             
             // set default observation time to next hour
             obsTimeHourBox.setValue("00");
