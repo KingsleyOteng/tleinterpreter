@@ -92,20 +92,26 @@ public class MainFXMLController implements Initializable {
         
     @FXML
     private TextArea satellite;
+    
     @FXML
     private TextArea observation_sec;
+    
     @FXML
     private TextArea observation_year;
+    
     @FXML
     private TextArea observation_day;
+    
     @FXML
     private TextArea observation_hour;
    // @FXML
    // private TextArea observation_time;
     @FXML
     private TextArea launch_year;
+    
     @FXML
     private TextArea launch_number;
+    
     @FXML
     private TextArea lcsequence;
    // @FXML
@@ -114,6 +120,7 @@ public class MainFXMLController implements Initializable {
    // private TextArea month;
     @FXML
     private TextArea epoch_time;
+    
     @FXML
     private TextArea epoch_date;
     //@FXML
@@ -124,46 +131,63 @@ public class MainFXMLController implements Initializable {
    // private TextArea piece_number;
     @FXML
     private TextArea lf1;
+    
     @FXML
     private TextArea lf2;
   //  @FXML
    // private TextArea lf3;
     @FXML
     private Label label_slot_status;
+    
     @FXML
     private Label label_observer_status;
+    
     @FXML
     private Button btn_load_element;
+    
     @FXML
     private TextArea orbitinclination;
+    
     @FXML
     private TextArea eccentricity;
+    
     @FXML
     private TextArea rightascension;
+    
     @FXML
     private TextArea elementnumber;
+    
     @FXML
     private TextArea revolutionnumber;
+    
     @FXML
     private TextArea ephemeristype;
+    
     @FXML
     private TextArea meanmotion;
+    
     @FXML
     private TextArea meananomaly;
+    
     @FXML
     private TextArea perigree;
    // @FXML
    // private TextArea dragterm;
     @FXML
     private TextArea firsttimederiv;
+    
     @FXML
     private TextArea secondtimederiv;
+    
     @FXML
     private TextArea secondtimederivexp;
+    
     @FXML
     private TextArea bstardrag;
+    
     @FXML
     private TextArea bstardragexp;
+    
     @FXML
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
@@ -187,8 +211,10 @@ public class MainFXMLController implements Initializable {
             = new ChoiceBox();
     @FXML
     private Label mount_label_1;
+    
     @FXML
     private Label mount_label_2;
+    
     @FXML
     private final MenuItem item1 = new MenuItem();
 
