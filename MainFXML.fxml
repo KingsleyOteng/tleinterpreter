@@ -173,6 +173,11 @@
       <ChoiceBox fx:id="obsTimeMnBox" layoutX="586.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="obsTimeSecBox" layoutX="643.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <Label layoutX="637.0" layoutY="268.0" text=":" textFill="#e32e12" />
+      <Button id="load_element_button" fx:id="btn_update11" layoutX="333.0" layoutY="24.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="294.0" style="-fx-background-color: PINK;" text="GET LATEST ELEMENT" textAlignment="JUSTIFY" textFill="#1e1d1d" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="23.0" />
+         </font>
+      </Button>
       
       
    </children>
