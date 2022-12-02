@@ -18,6 +18,9 @@ import javafx.stage.Stage;
 
 public class NewFXMain extends Application {
     
+    /**
+     * construct the UI
+     */ 
     @Override
     public void start(Stage stage) throws Exception, InvocationTargetException
     {
