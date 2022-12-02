@@ -821,6 +821,7 @@ public class MainFXMLController implements Initializable {
 
         }
     
+    @SuppressWarnings("empty-statement")
     private void setCurrentDateTime()
         {
             // Clock with the UTC timezone
@@ -828,12 +829,54 @@ public class MainFXMLController implements Initializable {
             Month cMonth = currentdate.getMonth();
             int currentDay = currentdate.getDayOfMonth();
             int currentYear = currentdate.getYear();
-            String currentMonth = String.format("%d", cMonth);
+            String currentMonth = cMonth.toString();
             
+            if (null != currentMonth)
+                    // format the month to a three letter format
+        switch (currentMonth) {
+            case "JANUARY":
+                currentMonth = "JAN";
+                break;
+            case "FEBURARY":
+                currentMonth = "FEB";
+                break;
+            case "MARCH":
+                currentMonth = "MAR";
+                break;
+            case "APRIL":
+                currentMonth = "APR";
+                break;
+            case "MAY":
+                currentMonth = "MAY";
+                break;
+            case "JUNE":
+                currentMonth = "JUN";
+                break;
+            case "JULY":
+                currentMonth = "JUL";
+                break;
+            case "AUGUST":
+                currentMonth = "AUG";
+                break;
+            case "SEPTEMBER":
+                currentMonth = "SEPT";
+                break;
+            case "OCTOBER":
+                currentMonth = "OCT";
+                break;
+            case "NOVEMBER":
+                currentMonth = "NOV";
+                break;
+            case "DECEMBER":
+                currentMonth = "DEC";
+                break;
+            default:
+                break;
+        };
             
-            
+           
             // set default day to today
-            obsMonBox.setValue("DEC");
+            obsMonBox.setValue(currentMonth);
             obsDayBox.setValue(String.format("%d", currentDay));
             obsYearBox.setValue(String.format("%d", currentYear));
             
