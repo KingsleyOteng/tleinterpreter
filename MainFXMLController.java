@@ -257,13 +257,6 @@ public class MainFXMLController implements Initializable {
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
-            
-            obsMonBox.setValue("DEC");
-            obsDayBox.setValue("01");
-            obsYearBox.setValue("2022");
-            obsTimeHourBox.setValue("00");
-            obsTimeMnBox.setValue("00");
-            obsTimeSecBox.setValue("00");
 
             // 
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
@@ -534,21 +527,29 @@ public class MainFXMLController implements Initializable {
 
 
             // create a TLE object
+            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             final TLE tle = new TLE(line1, line2);
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
 
             // obtain current time
+            
             AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
 
+            
             // obtain spacecraft state
+            
             SpacecraftState spaceCraftState = propagator.propagate(date);
 
+            
             // determine PVCoordinates
+            
             PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
 
+            
             // transform to earths geodectic points
+            
             GeodeticPoint geodetic = earth.transform
             (
                 coord.getPosition(),
@@ -556,7 +557,9 @@ public class MainFXMLController implements Initializable {
                 date
             );
 
+            
             // determine the latitude and longitude of propogaed item
+            
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
@@ -567,42 +570,49 @@ public class MainFXMLController implements Initializable {
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
             // generate labels consistent with true output
+            
             mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
+                // set to Alt-Azimuth
                 if (null == choiceBox.getValue()) 
-            {
-                // set to dobsonian mount parameters
-                mount_label_1.setText("Altitude : ");
-                mount_label_2.setText("Azimuth : ");
-            } 
+                    {
+                        // set to dobsonian mount parameters
+                        mount_label_1.setText("Altitude : ");
+                        mount_label_2.setText("Azimuth : ");
+                    } 
                 else switch (choiceBox.getValue()) 
-            {
-                case "Equatorial":
-                    // set to equatorial mount parameters
-                    mount_label_1.setText("Right ascension : ");
-                    mount_label_2.setText("Declination: ");
-                    break;
-            //menu_button_orientationx.setText("OK - Set");
-            // hello2.setText(menu_button_orientationx.getText());
-            //label_observer_status.setTextFill(Color.web("#228B22"));
-                case "Altitude-azimuth":
-                    // set to altitude azimuth mount parameters
-                    mount_label_1.setText("Altitude : ");
-                    mount_label_2.setText("Azimuth : ");
-                    break;
-                case "German equatorial":
-                    // set to german equatorial mount parameters
-                    mount_label_1.setText("Declination axis : ");
-                    mount_label_2.setText("Polar axis : ");
-                    break;
-                default:
-                    // set to dobsonian mount parameters
-                    mount_label_1.setText("Altitude : ");
-                    mount_label_2.setText("Azimuth : ");
-                    break;
-            }
+                    {
+                    
+                        case "Equatorial":
+                            // set to equatorial mount parameters
+                            mount_label_1.setText("Right ascension : ");
+                            mount_label_2.setText("Declination: ");
+                            break;
+                            
+                    //menu_button_orientationx.setText("OK - Set");
+                    // hello2.setText(menu_button_orientationx.getText());
+                    //label_observer_status.setTextFill(Color.web("#228B22"));
+                            
+                        case "Altitude-azimuth":
+                            // set to altitude azimuth mount parameters
+                            mount_label_1.setText("Altitude : ");
+                            mount_label_2.setText("Azimuth : ");
+                            break;
+                            
+                        case "German equatorial":
+                            // set to german equatorial mount parameters
+                            mount_label_1.setText("Declination axis : ");
+                            mount_label_2.setText("Polar axis : ");
+                            break;
+                            
+                        default:
+                            // set to dobsonian mount parameters
+                            mount_label_1.setText("Altitude : ");
+                            mount_label_2.setText("Azimuth : ");
+                            break;
+                    }
         }
 
         private int checkSum(String strArray) 
@@ -808,8 +818,16 @@ public class MainFXMLController implements Initializable {
         }
     
     private void setCurrentDateTime()
-    {
-        
-    }
+        {
+            // set default day to today
+            obsMonBox.setValue("DEC");
+            obsDayBox.setValue("01");
+            obsYearBox.setValue("2022");
+            
+            // set default observation time to next hour
+            obsTimeHourBox.setValue("00");
+            obsTimeMnBox.setValue("00");
+            obsTimeSecBox.setValue("00");
+        }
     
 }
