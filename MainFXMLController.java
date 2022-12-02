@@ -12,10 +12,6 @@ import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import java.net.URL;
 import java.text.DecimalFormat;
-import java.time.Clock;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.Month;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
@@ -261,7 +257,14 @@ public class MainFXMLController implements Initializable {
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
-            this.setCurrentDateTime();
+            
+            obsMonBox.setValue("DEC");
+            obsDayBox.setValue("01");
+            obsYearBox.setValue("2022");
+            obsTimeHourBox.setValue("00");
+            obsTimeMnBox.setValue("00");
+            obsTimeSecBox.setValue("00");
+
             // 
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
@@ -823,77 +826,7 @@ public class MainFXMLController implements Initializable {
     
     private void setCurrentDateTime()
         {
-            // Clock with the UTC timezone
-            LocalDate currentdate = LocalDate.now();
-            Month cMonth = currentdate.getMonth();
-            int currentDay = currentdate.getDayOfMonth();
-            int currentYear = currentdate.getYear();
-            String currentMonth = String.format("%d", cMonth);
-            
-            
-            if (currentMonth == "JANUARY")
-                    {
-                        currentMonth = "JAN";
-                    }
-            else if (currentMonth == "FEBURARY")
-                    {
-                        currentMonth = "FEB";
-                    }
-            else if (currentMonth == "MARCH")
-                    {
-                        currentMonth = "MAR";
-                    }
-            else if (currentMonth == "APRIL")
-                    {
-                        currentMonth = "APR";
-                    }
-            else if (currentMonth == "APRIL")
-                    {
-                        currentMonth = "APR";
-                    }
-            else if (currentMonth == "MAY")
-                    {
-                        currentMonth = "MAY";
-                    }
-            else if (currentMonth == "JUNE")
-                    {
-                        currentMonth = "JUN";
-                    }
-            else if (currentMonth == "JULY")
-                    {
-                        currentMonth = "JUL";
-                    }
-            else if (currentMonth == "AUGUST")
-                    {
-                        currentMonth = "AUG";
-                    }
-             else if (currentMonth == "SEPTEMBER")
-                    {
-                        currentMonth = "SEPT";
-                    }
-            else if (currentMonth == "OCTOBER")
-                    {
-                        currentMonth = "OCT";
-                    }
-            else if (currentMonth == "NOVEMBER")
-                    {
-                        currentMonth = "NOV";
-                    }
-            else if (currentMonth == "DECEMBER")
-                    {
-                        currentMonth = "DEC";
-                    };
-            
-           
-            // set default day to today
-            obsMonBox.setValue(String.format("%d", currentMonth));
-            obsDayBox.setValue(String.format("%d", currentDay));
-            obsYearBox.setValue(String.format("%d", currentYear));
-            
-            // set default observation time to next hour
-            obsTimeHourBox.setValue("00");
-            obsTimeMnBox.setValue("00");
-            obsTimeSecBox.setValue("00");
+        
         }
     
 }
