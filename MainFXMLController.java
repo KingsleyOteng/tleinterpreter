@@ -15,7 +15,6 @@ import java.text.DecimalFormat;
 import java.time.Clock;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.Month;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -827,48 +826,40 @@ public class MainFXMLController implements Initializable {
         {
             // Clock with the UTC timezone
             LocalDate currentdate = LocalDate.now();
-            LocalTime localTime = LocalTime.now();
-            //Month cMonth = currentdate.getMonth();
+            Month cMonth = currentdate.getMonth();
             int currentDay = currentdate.getDayOfMonth();
             int currentYear = currentdate.getYear();
-            String currentMonth = (currentdate.getMonth()).toString();
+          
+            String currentMonth = cMonth.toString();
             
             if (null != currentMonth)
-        
-            // format the month to a three letter format
-            switch (currentMonth) 
-                {
-                    case "JANUARY"      ->  currentMonth = "JAN";
-                    case "FEBURARY"     ->  currentMonth = "FEB";
-                    case "MARCH"        ->  currentMonth = "MAR";
-                    case "APRIL"        ->  currentMonth = "APR";
-                    case "MAY"          ->  currentMonth = "MAY";
-                    case "JUNE"         ->  currentMonth = "JUN";
-                    case "JULY"         ->  currentMonth = "JUL";
-                    case "AUGUST"       ->  currentMonth = "AUG";
-                    case "SEPTEMBER"    ->  currentMonth = "SEPT";
-                    case "OCTOBER"      ->  currentMonth = "OCT";
-                    case "NOVEMBER"     ->  currentMonth = "NOV";
-                    case "DECEMBER"     ->  currentMonth = "DEC";
-                    default             ->                    {}
-                };
+                // format the month to a three letter format
+        switch (currentMonth) {
+            case "JANUARY" -> currentMonth = "JAN";
+            case "FEBURARY" -> currentMonth = "FEB";
+            case "MARCH" -> currentMonth = "MAR";
+            case "APRIL" -> currentMonth = "APR";
+            case "MAY" -> currentMonth = "MAY";
+            case "JUNE" -> currentMonth = "JUN";
+            case "JULY" -> currentMonth = "JUL";
+            case "AUGUST" -> currentMonth = "AUG";
+            case "SEPTEMBER" -> currentMonth = "SEPT";
+            case "OCTOBER" -> currentMonth = "OCT";
+            case "NOVEMBER" -> currentMonth = "NOV";
+            case "DECEMBER" -> currentMonth = "DEC";
+            default -> {}
+        };
+            
            
             // set default day to today
-            obsMonBox
-                    .setValue(currentMonth);
-            obsDayBox
-                    .setValue(String.format("%d", currentDay));
-            obsYearBox
-                    .setValue(String.format("%d", currentYear));
-            
+            obsMonBox.setValue(currentMonth);
+            obsDayBox.setValue(String.format("%d", currentDay));
+            obsYearBox.setValue(String.format("%d", currentYear));
             
             // set default observation time to next hour
-            obsTimeHourBox
-                    .setValue(String.format("%d",localTime.getHour()+1));
-            obsTimeMnBox
-                    .setValue(String.format("%d",localTime.getMinute()));
-            obsTimeSecBox
-                    .setValue("00");
+            obsTimeHourBox.setValue("00");
+            obsTimeMnBox.setValue("00");
+            obsTimeSecBox.setValue("00");
         }
     
 }
