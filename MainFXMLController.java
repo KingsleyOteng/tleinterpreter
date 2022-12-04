@@ -648,6 +648,7 @@ public class MainFXMLController implements Initializable {
 
     private void populateMounts() 
         {
+            // list of different mounts for choicebox
             mountConfigurationList.add("Altitude-azimuth");
             mountConfigurationList.add("Equatorial");
             mountConfigurationList.add("Dobsonian");
@@ -852,6 +853,7 @@ public class MainFXMLController implements Initializable {
                     case "DECEMBER"     ->  currentMonth = "DEC";
                     default             ->                    {}
                 };
+                
            
             // set default day to today
             obsMonBox
@@ -869,6 +871,7 @@ public class MainFXMLController implements Initializable {
                     .setValue(String.format("%d",localTime.getMinute()));
             obsTimeSecBox
                     .setValue("00");
+            
         }
     
 }
