@@ -148,14 +148,14 @@
             <Font name="Optima Regular" size="23.0" />
          </font>
       </Button>
-      <Label fx:id="mount_label_1" layoutX="178.0" layoutY="785.0" text="Altitude : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="mount_label_1" layoutX="239.0" layoutY="768.0" text="Altitude : 0.0 deg." textFill="#b02d19">
          <font>
-            <Font name="Optima Regular" size="36.0" />
+            <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="mount_label_2" layoutX="530.0" layoutY="785.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
+      <Label fx:id="mount_label_2" layoutX="479.0" layoutY="768.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
          <font>
-            <Font name="Optima Regular" size="36.0" />
+            <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
       <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
@@ -178,6 +178,16 @@
             <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
+      <Label fx:id="mount_label_21" layoutX="239.0" layoutY="809.0" text="Start time:" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="mount_label_211" layoutX="479.0" layoutY="809.0" text="End time:" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
       
       
    </children>
