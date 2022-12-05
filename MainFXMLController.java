@@ -70,8 +70,6 @@ public class MainFXMLController implements Initializable {
     String launch_y;
     String launch_num;
     String launch_catalogue_sequence;
-    
-    TopocentricFrame aoiTopoFrame;
 
     int subLen;
     int i, y, x;
@@ -90,6 +88,8 @@ public class MainFXMLController implements Initializable {
     double longitude;
     double azimuth;
     double elevation;
+    
+    TopocentricFrame aoiTopoFrame;
   
         
     @FXML
@@ -488,7 +488,6 @@ public class MainFXMLController implements Initializable {
             meananomaly.setText(line_two_array[5]);
             perigree.setText(line_two_array[4]);
             //dragterm.setText(line_two_array[1]);
-
             firsttimederiv.setText(String.valueOf(tleLineOne.substring(subLen - 36, subLen - 24)));
             secondtimederiv.setText(String.valueOf(tleLineOne.substring(subLen - 24, subLen - 19)));
             secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen - 19, subLen - 17)));
@@ -825,7 +824,6 @@ public class MainFXMLController implements Initializable {
             // Clock with the UTC timezone
             LocalDate currentdate = LocalDate.now();
             LocalTime localTime = LocalTime.now();
-            
             //Month cMonth = currentdate.getMonth();
             int currentDay = currentdate.getDayOfMonth();
             int currentYear = currentdate.getYear();
