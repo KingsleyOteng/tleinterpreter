@@ -229,7 +229,6 @@ public class MainFXMLController implements Initializable {
     private ObservableList<String> obsTimeMinList = FXCollections.observableArrayList();
     private ObservableList<String> obsTimeSecList = FXCollections.observableArrayList();
 
-
     // arrays for the two line element entries
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
@@ -826,6 +825,7 @@ public class MainFXMLController implements Initializable {
             // Clock with the UTC timezone
             LocalDate currentdate = LocalDate.now();
             LocalTime localTime = LocalTime.now();
+            
             //Month cMonth = currentdate.getMonth();
             int currentDay = currentdate.getDayOfMonth();
             int currentYear = currentdate.getYear();
@@ -836,18 +836,18 @@ public class MainFXMLController implements Initializable {
             // format the month to a three letter format
             switch (currentMonth) 
                 {
-                    case "JANUARY"      ->  currentMonth = "JAN";
-                    case "FEBURARY"     ->  currentMonth = "FEB";
-                    case "MARCH"        ->  currentMonth = "MAR";
-                    case "APRIL"        ->  currentMonth = "APR";
-                    case "MAY"          ->  currentMonth = "MAY";
-                    case "JUNE"         ->  currentMonth = "JUN";
-                    case "JULY"         ->  currentMonth = "JUL";
-                    case "AUGUST"       ->  currentMonth = "AUG";
-                    case "SEPTEMBER"    ->  currentMonth = "SEPT";
-                    case "OCTOBER"      ->  currentMonth = "OCT";
-                    case "NOVEMBER"     ->  currentMonth = "NOV";
-                    case "DECEMBER"     ->  currentMonth = "DEC";
+                    case "JANUARY"      ->  currentMonth =  "JAN";
+                    case "FEBURARY"     ->  currentMonth =  "FEB";
+                    case "MARCH"        ->  currentMonth =  "MAR";
+                    case "APRIL"        ->  currentMonth =  "APR";
+                    case "MAY"          ->  currentMonth =  "MAY";
+                    case "JUNE"         ->  currentMonth =  "JUN";
+                    case "JULY"         ->  currentMonth =  "JUL";
+                    case "AUGUST"       ->  currentMonth =  "AUG";
+                    case "SEPTEMBER"    ->  currentMonth =  "SEPT";
+                    case "OCTOBER"      ->  currentMonth =  "OCT";
+                    case "NOVEMBER"     ->  currentMonth =  "NOV";
+                    case "DECEMBER"     ->  currentMonth =  "DEC";
                     default             ->                    {}
                 };
                 
