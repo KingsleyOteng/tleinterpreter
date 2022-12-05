@@ -178,12 +178,17 @@
             <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
-      <Label fx:id="mount_label_21" layoutX="239.0" layoutY="809.0" text="Start time:" textFill="#b02d19">
+      <Label fx:id="mount_label_21" layoutX="133.0" layoutY="809.0" text="Start time:" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="mount_label_211" layoutX="479.0" layoutY="809.0" text="End time:" textFill="#b02d19">
+      <Label fx:id="mount_label_211" layoutX="373.0" layoutY="809.0" text="End time:" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="mount_label_22" layoutX="614.0" layoutY="809.0" text="Layer: " textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
