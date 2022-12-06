@@ -195,22 +195,22 @@ public class MainFXMLController implements Initializable {
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsMonBox 
+    private final ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsDayBox 
+    private final ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsTimeHourBox 
+    private final ChoiceBox<String> obsTimeHourBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsYearBox 
+    private final ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsTimeMnBox 
+    private final ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
     @FXML
-    private ChoiceBox<String> obsTimeSecBox 
+    private final ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
     @FXML
     private Label mount_label_1;
@@ -646,6 +646,7 @@ public class MainFXMLController implements Initializable {
                                         mount_label_2.setText("Azimuth : ");
                             }
                 }
+            
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
             //label_observer_status.setTextFill(Color.web("#228B22"));
