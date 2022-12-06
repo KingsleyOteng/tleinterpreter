@@ -506,13 +506,26 @@ public class MainFXMLController implements Initializable {
                     
             // reference?: https://space.stackexchange.com/questions/23450/determine-orbit-type-from-tle#:~:text=We%20can%20use%20the%20following,35%2C786km).
             if (valOfEccentricity > 0.25)
-            {
-                layer_label.setText("Layer: High Eliptical Orbit");
-            }
-            else if (valOfEccentricity < 0.25)
-            {
-                layer_label.setText("Layer: Troposphere");
-            }
+                {
+                    layer_label.setText("Layer: HEO");
+                }
+            // determine a LEO orbit as having a mean motion greater than 11.25 and an eccentricity less than 0.25
+            else if ((valOfMeanMotion> 11.25) && (valOfEccentricity < 0.25))
+                {
+                    layer_label.setText("Layer: LEO");
+                }
+            // determine a MEO orbit as having a mean motion between 1.8 and 2.4 plus an eccentricity less than 0.25
+            else if ((valOfMeanMotion> 1.8) && (valOfMeanMotion < 2.4)  && (valOfEccentricity < 0.25))
+                {
+                    layer_label.setText("Layer: MEO");
+                }
+            // determine a GEO orbit as having a mean motion less than 1.0 and an eccentricity less than 0.01
+            else if ((valOfMeanMotion < 1.0)  && (valOfEccentricity < 0.01))
+                {
+                    layer_label.setText("Layer: GEO");
+                };
+            
+            
         }
 
     /**
