@@ -587,21 +587,17 @@ public class MainFXMLController implements Initializable {
                 ITRF,
                 date
             );
-
             
             // determine the latitude and longitude of propogaed item
-            
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
             // from the sensor determine the observation parameters in azimuth-elevation
-
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-            // generate labels consistent with true output
-            
+            // generate labels consistent with true output  
             mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
