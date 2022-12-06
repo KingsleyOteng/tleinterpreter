@@ -37,9 +37,9 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="116.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="41.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_load_element" layoutX="101.0" layoutY="114.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="41.0" prefWidth="611.0" style="-fx-background-color: red;" text="LOAD ELEMENT" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="Thonburi" size="15.0" />
+            <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
       <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="169.0" text="OPEN" textFill="#d00314">
@@ -173,22 +173,22 @@
       <ChoiceBox fx:id="obsTimeMnBox" layoutX="586.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="obsTimeSecBox" layoutX="643.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <Label layoutX="637.0" layoutY="268.0" text=":" textFill="#e32e12" />
-      <Button id="load_element_button" fx:id="btn_update11" layoutX="333.0" layoutY="24.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="294.0" style="-fx-background-color: PINK;" text="GET LATEST ELEMENT" textAlignment="JUSTIFY" textFill="#1e1d1d" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update11" layoutX="333.0" layoutY="24.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="294.0" style="-fx-background-color: PINK;" text="GET LATEST ELEMENT" textAlignment="JUSTIFY" textFill="#1e1d1d" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
-      <Label fx:id="mount_label_21" layoutX="133.0" layoutY="809.0" text="Start time:" textFill="#b02d19">
+      <Label fx:id="start_time_label" layoutX="133.0" layoutY="809.0" text="Start time: 0000" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="mount_label_211" layoutX="373.0" layoutY="809.0" text="End time:" textFill="#b02d19">
+      <Label fx:id="obs_label" layoutX="373.0" layoutY="809.0" text="Obs. time: 900s" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="mount_label_22" layoutX="614.0" layoutY="809.0" text="Layer: " textFill="#b02d19">
+      <Label fx:id="layer_label" layoutX="614.0" layoutY="809.0" text="Layer: Troposphere" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
