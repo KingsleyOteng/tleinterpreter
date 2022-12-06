@@ -502,7 +502,9 @@ public class MainFXMLController implements Initializable {
             orbit_height = orbit_height * (3.14159267 * 2) / 86400;
             
             double valOfEccentricity = Double.parseDouble(tleLineTwo.substring(subLen - 43, subLen - 36)) / 10000000;
-            
+            double valOfMeanMotion = Double.parseDouble(line_two_array[6]);
+                    
+            // reference?: https://space.stackexchange.com/questions/23450/determine-orbit-type-from-tle#:~:text=We%20can%20use%20the%20following,35%2C786km).
             if (valOfEccentricity > 0.25)
             {
                 layer_label.setText("Layer: High Eliptical Orbit");
