@@ -507,7 +507,7 @@ public class MainFXMLController implements Initializable {
             {
                 layer_label.setText("Layer: High Eliptical Orbit");
             }
-            else if (valOfEccentricity > 0.25)
+            else if (valOfEccentricity < 0.25)
             {
                 layer_label.setText("Layer: Troposphere");
             }
