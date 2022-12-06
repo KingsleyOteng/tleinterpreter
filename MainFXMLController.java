@@ -897,7 +897,6 @@ public class MainFXMLController implements Initializable {
                     .setValue(String.format("%d",localTime.getMinute()));
             obsTimeSecBox
                     .setValue("00");
-            
         }
     
 }
