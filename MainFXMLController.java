@@ -589,20 +589,26 @@ public class MainFXMLController implements Initializable {
             );
             
             // determine the latitude and longitude of propogaed item
+            
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
+            
             // from the sensor determine the observation parameters in azimuth-elevation
+            
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
+            
             // generate labels consistent with true output  
+            
             mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
                 // set to Alt-Azimuth
+                
                 if (null == choiceBox.getValue()) 
                     {
                         // set to dobsonian mount parameters
@@ -610,36 +616,40 @@ public class MainFXMLController implements Initializable {
                         mount_label_2.setText("Azimuth : ");
                     } 
                 else switch (choiceBox.getValue()) 
-                    {
+                {
                     
-                        case "Equatorial":
-                            // set to equatorial mount parameters
-                            mount_label_1.setText("Right ascension : ");
-                            mount_label_2.setText("Declination: ");
-                            break;
-                            
-                    //menu_button_orientationx.setText("OK - Set");
-                    // hello2.setText(menu_button_orientationx.getText());
-                    //label_observer_status.setTextFill(Color.web("#228B22"));
-                            
-                        case "Altitude-azimuth":
-                            // set to altitude azimuth mount parameters
-                            mount_label_1.setText("Altitude : ");
-                            mount_label_2.setText("Azimuth : ");
-                            break;
-                            
-                        case "German equatorial":
-                            // set to german equatorial mount parameters
-                            mount_label_1.setText("Declination axis : ");
-                            mount_label_2.setText("Polar axis : ");
-                            break;
-                            
-                        default:
-                            // set to dobsonian mount parameters
-                            mount_label_1.setText("Altitude : ");
-                            mount_label_2.setText("Azimuth : ");
-                            break;
-                    }
+                            case "Equatorial" -> 
+                            {
+                                        // set to equatorial mount parameters
+                                        mount_label_1.setText("Right ascension : ");
+                                        mount_label_2.setText("Declination: ");
+                            }
+
+                            case "Altitude-azimuth" -> 
+                            {
+                                        // set to altitude azimuth mount parameters
+                                        mount_label_1.setText("Altitude : ");
+                                        mount_label_2.setText("Azimuth : ");
+                            }
+
+                            case "German equatorial" -> 
+                            {
+                                        // set to german equatorial mount parameters
+                                        mount_label_1.setText("Declination axis : ");
+                                        mount_label_2.setText("Polar axis : ");
+                            }
+
+                            default -> 
+                            {
+                                        // set to dobsonian mount parameters
+                                        mount_label_1.setText("Altitude : ");
+                                        mount_label_2.setText("Azimuth : ");
+                            }
+                }
+            //menu_button_orientationx.setText("OK - Set");
+            // hello2.setText(menu_button_orientationx.getText());
+            //label_observer_status.setTextFill(Color.web("#228B22"));
+            
         }
 
         private int checkSum(String strArray) 
