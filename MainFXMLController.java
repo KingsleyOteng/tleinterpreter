@@ -195,22 +195,22 @@ public class MainFXMLController implements Initializable {
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsMonBox 
+    private ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsDayBox 
+    private ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeHourBox 
+    private ChoiceBox<String> obsTimeHourBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsYearBox 
+    private ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeMnBox 
+    private ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeSecBox 
+    private ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
     @FXML
     private Label mount_label_1;
@@ -653,6 +653,7 @@ public class MainFXMLController implements Initializable {
             
         }
 
+    
         private int checkSum(String strArray) 
         {
             int stringLen;
