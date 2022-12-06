@@ -88,6 +88,7 @@ public class MainFXMLController implements Initializable {
     double longitude;
     double azimuth;
     double elevation;
+    double orbit_height;
     
     TopocentricFrame aoiTopoFrame;
   
@@ -216,6 +217,9 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private Label mount_label_2;
+    
+    @FXML
+    private Label layer_label;
     
     @FXML
     private final MenuItem item1 = new MenuItem();
@@ -481,7 +485,7 @@ public class MainFXMLController implements Initializable {
             label_slot_status.setTextFill(Color.web("#228B22"));
             orbitinclination.setText(line_two_array[2]);
             rightascension.setText(line_two_array[3]);
-            eccentricity.setText(String.valueOf(tleLineTwo.substring(subLen - 43, subLen - 36)));
+            eccentricity.setText("0."+String.valueOf(tleLineTwo.substring(subLen - 43, subLen - 36)));
             elementnumber.setText(String.valueOf(tleLineOne.substring(subLen - 5, subLen - 1)));
             revolutionnumber.setText(String.valueOf(tleLineTwo.substring(subLen - 6, subLen - 1)));
             ephemeristype.setText(String.valueOf(tleLineOne.substring(subLen - 7, subLen - 5)));
@@ -494,6 +498,19 @@ public class MainFXMLController implements Initializable {
             secondtimederivexp.setText(String.valueOf(tleLineOne.substring(subLen - 19, subLen - 17)));
             bstardrag.setText(String.valueOf(tleLineOne.substring(subLen - 16, subLen - 10)));
             bstardragexp.setText(String.valueOf(tleLineOne.substring(subLen - 10, subLen - 6))); 
+            orbit_height = Double.parseDouble(tleLineTwo.substring(subLen - 43, subLen - 36));
+            orbit_height = orbit_height * (3.14159267 * 2) / 86400;
+            
+            double valOfEccentricity = Double.parseDouble(tleLineTwo.substring(subLen - 43, subLen - 36)) / 10000000;
+            
+            if (valOfEccentricity > 0.25)
+            {
+                layer_label.setText("Layer: High Eliptical Orbit");
+            }
+            else if (valOfEccentricity > 0.25)
+            {
+                layer_label.setText("Layer: Troposphere");
+            }
         }
 
     /**
