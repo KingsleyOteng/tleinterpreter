@@ -504,7 +504,6 @@ public class MainFXMLController implements Initializable {
             double valOfEccentricity = Double.parseDouble(tleLineTwo.substring(subLen - 43, subLen - 36)) / 10000000;
             double valOfMeanMotion = Double.parseDouble(line_two_array[6]);
                     
-            // reference?: https://space.stackexchange.com/questions/23450/determine-orbit-type-from-tle#:~:text=We%20can%20use%20the%20following,35%2C786km).
             if (valOfEccentricity > 0.25)
                 {
                     layer_label.setText("Layer: HEO");
@@ -523,8 +522,7 @@ public class MainFXMLController implements Initializable {
             else if ((valOfMeanMotion < 1.0)  && (valOfEccentricity < 0.01))
                 {
                     layer_label.setText("Layer: GEO");
-                };
-            
+                }
             
         }
 
