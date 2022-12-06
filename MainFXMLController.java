@@ -646,12 +646,14 @@ public class MainFXMLController implements Initializable {
                                         mount_label_2.setText("Azimuth : ");
                             }
                 }
+            
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
             //label_observer_status.setTextFill(Color.web("#228B22"));
             
         }
 
+    
         private int checkSum(String strArray) 
         {
             int stringLen;
@@ -664,14 +666,17 @@ public class MainFXMLController implements Initializable {
                 //System.out.println(strArray.subSequence(i,i+1));
                 String x = (String) strArray.subSequence(i, i + 1);
 
-                if (x.equals("-")) {
-                    total++;
-                } else if (x.equals("0") | x.equals("1") | x.equals("2") | x.equals("3") | x.equals("4") | x.equals("5") | x.equals("6") | x.equals("7") | x.equals("8") | x.equals("9")) {
-                    System.out.println("total>>" + total);
-                    System.out.println("letter>>" + Integer.valueOf(x));
-                    total = total + Integer.parseInt(x);
-                    System.out.println("out>>" + i);
-                }
+                if (x.equals("-")) 
+                    {
+                        total++;
+                    } 
+                    else if (x.equals("0") | x.equals("1") | x.equals("2") | x.equals("3") | x.equals("4") | x.equals("5") | x.equals("6") | x.equals("7") | x.equals("8") | x.equals("9")) 
+                    {
+                        System.out.println("total>>" + total);
+                        System.out.println("letter>>" + Integer.valueOf(x));
+                        total = total + Integer.parseInt(x);
+                        System.out.println("out>>" + i);
+                    }
                 i++;
 
             }
