@@ -504,26 +504,15 @@ public class MainFXMLController implements Initializable {
             double valOfEccentricity = Double.parseDouble(tleLineTwo.substring(subLen - 43, subLen - 36)) / 10000000;
             double valOfMeanMotion = Double.parseDouble(line_two_array[6]);
                     
+            // reference?: https://space.stackexchange.com/questions/23450/determine-orbit-type-from-tle#:~:text=We%20can%20use%20the%20following,35%2C786km).
             if (valOfEccentricity > 0.25)
-                {
-                    layer_label.setText("Layer: HEO");
-                }
-            // determine a LEO orbit as having a mean motion greater than 11.25 and an eccentricity less than 0.25
-            else if ((valOfMeanMotion> 11.25) && (valOfEccentricity < 0.25))
-                {
-                    layer_label.setText("Layer: LEO");
-                }
-            // determine a MEO orbit as having a mean motion between 1.8 and 2.4 plus an eccentricity less than 0.25
-            else if ((valOfMeanMotion> 1.8) && (valOfMeanMotion < 2.4)  && (valOfEccentricity < 0.25))
-                {
-                    layer_label.setText("Layer: MEO");
-                }
-            // determine a GEO orbit as having a mean motion less than 1.0 and an eccentricity less than 0.01
-            else if ((valOfMeanMotion < 1.0)  && (valOfEccentricity < 0.01))
-                {
-                    layer_label.setText("Layer: GEO");
-                }
-            
+            {
+                layer_label.setText("Layer: High Eliptical Orbit");
+            }
+            else if (valOfEccentricity < 0.25)
+            {
+                layer_label.setText("Layer: Troposphere");
+            }
         }
 
     /**
@@ -587,28 +576,26 @@ public class MainFXMLController implements Initializable {
                 ITRF,
                 date
             );
+
             
             // determine the latitude and longitude of propogaed item
             
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
-            
             // from the sensor determine the observation parameters in azimuth-elevation
-            
+
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-            
-            // generate labels consistent with true output  
+            // generate labels consistent with true output
             
             mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
                 // set to Alt-Azimuth
-                
                 if (null == choiceBox.getValue()) 
                     {
                         // set to dobsonian mount parameters
@@ -616,44 +603,38 @@ public class MainFXMLController implements Initializable {
                         mount_label_2.setText("Azimuth : ");
                     } 
                 else switch (choiceBox.getValue()) 
-                {
+                    {
                     
-                            case "Equatorial" -> 
-                            {
-                                        // set to equatorial mount parameters
-                                        mount_label_1.setText("Right ascension : ");
-                                        mount_label_2.setText("Declination: ");
-                            }
-
-                            case "Altitude-azimuth" -> 
-                            {
-                                        // set to altitude azimuth mount parameters
-                                        mount_label_1.setText("Altitude : ");
-                                        mount_label_2.setText("Azimuth : ");
-                            }
-
-                            case "German equatorial" -> 
-                            {
-                                        // set to german equatorial mount parameters
-                                        mount_label_1.setText("Declination axis : ");
-                                        mount_label_2.setText("Polar axis : ");
-                            }
-
-                            default -> 
-                            {
-                                        // set to dobsonian mount parameters
-                                        mount_label_1.setText("Altitude : ");
-                                        mount_label_2.setText("Azimuth : ");
-                            }
-                }
-            
-            //menu_button_orientationx.setText("OK - Set");
-            // hello2.setText(menu_button_orientationx.getText());
-            //label_observer_status.setTextFill(Color.web("#228B22"));
-            
+                        case "Equatorial":
+                            // set to equatorial mount parameters
+                            mount_label_1.setText("Right ascension : ");
+                            mount_label_2.setText("Declination: ");
+                            break;
+                            
+                    //menu_button_orientationx.setText("OK - Set");
+                    // hello2.setText(menu_button_orientationx.getText());
+                    //label_observer_status.setTextFill(Color.web("#228B22"));
+                            
+                        case "Altitude-azimuth":
+                            // set to altitude azimuth mount parameters
+                            mount_label_1.setText("Altitude : ");
+                            mount_label_2.setText("Azimuth : ");
+                            break;
+                            
+                        case "German equatorial":
+                            // set to german equatorial mount parameters
+                            mount_label_1.setText("Declination axis : ");
+                            mount_label_2.setText("Polar axis : ");
+                            break;
+                            
+                        default:
+                            // set to dobsonian mount parameters
+                            mount_label_1.setText("Altitude : ");
+                            mount_label_2.setText("Azimuth : ");
+                            break;
+                    }
         }
 
-    
         private int checkSum(String strArray) 
         {
             int stringLen;
@@ -666,17 +647,14 @@ public class MainFXMLController implements Initializable {
                 //System.out.println(strArray.subSequence(i,i+1));
                 String x = (String) strArray.subSequence(i, i + 1);
 
-                if (x.equals("-")) 
-                    {
-                        total++;
-                    } 
-                    else if (x.equals("0") | x.equals("1") | x.equals("2") | x.equals("3") | x.equals("4") | x.equals("5") | x.equals("6") | x.equals("7") | x.equals("8") | x.equals("9")) 
-                    {
-                        System.out.println("total>>" + total);
-                        System.out.println("letter>>" + Integer.valueOf(x));
-                        total = total + Integer.parseInt(x);
-                        System.out.println("out>>" + i);
-                    }
+                if (x.equals("-")) {
+                    total++;
+                } else if (x.equals("0") | x.equals("1") | x.equals("2") | x.equals("3") | x.equals("4") | x.equals("5") | x.equals("6") | x.equals("7") | x.equals("8") | x.equals("9")) {
+                    System.out.println("total>>" + total);
+                    System.out.println("letter>>" + Integer.valueOf(x));
+                    total = total + Integer.parseInt(x);
+                    System.out.println("out>>" + i);
+                }
                 i++;
 
             }
@@ -908,6 +886,7 @@ public class MainFXMLController implements Initializable {
                     .setValue(String.format("%d",localTime.getMinute()));
             obsTimeSecBox
                     .setValue("00");
+            
         }
     
 }
