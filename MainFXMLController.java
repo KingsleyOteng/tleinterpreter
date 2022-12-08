@@ -235,13 +235,13 @@ public class MainFXMLController implements Initializable {
     private final MenuItem item1 = new MenuItem();
 
     // drop down box lists
-    private ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
-    private ObservableList<String> obsDateYearList = FXCollections.observableArrayList();
-    private ObservableList<String> obsDateMonList = FXCollections.observableArrayList();
-    private ObservableList<String> obsDateDayList = FXCollections.observableArrayList();
-    private ObservableList<String> obsTimeHourList = FXCollections.observableArrayList();
-    private ObservableList<String> obsTimeMinList = FXCollections.observableArrayList();
-    private ObservableList<String> obsTimeSecList = FXCollections.observableArrayList();
+    private final ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsDateYearList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsDateMonList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsDateDayList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsTimeHourList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsTimeMinList = FXCollections.observableArrayList();
+    private final ObservableList<String> obsTimeSecList = FXCollections.observableArrayList();
 
     // arrays for the two line element entries
     private static final String line_one_array[] = new String[20];
@@ -676,19 +676,20 @@ public class MainFXMLController implements Initializable {
             while (i < stringLen) {
                 //String stringPhrase = strArray;
                 //System.out.println(strArray.subSequence(i,i+1));
-                String x = (String) strArray.subSequence(i, i + 1);
+                String sequnce = (String) strArray.subSequence(i, i + 1);
 
-                if (x.equals("-")) 
+                if (sequnce.equals("-")) 
                     {
                         total++;
                     } 
-                    else if (x.equals("0") | x.equals("1") | x.equals("2") | x.equals("3") | x.equals("4") | x.equals("5") | x.equals("6") | x.equals("7") | x.equals("8") | x.equals("9")) 
+                    else if (!(sequnce.equals("9") | sequnce.equals("0") |sequnce.equals("1") | sequnce.equals("2") | sequnce.equals("3") | sequnce.equals("4") | sequnce.equals("5") | sequnce.equals("6") | sequnce.equals("7") | sequnce.equals("8"))) 
                     {
+                    } else {
                         System.out.println("total>>" + total);
-                        System.out.println("letter>>" + Integer.valueOf(x));
-                        total = total + Integer.parseInt(x);
+                        System.out.println("letter>>" + Integer.valueOf(sequnce));
+                        total = total + Integer.parseInt(sequnce);
                         System.out.println("out>>" + i);
-                    }
+                }
                 i++;
             }
             return total;
