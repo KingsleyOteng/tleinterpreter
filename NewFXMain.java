@@ -16,7 +16,8 @@ import javafx.stage.Stage;
  * @author terra6partners
  */
 
-public class NewFXMain extends Application {
+public class NewFXMain extends Application 
+{
     
     /**
      * construct the UI
@@ -39,5 +40,4 @@ public class NewFXMain extends Application {
         {
             launch(args);
         }
-    
 }
