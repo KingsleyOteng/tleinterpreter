@@ -658,7 +658,7 @@ public class MainFXMLController implements Initializable {
             //label_observer_status.setTextFill(Color.web("#228B22"));  
         }
 
-        private int checkSum(String strArray) 
+    private int checkSum(String strArray) 
         {
             int stringLen;
             stringLen = strArray.length();
