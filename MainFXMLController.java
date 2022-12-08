@@ -623,8 +623,7 @@ public class MainFXMLController implements Initializable {
                         mount_label_2.setText("Azimuth : ");
                     } 
                 else switch (choiceBox.getValue()) 
-                {
-                    
+                    {
                             case "Equatorial" -> 
                             {
                                         // set to equatorial mount parameters
@@ -655,15 +654,12 @@ public class MainFXMLController implements Initializable {
                                          // generate labels consistent with true output
                                         mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
                                         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
-
                             }
-                }
+                    }
                 
-            
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
-            //label_observer_status.setTextFill(Color.web("#228B22"));
-            
+            //label_observer_status.setTextFill(Color.web("#228B22"));  
         }
 
         private int checkSum(String strArray) 
@@ -673,7 +669,8 @@ public class MainFXMLController implements Initializable {
             int i = 1;
             int total = 0;
 
-            while (i < stringLen) {
+            while (i < stringLen) 
+            {
                 //String stringPhrase = strArray;
                 //System.out.println(strArray.subSequence(i,i+1));
                 String sequnce = (String) strArray.subSequence(i, i + 1);
@@ -910,7 +907,6 @@ public class MainFXMLController implements Initializable {
             obsYearBox
                     .setValue(String.format("%d", currentYear));
             
-            
             // set default observation time to next hour
             obsTimeHourBox
                     .setValue(String.format("%d",localTime.getHour()+1));
@@ -919,5 +915,4 @@ public class MainFXMLController implements Initializable {
             obsTimeSecBox
                     .setValue("00");
         }
-    
 }
