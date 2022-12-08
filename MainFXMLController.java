@@ -433,7 +433,7 @@ public class MainFXMLController implements Initializable {
             observation_sec.setText(String.valueOf(obs_sec));
 
                 //launch_catalogue_sequence.setText(launch_catalogue_number);
-                if (obs_y < 60) 
+            if (obs_y < 60) 
                 {
                     observation_year.setText("20" + String.valueOf(obs_y));
                 } 
@@ -455,21 +455,21 @@ public class MainFXMLController implements Initializable {
 
             i = 1; y = 0;  x = 0;
             while (matcher_short.find()) 
-            {
-                x = y;
-                y = matcher_short.end();
-                //System.out.println("x"+x);
-                //System.out.println("y"+y);
-                //System.out.println(">"+tleLineOne.substring(x+1,y));
-
-                // extract from the range 10- 11 the ephemeris type
-                if (y > 11) 
                 {
-                    launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
-                    lcsequence.setText(launch_catalogue_sequence);
+                    x = y;
+                    y = matcher_short.end();
+                    //System.out.println("x"+x);
+                    //System.out.println("y"+y);
+                    //System.out.println(">"+tleLineOne.substring(x+1,y));
+
+                    // extract from the range 10- 11 the ephemeris type
+                    if (y > 11) 
+                    {
+                        launch_catalogue_sequence = tleLineOne.substring(y - 1, y);
+                        lcsequence.setText(launch_catalogue_sequence);
+                    }
+                    i++;
                 }
-                i++;
-            }
 
             // extract from tle line 2
             Matcher matcher_next = pattern.matcher(tleLineTwo);
@@ -530,7 +530,6 @@ public class MainFXMLController implements Initializable {
                 {
                     layer_label.setText("Layer: GEO");
                 }
-            
         }
 
     /**
