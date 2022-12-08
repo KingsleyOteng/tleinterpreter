@@ -21,6 +21,9 @@ public class NewFXMain extends Application
     
     /**
      * construct the UI
+     * @param stage
+     * @throws java.lang.Exception
+     * @throws java.lang.reflect.InvocationTargetException
      */ 
     @Override
     public void start(Stage stage) throws Exception, InvocationTargetException
