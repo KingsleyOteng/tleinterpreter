@@ -690,7 +690,6 @@ public class MainFXMLController implements Initializable {
                         System.out.println("out>>" + i);
                     }
                 i++;
-
             }
             return total;
         }
@@ -902,7 +901,6 @@ public class MainFXMLController implements Initializable {
                     default             ->                    {}
                 };
                 
-                
             // set default day to today
             obsMonBox
                     .setValue(currentMonth);
@@ -910,7 +908,6 @@ public class MainFXMLController implements Initializable {
                     .setValue(String.format("%d", currentDay));
             obsYearBox
                     .setValue(String.format("%d", currentYear));
-            
             
             
             // set default observation time to next hour
