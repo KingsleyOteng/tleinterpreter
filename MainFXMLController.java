@@ -257,7 +257,6 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
         {
 
-            
             DecimalFormat df = new DecimalFormat("0.00");
             // initial orbit propogation constants
             File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
@@ -274,7 +273,6 @@ public class MainFXMLController implements Initializable {
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
             this.setCurrentDateTime();
-            
             
             // load orekit conventions
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
@@ -349,16 +347,15 @@ public class MainFXMLController implements Initializable {
     private void updateLoadStatus() 
         {
             // string array
-            String st[] = {"Arnab", "Andrew", "Ankit", "None"};
+            // String st[] = {"Arnab", "Andrew", "Ankit", "None"};
 
             // create a choiceBox
-            choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
+            //choiceBox = new ChoiceBox(FXCollections.observableArrayList(st));
 
             //String hello;
             //String x = line1_fields.getText();
             //Pattern p=Pattern.compile("\\s");  
             //String[] str=p.split(x);  
-
             //for(String str1:str)  
             //{  
             //    count++; 
@@ -390,17 +387,16 @@ public class MainFXMLController implements Initializable {
 
             y = 0; x = 0; i = 1;
             while (matcher.find()) 
-            {
-
-                y = matcher.end();
-                //System.out.println("x"+x);
-                //System.out.println("y"+y);
-                //System.out.println(">"+tleLineOne.substring(x+1,y));
-                line_one_array[i] = (tleLineOne.substring(x, y));
-                line_one_array[i] = line_one_array[i].trim();
-                i++;
-                x = y + 1;
-            }
+                {
+                    y = matcher.end();
+                    //System.out.println("x"+x);
+                    //System.out.println("y"+y);
+                    //System.out.println(">"+tleLineOne.substring(x+1,y));
+                    line_one_array[i] = (tleLineOne.substring(x, y));
+                    line_one_array[i] = line_one_array[i].trim();
+                    i++;
+                    x = y + 1;
+                }
 
             subLen = tleLineOne.length();
             launch_y = (line_one_array[2].substring(0, 2));
@@ -423,7 +419,7 @@ public class MainFXMLController implements Initializable {
             launch_number.setText(String.valueOf(launch_num));
 
                 // set the launch year
-                if (Double.parseDouble(launch_y) < 60) 
+            if (Double.parseDouble(launch_y) < 60) 
                 {
                     launch_year.setText("20" + String.valueOf(launch_y));
                 } 
@@ -569,6 +565,7 @@ public class MainFXMLController implements Initializable {
 
 
             // create a TLE object
+            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             final TLE tle = new TLE(line1, line2);
@@ -594,8 +591,8 @@ public class MainFXMLController implements Initializable {
             GeodeticPoint geodetic = earth.transform
             (
                 coord.getPosition(),
-                ITRF,
-                date
+                   ITRF,
+                        date
             );
             
             // determine the latitude and longitude of propogaed item
