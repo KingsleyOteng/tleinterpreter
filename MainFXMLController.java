@@ -90,6 +90,16 @@ public class MainFXMLController implements Initializable {
     double elevation;
     double orbit_height;
     
+    private static double sensor_dobs_altitude;
+    private static double sensor_dobs_azimuth;
+    private static double sensor_altaz_altitude;
+    private static double sensor_altaz_azimuth;
+    private static double sensor_altaz_elevation;
+    private static double sensor_eq_right_ascension;
+    private static double sensor_eq_delination; 
+    private static double sensor_ge_declination;
+    private static double sensor_ge_polar;
+    
     TopocentricFrame aoiTopoFrame;
   
         
@@ -321,7 +331,7 @@ public class MainFXMLController implements Initializable {
 
 
             // generate labels consistent with true output
-            mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
+            mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
         }
@@ -608,7 +618,7 @@ public class MainFXMLController implements Initializable {
             
             // generate labels consistent with true output  
             
-            mount_label_1.setText("Alt. : " + String.valueOf(df.format(azimuth)));
+            mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
