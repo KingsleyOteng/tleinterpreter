@@ -903,7 +903,6 @@ public class MainFXMLController implements Initializable {
                     default             ->                    {}
                 };
                 
-           
             // set default day to today
             obsMonBox
                     .setValue(currentMonth);

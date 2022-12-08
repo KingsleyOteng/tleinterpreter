@@ -13,7 +13,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * @author terra6partner
+ * @author terra6partners
  */
 
 public class NewFXMain extends Application {
@@ -30,6 +30,7 @@ public class NewFXMain extends Application {
             stage.setScene(scene);
             stage.show();
         }
+    
     
     /**
      * @param args the command line arguments
