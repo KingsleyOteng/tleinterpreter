@@ -569,7 +569,6 @@ public class MainFXMLController implements Initializable {
 
 
             // create a TLE object
-            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             final TLE tle = new TLE(line1, line2);
@@ -604,18 +603,15 @@ public class MainFXMLController implements Initializable {
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
-            
             // from the sensor determine the observation parameters in azimuth-elevation
             
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
-
-            
-            // generate labels consistent with true output  
-            
-            mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
-            mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+           
+            //generate labels consistent with true output          
+            //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
+            //mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
                 // set to Alt-Azimuth
