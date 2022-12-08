@@ -315,20 +315,16 @@ public class MainFXMLController implements Initializable {
             );
 
             // determine the latitude and longitude of propogaed item
-
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
             // from the sensor determine the observation parameters in azimuth-elevation
-
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
             // let us see how this has been propogated
-
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-
 
             // generate labels consistent with true output
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
@@ -657,10 +653,16 @@ public class MainFXMLController implements Initializable {
                             default -> 
                             {
                                         // set to dobsonian mount parameters
-                                        mount_label_1.setText("Altitude : ");
-                                        mount_label_2.setText("Azimuth : ");
+                                        //mount_label_1.setText("Altitude : ");
+                                        //mount_label_2.setText("Azimuth : ");
+                                        
+                                         // generate labels consistent with true output
+                                        mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
+                                        mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+
                             }
                 }
+                
             
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
