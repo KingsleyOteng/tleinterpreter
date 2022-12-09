@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 public class NewFXMain extends Application 
 {
-    
     /**
      * construct the UI
      * @param stage
