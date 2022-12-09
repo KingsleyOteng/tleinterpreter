@@ -254,6 +254,7 @@ public class MainFXMLController implements Initializable {
      * @param rb
      */
     @Override
+    @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) 
         {
 
@@ -690,6 +691,7 @@ public class MainFXMLController implements Initializable {
 
     private void populateMounts() 
         {
+            
             // list of different mounts for choicebox
             mountConfigurationList.add("Altitude-azimuth");
             mountConfigurationList.add("Equatorial");
@@ -862,6 +864,7 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("29");
             obsDateDayList.add("30");
             obsDateDayList.add("31");
+            
         }
     
     @SuppressWarnings("empty-statement")
