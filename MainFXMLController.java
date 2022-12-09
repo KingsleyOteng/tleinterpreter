@@ -284,12 +284,10 @@ public class MainFXMLController implements Initializable {
             
             // set sensor location
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
-
             
             // determine topocentric frame of reference
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
 
-            
             // create a TLE object
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
