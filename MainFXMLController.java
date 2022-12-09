@@ -281,7 +281,6 @@ public class MainFXMLController implements Initializable {
                 Constants.WGS84_EARTH_FLATTENING,
                 ITRF);
 
-            
             // set sensor location
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
