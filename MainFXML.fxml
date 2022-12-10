@@ -192,7 +192,11 @@
       <Line endX="354.354736328125" layoutX="368.0" layoutY="68.0" startX="-364.23614501953125" />
       <Line endX="-374.73614501953125" endY="-9.5" layoutX="378.0" layoutY="77.0" startX="-374.73614501953125" startY="-51.45795440673828" />
       <Line endX="-374.73614501953125" endY="-9.5" layoutX="1097.0" layoutY="77.0" startX="-374.73614501953125" startY="-51.45795440673828" />
-      <Button fx:id="btn_load_element" layoutX="103.0" layoutY="117.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="48.0" prefWidth="623.0" text="LOAD ELEMENT" textFill="WHITE" />
+      <Button fx:id="btn_load_element" layoutX="103.0" layoutY="117.0" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="48.0" prefWidth="623.0" style="-fx-background-color: white;" text="LOAD ELEMENT" textFill="#fc0c0c">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
       
       
    </children>
