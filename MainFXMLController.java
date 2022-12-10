@@ -340,6 +340,7 @@ public class MainFXMLController implements Initializable {
      *
      * @param url
      * @param rb
+     * 
      */
     @FXML
     private void updateLoadStatus() 
@@ -529,12 +530,14 @@ public class MainFXMLController implements Initializable {
                     layer_label.setText("Layer: GEO");
                 }
         }
-
+    
     /**
      * Update JavaFX file
      *
      * @param url
      * @param rb
+     * @param rb
+     * 
      */
     @FXML
     private void updateObserverStatus() 
@@ -548,6 +551,8 @@ public class MainFXMLController implements Initializable {
      *
      * @param url
      * @param rb
+     * @param rb
+     * 
      */
     @FXML
     private void updateObserverStatus1() 
