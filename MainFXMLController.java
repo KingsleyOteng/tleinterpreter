@@ -413,7 +413,6 @@ public class MainFXMLController implements Initializable {
             epoch_date.setText(String.valueOf(epochdate));
             epoch_time.setText(String.valueOf(epochtime));
             satellite.setText((line_one_array[1]));
-
             // set the launch number of that year
             launch_number.setText(String.valueOf(launch_num));
 
