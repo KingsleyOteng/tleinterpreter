@@ -413,7 +413,6 @@ public class MainFXMLController implements Initializable {
             epoch_date.setText(String.valueOf(epochdate));
             epoch_time.setText(String.valueOf(epochtime));
             satellite.setText((line_one_array[1]));
-
             // set the launch number of that year
             launch_number.setText(String.valueOf(launch_num));
 
@@ -692,8 +691,7 @@ public class MainFXMLController implements Initializable {
         }
 
     private void populateMounts() 
-        {
-            
+        {   
             // list of different mounts for choicebox
             mountConfigurationList.add("Altitude-azimuth");
             mountConfigurationList.add("Equatorial");
@@ -865,8 +863,7 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("28");
             obsDateDayList.add("29");
             obsDateDayList.add("30");
-            obsDateDayList.add("31");
-            
+            obsDateDayList.add("31"); 
         }
     
     @SuppressWarnings("empty-statement")
