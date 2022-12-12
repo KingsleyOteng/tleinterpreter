@@ -138,7 +138,7 @@
       </Button>
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
       <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
-      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="20.0" layoutY="803.0" mnemonicParsing="false" onAction="#updateObserverStatus1" prefHeight="43.0" prefWidth="101.0" style="-fx-background-color: green;" text="BUILD" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="20.0" layoutY="803.0" mnemonicParsing="false" onAction="#updateObserverStatus1" prefHeight="43.0" prefWidth="101.0" style="-fx-background-color: green; -fx-border-color: white;" text="BUILD" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Optima Regular" size="23.0" />
          </font>

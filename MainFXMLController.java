@@ -560,6 +560,7 @@ public class MainFXMLController implements Initializable {
             DecimalFormat df = new DecimalFormat("0.00");
 
             // 
+            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
                 Constants.WGS84_EARTH_FLATTENING,
@@ -649,8 +650,8 @@ public class MainFXMLController implements Initializable {
                                         // set to dobsonian mount parameters
                                         //mount_label_1.setText("Altitude : ");
                                         //mount_label_2.setText("Azimuth : ");
-                                        
-                                         // generate labels consistent with true output
+                     
+                                        // generate labels consistent with true output
                                         mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
                                         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
                             }
