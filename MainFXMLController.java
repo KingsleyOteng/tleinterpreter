@@ -413,10 +413,11 @@ public class MainFXMLController implements Initializable {
             epoch_date.setText(String.valueOf(epochdate));
             epoch_time.setText(String.valueOf(epochtime));
             satellite.setText((line_one_array[1]));
+            
             // set the launch number of that year
             launch_number.setText(String.valueOf(launch_num));
 
-                // set the launch year
+            // set the launch year
             if (Double.parseDouble(launch_y) < 60) 
                 {
                     launch_year.setText("20" + String.valueOf(launch_y));
@@ -896,6 +897,7 @@ public class MainFXMLController implements Initializable {
                     case "DECEMBER"     ->  currentMonth =  "DEC";
                     default             ->                    {}
                 };
+            
                 
             // set default day to today
             obsMonBox
@@ -904,6 +906,7 @@ public class MainFXMLController implements Initializable {
                     .setValue(String.format("%d", currentDay));
             obsYearBox
                     .setValue(String.format("%d", currentYear));
+            
             
             // set default observation time to next hour
             obsTimeHourBox
