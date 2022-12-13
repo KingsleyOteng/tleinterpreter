@@ -210,6 +210,11 @@ public class MainFXMLController implements Initializable {
     @FXML
     private final ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
+    
+    @FXML
+    private final ChoiceBox<String> xx 
+            = new ChoiceBox();
+    
     @FXML
     private final ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
@@ -276,7 +281,7 @@ public class MainFXMLController implements Initializable {
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
-            // set sensor details
+            // set sensor 
             sensor_latitude = -35.320277777778;
             sensor_longitude = 149.00694444444;
             sensor_altitude = 0.77;
@@ -287,6 +292,7 @@ public class MainFXMLController implements Initializable {
             btn_load_element.setTextFill(Color.RED);
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
+            
             obsMonBox.setItems(obsDateMonList);
             obsDayBox.setItems(obsDateDayList);
             obsYearBox.setItems(obsDateYearList);
@@ -886,6 +892,10 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("29");
             obsDateDayList.add("30");
             obsDateDayList.add("31"); 
+            
+             String st[] = { "Arnab", "Andrew", "Ankit", "None" };
+            
+            xx.setItems(FXCollections.observableArrayList(st));
         }
     
     @SuppressWarnings("empty-statement")

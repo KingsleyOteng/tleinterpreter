@@ -244,6 +244,7 @@
       <ChoiceBox fx:id="obsDayBox1" layoutX="225.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="obsYearBox1" layoutX="311.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
+      <ChoiceBox layoutX="757.0" layoutY="139.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" fx:id="xx" />
       
       
    </children>
