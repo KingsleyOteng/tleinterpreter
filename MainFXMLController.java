@@ -89,6 +89,9 @@ public class MainFXMLController implements Initializable {
     double azimuth;
     double elevation;
     double orbit_height;
+    double sensor_latitude;
+    double sensor_longitude;
+    double sensor_altitude;
     
     private static double sensor_dobs_altitude;
     private static double sensor_dobs_azimuth;
@@ -273,10 +276,10 @@ public class MainFXMLController implements Initializable {
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
-            double sensor_latitude = -35.320277777778;
-            double sensor_longitude = 149.00694444444;
-            double sensor_altitude = 0.77;
-            
+            // set sensor details
+            sensor_latitude = -35.320277777778;
+            sensor_longitude = 149.00694444444;
+            sensor_altitude = 0.77;
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
