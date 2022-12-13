@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="862.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
+   <children>
+      
+      <TextArea fx:id="longitude" layoutX="114.0" layoutY="220.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="120.0" />
+      <TextArea fx:id="elevation" layoutX="524.0" layoutY="220.0" minHeight="-Infinity" prefHeight="28.0" prefWidth="109.0" />
+      <Label layoutX="48.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
+      <Label layoutX="271.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
+      <Label layoutX="109.0" layoutY="6.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+         <font>
+            <Font name="Copperplate" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="83.0" text="Line 2:" textFill="#e32e12" />
+      <Label layoutX="444.0" layoutY="82.0" text="Line 3:" textFill="#e32e12" />
+      <Label layoutX="102.0" layoutY="190.0" text="OBSERVERS VIEWING LOCATION" textFill="#e80e0e">
+         <font>
+            <Font name="Copperplate" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_build_state_settings" layoutX="730.0" layoutY="182.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="23.0" />
+         </font>
+      </Button>
+      <Label layoutX="102.0" layoutY="169.0" text="SLOT STATUS: " textFill="#09032f">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="169.0" text="OPEN" textFill="#d00314">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="launch_year" layoutX="262.0" layoutY="341.0" prefHeight="47.0" prefWidth="58.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="191.0" layoutY="355.0" text="Launch year:" textFill="#e31234" />
+      <TextArea fx:id="launch_number" layoutX="425.0" layoutY="342.0" prefHeight="47.0" prefWidth="68.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="335.0" layoutY="357.0" text="Launch number:" textFill="#e31234" />
+      <TextArea fx:id="lcsequence" layoutX="187.0" layoutY="399.0" prefHeight="47.0" prefWidth="5.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="26.0" layoutY="411.0" text="Launch catalogue sequence:" textFill="#e31234" />
+      <Label layoutX="203.0" layoutY="451.0" text=",">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <TextArea fx:id="observation_day" layoutX="634.0" layoutY="342.0" prefHeight="47.0" prefWidth="51.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <TextArea fx:id="epoch_date" layoutX="150.0" layoutY="450.0" prefHeight="47.0" prefWidth="48.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="80.0" layoutY="465.0" text="Epoch date:" textFill="#e31234" />
+      <Label layoutX="230.0" layoutY="465.0" text="Epoch time:" textFill="#e31234" />
+      <TextArea fx:id="epoch_time" layoutX="299.0" layoutY="450.0" prefHeight="47.0" prefWidth="99.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="7.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
+      <TextArea fx:id="satellite" layoutX="117.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="89.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea id="eccentricity" fx:id="eccentricity" layoutX="564.0" layoutY="523.0" prefHeight="47.0" prefWidth="85.0" />
+      <TextArea fx:id="ephemeristype" layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="elementnumber" layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="491.0" layoutY="536.0" text="Eccentricity:" textFill="#e31234" />
+      <Label layoutX="618.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
+      <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
+      <TextArea fx:id="revolutionnumber" layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="77.0" />
+      <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
+      <TextArea fx:id="lf2" layoutX="485.0" layoutY="72.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="237.0" />
+      <Line endX="548.640380859375" endY="4.0" layoutX="160.0" layoutY="186.0" startX="-100.0" startY="4.0000152587890625" />
+      <TextArea fx:id="latitude" layoutX="324.0" layoutY="220.0" minHeight="-Infinity" prefHeight="28.0" prefWidth="109.0" />
+      <Label layoutX="99.0" layoutY="306.0" text="OBSERVER STATUS: " textFill="#09032f">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Label id="cateridge_load" fx:id="label_observer_status" layoutX="236.0" layoutY="306.0" text="OPEN" textFill="#d00314">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="434.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="425.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="23.0" />
+         </font>
+      </Button>
+      <Line endX="499.055908203125" endY="-6.103515625E-5" layoutX="218.0" layoutY="754.0" startX="-100.0" />
+      <TextArea fx:id="meanmotion" layoutX="108.0" layoutY="633.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="33.0" layoutY="645.0" text="Mean motion:" textFill="#e31234" />
+      <TextArea fx:id="perigree" layoutX="543.0" layoutY="633.0" prefHeight="47.0" prefWidth="109.0" />
+      <Label layoutX="420.0" layoutY="648.0" text="Argument of perigree:" textFill="#e31234" />
+      <TextArea id="rightascension" fx:id="rightascension" layoutX="384.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="194.0" layoutY="538.0" text="Right acension of ascending node:" textFill="#e31234" />
+      <Label layoutX="26.0" layoutY="530.0" text="Orbit" textFill="#e31234" />
+      <Label layoutX="4.0" layoutY="725.0" text="(ballistic coefficient)" textFill="#e31234" />
+      <Label id="cateridge_load" layoutX="206.0" layoutY="372.0" text="," textFill="#101110">
+         <font>
+            <Font name="Arial" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="474.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
+      <Button id="load_element_button" fx:id="btn_update1" layoutX="730.0" layoutY="6.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="91.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="23.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="lf1" layoutX="100.0" layoutY="72.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="226.0" />
+      <TextArea fx:id="lfname" layoutX="100.0" layoutY="25.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="226.0" />
+      <Label layoutX="29.0" layoutY="38.0" text="Name/Line1:" textFill="#e32e12" />
+      <TextArea fx:id="observation_hour" layoutX="718.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="609.0" layoutY="355.0" text="day:" textFill="#e31234" />
+      <Label layoutX="688.0" layoutY="355.0" text="time:" textFill="#e31234" />
+      <TextArea fx:id="observation_year" layoutX="556.0" layoutY="342.0" prefHeight="47.0" prefWidth="48.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="498.0" layoutY="344.0" prefHeight="41.0" prefWidth="67.0" text="Obs. year:" textFill="#e31234" />
+      <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <TextArea fx:id="firsttimederiv" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="39.0" layoutY="712.0" text="1st time deriv:" textFill="#e31234" />
+      <TextArea fx:id="secondtimederiv" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="216.0" layoutY="713.0" text="2nd time deriv:" textFill="#e31234" />
+      <TextArea fx:id="secondtimederivexp" layoutX="416.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <TextArea fx:id="bstardrag" layoutX="554.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="486.0" layoutY="713.0" text="B-star drag:" textFill="#e31234" />
+      <TextArea fx:id="bstardragexp" layoutX="670.0" layoutY="686.0" prefHeight="39.0" prefWidth="36.0" />
+      <Label layoutX="27.0" layoutY="544.0" text="inclination:" textFill="#e31234" />
+      <TextArea fx:id="meananomaly" layoutX="318.0" layoutY="636.0" prefHeight="47.0" prefWidth="97.0" />
+      <Label layoutX="225.0" layoutY="648.0" text="Mean anomaly:" textFill="#e31234" />
+      <Label layoutX="46.0" layoutY="658.0" text="(rev/day)" textFill="#e31234" />
+      <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
+      <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
+      <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="730.0" layoutY="640.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="23.0" />
+         </font>
+      </Button>
+      <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="323.0" startX="-100.0" startY="4.0000152587890625" />
+      <Line endX="658.9999389648438" endY="4.0000152587890625" layoutX="160.0" layoutY="508.0" startX="-100.0" startY="4.0000152587890625" />
+      <Button id="load_element_button" fx:id="btn_update3" cancelButton="true" layoutX="20.0" layoutY="803.0" mnemonicParsing="false" onAction="#updateObserverStatus1" prefHeight="43.0" prefWidth="101.0" style="-fx-background-color: green; -fx-border-color: white;" text="BUILD" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Optima Regular" size="23.0" />
+         </font>
+      </Button>
+      <Label fx:id="mount_label_1" layoutX="239.0" layoutY="768.0" text="Altitude : 0.0 deg." textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="mount_label_2" layoutX="479.0" layoutY="768.0" text="Azimuth : 0.0 deg." textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
+      <Label layoutX="22.0" layoutY="269.0" text="OBS. DATE:" textFill="#e32e12" />
+      <Label layoutX="390.0" layoutY="270.0" text="OBS. TIME   (HH:MM:SS)" textFill="#e32e12" />
+      <Label layoutX="99.0" layoutY="269.0" text="(MON)" textFill="#e32e12" />
+      <Label layoutX="199.0" layoutY="269.0" text="(DAY)" textFill="#e32e12" />
+      <Label layoutX="295.0" layoutY="269.0" text="(YY)" textFill="#e32e12" />
+      <Label layoutX="580.0" layoutY="269.0" text=":" textFill="#e32e12" />
+      <ChoiceBox fx:id="obsMonBox" layoutX="141.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsDayBox" layoutX="239.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsYearBox" layoutX="325.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeHourBox" layoutX="528.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeMnBox" layoutX="586.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeSecBox" layoutX="643.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <Label layoutX="637.0" layoutY="268.0" text=":" textFill="#e32e12" />
+      <Button id="load_element_button" fx:id="btn_update11" layoutX="337.0" layoutY="28.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="36.0" prefWidth="375.0" style="-fx-background-color: PINK; -fx-border-color: red;" text="GET LATEST ELEMENT" textAlignment="JUSTIFY" textFill="#1e1d1d" wrapText="true">
+         <font>
+            <Font name="Thonburi" size="14.0" />
+         </font>
+      </Button>
+      <Label fx:id="start_time_label" layoutX="133.0" layoutY="809.0" text="Start time: 0000" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="obs_label" layoutX="373.0" layoutY="809.0" text="Obs. time: 900s" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="layer_label" layoutX="614.0" layoutY="809.0" text="Layer:" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="24.0" />
+         </font>
+      </Label>
+      <Line endX="354.354736328125" layoutX="368.0" layoutY="24.0" startX="-364.23614501953125" />
+      <Line endX="354.354736328125" layoutX="368.0" layoutY="68.0" startX="-364.23614501953125" />
+      <Line endX="-374.73614501953125" endY="-9.5" layoutX="378.0" layoutY="77.0" startX="-374.73614501953125" startY="-53.23084259033203" />
+      <Line endX="-374.73614501953125" endY="-9.5" layoutX="1097.0" layoutY="77.0" startX="-374.73614501953125" startY="-52.5" />
+      <Button fx:id="btn_load_element" layoutX="103.0" layoutY="127.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="28.0" prefWidth="623.0" style="-fx-background-color: white; -fx-border-color: red;" text="LOAD ELEMENT" textFill="#fc0c0c">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      
+      
+   </children>
+</AnchorPane>
