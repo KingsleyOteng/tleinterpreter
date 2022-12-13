@@ -232,6 +232,15 @@ public class MainFXMLController implements Initializable {
     private Label layer_label;
     
     @FXML
+    private TextArea sen_elevation;
+    
+    @FXML
+    private TextArea sen_longitude;
+     
+    @FXML
+    private TextArea sen_latitude;
+    
+    @FXML
     private final MenuItem item1 = new MenuItem();
 
     // drop down box lists
@@ -263,7 +272,15 @@ public class MainFXMLController implements Initializable {
             File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
-
+            
+            double sensor_latitude = -35.320277777778;
+            double sensor_longitude = 149.00694444444;
+            double sensor_altitude = 0.77;
+            
+            sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
+            sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
+            sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
+            
             btn_load_element.setTextFill(Color.RED);
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
