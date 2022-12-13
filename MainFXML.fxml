@@ -240,9 +240,9 @@
       <Label layoutX="85.0" layoutY="262.0" text="(MON)" textFill="#e32e12" />
       <Label layoutX="185.0" layoutY="262.0" text="(DAY)" textFill="#e32e12" />
       <Label layoutX="281.0" layoutY="262.0" text="(YY)" textFill="#e32e12" />
-      <ChoiceBox fx:id="obsMonBox1" layoutX="127.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsDayBox1" layoutX="225.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsYearBox1" layoutX="311.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="tleMonBox" layoutX="127.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="tleDayBox" layoutX="225.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="tleYearBox1" layoutX="311.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
       
       
