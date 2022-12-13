@@ -305,21 +305,18 @@ public class MainFXMLController implements Initializable {
             choiceBox.setItems(mountConfigurationList);
             choiceBoxXX.setItems(mountConfigurationList);
             
-            // build the observation box
             obsMonBox.setItems(obsDateMonList);
             obsDayBox.setItems(obsDateDayList);
             obsYearBox.setItems(obsDateYearList);
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
+            this.setCurrentDateTime();
             
-            // build element box
             tleMonBox.setItems(obsDateMonList);
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
 
-            // update the element and the date boxes
-            this.setCurrentDateTime();
             
             // load orekit conventions
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
