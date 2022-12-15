@@ -208,28 +208,39 @@ public class MainFXMLController implements Initializable {
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsMonBox 
+    private  ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
     
     @FXML
-    private final ChoiceBox<String> xx 
+    private ChoiceBox<String> choiceBoxXX
             = new ChoiceBox();
     
     @FXML
-    private final ChoiceBox<String> obsDayBox 
+    private  ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeHourBox 
+    private  ChoiceBox<String> obsTimeHourBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsYearBox 
+    private  ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeMnBox 
+    private  ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
     @FXML
-    private final ChoiceBox<String> obsTimeSecBox 
+    private  ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
+    
+     @FXML
+    private  ChoiceBox<String> tleMonBox 
+            = new ChoiceBox();
+    @FXML
+    private  ChoiceBox<String> tleYearBox1
+            = new ChoiceBox();
+    @FXML
+    private  ChoiceBox<String> tleDayBox 
+            = new ChoiceBox();
+    
     @FXML
     private Label mount_label_1;
     
@@ -292,13 +303,22 @@ public class MainFXMLController implements Initializable {
             btn_load_element.setTextFill(Color.RED);
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
+            choiceBoxXX.setItems(mountConfigurationList);
             
+            // build the observation box
             obsMonBox.setItems(obsDateMonList);
             obsDayBox.setItems(obsDateDayList);
             obsYearBox.setItems(obsDateYearList);
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
+            
+            // build element box
+            tleMonBox.setItems(obsDateMonList);
+            tleDayBox.setItems(obsDateDayList);
+            tleYearBox1.setItems(obsDateYearList);
+
+            // update the element and the date boxes
             this.setCurrentDateTime();
             
             // load orekit conventions
@@ -895,7 +915,7 @@ public class MainFXMLController implements Initializable {
             
              String st[] = { "Arnab", "Andrew", "Ankit", "None" };
             
-            xx.setItems(FXCollections.observableArrayList(st));
+            //xx.setItems(FXCollections.observableArrayList(st));
         }
     
     @SuppressWarnings("empty-statement")
@@ -936,6 +956,14 @@ public class MainFXMLController implements Initializable {
             obsDayBox
                     .setValue(String.format("%d", currentDay));
             obsYearBox
+                    .setValue(String.format("%d", currentYear));
+            
+             // set tle today
+            tleMonBox
+                    .setValue(currentMonth);
+            tleDayBox
+                    .setValue(String.format("%d", currentDay));
+            tleYearBox1
                     .setValue(String.format("%d", currentYear));
             
             
