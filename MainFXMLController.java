@@ -333,24 +333,35 @@ public class MainFXMLController implements Initializable {
             // determine topocentric frame of reference
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
 
+            
             // input  TLE
+            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             
+            
             // create a TLE object
+            
             final TLE tle = new TLE(line1, line2);
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
 
+            
             // obtain current time
+            
             AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
 
             // obtain spacecraft state
+            
             SpacecraftState spaceCraftState = propagator.propagate(date);
 
+            
             // determine PVCoordinates
+            
             PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
 
+            
             // transform to earths geodectic points
+            
             GeodeticPoint geodetic = earth.transform
             (
                 coord.getPosition(),
@@ -463,9 +474,11 @@ public class MainFXMLController implements Initializable {
             satellite.setText((line_one_array[1]));
             
             // set the launch number of that year
+            
             launch_number.setText(String.valueOf(launch_num));
 
             // set the launch year
+            
             if (Double.parseDouble(launch_y) < 60) 
                 {
                     launch_year.setText("20" + String.valueOf(launch_y));
@@ -562,17 +575,23 @@ public class MainFXMLController implements Initializable {
                 {
                     layer_label.setText("Layer: HEO");
                 }
+            
             // determine a LEO orbit as having a mean motion greater than 11.25 and an eccentricity less than 0.25
+            
             else if ((valOfMeanMotion> 11.25) && (valOfEccentricity < 0.25))
                 {
                     layer_label.setText("Layer: LEO");
                 }
+            
             // determine a MEO orbit as having a mean motion between 1.8 and 2.4 plus an eccentricity less than 0.25
+            
             else if ((valOfMeanMotion> 1.8) && (valOfMeanMotion < 2.4)  && (valOfEccentricity < 0.25))
                 {
                     layer_label.setText("Layer: MEO");
                 }
+            
             // determine a GEO orbit as having a mean motion less than 1.0 and an eccentricity less than 0.01
+            
             else if ((valOfMeanMotion < 1.0)  && (valOfEccentricity < 0.01))
                 {
                     layer_label.setText("Layer: GEO");
