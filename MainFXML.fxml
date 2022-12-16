@@ -162,7 +162,7 @@
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
       <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
-      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="640.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="723.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -242,7 +242,16 @@
       <ChoiceBox fx:id="tleDayBox" layoutX="212.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="tleYearBox1" layoutX="296.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
-      <CheckBox layoutX="741.0" layoutY="774.0" mnemonicParsing="false" text=" solve at perigree" />
+      <CheckBox layoutX="724.0" layoutY="651.0" mnemonicParsing="false" text="perigree">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="724.0" layoutY="682.0" mnemonicParsing="false" text="optimal lighting">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </CheckBox>
       
       
    </children>
