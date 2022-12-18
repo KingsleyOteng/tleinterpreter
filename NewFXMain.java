@@ -24,6 +24,7 @@ public class NewFXMain extends Application
          * @throws java.lang.Exception
          * @throws java.lang.reflect.InvocationTargetException
          */ 
+    
         @Override
         public void start(Stage stage) throws Exception, InvocationTargetException
             {
@@ -33,6 +34,7 @@ public class NewFXMain extends Application
                 stage.setScene(scene);
                 stage.show();
             }
+        
         
 
         /**
