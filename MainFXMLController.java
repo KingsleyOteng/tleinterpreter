@@ -287,12 +287,15 @@ public class MainFXMLController implements Initializable {
         {
 
             DecimalFormat df = new DecimalFormat("0.00");
+            
             // initial orbit propogation constants
+            
             File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
             // set sensor 
+            
             sensor_latitude = -35.320277777778;
             sensor_longitude = 149.00694444444;
             sensor_altitude = 0.77;
