@@ -306,6 +306,7 @@ public class MainFXMLController implements Initializable {
             choiceBoxXX.setItems(mountConfigurationList);
             
             // build the observation box
+            
             obsMonBox.setItems(obsDateMonList);
             obsDayBox.setItems(obsDateDayList);
             obsYearBox.setItems(obsDateYearList);
@@ -314,23 +315,28 @@ public class MainFXMLController implements Initializable {
             obsTimeSecBox.setItems(obsTimeSecList);
             
             // build element box
+            
             tleMonBox.setItems(obsDateMonList);
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
 
             // update the element and the date boxes
+            
             this.setCurrentDateTime();
             
             // load orekit conventions
+            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
                 Constants.WGS84_EARTH_FLATTENING,
                 ITRF);
 
             // set sensor location
+            
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
             // determine topocentric frame of reference
+            
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
 
             
