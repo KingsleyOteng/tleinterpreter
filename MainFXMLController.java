@@ -98,6 +98,7 @@ public class MainFXMLController implements Initializable {
     double sensor_latitude;
     double sensor_longitude;
     double sensor_altitude;
+    Integer sensor_date_yyyy, sensor_date_dd, sensor_date_mm;
     String sensor_timezone_id;
     Calendar sensor_date;
     
@@ -313,8 +314,11 @@ public class MainFXMLController implements Initializable {
             sensor_longitude = 6.700071;
             sensor_timezone_id = "Africa/Kumasi";
             sensor_altitude = 0.77;
+            sensor_date_yyyy = 2022;
+            sensor_date_mm = 12;     
+            sensor_date_dd = 19;
             sensor_date = Calendar.getInstance();
-            sensor_date.set(2022, 12, 19);
+            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             
             // set sensor 
             
