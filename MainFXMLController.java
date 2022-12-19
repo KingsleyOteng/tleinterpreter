@@ -99,6 +99,7 @@ public class MainFXMLController implements Initializable {
     double sensor_longitude;
     double sensor_altitude;
     String sensor_timezone_id;
+    Calendar sensor_date;
     
     private static double sensor_dobs_altitude;
     private static double sensor_dobs_azimuth;
@@ -312,6 +313,8 @@ public class MainFXMLController implements Initializable {
             sensor_longitude = 6.700071;
             sensor_timezone_id = "Africa/Kumasi";
             sensor_altitude = 0.77;
+            sensor_date = Calendar.getInstance();
+            
             
             // set sensor 
             
@@ -337,8 +340,9 @@ public class MainFXMLController implements Initializable {
             
             Location location = new Location(sensor_latitude, sensor_longitude);
             SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
-            String officialSunrise = calculator.getOfficialSunriseForDate(Calendar.getInstance());
-            String officialSunset = calculator.getOfficialSunsetForDate(Calendar.getInstance());
+            String officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
+            String officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
+            
             
             // generate validation output
             
