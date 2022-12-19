@@ -98,6 +98,7 @@ public class MainFXMLController implements Initializable {
     double sensor_latitude;
     double sensor_longitude;
     double sensor_altitude;
+    String sensor_timezone_id;
     
     private static double sensor_dobs_altitude;
     private static double sensor_dobs_azimuth;
@@ -291,13 +292,6 @@ public class MainFXMLController implements Initializable {
     @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) 
         {
-
- 
-            Location location = new Location("6.700071", "-1.630783");
-            SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, "Africa/Kumasi");
-            String officialSunrise = calculator.getOfficialSunriseForDate(Calendar.getInstance());
-            String officialSunset = calculator.getOfficialSunsetForDate(Calendar.getInstance());
-            System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
             DecimalFormat df = new DecimalFormat("0.00");
             
@@ -307,11 +301,20 @@ public class MainFXMLController implements Initializable {
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
+            // define sensor location and id
+            
+           // sensor_latitude = -35.320277777778;
+           // sensor_longitude = 149.00694444444;
+           // sensor_timezone_id = "Australia/Canberra";
+            //sensor_altitude = 0.77;
+            
+            sensor_latitude = -1.630783;
+            sensor_longitude = 6.700071;
+            sensor_timezone_id = "Africa/Kumasi";
+            sensor_altitude = 0.77;
+            
             // set sensor 
             
-            sensor_latitude = -35.320277777778;
-            sensor_longitude = 149.00694444444;
-            sensor_altitude = 0.77;
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
@@ -329,6 +332,14 @@ public class MainFXMLController implements Initializable {
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
+            
+            // build sunrise and sunset data model
+            
+            Location location = new Location(sensor_latitude, sensor_longitude);
+            SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
+            String officialSunrise = calculator.getOfficialSunriseForDate(Calendar.getInstance());
+            String officialSunset = calculator.getOfficialSunsetForDate(Calendar.getInstance());
+            System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
             // build element box
             
