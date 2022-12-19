@@ -318,13 +318,17 @@ public class MainFXMLController implements Initializable {
             sensor_date_yyyy = 2022;
             sensor_date_mm = 12;     
             sensor_date_dd = 19;
-            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
+            
+            
             
             // set sensor 
-            
+            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
+            
+            
+            // build UI
             
             btn_load_element.setTextFill(Color.RED);
             this.populateMounts();
