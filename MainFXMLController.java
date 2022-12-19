@@ -339,6 +339,9 @@ public class MainFXMLController implements Initializable {
             SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
             String officialSunrise = calculator.getOfficialSunriseForDate(Calendar.getInstance());
             String officialSunset = calculator.getOfficialSunsetForDate(Calendar.getInstance());
+            
+            // generate validation output
+            
             System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
             // build element box
