@@ -314,7 +314,7 @@ public class MainFXMLController implements Initializable {
             sensor_timezone_id = "Africa/Kumasi";
             sensor_altitude = 0.77;
             sensor_date = Calendar.getInstance();
-            
+            sensor_date.set(2022, 12, 20);
             
             // set sensor 
             
