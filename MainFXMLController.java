@@ -4,6 +4,9 @@
  */
 
 
+
+import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
+import com.luckycatlabs.sunrisesunset.dto.Location;
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -14,6 +17,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Calendar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
@@ -55,6 +59,8 @@ import org.orekit.propagation.analytical.tle.TLEPropagator;
 import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.IERSConventions;
+
+
 
 /**
  * FXML Controller class
@@ -286,6 +292,13 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
         {
 
+ 
+            Location location = new Location("6.700071", "-1.630783");
+            SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, "Africa/Kumasi");
+            String officialSunrise = calculator.getOfficialSunriseForDate(Calendar.getInstance());
+            String officialSunset = calculator.getOfficialSunsetForDate(Calendar.getInstance());
+            System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
+            
             DecimalFormat df = new DecimalFormat("0.00");
             
             // initial orbit propogation constants
