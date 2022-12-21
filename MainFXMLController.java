@@ -5,8 +5,7 @@
 
 
 
-import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
-import com.luckycatlabs.sunrisesunset.dto.Location;
+
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -59,6 +58,9 @@ import org.orekit.propagation.analytical.tle.TLEPropagator;
 import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.IERSConventions;
+
+import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
+import com.luckycatlabs.sunrisesunset.dto.Location;
 
 
 
@@ -239,8 +241,8 @@ public class MainFXMLController implements Initializable {
     @FXML
     private  ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
-    
-     @FXML
+   
+    @FXML
     private  ChoiceBox<String> tleMonBox 
             = new ChoiceBox();
     @FXML
