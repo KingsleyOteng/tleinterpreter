@@ -218,6 +218,7 @@ public class MainFXMLController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
@@ -229,15 +230,19 @@ public class MainFXMLController implements Initializable {
     @FXML
     private  ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> obsTimeHourBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
