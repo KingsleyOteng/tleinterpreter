@@ -625,7 +625,7 @@ public final class SunriseSunset {
 
 	/**
 	 *
-	 * @param calendar the datetime for which to determine the day length
+	 * @param calendar the date time for which to determine the day length
 	 * @param latitude  the latitude of the location in degrees.
 	 * @param longitude the longitude of the location in degrees (West is negative)
 	 * @return the number of milliseconds between sunrise and sunset.

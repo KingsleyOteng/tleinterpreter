@@ -400,10 +400,7 @@ public class MainFXMLController implements Initializable {
             
             final TLE tle = new TLE(line1, line2);
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
-            
            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
-            
-
             
             // obtain current time
             
