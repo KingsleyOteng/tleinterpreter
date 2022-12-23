@@ -404,7 +404,7 @@ public class MainFXMLController implements Initializable {
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
             
-            // obtain current time
+            // set current time
             
             AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
 
@@ -428,18 +428,22 @@ public class MainFXMLController implements Initializable {
             );
 
             // determine the latitude and longitude of propogaed item
+            
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
             // from the sensor determine the observation parameters in azimuth-elevation
+            
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
             // let us see how this has been propogated
+            
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
 
             // generate labels consistent with true output
+            
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
