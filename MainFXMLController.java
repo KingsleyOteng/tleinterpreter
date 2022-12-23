@@ -1182,15 +1182,15 @@ public class MainFXMLController implements Initializable {
                                                 0.0);
         
         TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
+ 
        
-        
-        ElevationDetector detector =   new ElevationDetector(topo).withConstantElevation(FastMath.toRadians(5.0));
             
         final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
         final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
         AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
           
-        // create two sets of events 
+        // create three sets of events 
+         final ElevationDetector detector =   new ElevationDetector(topo).withConstantElevation(FastMath.toRadians(5.0));
         final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
         final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
             
@@ -1205,7 +1205,7 @@ public class MainFXMLController implements Initializable {
         propagator.resetInitialState(propagator.propagate(startDate));
         propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
         propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
-        
+        propagator.addEventDetector(logger.monitorDetector(detector));
           
         OrbitHandler dsstHandler = new OrbitHandler();
         propagator.setStepHandler(10, dsstHandler);
