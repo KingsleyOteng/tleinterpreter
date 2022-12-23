@@ -399,6 +399,8 @@ public class MainFXMLController implements Initializable {
             // create a TLE object
             
             final TLE tle = new TLE(line1, line2);
+            
+            // use the TLE propogator as opposed to using SGP4
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
             
