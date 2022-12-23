@@ -1159,16 +1159,17 @@ public class MainFXMLController implements Initializable {
     private void testLogDectors()
     {
         double const_horizon_altitude = 10.0;   
-            double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
+        double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
         
-              final TimeScale utc = TimeScalesFactory.getUTC();
+        final TimeScale utc = TimeScalesFactory.getUTC();
         final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
         final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
         final AbsoluteDate date = new AbsoluteDate(2003, 9, 16, utc);
         final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
                                                  FramesFactory.getEME2000(), date, 3.9860047e14);
         
-            Propagator propagator =
+        // create our propagator
+        Propagator propagator =
             new EcksteinHechlerPropagator(orbit, 6.378137e6, 3.9860047e14, -1.08263e-3, 2.54e-6, 1.62e-6,  2.3e-7, -5.5e-7);
             
         // Earth and frame
@@ -1183,42 +1184,33 @@ public class MainFXMLController implements Initializable {
         TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
        
         
-            ElevationDetector detector =   new ElevationDetector(topo).
-                withConstantElevation(FastMath.toRadians(5.0)
-                );
+        ElevationDetector detector =   new ElevationDetector(topo).withConstantElevation(FastMath.toRadians(5.0));
             
-            final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
-            final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
-            AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
-            
-            final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
-            final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
-            //final EventDetector combined_detector = new BooleanDetector();
-            
-           EventsLogger logger = new EventsLogger();
-           
-          // propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-          // propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
-           
-          final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
-          final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
-          final TLE tlex = new TLE(line1, line2);
-           
-         final TLEPropagator tlepropagator = TLEPropagator.selectExtrapolator(tlex);
-
-          AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
-          tlepropagator.resetInitialState(tlepropagator.propagate(startDate));
-          tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-          tlepropagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
-           
-          //tlepropagator.addEventDetector(detector);
+        final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
+        final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
+        AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
           
-      //  OrbitHandler dsstHandler = new OrbitHandler();
-        //propagator.setMasterMode(10.0, dsstHandler);
-     //   propagator.setStepHandler(10, dsstHandler);
-       // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+        // create two sets of events 
+        final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
+        final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
+            
+        // create a logger    
+        EventsLogger logger = new EventsLogger();
+           
+     
+        // create a date
+        AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
        
-       tlepropagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+        // start the propagator
+        propagator.resetInitialState(propagator.propagate(startDate));
+        propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
+        propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
+        
+          
+        OrbitHandler dsstHandler = new OrbitHandler();
+        propagator.setStepHandler(10, dsstHandler);
+        propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+       
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
