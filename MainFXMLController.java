@@ -1146,12 +1146,12 @@ public class MainFXMLController implements Initializable {
          tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
          tlepropagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
 
-          //tlepropagator.addEventDetector(detector);
+        //tlepropagator.addEventDetector(detector);
           
-      //  OrbitHandler dsstHandler = new OrbitHandler();
-        //propagator.setMasterMode(10.0, dsstHandler);
-     //   propagator.setStepHandler(10, dsstHandler);
-       // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+        // OrbitHandler dsstHandler = new OrbitHandler();
+        // propagator.setMasterMode(10.0, dsstHandler);
+        // propagator.setStepHandler(10, dsstHandler);
+        // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
        
        tlepropagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
     }
@@ -1182,9 +1182,7 @@ public class MainFXMLController implements Initializable {
                                                 0.0);
         
         TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
- 
-       
-            
+   
         final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
         final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
         AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
@@ -1197,7 +1195,6 @@ public class MainFXMLController implements Initializable {
         // create a logger    
         EventsLogger logger = new EventsLogger();
            
-     
         // create a date
         AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
        
