@@ -1094,9 +1094,9 @@ public class MainFXMLController implements Initializable {
     private void testLogCombinedDectors() throws OrekitException 
     {
         double const_horizon_altitude = 10.0;   
-            double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
+        double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
         
-              final TimeScale utc = TimeScalesFactory.getUTC();
+        final TimeScale utc = TimeScalesFactory.getUTC();
         final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
         final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
         final AbsoluteDate date = new AbsoluteDate(2003, 9, 16, utc);
@@ -1107,6 +1107,7 @@ public class MainFXMLController implements Initializable {
             new EcksteinHechlerPropagator(orbit, 6.378137e6, 3.9860047e14, -1.08263e-3, 2.54e-6, 1.62e-6,  2.3e-7, -5.5e-7);
             
         // Earth and frame
+        
         double ae =  6378137.0; // equatorial radius in meter
         double f  =  1.0 / 298.257223563; // flattening
         Frame ITRF2005 = FramesFactory.getITRF(IERSConventions.IERS_2010, true); // terrestrial frame at an arbitrary date
@@ -1132,8 +1133,8 @@ public class MainFXMLController implements Initializable {
             
         EventsLogger logger = new EventsLogger();
            
-          // propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-          // propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
+        // propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
+        // propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
            
         final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
         final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
