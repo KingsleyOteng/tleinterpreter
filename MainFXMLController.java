@@ -1099,7 +1099,8 @@ public class MainFXMLController implements Initializable {
         final TimeScale utc = TimeScalesFactory.getUTC();
         final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
         final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
-        final AbsoluteDate date = new AbsoluteDate(2003, 9, 16, utc);
+        final AbsoluteDate date = new AbsoluteDate(2022, 9, 29, TimeScalesFactory.getUTC());
+
         final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
                                                  FramesFactory.getEME2000(), date, 3.9860047e14);
         
@@ -1142,7 +1143,8 @@ public class MainFXMLController implements Initializable {
 
         final TLEPropagator tlepropagator = TLEPropagator.selectExtrapolator(tlex);
 
-         AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+         AbsoluteDate startDate = new AbsoluteDate(2022, 9, 29, 12, 0, 0, TimeScalesFactory.getUTC());
+         
          tlepropagator.resetInitialState(tlepropagator.propagate(startDate));
          tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
          tlepropagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
@@ -1165,7 +1167,8 @@ public class MainFXMLController implements Initializable {
         final TimeScale utc = TimeScalesFactory.getUTC();
         final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
         final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
-        final AbsoluteDate date = new AbsoluteDate(2003, 9, 16, utc);
+        final AbsoluteDate date = new AbsoluteDate(2022, 9, 29, TimeScalesFactory.getUTC());
+       
         final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
                                                  FramesFactory.getEME2000(), date, 3.9860047e14);
         
@@ -1197,7 +1200,7 @@ public class MainFXMLController implements Initializable {
         EventsLogger logger = new EventsLogger();
            
         // create a date
-        AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+        AbsoluteDate startDate = new AbsoluteDate(2022, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
        
         // start the propagator
         propagator.resetInitialState(propagator.propagate(startDate));
