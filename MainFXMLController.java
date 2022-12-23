@@ -71,6 +71,7 @@ import org.orekit.frames.Frame;
 import org.orekit.propagation.events.handlers.EventHandler;
 import org.orekit.propagation.sampling.OrekitFixedStepHandler;
 import org.orekit.bodies.BodyShape;
+import org.orekit.bodies.CelestialBodyFactory;
 import org.orekit.bodies.GeodeticPoint;
 import org.orekit.bodies.OneAxisEllipsoid;
 import org.orekit.errors.OrekitException;
@@ -85,7 +86,12 @@ import org.orekit.orbits.KeplerianOrbit;
 import org.orekit.orbits.Orbit;
 import org.orekit.propagation.Propagator;
 import org.orekit.propagation.analytical.EcksteinHechlerPropagator;
+import org.orekit.propagation.events.EclipseDetector;
+import org.orekit.propagation.events.EventDetector;
+import org.orekit.propagation.events.GroundAtNightDetector;
+import org.orekit.propagation.events.handlers.ContinueOnEvent;
 import org.orekit.time.TimeScale;
+import org.orekit.utils.PVCoordinatesProvider;
 
 
 
@@ -1114,13 +1120,24 @@ public class MainFXMLController implements Initializable {
                 withConstantElevation(FastMath.toRadians(5.0)
                 );
             
-            AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
-        propagator.resetInitialState(propagator.propagate(startDate));
-        propagator.addEventDetector(detector);
-        OrbitHandler dsstHandler = new OrbitHandler();
+            final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
+            final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
+            AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
+            
+            final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
+            final EventDetector is_ground_at_night = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
+
+            
+  //          is_ground_at_night 
+//= GroundAtNightDetector(topo, CelestialBodyFactory.getSun(), const_dusk_dawn_elevation_rad, EarthITU453AtmosphereRefraction(const_dusk_dawn_elevation_rad)).withHandler(ContinueOnEvent());
+
+           // AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+      //  propagator.resetInitialState(propagator.propagate(startDate));
+      //  propagator.addEventDetector(detector);
+      //  OrbitHandler dsstHandler = new OrbitHandler();
         //propagator.setMasterMode(10.0, dsstHandler);
-        propagator.setStepHandler(10, dsstHandler);
-        propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+     //   propagator.setStepHandler(10, dsstHandler);
+       // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
