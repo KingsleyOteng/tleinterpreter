@@ -1110,11 +1110,11 @@ public class MainFXMLController implements Initializable {
         TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
        
         
-        ElevationDetector detector =   new ElevationDetector(topo).
-                withConstantElevation(FastMath.toRadians(5.0).
-                        withHandler(ContinueOnEvent());
+            ElevationDetector detector =   new ElevationDetector(topo).
+                withConstantElevation(FastMath.toRadians(5.0)
+                );
             
-        AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+            AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
         propagator.resetInitialState(propagator.propagate(startDate));
         propagator.addEventDetector(detector);
         OrbitHandler dsstHandler = new OrbitHandler();
