@@ -58,10 +58,34 @@ import org.orekit.propagation.analytical.tle.TLEPropagator;
 import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.IERSConventions;
+import org.orekit.propagation.events.ElevationDetector;
 
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
+import java.util.ArrayList;
+import java.util.List;
+import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.attitudes.InertialProvider;
+import org.orekit.bodies.BodyShape;
+import org.orekit.frames.Frame;
+import org.orekit.propagation.events.handlers.EventHandler;
+import org.orekit.propagation.sampling.OrekitFixedStepHandler;
+import org.orekit.bodies.BodyShape;
+import org.orekit.bodies.GeodeticPoint;
+import org.orekit.bodies.OneAxisEllipsoid;
+import org.orekit.errors.OrekitException;
+//import org.orekit.errors.;
+import org.orekit.frames.Frame;
+import org.orekit.frames.FramesFactory;
+import org.orekit.frames.TopocentricFrame;
+import org.orekit.models.AtmosphericRefractionModel;
+import org.orekit.models.earth.EarthStandardAtmosphereRefraction;
+import org.orekit.orbits.EquinoctialOrbit;
+import org.orekit.orbits.KeplerianOrbit;
+import org.orekit.orbits.Orbit;
+import org.orekit.propagation.Propagator;
+import org.orekit.propagation.analytical.EcksteinHechlerPropagator;
+import org.orekit.time.TimeScale;
 
 
 
@@ -301,7 +325,7 @@ public class MainFXMLController implements Initializable {
     @Override
     @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) 
-        {
+        {   
             
             DecimalFormat df = new DecimalFormat("0.00");
             
@@ -1058,4 +1082,87 @@ public class MainFXMLController implements Initializable {
             obsTimeSecBox
                     .setValue("00");
         }
+    
+    private void init_ElevDetector()
+    {
+        double const_horizon_altitude = 10.0;   
+            double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
+        
+              final TimeScale utc = TimeScalesFactory.getUTC();
+        final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
+        final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
+        final AbsoluteDate date = new AbsoluteDate(2003, 9, 16, utc);
+        final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
+                                                 FramesFactory.getEME2000(), date, 3.9860047e14);
+        
+            Propagator propagator =
+            new EcksteinHechlerPropagator(orbit, 6.378137e6, 3.9860047e14, -1.08263e-3, 2.54e-6, 1.62e-6,  2.3e-7, -5.5e-7);
+            
+        // Earth and frame
+        double ae =  6378137.0; // equatorial radius in meter
+        double f  =  1.0 / 298.257223563; // flattening
+        Frame ITRF2005 = FramesFactory.getITRF(IERSConventions.IERS_2010, true); // terrestrial frame at an arbitrary date
+        BodyShape earth = new OneAxisEllipsoid(ae, f, ITRF2005);
+        GeodeticPoint point = new GeodeticPoint(FastMath.toRadians(-1.630783),
+                                                FastMath.toRadians(6.700071),
+                                                0.0);
+        
+        TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
+       
+        
+        ElevationDetector detector =   new ElevationDetector(topo).
+                withConstantElevation(FastMath.toRadians(5.0).
+                        withHandler(ContinueOnEvent());
+            
+        AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+        propagator.resetInitialState(propagator.propagate(startDate));
+        propagator.addEventDetector(detector);
+        OrbitHandler dsstHandler = new OrbitHandler();
+        //propagator.setMasterMode(10.0, dsstHandler);
+        propagator.setStepHandler(10, dsstHandler);
+        propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+    }
+    
+     private static class OrbitHandler implements OrekitFixedStepHandler {
+ 
+         /** List of orbits. */
+         private final List<Orbit> orbits;
+ 
+         private OrbitHandler() {
+             // initialise an empty list of orbit
+             orbits = new ArrayList<Orbit>();
+         }
+ 
+         /** {@inheritDoc} */
+         public void init(final SpacecraftState s0, final AbsoluteDate t) {
+         }
+ 
+         /** {@inheritDoc} */
+         public void handleStep(SpacecraftState currentState, boolean isLast) {
+             // fill in the list with the orbit from the current step
+             orbits.add(currentState.getOrbit());
+         }
+ 
+         /** Get the list of propagated orbits.
+          * @return orbits
+          */
+         public List<Orbit> getOrbits() {
+             return orbits;
+         }
+
+        @Override
+        public void init(SpacecraftState s0, AbsoluteDate t, double step) {
+            OrekitFixedStepHandler.super.init(s0, t, step); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        }
+
+        @Override
+        public void handleStep(SpacecraftState ss) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+
+        @Override
+        public void finish(SpacecraftState finalState) {
+            OrekitFixedStepHandler.super.finish(finalState); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        }
+     }
 }
