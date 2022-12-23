@@ -86,8 +86,10 @@ import org.orekit.orbits.KeplerianOrbit;
 import org.orekit.orbits.Orbit;
 import org.orekit.propagation.Propagator;
 import org.orekit.propagation.analytical.EcksteinHechlerPropagator;
+import org.orekit.propagation.events.BooleanDetector;
 import org.orekit.propagation.events.EclipseDetector;
 import org.orekit.propagation.events.EventDetector;
+import org.orekit.propagation.events.EventsLogger;
 import org.orekit.propagation.events.GroundAtNightDetector;
 import org.orekit.propagation.events.handlers.ContinueOnEvent;
 import org.orekit.time.TimeScale;
@@ -1125,19 +1127,33 @@ public class MainFXMLController implements Initializable {
             AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
             
             final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
-            final EventDetector is_ground_at_night = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
-
+            final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
+            //final EventDetector combined_detector = new BooleanDetector();
             
-  //          is_ground_at_night 
-//= GroundAtNightDetector(topo, CelestialBodyFactory.getSun(), const_dusk_dawn_elevation_rad, EarthITU453AtmosphereRefraction(const_dusk_dawn_elevation_rad)).withHandler(ContinueOnEvent());
+           EventsLogger logger = new EventsLogger();
+           
+          // propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
+          // propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
+           
+          final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
+          final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
+          final TLE tlex = new TLE(line1, line2);
+           
+         final TLEPropagator tlepropagator = TLEPropagator.selectExtrapolator(tlex);
 
-           // AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
-      //  propagator.resetInitialState(propagator.propagate(startDate));
-      //  propagator.addEventDetector(detector);
+          AbsoluteDate startDate = new AbsoluteDate(2003, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
+          tlepropagator.resetInitialState(tlepropagator.propagate(startDate));
+          tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
+          tlepropagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
+           
+          //tlepropagator.addEventDetector(detector);
+          
       //  OrbitHandler dsstHandler = new OrbitHandler();
         //propagator.setMasterMode(10.0, dsstHandler);
      //   propagator.setStepHandler(10, dsstHandler);
        // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+       
+       tlepropagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
