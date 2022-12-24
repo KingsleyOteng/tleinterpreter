@@ -1143,7 +1143,7 @@ public class MainFXMLController implements Initializable {
 
         final TLEPropagator tlepropagator = TLEPropagator.selectExtrapolator(tlex);
 
-         AbsoluteDate startDate = new AbsoluteDate(2022, 9, 29, 12, 0, 0, TimeScalesFactory.getUTC());
+         AbsoluteDate startDate = new AbsoluteDate(2022, 12, 24, 12, 0, 0, TimeScalesFactory.getUTC());
          
          tlepropagator.resetInitialState(tlepropagator.propagate(startDate));
          tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
