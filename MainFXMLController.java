@@ -1145,9 +1145,12 @@ public class MainFXMLController implements Initializable {
 
          AbsoluteDate startDate = new AbsoluteDate(2022, 12, 24, 12, 0, 0, TimeScalesFactory.getUTC());
          
-         tlepropagator.resetInitialState(tlepropagator.propagate(startDate));
-         tlepropagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-         tlepropagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
+         tlepropagator.resetInitialState
+        ( tlepropagator.propagate(startDate));
+         tlepropagator.addEventDetector
+        (logger.monitorDetector(is_sat_illuminated_event));
+         tlepropagator.addEventDetector
+        (logger.monitorDetector(is_ground_at_night_event));
 
         //tlepropagator.addEventDetector(detector);
           
