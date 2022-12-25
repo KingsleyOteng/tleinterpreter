@@ -479,6 +479,7 @@ public class MainFXMLController implements Initializable {
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
+            testLogDectors();
         }
 
     // @FXML
@@ -690,6 +691,8 @@ public class MainFXMLController implements Initializable {
                 {
                     layer_label.setText("Layer: GEO");
                 }
+            
+             
         }
     
     /**
@@ -1213,7 +1216,8 @@ public class MainFXMLController implements Initializable {
          
         // let us create the handler
         OrbitHandler dsstHandler = new OrbitHandler();
-        propagator.setStepHandler(10, dsstHandler);
+        
+        //propagator.setStepHandler(10, dsstHandler);
         propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
        
     }
