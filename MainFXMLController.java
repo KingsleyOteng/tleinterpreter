@@ -1216,7 +1216,7 @@ public class MainFXMLController implements Initializable {
          
         // let us create the handler
         OrbitHandler dsstHandler = new OrbitHandler();
-        //propagator.setStepHandler(10, dsstHandler);
+        propagator.setStepHandler(10, dsstHandler);
         propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
        
     }
