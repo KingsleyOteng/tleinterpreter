@@ -1220,26 +1220,25 @@ public class MainFXMLController implements Initializable {
         OrbitHandler dsstHandler = new OrbitHandler();
         
         //propagator.setStepHandler(10, dsstHandler);
-        final CelestialBody earthy = CelestialBodyFactory.getEarth();
-        final CelestialBody moony  = CelestialBodyFactory.getMoon();
-        final CelestialBody earthMoonBary = CelestialBodyFactory.getEarthMoonBarycenter();
-
-        final Frame l2Frame = new L2Frame(earthy, moony);
-        final Frame earthMoonBaryFrame = earthMoonBary.getInertiallyOrientedFrame();
-
-        final Frame inertiaFrame = earthMoonBaryFrame;
-        final Frame integrationFrame = l2Frame;
-        final Frame outputFrame = l2Frame;
-        propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
-        final PVCoordinates pv = propagator.getPVCoordinates(startDate, outputFrame);
-        System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+         CelestialBody earthy = CelestialBodyFactory.getEarth();
+         CelestialBody moony  = CelestialBodyFactory.getMoon();
+         CelestialBody earthMoonBary = CelestialBodyFactory.getEarthMoonBarycenter();
+         Frame l2Frame = new L2Frame(earthy, moony);
+         Frame earthMoonBaryFrame = earthMoonBary.getInertiallyOrientedFrame();
+         Frame inertiaFrame = earthMoonBaryFrame;
+         Frame integrationFrame = l2Frame;
+         Frame outputFrame = l2Frame;
+         PVCoordinates pv = propagator.getPVCoordinates(startDate, outputFrame);
+        
+         propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+         System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
        
-        double deltaP = Double.POSITIVE_INFINITY;
-        double deltaV = Double.POSITIVE_INFINITY;
-        deltaP = pv.getPosition().getNorm();
-        deltaV = pv.getVelocity().getNorm();
-        System.out.println("deltaP"+deltaP);
-        System.out.println("deltaP"+deltaV);
+         double deltaP = Double.POSITIVE_INFINITY;
+         double deltaV = Double.POSITIVE_INFINITY;
+         deltaP = pv.getPosition().getNorm();
+         deltaV = pv.getVelocity().getNorm();
+         System.out.println("deltaP "+deltaP);
+         System.out.println("deltaP "+deltaV);
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
