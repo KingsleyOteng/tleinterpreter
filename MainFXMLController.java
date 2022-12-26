@@ -71,6 +71,7 @@ import org.orekit.frames.Frame;
 import org.orekit.propagation.events.handlers.EventHandler;
 import org.orekit.propagation.sampling.OrekitFixedStepHandler;
 import org.orekit.bodies.BodyShape;
+import org.orekit.bodies.CelestialBody;
 import org.orekit.bodies.CelestialBodyFactory;
 import org.orekit.bodies.GeodeticPoint;
 import org.orekit.bodies.OneAxisEllipsoid;
@@ -78,6 +79,7 @@ import org.orekit.errors.OrekitException;
 //import org.orekit.errors.;
 import org.orekit.frames.Frame;
 import org.orekit.frames.FramesFactory;
+import org.orekit.frames.L2Frame;
 import org.orekit.frames.TopocentricFrame;
 import org.orekit.models.AtmosphericRefractionModel;
 import org.orekit.models.earth.EarthStandardAtmosphereRefraction;
@@ -1216,9 +1218,28 @@ public class MainFXMLController implements Initializable {
          
         // let us create the handler
         OrbitHandler dsstHandler = new OrbitHandler();
-        propagator.setStepHandler(10, dsstHandler);
+        
+        //propagator.setStepHandler(10, dsstHandler);
+        final CelestialBody earthy = CelestialBodyFactory.getEarth();
+        final CelestialBody moony  = CelestialBodyFactory.getMoon();
+        final CelestialBody earthMoonBary = CelestialBodyFactory.getEarthMoonBarycenter();
+
+        final Frame l2Frame = new L2Frame(earthy, moony);
+        final Frame earthMoonBaryFrame = earthMoonBary.getInertiallyOrientedFrame();
+
+        final Frame inertiaFrame = earthMoonBaryFrame;
+        final Frame integrationFrame = l2Frame;
+        final Frame outputFrame = l2Frame;
         propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
+        final PVCoordinates pv = propagator.getPVCoordinates(startDate, outputFrame);
+        System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
        
+        double deltaP = Double.POSITIVE_INFINITY;
+        double deltaV = Double.POSITIVE_INFINITY;
+        deltaP = pv.getPosition().getNorm();
+        deltaV = pv.getVelocity().getNorm();
+        System.out.println("deltaP"+deltaP);
+        System.out.println("deltaP"+deltaV);
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
