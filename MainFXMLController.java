@@ -484,6 +484,7 @@ public class MainFXMLController implements Initializable {
             testLogDectors();
         }
 
+    
     // @FXML
     //private void printHelloWorld(ActionEvent event) {
     //    event.consume();
