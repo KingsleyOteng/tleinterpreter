@@ -1231,13 +1231,16 @@ public class MainFXMLController implements Initializable {
          Frame outputFrame = l2Frame;
          PVCoordinates pv = propagator.getPVCoordinates(startDate, outputFrame);
         
+         
          propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
          System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
        
          double deltaP = Double.POSITIVE_INFINITY;
          double deltaV = Double.POSITIVE_INFINITY;
+         
          deltaP = pv.getPosition().getNorm();
          deltaV = pv.getVelocity().getNorm();
+         
          System.out.println("deltaP "+deltaP);
          System.out.println("deltaV" +deltaV);
     }
