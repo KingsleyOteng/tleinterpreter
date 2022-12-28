@@ -1236,10 +1236,8 @@ public class MainFXMLController implements Initializable {
        
          double deltaP = Double.POSITIVE_INFINITY;
          double deltaV = Double.POSITIVE_INFINITY;
-         
          deltaP = pv.getPosition().getNorm();
          deltaV = pv.getVelocity().getNorm();
-         
          System.out.println("deltaP "+deltaP);
          System.out.println("deltaV" +deltaV);
     }
