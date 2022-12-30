@@ -24,6 +24,7 @@ public class NewFXMain extends Application
          * @throws java.lang.Exception
          * @throws java.lang.reflect.InvocationTargetException
          */ 
+    
         @Override
         public void start(Stage stage) throws Exception, InvocationTargetException
             {
@@ -37,6 +38,7 @@ public class NewFXMain extends Application
         /**
          * @param args the command line arguments
          */
+        
         public static void main(String[] args) 
             {
                 launch(args);
