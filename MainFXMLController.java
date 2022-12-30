@@ -1348,9 +1348,10 @@ public class MainFXMLController implements Initializable {
     };
         
         
+    
    int genObsMonth(String _mon, int _day, int _y)
    {
        return 0;
    };
 
-}
+};
