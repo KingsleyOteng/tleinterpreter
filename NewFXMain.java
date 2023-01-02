@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
+
 import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
 //import javafx.event.ActionEvent;
@@ -12,18 +13,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
     /**
      * @author terra6partners
      */
 
 public class NewFXMain extends Application 
     {
+    
         /**
          * construct the UI
          * @param stage
          * @throws java.lang.Exception
          * @throws java.lang.reflect.InvocationTargetException
          */ 
+    
         @Override
         public void start(Stage stage) throws Exception, InvocationTargetException
             {
@@ -34,9 +38,11 @@ public class NewFXMain extends Application
                 stage.show();
             }
 
+        
         /**
          * @param args the command line arguments
          */
+        
         public static void main(String[] args) 
             {
                 launch(args);
