@@ -1263,8 +1263,8 @@ public class MainFXMLController implements Initializable {
          deltaP = pv.getPosition().getNorm();
          deltaV = pv.getVelocity().getNorm();
          
-         System.out.println("deltaP = "+deltaP);
-         System.out.println("deltaV = " +deltaV);
+         System.out.println("deltaP ="+deltaP);
+         System.out.println("deltaV =" +deltaV);
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
