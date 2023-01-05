@@ -472,18 +472,15 @@ public class MainFXMLController implements Initializable {
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
-            // from the sensor determine the observation parameters in azimuth-elevation
-            
+            // from the sensor determine the observation parameters in azimuth-elevatio            
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
-            // let us see how this has been propogated
-            
+            // let us see how this has been propogated    
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
 
-            // generate labels consistent with true output
-            
+            // generate labels consistent with true output           
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
@@ -1263,8 +1260,8 @@ public class MainFXMLController implements Initializable {
          deltaP = pv.getPosition().getNorm();
          deltaV = pv.getVelocity().getNorm();
          
-         System.out.println("deltaP ="+deltaP);
-         System.out.println("deltaV =" +deltaV);
+         System.out.println("deltaP = "+deltaP);
+         System.out.println("deltaV = " +deltaV);
     }
     
      private static class OrbitHandler implements OrekitFixedStepHandler {
