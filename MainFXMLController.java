@@ -351,11 +351,11 @@ public class MainFXMLController implements Initializable {
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
-            // define sensor location and id
+            //define sensor location and id
             
-           // sensor_latitude = -35.320277777778;
-           // sensor_longitude = 149.00694444444;
-           // sensor_timezone_id = "Australia/Canberra";
+            //sensor_latitude = -35.320277777778;
+            //sensor_longitude = 149.00694444444;
+            //sensor_timezone_id = "Australia/Canberra";
             //sensor_altitude = 0.77;
             
             sensor_latitude = -1.630783;
@@ -366,7 +366,6 @@ public class MainFXMLController implements Initializable {
             sensor_date_yyyy = 2022;
             sensor_date_mm = 12;     
             sensor_date_dd = 19;
-            
             
             
             // set sensor 
@@ -399,7 +398,6 @@ public class MainFXMLController implements Initializable {
             String officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
             String officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
             
-            
             // generate validation output
             
             System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
@@ -428,7 +426,6 @@ public class MainFXMLController implements Initializable {
             // determine topocentric frame of reference
             
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
-
             
             // input  TLE
             
@@ -472,15 +469,18 @@ public class MainFXMLController implements Initializable {
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
 
-            // from the sensor determine the observation parameters in azimuth-elevatio            
+            // from the sensor determine the observation parameters in azimuth-elevation   
+            
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
 
             // let us see how this has been propogated    
+            
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
 
-            // generate labels consistent with true output           
+            // generate labels consistent with true output        
+            
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
