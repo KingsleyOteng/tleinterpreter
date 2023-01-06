@@ -351,11 +351,11 @@ public class MainFXMLController implements Initializable {
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
             
-            //define sensor location and id
+            // define sensor location and id
             
-            //sensor_latitude = -35.320277777778;
-            //sensor_longitude = 149.00694444444;
-            //sensor_timezone_id = "Australia/Canberra";
+           // sensor_latitude = -35.320277777778;
+           // sensor_longitude = 149.00694444444;
+           // sensor_timezone_id = "Australia/Canberra";
             //sensor_altitude = 0.77;
             
             sensor_latitude = -1.630783;
