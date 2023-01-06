@@ -252,6 +252,9 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
+      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="44.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
+      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="239.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
+      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="451.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       
       
    </children>
