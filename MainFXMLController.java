@@ -64,6 +64,7 @@ import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.attitudes.InertialProvider;
@@ -439,7 +440,15 @@ public class MainFXMLController implements Initializable {
             
             // use the TLE propogator as opposed to using SGP4
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
-           /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
+            AbsoluteDate tleDateAgeAbsolute = tle.getDate();
+            final TimeScale UTC = TimeScalesFactory.getUTC();
+            Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
+            Date currentDateTime = new Date();  
+            long difference_In_Time
+                = currentDateTime.getTime() - tleDateAge.getTime();
+            System.out.println("Difference in time "+String.valueOf(difference_In_Time));
+            
+        /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
             
             // set current time
             
