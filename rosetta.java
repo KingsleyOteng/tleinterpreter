@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 /**
  * rosetta
- * @author kingsley oteng-amoako
+ * @author terra6 partners
  */
 
 public class rosetta 

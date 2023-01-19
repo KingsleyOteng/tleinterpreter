@@ -19,7 +19,7 @@ import java.util.TimeZone;
  * The formulas used by this class are from the Wikipedia articles on Julian Day
  * and Sunrise Equation. <br>
  *
- * @author Carmen Alvarez
+ * @author terra6 partners
  * @see <a href="http://en.wikipedia.org/wiki/Julian_day">Julian Day on Wikipedia</a>
  * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
  */
