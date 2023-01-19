@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 
     /**
-     * @author terra6partners
+     * @author terra6 partners
      */
 
 public class NewFXMain extends Application 

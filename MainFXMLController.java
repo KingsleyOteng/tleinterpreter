@@ -104,7 +104,7 @@ import org.orekit.utils.PVCoordinatesProvider;
 /**
  * FXML Controller class
  *
- * @author terra6partner
+ * @author terra6 partners
  */
 
 public class MainFXMLController implements Initializable {
