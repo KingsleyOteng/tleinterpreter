@@ -419,8 +419,12 @@ public class MainFXMLController implements Initializable {
             
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
             Date date1 = format.parse(officialSunrise);
+            System.out.println("officialSunrise" + officialSunrise);
             Date date2 = format.parse(officialSunset);
-            differenceSunriseSunset = date2.getTime() - date1.getTime(); 
+            System.out.println("officialSunset" + officialSunset);
+             differenceSunriseSunset = date2.getTime() - date1.getTime(); 
+            System.out.println("differenceSunriseSunset" + differenceSunriseSunset);
+           
             // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
             // differenceSunriseSunset = officialSunrise - officialSunset;
             
@@ -870,6 +874,7 @@ public class MainFXMLController implements Initializable {
             //label_observer_status.setTextFill(Color.web("#228B22"));  
            
                 start_time_label.setText("Start time: "  + String.valueOf(officialSunrise));
+                obs_label.setText("Obs. time: " + String.valueOf(differenceSunriseSunset)+"s");
             
             
         }
