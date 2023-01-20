@@ -318,6 +318,9 @@ public class MainFXMLController implements Initializable {
     private TextArea sen_latitude;
     
     @FXML
+    private Label start_time_label;
+    
+    @FXML
     private final MenuItem item1 = new MenuItem();
 
     // drop down box lists
@@ -492,7 +495,8 @@ public class MainFXMLController implements Initializable {
             
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
-
+            start_time_label.setText("Hello");
+            
             testLogDectors();
         }
 
@@ -839,6 +843,8 @@ public class MainFXMLController implements Initializable {
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
             //label_observer_status.setTextFill(Color.web("#228B22"));  
+            
+            
         }
 
     private int checkSum(String strArray) 
