@@ -334,10 +334,10 @@ public class MainFXMLController implements Initializable {
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
     
-                Location location;
-            SunriseSunsetCalculator calculator;
-            String officialSunrise;
-            String officialSunset;
+    Location location;
+    SunriseSunsetCalculator calculator;
+    String officialSunrise;
+    String officialSunset;
 
     /**
      * Initializes the controller class.
@@ -400,10 +400,10 @@ public class MainFXMLController implements Initializable {
             
             // build sunrise and sunset data model
             
-            Location location = new Location(sensor_latitude, sensor_longitude);
-            SunriseSunsetCalculator calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
-            String officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
-            String officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
+            location = new Location(sensor_latitude, sensor_longitude);
+            calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
+            officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
+            officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
             
             // generate validation output
             
