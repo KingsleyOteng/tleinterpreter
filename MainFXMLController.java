@@ -338,6 +338,7 @@ public class MainFXMLController implements Initializable {
     SunriseSunsetCalculator calculator;
     String officialSunrise;
     String officialSunset;
+    String differenceSunriseSunset
 
     /**
      * Initializes the controller class.
