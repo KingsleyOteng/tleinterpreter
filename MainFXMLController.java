@@ -323,6 +323,9 @@ public class MainFXMLController implements Initializable {
     private Label start_time_label;
     
     @FXML
+    private Label obs_label;
+    
+    @FXML
     private final MenuItem item1 = new MenuItem();
 
     // drop down box lists
@@ -342,7 +345,7 @@ public class MainFXMLController implements Initializable {
     SunriseSunsetCalculator calculator;
     String officialSunrise;
     String officialSunset;
-    String differenceSunriseSunset;
+    long differenceSunriseSunset;
 
     /**
      * Initializes the controller class.
@@ -417,7 +420,7 @@ public class MainFXMLController implements Initializable {
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
             Date date1 = format.parse(officialSunrise);
             Date date2 = format.parse(officialSunset);
-            long difference = date2.getTime() - date1.getTime(); 
+            differenceSunriseSunset = date2.getTime() - date1.getTime(); 
             // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
             // differenceSunriseSunset = officialSunrise - officialSunset;
             
