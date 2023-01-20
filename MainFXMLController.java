@@ -62,10 +62,14 @@ import org.orekit.propagation.events.ElevationDetector;
 
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.attitudes.InertialProvider;
 import org.orekit.bodies.BodyShape;
@@ -351,6 +355,7 @@ public class MainFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
         {   
             
+        try {
             DecimalFormat df = new DecimalFormat("0.00");
             
             // initial orbit propogation constants
@@ -407,7 +412,12 @@ public class MainFXMLController implements Initializable {
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
             
             //// Difference betwen two dates
-            //
+            
+            
+            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            Date date1 = format.parse(officialSunrise);
+            Date date2 = format.parse(officialSunset);
+            long difference = date2.getTime() - date1.getTime(); 
             // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
             // differenceSunriseSunset = officialSunrise - officialSunset;
             
@@ -429,9 +439,9 @@ public class MainFXMLController implements Initializable {
             
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
-                Constants.WGS84_EARTH_FLATTENING,
-                ITRF);
-
+                    Constants.WGS84_EARTH_FLATTENING,
+                    ITRF);
+            
             // set sensor location
             
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
@@ -457,10 +467,10 @@ public class MainFXMLController implements Initializable {
             Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
             Date currentDateTime = new Date();  
             long difference_In_Time
-                = currentDateTime.getTime() - tleDateAge.getTime();
+                    = currentDateTime.getTime() - tleDateAge.getTime();
             System.out.println("Difference in time "+String.valueOf(difference_In_Time));
             
-        /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
+            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
             
             // set current time
             
@@ -469,43 +479,46 @@ public class MainFXMLController implements Initializable {
             // obtain spacecraft state
             
             SpacecraftState spaceCraftState = propagator.propagate(date);
-
+            
             
             // determine PVCoordinates
             
             PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
-
+            
             
             // transform to earths geodectic points
             
             GeodeticPoint geodetic = earth.transform
-            (
-                coord.getPosition(),
-                ITRF,
-                date
-            );
-
+                    (
+                            coord.getPosition(),
+                            ITRF,
+                            date
+                    );
+            
             // determine the latitude and longitude of propogaed item
             
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
-
-            // from the sensor determine the observation parameters in azimuth-elevation   
+            
+            // from the sensor determine the observation parameters in azimuth-elevation
             
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
-
-            // let us see how this has been propogated    
+            
+            // let us see how this has been propogated
             
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-
-            // generate labels consistent with true output        
+            
+            // generate labels consistent with true output
             
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
             
             testLogDectors();
+        } catch (ParseException ex) {
+            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
 
     
