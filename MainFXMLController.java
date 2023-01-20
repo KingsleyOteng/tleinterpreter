@@ -338,7 +338,7 @@ public class MainFXMLController implements Initializable {
     SunriseSunsetCalculator calculator;
     String officialSunrise;
     String officialSunset;
-    String differenceSunriseSunset
+    String differenceSunriseSunset;
 
     /**
      * Initializes the controller class.
@@ -405,6 +405,10 @@ public class MainFXMLController implements Initializable {
             calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
             officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
+            
+            //// Difference betwen two dates
+            // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
+            // differenceSunriseSunset = officialSunrise - officialSunset;
             
             // generate validation output
             
