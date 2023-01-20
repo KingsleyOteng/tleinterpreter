@@ -407,6 +407,7 @@ public class MainFXMLController implements Initializable {
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
             
             //// Difference betwen two dates
+            //
             // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
             // differenceSunriseSunset = officialSunrise - officialSunset;
             
