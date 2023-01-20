@@ -23,6 +23,7 @@ import java.util.TimeZone;
  * @see <a href="http://en.wikipedia.org/wiki/Julian_day">Julian Day on Wikipedia</a>
  * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
  */
+
 public final class SunriseSunset {
 
 	public enum DayPeriod {
