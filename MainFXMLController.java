@@ -368,7 +368,6 @@ public class MainFXMLController implements Initializable {
             manager.addProvider(new DirectoryCrawler(orekitData));
             
             //define sensor location and id
-            
             //sensor_latitude = -35.320277777778;
             //sensor_longitude = 149.00694444444;
             //sensor_timezone_id = "Australia/Canberra";
@@ -383,13 +382,11 @@ public class MainFXMLController implements Initializable {
             sensor_date_mm = 12;     
             sensor_date_dd = 19;
             
-            
             // set sensor 
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
-            
             
             // build UI
             
