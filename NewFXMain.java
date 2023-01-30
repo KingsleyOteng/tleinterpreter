@@ -3,15 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
+/*
+Dates:
+*/
+
 
 import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
-//import javafx.event.ActionEvent;
-//import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+//import javafx.event.ActionEvent;
+//import javafx.event.EventHandler;
 
     /**
      * @author terra6 partners
