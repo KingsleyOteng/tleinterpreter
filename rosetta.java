@@ -12,6 +12,7 @@ import java.math.BigInteger;
  * @author terra6 partners
  */
 
+
 public class rosetta 
 {
     // internal variable
