@@ -572,6 +572,7 @@ public class MainFXMLController implements Initializable {
                     return;
                 }
 
+            
             //System.out.println("hello" + this.checkSum(tleLineOne));
             //trim both lines of text
             tleLineOne = tleLineOne.substring(3, tleLineOne.length());
