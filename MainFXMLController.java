@@ -434,9 +434,11 @@ public class MainFXMLController implements Initializable {
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
 
-            // update the element and the date boxes
+            // Commented out
+            //  -----> update the element and the date boxes
             
-            //this.setCurrentDateTime();
+            //  -----> this.setCurrentDateTime();
+            // Commented out
             
             // load orekit conventions
             
