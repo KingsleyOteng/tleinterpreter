@@ -162,7 +162,7 @@
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
       <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
-      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="723.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="712.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
