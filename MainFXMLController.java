@@ -456,13 +456,11 @@ public class MainFXMLController implements Initializable {
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
             
             // input  TLE
-            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             
             
             // create a TLE object
-            
             final TLE tle = new TLE(line1, line2);
             
             // use the TLE propogator as opposed to using SGP4
@@ -476,7 +474,6 @@ public class MainFXMLController implements Initializable {
             System.out.println("Difference in time "+String.valueOf(difference_In_Time));
             
             /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
-            
             // set current time
             
             AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
