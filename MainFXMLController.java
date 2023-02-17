@@ -436,7 +436,7 @@ public class MainFXMLController implements Initializable {
 
             // update the element and the date boxes
             
-            this.setCurrentDateTime();
+            //this.setCurrentDateTime();
             
             // load orekit conventions
             
