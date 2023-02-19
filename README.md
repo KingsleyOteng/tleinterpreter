@@ -5,7 +5,7 @@ Where supplied with NORAD Two-Line-Element (TLE) files and the GPS location of a
 
 ![alt text](https://github.com/KingsleyOteng/tleinterpreter/blob/main/screenshot.png?raw=true)
 
-**FORMAT**
+## Format
 
 Current TLE formats are specified by [NORAD] with input from [NASA].  A derivation of the Two-Line Element set format called the Three-Line Element set exists where the first line contains the name of the satellite. These element sets are general perturbation mean elements constructed by a least squares estimation from observations. The Air Force provides the observations taken from the Space Surveillance Network, and FreeFlyer provides the capability of simulating observations to generate TLEs. The TLE elements may be propogated using an [SGP4] model (or one of the SGP8, [SDP4], SDP8 models).
 
@@ -14,8 +14,6 @@ Current TLE formats are specified by [NORAD] with input from [NASA].  A derivati
 [NASA]: http://en.wikipedia.org/wiki/NASA
 [SGP4]: http://en.wikipedia.org/wiki/SGP4
 [SDP4]: http://en.wikipedia.org/wiki/SDP4
-
-## Format
 
 **More,  detailed information is available at [NASA Human Space Flight](http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html):**
 
