@@ -16,7 +16,7 @@ Current TLE formats are specified by [NORAD] with input from [NASA].  A derivati
 </h3>
 
 
-## In-tool usage from URL
+### In-tool usage from URL
 
 ```c++
 
@@ -32,7 +32,7 @@ orb ->
 
 ```
 
-## In-tool usage from data file
+### In-tool usage from data file
 
 ```c++
 
@@ -53,7 +53,7 @@ cout << orb -> getTLElinetwo();
 
 ```
 
-### In-tool generating a TLE summary
+### In-tool generation of a TLE summary
 ```c++
 
 cout << orb -> getTLEsummary();
@@ -101,7 +101,7 @@ fs.createReadStream( FILEPATH )
   })
 ```
 
-## In-tool creation of a TLE instance from existing data
+### In-tool creation of a TLE instance from existing data
 
 Currently does not allow the creation of TLEs. 
 
