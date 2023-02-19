@@ -16,7 +16,7 @@ Current TLE formats are specified by [NORAD] with input from [NASA].  A derivati
 </h3>
 
 
-## Usage from URL
+## In-tool usage from URL
 
 ```c++
 
@@ -32,7 +32,7 @@ orb ->
 
 ```
 
-## Usage from data file
+## In-tool usage from data file
 
 ```c++
 
@@ -43,7 +43,7 @@ orb ->
 
 ```
 
-### Parsing a single set
+### In-tool parsing of a single set
 
 ```c++
 
@@ -53,7 +53,7 @@ cout << orb -> getTLElinetwo();
 
 ```
 
-### Generating a TLE summary
+### In-tool generating a TLE summary
 ```c++
 
 cout << orb -> getTLEsummary();
@@ -84,7 +84,7 @@ TLE {
 
 ```
 
-### Parsing a stream
+### In-tool parsing of a stream
 
 ```c++
 
@@ -101,16 +101,7 @@ fs.createReadStream( FILEPATH )
   })
 ```
 
-## Creating a TLE instance from existing data
+## In-tool creation of a TLE instance from existing data
 
 Currently does not allow the creation of TLEs. 
 
-## Speed
-
-It currently only handles a single TLE
-
-```
-tle_example/norad_model.cpp
-Parser: 
-Parser: 
-```
