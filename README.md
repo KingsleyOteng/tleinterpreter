@@ -13,9 +13,7 @@ Current TLE formats are specified by [NORAD] with input from [NASA].  A derivati
 [NORAD]: http://en.wikipedia.org/wiki/NORAD
 [NASA]: http://en.wikipedia.org/wiki/NASA
 [SGP4]: http://en.wikipedia.org/wiki/SGP4
-[SDP4]: http://en.wikipedia.org/wiki/SDP4
-
-More,  detailed information is available at [NASA Human Space Flight](http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html):**
+[SDP4]: http://en.wikipedia.org/wiki/SDP4 More,  detailed information is available at [NASA Human Space Flight](http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html):**
 
 <h3 align="center">
   <a href="http://spaceflight.nasa.gov/realdata/sightings/SSapplications/Post/JavaSSOP/SSOP_Help/tle_def.html">
