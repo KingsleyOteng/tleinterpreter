@@ -23,7 +23,6 @@ More,  detailed information is available at [NASA Human Space Flight](http://spa
   </a>
 </h3>
 
-Some data to play around with can be found at [Celestrak](http://www.celestrak.com/NORAD/elements/) and in [Celestrak's Master Index](http://www.celestrak.com/NORAD/elements/master.asp).
 
 ## Usage from URL
 
