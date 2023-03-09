@@ -632,7 +632,7 @@ public class MainFXMLController implements Initializable {
             observation_hour.setText(String.valueOf(obs_hour).substring(0, 2) + String.valueOf(obs_min).substring(0, 2));
             observation_sec.setText(String.valueOf(obs_sec));
 
-                //launch_catalogue_sequence.setText(launch_catalogue_number);
+            //launch_catalogue_sequence.setText(launch_catalogue_number);
             if (obs_y < 60) 
                 {
                     observation_year.setText("20" + String.valueOf(obs_y));
