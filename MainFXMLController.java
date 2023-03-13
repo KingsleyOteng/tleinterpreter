@@ -569,7 +569,6 @@ public class MainFXMLController implements Initializable {
 
             if ((tleLineOne.equals("")) || (tleLineTwo.equals("")))
                 {
-                    //System.out.println("hello");
                     return;
                 }
 
@@ -587,9 +586,6 @@ public class MainFXMLController implements Initializable {
             while (matcher.find()) 
                 {
                     y = matcher.end();
-                    //System.out.println("x"+x);
-                    //System.out.println("y"+y);
-                    //System.out.println(">"+tleLineOne.substring(x+1,y));
                     line_one_array[i] = (tleLineOne.substring(x, y));
                     line_one_array[i] = line_one_array[i].trim();
                     i++;
@@ -658,9 +654,6 @@ public class MainFXMLController implements Initializable {
                 {
                     x = y;
                     y = matcher_short.end();
-                    //System.out.println("x"+x);
-                    //System.out.println("y"+y);
-                    //System.out.println(">"+tleLineOne.substring(x+1,y));
 
                     // extract from the range 10- 11 the ephemeris type
                     if (y > 11) 
@@ -679,9 +672,6 @@ public class MainFXMLController implements Initializable {
                 {
                     x = y;
                     y = matcher_next.end();
-                    //System.out.println("x"+x);
-                    //System.out.println("y"+y);
-                    //System.out.println("><><"+tleLineTwo.substring(x+1,y));
                     line_two_array[i] = (tleLineTwo.substring(x + 1, y));
                     line_two_array[i] = line_two_array[i].trim();
                     i++;

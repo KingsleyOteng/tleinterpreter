@@ -65,14 +65,16 @@ public final class SunriseSunset {
 	 * Intermediate variables used in the sunrise equation
 	 * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
 	 */
-	private static class SolarEquationVariables {
+	private static class SolarEquationVariables 
+        {
 		final double n;// Julian cycle (number of days since 2000-01-01).
 		final double m; // solar mean anomaly
 		final double lambda; // ecliptic longitude
 		final double jtransit; // Solar transit (hour angle for solar noon)
 		final double delta; // Declination of the sun
 
-		private SolarEquationVariables(double n, double m, double lambda, double jtransit, double delta) {
+		private SolarEquationVariables(double n, double m, double lambda, double jtransit, double delta) 
+                {
 			this.n = n;
 			this.m = m;
 			this.lambda = lambda;
@@ -100,12 +102,15 @@ public final class SunriseSunset {
 		TimeZone tzUTC = TimeZone.getTimeZone("UTC");
 		Calendar gregorianDateUTC = Calendar.getInstance(tzUTC);
 		gregorianDateUTC.setTimeInMillis(gregorianDate.getTimeInMillis());
-		// For the year (Y) astronomical year numbering is used, thus 1 BC is 0,
+		
+                // For the year (Y) astronomical year numbering is used, thus 1 BC is 0,
 		// 2 BC is -1, and 4713 BC is -4712.
 		int year = gregorianDateUTC.get(Calendar.YEAR);
-		// The months (M) January to December are 1 to 12
+		
+                // The months (M) January to December are 1 to 12
 		int month = gregorianDateUTC.get(Calendar.MONTH) + 1;
-		// D is the day of the month.
+		
+                // D is the day of the month.
 		int day = gregorianDateUTC.get(Calendar.DAY_OF_MONTH);
 		int a = (14 - month) / 12;
 		int y = year + 4800 - a;
