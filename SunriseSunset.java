@@ -448,12 +448,16 @@ public final class SunriseSunset {
 				} else {
 					return false; // Always night at the north pole in December
 				}
-			} else {
-				if (month >= 3 && month <= 10) {
+			} 
+                            else 
+                        {
+				
+                            if (month >= 3 && month <= 10) {
 					return false; // Always night at the south pole in June
 				} else {
 					return true; // Always day at the south pole in December
 				}
+                            
 			}
 		}
 		Calendar sunrise = sunriseSunset[0];
