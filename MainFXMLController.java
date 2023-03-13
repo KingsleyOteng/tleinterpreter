@@ -843,6 +843,10 @@ public class MainFXMLController implements Initializable {
 
                             default -> 
                             {
+                                        // set to dobsonian mount parameters
+                                        //mount_label_1.setText("Altitude : ");
+                                        //mount_label_2.setText("Azimuth : ");
+                     
                                         // generate labels consistent with true output
                                         mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
                                         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
