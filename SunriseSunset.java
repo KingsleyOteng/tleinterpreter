@@ -495,7 +495,9 @@ public final class SunriseSunset {
 				} else {
 					return true; // Always night at the north pole in December
 				}
-			} else {
+			} 
+                            else 
+                        {
 				if (month >= 3 && month <= 10) {
 					return true; // Always night at the south pole in June
 				} else {

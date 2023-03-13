@@ -808,10 +808,6 @@ public class MainFXMLController implements Initializable {
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
-           
-            //generate labels consistent with true output          
-            //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
-            //mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
                 // set to Alt-Azimuth
@@ -847,10 +843,6 @@ public class MainFXMLController implements Initializable {
 
                             default -> 
                             {
-                                        // set to dobsonian mount parameters
-                                        //mount_label_1.setText("Altitude : ");
-                                        //mount_label_2.setText("Azimuth : ");
-                     
                                         // generate labels consistent with true output
                                         mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
                                         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
