@@ -1,0 +1,629 @@
+\documentclass[7pt]{article}
+\usepackage[framemethod=TikZ]{mdframed}[2013/07/01]
+\usepackage[T1]{fontenc}
+\usepackage{afterpage}
+\usepackage{framed}
+\usepackage{physics}
+\usepackage{amssymb}
+\usepackage{soul}
+\usepackage{changepage}
+\newlength{\rulethickness}
+\setlength{\rulethickness}{1.2pt}
+\newlength{\rulelength}
+\setlength{\rulelength}{15cm}
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage[colorlinks]{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{blindtext}
+\usepackage{enumitem}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{setspace}
+\usepackage{lscape}
+\usepackage{xcolor}
+\usepackage[labelfont={color=blue}]{caption}
+
+\newcommand{\sidebysidecaption}[4]{%
+	\RaggedRight%
+	\begin{minipage}[t]{#1}
+		\vspace*{0pt}
+		#3
+	\end{minipage}
+	\hfill%
+	\begin{minipage}[t]{#2}
+		\vspace*{0pt}
+		#4
+	\end{minipage}%
+}
+
+
+
+\doublespacing
+
+
+%%%% watch this video
+%%%%https://www.youtube.com/watch?v=gtRLmL70TH0
+
+%%%%also watch this
+%%%%https://www.youtube.com/watch?v=p7Lv9GxigYU
+
+%%%%%%%https://www.infoworld.com/article/2077257/floating-point-arithmetic.html
+
+%%%%% http://web.mit.edu/hyperbook/Patrikalakis-Maekawa-Cho/node47.html
+
+%%%https://northstar-www.dartmouth.edu/doc/solaris-forte/manuals/common/ncg/ncg_math.html
+
+\begin{document}
+	
+	\section*{Chapter 1}
+
+A computer program, written in the 1970's and 1980's, would likely have been written for a mainframe which would have supported floating-point arithmetic; from a technical design standpoint,, for manufacturers the later introduction of the "floating-point unit" (FPU) or maths coprocessors to the microprocessor market \st{initially} provided the rudimentary bridge \st{basis} for \st{a} general purpose computing \st{computer manufacturers from a technical design standpoint} \st{a} \st{the rudimentary bridge} \footnote{The finite representation by a 16-bit integer or fixed-point, could be simply implemented using integer arithmetic and was therefore the convention on many early computers that did not support floating-point arithmetic. The primary limitations of fixed-point representation was a limited range and a tendency to generate errors for numbers near zero.}. \st{To which the} Initially  however for a  sound approach to development, a programmer would typically limit the use of coprocessors as there was latency which was three orders of magnitude larger compared to mainframes or supercomputers of the then conventional availability. The maths coprocessor \st{posed} was presented as a stand-alone circuit and later was built into the CPU: the  maths coprocessor when available to an application {would be} primarily \st{is} responsible for calculating float-point arithmetic accurately, or if not absolutely right, limiting the likelihood the calculations were not therefore significantly wrong\footnote{In 1994, an entire line of CPUs by market leader Intel simply couldn't do their maths. The Pentium floating-point flaw ensured that no matter what software you used, your results stood a chance of being inaccurate past the eighth decimal point. The problem lay in a faulty maths coprocessor, also known as a floating-point unit. The result was a small possibility of tiny errors in hardcore calculations, but it was a costly PR debacle for Intel.}.  When the time came, the Institute of Electrical and Electronics Engineers (IEEE) Standard for Binary Floating-Point Arithmetic (Standard 754) (https://ieeexplore.ieee.org/document/8739150) was adopted by microprocessor manufacturers starting in 1980, were the gains to the users were not a cause simply because of presentation. The more innovative initial approaches to implementing floating-point calculations based on IEEE-754 initially adopted a shift-and-subtract algorithm but the more acute users noticed that compared to supercomputers the maths coprocessors provided pretty modest throughput. Pentium is a chipset initially \st{released} introduced in August of 1994 by the Intel corporation, instigated the use of a lookup table implemented as a programmable logic array: thus the speed and accuracy of floating-point calculations were to rival that modern of supercomputers. It is not only a standard for microprocessors but also specialized chips such as GPUs are trending towards calculating \st{will also calculate} floating-point arithmetic the CPUs way. This standard reach was eventually to extend up to supercomputers. A required part of all future IEEE-754 standards has been to define the minutiae around representation of how arithmetic results should be approximated in floating-point including approximation to what or by what to whom. Which level of precision and what degree of dynamic range were defined and adopted by array of the microprocessors. Ultimately all this would lead to increase sales of the microprocessors by widening the installed base by allowing portable code and this was to provide a degree of relief to system manufacturers: the standard due to it's level of precision is preferred for modelling all manner of phenomena including heart erythema, nuclear reactions, financial models, facial recognition and climatic patterns. But can you actually train users to analyse  extremely large data sets produced by these models, without teaching them how to develop tools in parallel computing that normally require development across decades of a career? But can you actually impart on application developers the intricacies of the Kahan SRT division tester (reference), in order to catch the Pentium-like division bugs of twenty-five years ago? Do you wish users to ponder over the flaw or even remember it? Understandably, what you do wish to impart to application developers from the IEEE 754 standard, the point of it all, is: to understand the form of floating-point arithmetic, precision of representation, accuracy of a floating-point operation, stability of numerical algorithms and when parallel programming where the floating-point processing is applied. 
+
+\section*{Floating-point data representation.}  
+
+The setting up of the IEEE 754 Floating-Point Standard was an effort by the institute to allow  manufacturers to adopt a universal standard for the representation and operation of floating-point arithmetic calculations; this would thereby allow these features to be available in the market more affordably (reference "Why do we need floating-point by Kahan"). The initial  draft standard had been adopted by most of the major computer and microprocessor manufacturers in 1984  including AT\&T, Intel, IBM, Apple and AMD; the final standard ratified in 1985 did not introduce significantly more requirements than this draft. This standard was adhered to by system manufacturers thereby committing to the standard, or at least 'conformity' to certain degree. This involved designing all their \st{your} future microprocessors towards \st{the} IEEE-754 or the most recent IEEE-754 iteration. The final revision of the standard settled upon as of the writing of this text had been revision IEEE 754-2019\footnote{\textit{IEEE-754-2019 - IEEE Standard for Floating-Point Arithmetic}}. Against these revisions, industry adoption of the standard has been a phenomenal success. As with many standards developed by Standards Committees, it is important for developers to understand the context and information that may be obtained from it.
+
+According to the Microprocessor Standards Committees, in the current IEEE-754 standard a floating-point number must be representable numerically by bits sequences; this was defined by the earliest standard\footnote{\textit{IEEE-754-1985 - IEEE Standard for Binary Floating-Point Arithmetic}; the standard was specified for \textit{binary} floating-point arithmetic.} chaired by Kahan which was released in 1985. If devices require 'representations of floating-point data in the binary interchange formats', the values are uniquely identified in general by encoding using three-field types:
+\begin{enumerate}
+	\item sign (S) \st{bit} digit;
+	\item trailing significand (T) bits
+	\item exponent (E) bits
+\end{enumerate}
+A single-precision format for a floating-point \st{of}, a 32-bit \underline{integer}, was mandated as part of the standard; whereas, a double-precision format for a floating-pointing \st{of}, a 64-bit \underline{integer}, with greater precision could by implemented by manufacturers at their discretion. This double-precision format allows for the increased dynamic range while maintaining adequate accuracy, at a cost however of twice the storage requirement and therefore bandwidth of single-precision per-component representation; it was  was designed to provide greater dynamic range and precision for applications mainly within scientific computing. The standard IEEE 754 when introduced \st{released} was considered prescriptive and doctrinal: an \textit{extended format} was assigned to each basic format, however the extended single-precision format would quickly become antiquated\footnote{The extended floating-point format was included to allow intermediate computations with wider dynamic range that would provide a final floating-point value in the basic floating-point format whilst allowing for 1) generally greater precision than that of the basic floating-point format and 2) a limited occurrence of underflows / overflows. In practice the extended precision double floating-point format is used in place of the single-precision.}
+At this point, we would do \st{best} well to explain the interpretation of the three-field types;  the $S$ is used to interpret the sign of numerical values - $S=0$ indicating a positive number whilst $S=1$ indicates a negative, the $E$ representation determines the range of numbers that can be represented and $M$ which is \st{a little more complex to explain but} is the part of the floating-point number consisting of its significant digits although it's size may vary such that a higher precision representation can opt for a trailing significand in a reduced form. The term \emph{signficand} was introduced in the standard as it is significant in capturing the accuracy in floating-point numbers.  The IEEE single-binary format specifies 1- sign bit, 8- exponent bits and 23- trailing significand \st{bits} digits; the greater dynamic range offered by the IEEE double-binary format species 1- sign bit, 11- exponent bits and 52- trailing significand \st{bits} digits;.
+\subsection*{Sign (S) -bit representation.}
+The consequences of the value in a sign bit may be readily generalized. Positive-valued signs simplified as $S= 0$ can be explained in this context: when any numerical value is raised to the 0th power, including negative numbers, will total 1; hence $S=0$, positive is assigned. Excluding positive-valued instances, we observe that when -1 is raised to the 1st power, the numerical value remains negative; multiplying any number by -1 will always change the sign of others. Broadly generalizing therefore, as there are many exceptions, with -1 as a prefix raised to the power of its sign we may produce a floating-point. All the numerical representations of the Floating-Point Standard in the interchange format, with notable exception conditions and with appropriate default handling, when received in whatever way such that a floating-point number represented by a double $(T_{*}, b, E)$ would be encoded down:
+\begin{equation}
+x = T_{*} \times (b^{E-bias})
+\end{equation}
+
+where $b$ the \st{constant base} radix \st{is set at 2 in binary} and $E$ is always a signed integer. The standards adoption of an \textit{sign-and-magnitude} representation for the significand  allows a floating-point number to be presented by a triplet $(S, T, b, E)$\footnote{$S \in \{0,1\}$ }, such that:
+\begin{equation}
+x = (-1)^{S}\times 1 . T \times (b^{E-bias})
+\label{eq:IEEE754}
+\end{equation}
+
+
+\subsection*{Trailing significand (T) -\st{bits} digits; representation.}
+%%%https://www.sciencedirect.com/topics/computer-science/mantissa
+The use of the format in (\ref{eq:IEEE754}) creates a paradox. Many of the most reasonable representations of a numerical values, to it would involve derivations where treatment of the trailing significand -\st{bits} digits; may naturally differ from a $1.T$ format, limiting the use of many floating-point representations that would otherwise benefit due to the \st{standards} requirements open limitations. In IEEE-754, for example, it is acceptable to present $0.25_D = 1.0_B \times 2^{-2}$ using a trailing significand bit pattern where $T=1.0_B$ but $0.25_D = 10.0_B \times 2^{-3}$ where $T=10.0_B$ and $0.25_D = 0.1_B \times 2^{-1}$ where $T= 0.1_B$, but neither is according to the form $1.T$ despite there being no loss of precision. It is right to ask whether $"1."$ might be passed over from the representation, due to the inference that $".XX"$ is $1.XX$ would be known and there	 being a scarcity in trailing significand \st{bits} digits;, in a floating-point computation. Thus, what is the best answer for those wishing to adhere to the IEEE-754 yet conserving to conserve their bits? It is generally accepted in IEEE format where the trailing significand is binary, to use the 2-bit trialling significand representation to mean its 3-bit standard form; the left-most bit defaults to $"1."$ in a scheme like this. This restriction in formatting is termed a \textit{normalized} floating-point\footnote{For floating-point arithemetic the number formatting is considered normalized where the dynamic range is given as: $$\dfrac{1}{radix} \leq significand < 1$$}, as for binary the leading digit of the signficand will always required to always be 1; normalized floating-point has hidden or implies that the most significant trialling signficand bit is 1; therefore a signficand is effectively $(T+1)$ bits throughout most of the representations.
+
+\subsection*{Exponent (E) -bits representation}
+The exponent bits, the number of bits assigned to $E$, is used to determine the range of a numerical outlook. The interaction between the exponent $E$ and its base of 2 in  floating-point numbers, determines a magnitude; for example, a large positive $E = 32$ would correspond to the large floating-point number $>2^{32}$ and a large negative $E = -32$ would correspond to a significantly smaller number $2^{32}$ - the exponent allowing for a substantially differing points of representation. The magnitude or accuracy \st{precision} may be more important depending on the characteristics of the data; for example, biological sciences might require large floating-point values to capture growth, or a high degree of accuracy \st{precision} when examining characteristics which are weak or fragmented. It also enables through IEEE-754 a more extensive range of numbers than representations as standard integers, decimals and so forth.
+
+The standard, IEEE-754, in its specification implements \textit{excess encoding} or bias representation for $E$;  given $E$ bits to encode the exponent $E$, an excess encoding is obtained by adding $(2^{E-1} - 1)_B$ to a two's complement representation for the exponent. The standards triplet thus becomes as triplet $(S, T, b, E)$:
+\begin{equation}
+x = (-1)^{S}\times 1 . T \times (b^{E-1})
+\end{equation}
+The excess-three code is a binary-coded-decimal (BCD) and numerical representation which is inherently biased. We consider an example of a 8-bit integer, consisting of 1-sign bit, a 3-bit exponent and a 4-bit trailing signficand. A decimal number $10.23$ would have a BCD code $1010$ and it's excess-three code would be obtained by adding $+3$ to each digit to get the equivalent excess-three code - in this case $0100 0011.0101 0110$. The number -3 being close to -2 in our 3-bit encoding scheme, within our hypothetical bit integer format of 8. The decimal $-0.25_D$ may therefore be represented in our 8-bit format as $-0.25_D = (-)1.0_B \times 2^{-2} = 1 001 0000 $, where $S=1$, $E = 001$ and $T = (1).0000$
+\footnote{
+Consider that $-0.25_D$, \\ a.  A conversion of the numeric value to binary scientific notation: $ -1.0_B \times 2^{-2}$, \\
+b. We may obtain the triplet bits of our 8-bit format: \\
+     	1. We obtain $S = 1$ as the number is negative, \\
+      2. With excess-3 encoding we add 3 to the exponent and add store the code generated for the three exponent bits, \\
+      i.e. $S = (-2 + 3)_{D} = 1_{D} = 001_{B} \equiv E = 001$. \\
+      3. The significand \st{bit} digits are obtained as the first four bits following an implied 1, \\
+     that is,  \st{i.e.} $-1.0_B \times 2^{-2} = -1.0000_B \times 2^{-2}$, that is, \st{i.e.} $T = 0000$. \\
+We therefore obtain $1 001 0000$ in excess-3 encoding. 
+}
+
+\st{This excess encoding representation makes it possible to represent floating-points as either positive or negative.}
+
+
+\afterpage{
+	\begin{figure}
+		\label{fig:excess7}
+		\centering
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Decimal value} & \textbf{Twos-complement representation} & \textbf{Excess-7 coded representation}  \\
+			\hline
+			\hline
+			-7 &  1001 & 0000\\
+			\hline
+			-6 &  1010 &  0001\\
+			\hline
+			-5 & 1011 &  0010\\
+			\hline
+			-4 & 1100 &  0011\\
+			\hline
+			-3 & 1101 & 0100\\
+			\hline
+			-2 & 1110 &  0101\\
+			\hline
+			-1 & 1111 &  0110\\
+			\hline
+			0 & 0000  & 0111\\
+			\hline
+			1 &  0001&  1000\\
+			\hline
+			2 & 0010 &  1001\\
+			\hline
+			3 & 0011 &  1010\\
+			\hline
+			4 & 0100 &  1011\\
+			\hline
+			5 &0101  &  1100\\
+			\hline
+			6 & 0110 &  1101\\
+			\hline
+			7 & 0111 & 1110 \\
+			\hline
+			IEEE special bit pattern & 1000  & 1111 \\
+			\hline
+			\hline
+		\end{tabular}
+		\caption{Excess-seven encoding of decimal numbers indicates that the values returned are sorted. }
+	\end{figure}
+	\clearpage
+}
+
+This excess encoding representation was intended to allow direct comparison of signed numbers \st{by an unsigned comparator} - the use a signed comparator is more costly; other representations such as two's-complement representation and sign-and-magnitude representation were possible, but the comparison of a floating-point would best suits excess representation for exponents (hardware book 224,126). There is only one unsigned comparator required to compare signed floating-point numbers when excess representation is used on the exponents encoding. The penalty for negatively signed binary numbers under twos complement, would require a signed comparator, as  using an unsigned comparator will not be passed-on or caught. This behaviour leaks across the comparator and would require additional support. The binary numbers in the excess-seven coded bits however of table \ref{fig:exces7}, indicates that $-7_D$ has the least binary integer value of $0000$.  Comparing floating-point exponents along a sequence of excess-seven coded bits will correctly yield an accurate order; for instance, a comparison of  $-7_D$ and $0_D$ in the excess-seven code accordingly assigns order in terms of the largest number to  smallest. This is desirable from a manufacturers standpoint, as it is a relatively straightforward feature to implement. Excess-coded floating-point representation has an additional gratifying feature useful during implementation: a successor of a floating-point number is obtained by considering the binary representation as an integer and then incrementing the integer; this holds true for all positive floating-point numbers.
+
+For completeness, IEEE floating-point binary format does not assign bit-integers of an exponent is a series of all $1's$,  i.e. as in $1111$ of Table  \ref{fig:excess-seven} , but they are is handled as a special-case. Though considered  an independent special bit pattern in the IEEE-754 binary format, the representation of the special bit pattern is dependent on the value of the trailing significand $T$; with a value of $T=1$ the \st{exception} special-case is handled as Not-a-Number (NAN) and  with a value of $T=0$ this \st{exception} special case is handled as infinity - the dynamic range of representation itself is however dependent on the level of precision adopted in numbering. Of the 64 bits in IEEE double-binary format an additional 52 bits are assigned to the trailing signficand and 11 bits to the exponent compared to 23 bits for the significand and 8 bits for the exponent in the single-binary format; the precision therefore achievable through normalized numbers in IEEE double-binary format is $2^{52}$ compared to the single-binary format's $2^{23}$.
+%%%https://northstar-www.dartmouth.edu/doc/solaris-forte/manuals/common/ncg/ncg_math.html
+
+\begin{landscape}
+\afterpage{
+\begin{table}
+	\centering
+\begin{tabular}{|c|l|l|l|l|l|}
+\hline 
+\textbf{Excess encoding, E} & \textbf{Signif., T} & \textbf{Sign, S} & \textbf{Single-Format(hex)} & \textbf{Double-Format(hex)} & \textbf{Handling}  \\
+\hline
+\hline
+1111...111 & non-zero  & & 7fc00000 & 7ff80000 00000000 & nan (not-a-number) \\
+\hline
+1111...111 & zero & 1 &7f800000 & 7ff00000 00000000 & +INF (positive-infinity)\\
+\hline
+1111...111 & zero & 0 & ff800000 & fff00000 00000000 & -INF (negative-infinity) \\
+\hline
+0000...000 & zero & 0  & 80000000 &80000000 00000000 & signed zero (-0.0) \\
+ &  & 0  & 00000000 &00000000 00000000 & (+0.0)  \\
+\hline
+0000...000 & non-zero & 0  & 007fffff & 000fffff ffffffff & denormalized / sub-normal \\
+0000...000 &  & 0  & 00000001 & 00000000 00000001 &  \\
+\hline
+\end{tabular}
+\caption{Special bit patterns in IEEE binary floating-point format. The details behind special bit patterns are revealing. These situations were described as ones in which the floating-point number did not fit into the range defined within the standard or there as another type of error in the execution of an application. Infinity ($\infty$) representations, negative infinity or positive infinity, are generated when a very large number is divided by a very small number, leading to a special-case. The not-a-number (NaN) representations, are generated by invalid operations such as $0/0$, $\infty - \infty$ or $\sqrt{-1}$ leading to a special-case. The IEEE-754 format specifies two types of NaNs: signalling-NaNs which are represented by the most significant bit of the significand set (s  11111111  1xxxxx...xxxxx)  and the quiet-NaNs (s 11111111 0xxxxx...xxxxx) with the most significant bit of the significand not set. The quiet-NaNs occur when an invalid operation occurs during floating-point arithmetic but will allow the output to propogate through their standard operations; they do not signal exceptions and thereby allowing for diagnostic examination. The signaling-NaNs when an invalid operation occurs that must cause execution of the program to halt, thereby generating an exception. The exception classes were defined in the IEEE-754 standard; exceptions were to be only called with the results of an operation; the status-flags of exceptions were to include invalid operations, dividebyzero operations, underflow operations, overflow operations and inexact operations.  One of most common problem areas where [signalling] NaN are used is with detecting uninitialized variables; many programming languages allow uninitialized data to be assigned NaN and thereby detected by during  code compiling. }
+\end{table}
+	\clearpage
+}
+\end{landscape}
+
+ (Cherkassky et al. (1994)):\\
+\begin{enumerate}
+\item Model: Pattern recognition favours interoperable models best suited  to structured modelling frameworks; machine learning has its chief objective as prediction, \underline{thereby reducing an overall MSE}, 
+\item Complexity: traditionally machine learning has required large amounts of training data and high complexity to generalise its predictions; pattern recognition has tended to involve small data sets and lower complexity models. 
+\item Data processing: models in pattern recognition have tended to require training of whole data sets, referred to as a \textit{batch} methods; machine learning adopts iterative processing termed \textit{on-line} methods which may be trained on portions of a larger datasets or using cross-validation techniques. 
+\item Training speed: machine learning methods favour an iterative processing which tends to utilise much more tedious training regimes requiring multiple presentations of the data such as gradient descent, pattern recognition comparatively is much faster. 
+\item Use complexity: As pattern recognition techniques extract information using a batch method they will tend to be more honourous to apply. Machine learning methods tend to be computationally for users to apply and simpler to interpret as they use smaller chunks of data.
+\item Robustness: Machine learning estimators are typically more robust than the pattern recognition counterparts\footnote{Confidence intervals are routinely provided in statistical methods but are usually lacking in most machine learning studies.}.  
+\item Methods: Pattern recognition as a statistical learning technique uses asymptotic and analytical techniques to focus on inference and estimation of unbiased modelling procedures. Machine learning comparatively focuses on the reduction of the MSE, using numerical methods and heuristics - not necessarily limited to unbiased estimators. 
+\end{enumerate}
+
+\section*{Arithmetic accuracy in algorithms.}
+One of the most consistent problems relating to floating-point arithmetic when IEEE floating-point format was introduced, was accuracy. This had often emerged, along with memory requirements and therefore cost of implementation, as limitations in implementing floating-point during the introduction of personal computers. During the design of IEEE-754, increased precision requirements had been accounted for through the width of the trailing significand \st{bits} \st{digits} by the working group. The accuracy level of a floating-point operation however, would be captured by the number of operations that is to be carried out on a floating-point number; the error level however was considered low as the floating-point operands \st{numbers} were to be represented by 32 bits. This accuracy is measured in terms of the \textit{maximal relative error}, the higher the accuracy required the smaller the observed errors, for each operation. To this end, in floating-point arithmetic  'errors' are introduced whenever a number fails to be definitely represented on floating-point bit patterns. The error of each operation would be caused by any approximation in IEEE-754. By representing floating-point numbers, in the original standard, using a 32 bit significand an error would occur when the result representation required any additional bits. The nature of the IEEE-754 binary floating-point standard, requires that before an operation the exponents must be equal; therefore, where two operands are of different magnitude as in \ref{right-hand-calc}, the exponents of the smallest operand is adjusted upward whilst the bits of the signficands are accordingly shifted right, requiring additional bits than the standards representation of floating-points. The most significant error would be propagated in this operation due to bit shifting in the smallest operands significand. The comparative freedom apparently provided through floating-point representation has risks and limitations. Despite significands ability in single-precision 32-bit and double-precision 64-bit in IEEE-754 providing coverage for most applications, floating-point cannot accurately represent decimal fractions of the form $10^{-x}$ without introducing error \st{as no binary fraction is exactly equivalent to $10^{-x}$}; this is part of its design legacy. The benefit of single-precision 32-bit to scientific applications was it provides an accuracy of $<2^{24}$. Yet even this error limit proves not to be low enough to significantly reduce the level of error propagations in floating-point operations, particularly in scientific computing.
+\subsection*{-GPU Implementations}
+A problem with floating-point arithmetic, is that errors will tend to be considered in terms of the relative error and yet we wish to complete each operation such that errors may be captured in terms of a least-significant digit in bits. Consider one example; \st{in} a 7-bit \st{(S=1, E=3, T=3)} format \st{introduced earlier} with a 1 bit sign, 3 bits exponent  and 3 bits significand digits - 
+\st{if} we \st{were to} add 16$_D$ and 1$_D$: i.e. 1.000$_B$*$2^{7}$ + 1.000$_B$*$2^{3}$ = (0 111 000 + 0 011 000). To add operands in binary, exponents must be matched and the significand shifted to the right accordingly; this is consistent with how floating-point operation was developed. The addition operation is then obtained by subtraction the significands. Thus therefore, 1.100$_B$*$2^{7}$ + 0.0001$_B$*$2^{7}$, which results in 1.1001$_B$*$2^{7}$ (0 111 1001).  This representation would require an extra bit for the significand, than is available in 7-bit format. The most reasonable solution in the above example based on numerical analysis, would be to approximate the number to the nearest significand; i.e. 1.100$_B$*$2^{7}$ or 1.101$_B$*$2^{7}$ are both options. The error here with either approximation is always $0.0001_B$. We refer to this as a \textit{Units-in-the-Last-Place} approximation or ULP; specifically, (except when $x$ is equal to a power of a radix), ULP {is the  distance between the two nearest floating-point numbers to $x$ when approximating a  floating-point number $x$} (reference: Kahan, W. 1996. Lecture notes on the status of IEEE-754. PDF file accessible electronically
+through the Internet at the address %%http://www.cs.berkeley.edu/∼wkahan/ieee754status/IEEE754.PDF%%);
+)
+$$
+ULP(x)
+$$
+The approximations are therefore floating-point numbers that have an error less than or equal to $0.5_D$ ULP; a noticeable constant rounding. An approximation to however 1.100$_B$*$2^{7}$ or 1.110$_B$*$2^{7}$, i.e.  1.100$_B$ - 1.110$_B$, would achieve an error level of 0.010$_B$  or when compared to the least error levels, this is double the level of error (0.010$_B$/0.10$_B$) i.e. 2$_D$ ULP. The initial IEEE-754 standard choose to define ULP(x), \emph{as the gap between the two finite floating-point numbers nearest x, even if x is one of them. But ULP(NaN) is NaN} (reference: W. Kahan. A logarithm too clever by half. Available at http://http. cs.berkeley.edu/~wkahan/LOG10HAF.TXT, 2004);.
+
+With both CPUs and GPUs,\st{ULPs are included as part of their floating-point arithmetic}their floating-point arithmetic includes ULPs, although implementations have not necessarily been IEEE-754 compliant and \st{have} therefore  tended to be platform-specific. The introduction of binary floating-point GPU architectures commencing in 2002 saw the arrival of 24 bit digit and 32 bit digit floating-point,\st{for example}; manufacturers trading off the constraints of memory, cost and quality for non-standard floating-point methods.  An earlier-era binary floating-point GPU consequently would introduce non-compliant approximation error after addition and multiplication arithmetic operations  [79], rounding $x+2$ bits to a precision of $x$ bits, with precision compromised for all applications. By 2007, GPUs had tended towards greater compliance with IEEE-754-2008 floating-point, with addition and multiplication hardware-unit arithmetic which provided standard approximations. Wholesale compliance with IEEE-754 is still not across the board for GPU manufacturers: for a start single-precision floating-point support is sparse and non-compliant approximations observed for operations, such as square-root functions, in many implementations. Use of 16 bit digits, referred to as half-precision floating-point, at the time of the writing of this book had also gained increasing acceptance with application developers due to the improvements in computational efficiency, increased energy efficiency and lower memory bandwidth requirements when working with large models compared to floating-point arithmetic operations. Also, certain hardware-units have functions such as division \st{which are} increasingly implemented \st{designed} using polynomial algorithms \st{such} and inversion operators with large non-standard approximations (\st{which introduce 2D ULP errors}); the number of significand bits required in floating-point will \st{tend to} be insufficient \st{therefore} leading to errors levels well outside of $0.5_D$.
+
+\subsection*{Floating-point summation considerations.}
+
+Numerical operations often consider a large number of floating-point numbers; but the final result obtained from an operation on floating-point numbers is not the same as operations on integers. We can consider the addition of any two floating-point numbers and the final result will always be consistent; for example in single binary floating-point arithmetic, the sequential summation, then:
+\begin{equation*}
+1.00_B*2^{10}  - 1.00_B*2^{10} = 1.00_B*2^{0}
+\end{equation*} 
+In this example the result is not constrained by the sequence of the two numbers, the results therefore are stable. The problem in floating-point arithmetic, is that before an addition, bits must be inefficiently shifted so that the corresponding digits match up. Yet if two numbers have widely varying  exponents, some least significant digits must be routinely discarded.  For example, consider the summation across three independent numbers where there are a limited number of bits in each signficand; we evaluate a sum reduction in sequential order:
+\begin{equation*}
+1.00_B*2^{-1}  + 1.00_B*2^{-1}  + 1.00_B*2^{23} -  1.00_B*2^{23} =  1.00_B*2^{23} -  1.00_B*2^{23} = 0.0
+\end{equation*} 
+But, a common approach to limiting such floating-point arithmetic errors has been to pre-sort the independent terms; by contrast, 
+\begin{equation*}
+ -  1.00_B*2^{23} + 1.00_B*2^{23} +1.00_B*2^{-1}  + 1.00_B*2^{-1}  = 0.0 + 1.00_B*2^{0}  = 1.00_B*2^{0}   
+\end{equation*} 
+So this reverse arithmetic operation, a sum after pre-sorting terms by magnitude, achieves better precision. But as the associative property of addition applies to each of our three examples; therefore, the ordering of independent terms should be immaterial to a final result. Yet this is simply not the case; for a sum of floating-point numbers, the sequential order of the numbers is always \emph{material}. 
+
+The division of the numbers after pre-sorting the data into two groups - one with large exponent values and one where exponent values are considerably smaller - corresponds to the division between groups of number which are considered near numerically, greatly limiting the need for alignment shifting of operands. The pre-sorting of numbers the introduction of error in a sum reduction; pre-sorting the numbers by ascending also limits error accumulation.  We can consider therefore a third technique, a parallel algorithm, that sums grouped pairs of operands in parallel,
+\begin{equation*}
+(1.00_B*2^{-1} + 1.00_B*2^{-1}) +  (-1.00_B*2^{23} + 1.00_B*2^{23})  = (0.0 + 1.00_B*2^{0}) = 1.00_B*2^{0}   
+\end{equation*} 
+It would be uncomplicated to implement this parallelized algorithm; in CUDA we could write a kernel that assigns a separate thread to perform operations on pairs of grouped operands. After each summand is completed, the threads would then be barrier synchronized before another thread is used to obtain a summation. Therefore for a summation with a number of independent terms, we could obtain a considerable improvement in throughput by using the parallelized algorithm.
+
+ In the first example, error was introduced as information contained in the first two operands was thrown out as the magnitudes were significantly smaller than the two other operands. A second example considered s sum reduction after pre-sorting. In this third example we sort in ascending order, after the parallel addition of the third and the fourth operands, where the resulting magnitude of the summand is large enough such that there is no loss in precision; the final result is again better. This disparity in results between a simple sequential summation, a sequential summation after pre-sorting by magnitude and parallel summation is well-known to floating-point arithmetic (reference).  One answer would also be to increase the number of significand bits by implementing numerical operations in higher precision; the additional significand bits would allow us to preserve more information but this would increase memory bandwidth requirements. Precision inherent in floating-point numbers, will always be lost when a sum operation is performed on two numbers having considerably different magnitudes. To generalise, in floating-point arithmetic when adding $(a + b + c)$, a more accurate result will be obtained when the smaller numbers are summed before summing any additional independent numbers; sorting tends to be the technique used to limit errors in  summands of massively parallel numerical algorithms. As sum reduction operations may be considered the sum of a larger summation, the accumulated value of a series of independent numbers will tend to introduce errors, with each additional term to sum. In this analysis, the error in one summand will tend to differ from the error of other summands in the same sum; errors in the accumulation will however continue to grow unbounded. One other approach to summation would be to correct the summands after an independent term is added (add a picture and a reference), this is known as Kahan's Summation Algorithm (ref). It is a good assumption to preserve more precision in the accumulation, through using a very large fixed-point adder at the accumulator with much larger significands, than to preserve precision in the summands. (add a picture here).
+
+(extend this study for this section:
+https://www.drdobbs.com/floating-point-summation/184403224
+)
+
+\subsection*{Solvers and algorithm stability.}
+
+A fundamental principle in the design of algorithms is the notion of \emph{stability}, which is considered in terms of the accuracy and  conditioning of solutions to a problem, has become attached to the study of numerical methods. The idea is any solution should be taken in terms of the accuracy of the results, for all input ranges. A \emph{stable} algorithm will achieve an exact level of accuracy to a problem should a solution exist for all inputs ranges, through an ordering of operations. Although a strict ordering of operations should not \st{optimally} impact a final value, for finite-precision, poorly ordering operations may render a problem unsolvable or lead to other inefficiencies such as round-off accumulation impacting the accuracy of final values. An \emph{unstable} algorithm however will fail to meet the level of accuracy required in its solution, due to round-off accumulation, ordering of numbers and any other factors. An ordering of operations and accurate round-off techniques may in fact limit round-off accumulation in the summand, this may allow for higher precision and more stable algorithms. 
+
+ The issue is however not 'accuracy' so much when a solution is considered in computational terms - inherently any computational result may be perturbed from a theoretical one or may simply differ when two identical problems are asserted in floating-point at the same time. Floating-point representation, by a particular algorithm, is equivalent to an original problem perturbed. In a solution if the perturbation is small from the standpoint of computational precision, it is termed as a \emph{backward stable} algorithm; when a perturbation falls outside of the bounds of allowable computational precision the algorithm is unstable. An algorithm that is not backward stable will lead to growth in the rounding errors. For example, suppose that $f(x) \rightarrow y$; but, instead we consider computational $f(\hat{x}) \rightarrow \hat{y}$, with the hope the perturbed solution $\hat{y}$ is sufficiently near the theoretical solution $y$ at some unique local point $\hat{x}$ - which hopefully is sufficiently near $x$. The difference with the solution of the original problem $f(x)$ and the perturbed problem $f(\hat{x})$ requires algorithms therefore independently do \emph{conditioning}. The conditioning of a problem, measures the sensitivity of the solution to small changes in the input, whilst a backward analysis on the magnitude of a perturbation is a property of the algorithm itself.
+
+(reference: https://digitalassets.lib.berkeley.edu/techreports/ucb/text/CSD-92-702.ps)
+
+However, often techniques which are considered stable - that is, strictly sequential ordered for low-dimensional problems, will not be stable for larger problems or in a parallelized algorithm. The IEEE floating-point standard, when implemented efficiently, provides a very good framework for numerical stability.  Higher precision in the summation may also allow provide stability to algorithms when dealing with higher-dimensional problems. 
+
+For a $n \times n$ symmetric positive definite matrix $\mathbf{A}$, with elements $A_{i,j}$, where $i$ indexes are rows and $j$ indexes are column - the fundamental system of linear simultaneous equations can be written in the form $\mathbf{A x = b}$.  We may however solve the linear system by finding the inverse $\mathbf{A^{-1} A x = A^{-1}  b}$; an algorithm which has $n^3/3 + O(n^2)$ additions, $n^3/3 + O(n^2)$ multiplications and $n^2/2 + O(n)$ divisions. This may be solved by using \emph{Gaussian Elimination Method} in a linear system $A = L U$. An efficient solution to the linear system can be obtained by first decomposing $\mathbf{A}$ into $L L^{*}$, where $L$ is the lower triangular matrix with its diagonal elements strictly positive. Therefore we solve two systems, one for $y$ as $L y = b$ and another through a back substitution for $x$ as $L^* x = y$; applying this factorization recursively, leads to an algorithm of computational complexity $n/6 + O(n^2)$ additions, $n/6 + O(n^2)$ multiplications, $n/2 + O(n)$ divisions and $O(n)$ square roots. This is termed the \emph{Cholesky Decomposition}; it is half as complex as a Gaussian Elimination and as only $L$ is stored, it requires half the memory bandwidth. 
+\subsection*{Gaussian elimination with partial pivoting}
+We consider the system of linear equations:
+\begin{equation*}
+\begin{split}
+10^{-6}x + y & = 1 \\
+x + y & = 2
+\end{split}
+\end{equation*}
+Therefore if a linear system must satisfy all of the equations, the solution will be the intersection of the two lines - likely a single point, a line or an empty set. In this case, as $10^{-6}$ is not equal to zero it may be used as the pivot, at least in theory. Therefore using a Gaussian Elimination to solve the linear system, 
+\begin{equation*}
+\left[
+\begin{array}{cc}% you can specify any environment according to your choice  
+10^{-6}& 1  \\  
+1& 1
+\end{array}  
+\right]
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+x \\  
+y
+\end{array}  
+\right]
+=
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+1 \\  
+2
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array}{cc|c}% you can specify any environment according to your choice  
+10^{-6}& 1 & 1 \\  
+1& 1& 2
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+10^{-6}& 1 & 1 \\  
+0 & (1 - 10^{-6})& (2 - 10^{-6})
+\end{array}  
+\right]
+ \end{equation*}
+Thus by augmenting the system we obtain, 
+\begin{equation*}
+\left[
+\begin{array}{c|c} % you can specify any environment according to your choice  
+ 1 & {10^6}/{(10^6 - 1)} \\  
+1 & {(10^6 - 2)}/{(10^6 - 1)} 
+\end{array}  
+\right]
+\end{equation*}
+A roundoff that takes place on the sixth-digit, $10^6 - 1 = 999,999$ and $10^6 - 2 = 999,998$ result in rounding to 999,990.  The complete solution for the system is,
+\begin{equation*}
+\left[
+\begin{array}{cc}% you can specify any environment according to your choice  
+1 & 0  \\  
+0 & 1
+\end{array}  
+\right]
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+x \\  
+y
+\end{array}  
+\right]
+=
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+1 \\  
+2
+\end{array}  
+\right]
+\end{equation*}
+which is not in the region of the exact finite precision floating-point arithmetic solution $x \approx 1$ and $y \approx 1$; the naive Gaussian Elimination algorithm failed to generate a solution and was numerically unstable. This basic form of Gaussian Elimination is \emph{naive} as the pivot of $10^{-6}$ was not the largest in the column or in its row. Gaussian elimination without a partial pivot is typically not backward stable. Rather let us search for the largest absolute pivot in column one - this is a \emph{partial pivot}. Swapping row one and row two, 
+\begin{equation*}
+\begin{split}
+x  + &  y = 2 \\
+(1 - 10^{-6})  & y= (1 - 2 \times 10^{-6})
+\end{split}
+\end{equation*}
+\begin{figure}
+	\captionsetup{labelfont={color=blue}}
+	\begin{minipage}[c]{0.3\textwidth}
+		\caption{
+			Partial pivoting is limited to a search in the partial column below the first  lead-off column; when the pivot is not the largest absolute pivot, a zero may be introduced after a row reduction, indicating a matrix is numerically unstable
+		} \label{fig:03-03}
+	\end{minipage}
+	\begin{minipage}[c]{0.67\textwidth}
+		\includegraphics[width=12cm, height=6cm]{picture_1.eps}
+	\end{minipage}\hfill
+\end{figure}
+
+\begin{figure}
+	\begin{minipage}[c]{0.3\textwidth}
+		\caption{
+			Another zero is introduced after row-reduction but a swap is possible with the final row; therefore a solution is possible. 
+		} \label{fig:03-03}
+	\end{minipage}
+	\begin{minipage}[c]{0.67\textwidth}
+		\includegraphics[width=12cm, height=6cm]{picture_2.eps}
+	\end{minipage}\hfill
+\end{figure}
+
+\begin{figure}
+	\begin{minipage}[c]{0.3\textwidth}
+		\caption{
+			Finally, with the upper-triangular matrix provided $det(A) = a_{1,1}, a_{1,1},...a_{1,1} \neq 0$, the augmented system may be solved by back-substitution.
+		} \label{fig:03-03}
+	\end{minipage}
+	\begin{minipage}[c]{0.67\textwidth}
+		\includegraphics[width=12cm, height=6cm]{picture_3.eps}
+	\end{minipage}\hfill
+\end{figure}
+\st{With} then we perform Gaussian Elimination with a\st{we have the} pivot of 1 and the linear system is:
+\begin{equation*}
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+1 & 1 & 2 \\  
+0 & (1 - 10^{-6})& 1 - 2 \times 10^{-6}
+\end{array}  
+\right]
+\end{equation*}
+After round-off to $1 - 10^{-6} = 0.99999$ and $1 - 2\times10^{-6} = 0.99999$; the  solution to the original system is,
+\begin{equation*}
+\left[
+\begin{array}{cc}% you can specify any environment according to your choice  
+1 & 0  \\  
+0 & 1
+\end{array}  
+\right]
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+x \\  
+y
+\end{array}  
+\right]
+=
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+1 \\  
+1
+\end{array}  
+\right]
+\end{equation*}
+This second solution is within the region of exactness for finite precision floating-point arithmetic, $x=y=1$.  After the partial pivot, as coefficients in the second equation are of similar magnitude, the linear system will not be impacted by round-off. The problem in the first solution was that the magnitude of the chosen pivot was small, leading to the odd approximation. Note the partial pivot search considered only the partial column in the lead-off row  \st{one below a pivot term} to obtain the largest absolute pivot - {note} however this may not be the largest term relative to a full submatrix. 
+\subsection*{Gaussian elimination with complete pivoting.}
+To therefore improve the stability of an algorithm by limiting round-off in floating-point arithmetic, the maximum absolute pivot term across all entries of the submatrix must always be used on the diagonal; this is termed a \emph{complete pivoting}. Let us consider the system of linear equations, 
+\begin{equation*}
+\begin{split}
+2w + 4x + 8y + 6z & = 3 \\
+w + 2x + 3y + 7z & = 2 \\
+w  - 3x + 8y + 9z & = -2 \\
+4y + 4z -5w  -5x   & = 4 \\
+\end{split}
+\end{equation*}
+then form an augmented system, 
+\begin{equation*}
+\left[
+\begin{array}{rrrr|r}% you can specify any environment according to your choice  
+2 & 4 & 8  & 6 & 3 \\  
+1 & 2 & 5 & 7  & 2\\  
+ 1 & 7 & 8  & 9  &-2\\  
+ 2  & 14 & 16 & 4  & 1
+\end{array}  
+\right]  
+\end{equation*}
+\begin{figure}
+	\begin{minipage}[c]{0.3\textwidth}
+		\caption{
+			Finally, with the upper-triangular matrix provided $det(A) = a_{1,1}, a_{1,1},...a_{1,1} \neq 0$, the augmented system may be solved by back-substitution.
+		} \label{fig:03-03}
+	\end{minipage}
+	\begin{minipage}[c]{0.67\textwidth}
+		\includegraphics[width=12cm, height=6cm]{picture_5_1.eps}
+	\end{minipage}\hfill
+\end{figure}
+As the matrix is full rank, a unique solution will exist at the intersection of the four lines. As the first row contains a pivot of 2, the matrix satisfies the requirements of a partial pivot. We then subtract $1/2$ of the first row from the second row,  subtract $1/2$ of the first row from  the third row and add $5/2$ times the first row to the fourth row. This order of operation yields:
+\begin{equation*}
+\left[
+\begin{array}{rrrr|r}% you can specify any environment according to your choice  
+2 & 4 & 8  & 6 & 3 \\  
+0 & 0 & 1 & 4  & 1/2 \\
+0 & 5  & 4  & 6  &-7/2\\  
+0 &  5 &  4 & 2  & 5 / 2
+\end{array}  
+\right]
+\end{equation*}
+This stops the Gaussian Elimination process and again highlights the limits of partial pivot process.  This has happened because the partial pivot is only limited to examinations of the partial column; there was in particular a problem with the term in $a_{2,2}$ which is a zero.  After a swap of the second row and the fourth row we obtain the maximum absolute pivot of a complete pivot:
+\begin{equation*}
+\left[
+\begin{array}{rrrr|r}% you can specify any environment according to your choice  
+2 & 4 & 8  & 6 & 3 \\  
+0 & 5 & 4 & 2  & -7 /2 \\
+0 & 5 & 4 & 6  & 1/2  \\
+0 & 0  & 1  & 4  & 1/2
+\end{array}  
+\right]
+\end{equation*}
+Subtract the second row from  the third row, this operation yields:
+\begin{equation*}
+\left[
+\begin{array}{rrrr|r}% you can specify any environment according to your choice  
+2 & 4 & 8  & 6 & 3 \\  
+0 & 5 & 4 & 2  & -7 /2 \\
+0 & 0 & 0 & 4  & -3  \\
+0 & 0  & 1  & 4  & 1/2
+\end{array}  
+\right]
+\end{equation*}
+But this is a problem for a partial pivot since the term in $a_{3,2}$, as a zero has appeared in the pivoting position, again halting the Gaussian Elimination operation. We search the submatrix and find the largest possible entry in the third column; the final step is a swap of the third row and the fourth row, 
+\begin{equation*}
+\left[
+\begin{array}{rrrr|r}% you can specify any environment according to your choice  
+2 & 4 & 8  & 6 & 3 \\  
+0 & 5 & 4 & 2  & -7 /2 \\
+0 & 0  & 1  & 4  & 1/2 \\
+0 & 0 & 0 & 4  & -3  
+\end{array}  
+\right]
+\end{equation*}
+the rows in the augmented system may then be backward substituted to obtain a solution.  
+\newpage
+Let us consider another system:
+%\st{\subsection*{Complete pivoting}}
+\begin{equation*}
+\begin{split}
+4x + (4k)y & = 4k \\
+x + y & = 4
+\end{split}
+\end{equation*}
+In its augmented system  we assume $k$ is  very large. Under naive Gaussian Elimination, we consider only the first column and select the largest coefficient of the pair (4, 1) as the pivot. We can row-reduce row 1 from row 2, using a scalar 1/4 on row 1:
+\begin{equation*}
+\left[
+\begin{array}{cc}% you can specify any environment according to your choice  
+4 & 4k  \\  
+1& 1
+\end{array}  
+\right]
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+x \\  
+y
+\end{array}  
+\right]
+=
+\left[
+\begin{array}{c}% you can specify any environment according to your choice  
+4k \\  
+4
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array}{cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+1& 1& 4
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+(1 - 1) & (1 - k)& (4 - k)
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+0 & (1 - k)& (4 - k)
+\end{array}  
+\right]
+\end{equation*}
+In finite precision floating-point arithmetic due to the magnitude $k$, we round-off $(1 - k) \approx -k$ and $(4 - k) \approx -k$. The solution of the augmented system, 
+\begin{equation*}
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+0 & -k & -k
+\end{array} \right]  = \left[ \begin{array} {cc|c}% you can specify any environment according to your choice  
+1 & 0 & 0 \\  
+0 & 1 & 1
+\end{array} 
+\right]
+\end{equation*}
+This not being within the bounds of accuracy, as the exact computed answer is $x=3$ and $y=1$. \underline{Now consider} scaled partial pivoting for our example, which determines the pivot by examining the ratios $(4/4k,1 )$;  it would choose the second row as the pivot. A scalar 4 on row 2 is used to row-reduce a row 1, 
+\begin{equation*}
+\left[
+\begin{array}{cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+1& 1& 4
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+(4 - 4) & (4k - 4) & (4k - 16) \\  
+1 & 1 & 4
+\end{array}  
+\right]
+\Rightarrow
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+0 & (4k - 4) & (4k - 16) \\  
+1 & 1 & 4 
+\end{array}  
+\right]
+\end{equation*}
+This in finite precision floating-point arithmetic, due to the large magnitude $k$, is round-off $(4k -4) \approx 4k$ and $(4k - 16) \approx 4k$; the solution to the original system is therefore,
+\begin{equation*}
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+0 & 4k & 4k \\  
+1 & 1 & 4
+\end{array} \right]  \rightarrow \left[ \begin{array}   {cc|c}% you can specify any environment according to your choice  
+1 & 0 & 1\\  
+0 & 1 & 3
+\end{array} 
+\right]
+\end{equation*}
+This second solution coincidentally matches the exact solution of $x = 1$ and $y =4$ despite being limited to the partial column below the lead-off rows pivot term. These first two examples demonstrate the importance of order in operations in finding a solution to the augmented system.  In \emph{complete pivoting}, a search would be conducted on the entire sub-matrix of the augmented system; consider the augmented system:
+\begin{equation*}
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+1 & 1 & 4
+\end{array} \right] 
+\end{equation*}
+\underline{In this case, a swap occurs between columns 2 and columns 1 to obtain the pivot of 4k}, 
+\begin{equation*}
+\left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4 & 4k & 4k \\  
+1 & 1 & 4
+\end{array} \right] \rightarrow \left[
+\begin{array} {cc|c}% you can specify any environment according to your choice  
+4k & 4 & 4k \\  
+1 & 1 & 4
+\end{array} \right]
+\end{equation*}
+and applying a Gaussian Elimination after finding the pivot, 
+\begin{equation*}
+  \left[ \begin{array}   {cc|c}% you can specify any environment according to your choice  
+4k & 4 & 4k \\  
+1 & 1 & 4
+\end{array} 
+\right] \rightarrow   \left[ \begin{array}   {cc|c}% you can specify any environment according to your choice  
+4k & 4 & 4k \\  
+0	  & 1 - 1/k & 1
+\end{array} 
+\right] 
+\end{equation*}
+By maximizing the pivot at each stage complete pivoting will be more stable than a partial pivot or Gaussian Elimination, as it avoids the pivots of small magnitude. However, a complete pivot from the standpoint of parallelising in a CUDA kernel can be expensive, as in addition to the dedicated for each column other additional threads must be dedicated to inspecting and then swapping coefficients in the augmented system to source the largest absolute pivots. This expense is particularly high when system threads lie across computing clusters or multiple thread blocks. From this standpoint a partial pivot although less accurate, requires fewer threads to inspect for coefficients as its searches is localised to the set of coefficients for the partial column; the threads in partial pivoting may easily therefore be forcibly localised to a single block of threads in the  CUDA kernel at the expense of increased instability.  
+
+\begin{figure}
+	\label{right-hand-calc}	
+\end{figure} 
+%%\subsection{Summary}
+
+
+
+%% https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html
+
+ \end{document} 
