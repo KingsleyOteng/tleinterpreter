@@ -186,13 +186,13 @@
       </Label>
       <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
-      <Label layoutX="377.0" layoutY="262.0" text="OBS. DATE:" textFill="#e32e12" />
+      <Label layoutX="372.0" layoutY="262.0" text="OBS. DATE:" textFill="#e32e12" />
       <Label layoutX="430.0" layoutY="297.0" text="OBS. TIME (HH:MM:SS)" textFill="#e32e12" />
-      <Label layoutX="445.0" layoutY="262.0" text="(MON)" textFill="#e32e12" />
+      <Label layoutX="438.0" layoutY="262.0" text="(MONTH)" textFill="#e32e12" />
       <Label layoutX="545.0" layoutY="262.0" text="(DAY)" textFill="#e32e12" />
       <Label layoutX="637.0" layoutY="262.0" text="(YY)" textFill="#e32e12" />
       <Label layoutX="608.0" layoutY="296.0" text=":" textFill="#e32e12" />
-      <ChoiceBox fx:id="obsMonBox" layoutX="487.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsMonBox" layoutX="495.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="obsDayBox" layoutX="585.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="obsYearBox" layoutX="667.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
       <ChoiceBox fx:id="obsTimeHourBox" layoutX="565.0" layoutY="290.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
@@ -235,10 +235,10 @@
          </font>
       </Label>
       <Label layoutX="4.0" layoutY="262.0" text="TLE DATE:" textFill="#e32e12" />
-      <Label layoutX="72.0" layoutY="262.0" text="(MON)" textFill="#e32e12" />
+      <Label layoutX="66.0" layoutY="262.0" text="(MONTH)" textFill="#e32e12" />
       <Label layoutX="172.0" layoutY="262.0" text="(DAY)" textFill="#e32e12" />
       <Label layoutX="267.0" layoutY="262.0" text="(YY)" textFill="#e32e12" />
-      <ChoiceBox fx:id="tleMonBox" layoutX="114.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="tleMonBox" layoutX="121.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="tleDayBox" layoutX="212.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="tleYearBox1" layoutX="296.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
