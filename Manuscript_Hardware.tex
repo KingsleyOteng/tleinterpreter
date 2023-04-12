@@ -7,7 +7,7 @@
 \setlength{\rulethickness}{1.2pt}
 \newlength{\rulelength}
 \setlength{\rulelength}{15cm}
-\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+%\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{amsmath,amsthm,amscd}
@@ -21,6 +21,17 @@
 \usepackage{enumitem}
 \usepackage{blindtext}
 \usepackage{lscape}
+\usepackage{charter}
+\usepackage[scaled=0.92]{helvet}
+\usepackage[margin=2.5cm]{geometry} % set width of textblock appropriately
+\usepackage[english]{babel}
+\usepackage{graphicx,tabularx,ragged2e,booktabs}
+\newcolumntype{L}{>{\RaggedRight\setlength\parskip{0.2\baselineskip}\arraybackslash}X}
+\setlength\extrarowheight{1pt}
+\usepackage{caption}
+\newlength\mylen
+\settowidth{\mylen}{Objective} % measure width of longest word in 1st col.
+
 \usepackage[linesnumbered,ruled]{algorithm2e}
 
 %%\bibliography{bibtex.bib}
@@ -33,7 +44,7 @@
 %% should we use the phrase Quantum Mechanics (QM)
 
 
-\linespread{1.25}
+\linespread{1.55}
 \NewDocumentCommand{\inn}{mo}{%
 	\langle #1\rangle
 	\IfValueT{#2}{^{}_{\mspace{-3mu}#2}}%
@@ -48,26 +59,39 @@
 
 
 \begin{center}
-	\subsection*{Application Matters.}
+\section{Application Matters.}
 \end{center}
 	
-The goals of pure scientific research differ from that of engineering research; an engineers intentions may be distinguished from \st{the intentions} that of a mathematician who undertakes a study in a fundamental problem that remains yet unsolved or the intentions of a scientist, whose goal is to validate a standing hypotheses or otherwise therefore partake in the intellectual pursuit of knowledge. 	Although the classic engineering method can often be difficult to separately distinguish, to an engineer gaining practical applications from research is usually the ultimate goal; in  engineering research, there is typically less of a concern on intellectual pursuits - although engineering should never be discounted as being wholly less intellectual.  
-
+The goals of pure scientific research differ from that of engineering research; an engineers intentions may be distinguished from \st{the intentions} that of a mathematician who undertakes a study in a fundamental problem that remains yet unsolved or the intentions of a scientist, whose goal may be to validate his conjecture \st{is to validate a standing hypotheses} or otherwise therefore partake in the intellectual pursuit of knowledge. Although the classic engineering method can often be difficult to separately distinguish from science - to an engineer gaining practical applications from ones research \st{is} usually remains the ultimate goal; in engineering research, there is typically less of a concern on intellectual pursuits - although engineering should never be discounted as being wholly trivial or less intellectual.  
 \vspace{0.25in}
-\subsection*{A Good Model Matters.}
+
+\subsection{Step 1, You Need a Model.}
+Contrary to popular belief, access to more computing power is not a research panacea. Manifold increases in computing power can never prove that model selection has yielded \emph{good predictive performance}; in fact evidence may only be provided that model selection \st{to achieve} has achieved over fitting. Never set your model selection criteria solely based on computing power. Model selection must be supported by understanding the underlying  \% pattern recognition \% algorithms, not the number of available processor cores or threads. However your pattern recognition algorithm  must be general enough to exhibit \emph{model robustness}, even when trained against outliers. Model robustness is the degree that a model’s performance remains stable when applied to new data versus performance on data that was used to train the model.  Note that the application of models as tools, requires performance to be consistent.  Note: ones faith in a pattern recognition model as a tool will deteriorate when its performance is deemed unstable, particularly where the cause is difficult to appreciate. Additionally, any minor deviations from the forecasted performance may point to more significant issues that require attention - these may include outlier data, a biased estimator or omitted regressors. Ideally, model performance should never deviate significantly.     
+
+The existence of miniscule particles in molecular dynamics was predicted using models developed for high performance computing more than a decade before the first miniscule particle was observed  by theoretical chemists (Reference 2013 Noble Prize in Chemistry). Therefore this continued development of high performance computing architectures will hold great promise to the scientific community. This book contains some of the  heterogeneous parallel computing  tools you need to develop your own AI pattern recognition algorithms.
+\vspace{0.25in}
+
+\subsubsection{And A Good Model Matters.}
 %%https://arxiv.org/pdf/2008.01069.pdf
 
-One of the central problems in machine learning is that of \emph{model selection} and \emph{model calibration}. {Model selection} allows researchers to minimize a certain risk function in a statistically valid way and thereby most account for the underlying mechanism generating the data ; this may also give due consideration for other model properties such as parsimony, efficiency, consistency and  the specific use of the model. Model selection considers narrow data questions in the research  problems, such as whether the data has been generated by a normal distribution or from other non-normal distributions. Conditioned on the model, the process of fitting the various coefficients is called \emph{ model calibration}. Making analysis of machine learning algorithms even more challenging, models require an ever-increasing number of parameters as \st{simulations} forecasting needs become more precise. For example, deep learning is an effective algorithm which will essentially break down a neural network into a single layer with two or more hidden layers; although it may contains (in principle) an infinite number of hidden layers. Model calibration unfortunately is usually a process of trial and error, where the most appropriate values for the  coefficients are found.  
-
-\subsubsection*{Model Averaging.}
-
- Another technique termed \emph{model averaging} avoids the selection of one specific model altogether, and instead uses a probability weighted averages over all the different models by weighting each model with a posterior probability. In addition to an apriori probability for each model, an apriori probability has to be specified for the distribution of each model’s parameters.  In general,  model weights in model averaging are complicated integrals, but there  approximate formulae which may be used when there is  sufficiently large sample sizes. The combining statistical results for an arbitrary function across a space of models $\{M\}$ relies on the estimation of the model weight $P[M|D]$:
+One of the central problems in \st{machine learning} pattern recognition is that of \emph{model selection} and \emph{model calibration}. Model selection allows researchers to minimize a certain risk function in a statistically valid way and thereby most account for the underlying mechanism generating the data; this may also give due consideration for other model properties such as parsimony, efficiency, consistency and  the specific use of the model. Model selection considers narrow data questions in the research  problem, such as whether the data has been generated by a normal distribution or from otherwise non-normal distributions. Conditioned on the model, the process of fitting the various coefficients is called model calibration. From the stand point of pattern recognition, model calibration refers to the process of  rescaling predicted probabilities to ensure for each model the most accurate representation of the likelihood of occurrences for different classes in the training data (http://proceedings.mlr.press/v70/guo17a/guo17a.pdf). For example, given 200 forecasts, each with confidence of 0.8, we expect that 160 objects should be correctly classified.  A model is \emph{perfectly calibrated} as, 
 \begin{equation}
-	\inn{f(a_c)} = \sum_M 	\inn{f(a_c)}_M P[M|D]
+	P \Bigr[ \hat{Y} = Y | \hat{P}  = p \Bigl] = p, \hspace{0.5in} \forall p \in [0,1]
+	\label{basic}
 \end{equation}
-where given a base model $M_0$  we denote $\{a_c\}$ as the set of one or more common parameters used to describe a dataset $\mathcal{D}$. Note that therefore  all  models in $\{M\}$ will 
-contain $M_0$, in the sense that marginalizing over additional parameters $\{a_m\}$ reduces them 
-to $M_0$; the set of $a_M$ will therefore depend on our choice of model $M$.  The set of all parameters $\{a\}$ will be the union of $\{a_c\}$ and $\{a_m\}$. Should we therefore wish to estimate the model parameter $a_0$ over the set $\{M\}$ with $N_M$ models, we determine the mean $\inn{a_0}$ \cite{kass1995bayes}:
+According to Bayesian methodology when estimating a model, all unknown parameters must be treated as random variables and we should consider therefore  all possible values when considering predictions. Note,  the probability in equation (\ref{basic}) cannot be computed using a finite number of samples, since our $\hat{P}$ is a continuous random variable. Practically, models can be either overconfident or under-confident in their predictions, necessitating model calibration, although it is impossible to achieve perfect calibration.  
+
+Making calibration \st{analysis} of pattern recognition \st{machine learning} algorithms even more challenging, models require an ever-increasing number of parameters as \st{simulation} forecasting needs become more precise.  For example, deep learning \st{is an effective algorithm which will} essentially breaks down a neural network into a single layer with two or more hidden layers which must all be parametrized; although \st{it may contain} in principle this single layer may then contain an infinite number of hidden layers each with their own parameters. 
+Model calibration is therefore usually a process of trial and error\st{, where the most appropriate values for coefficients must be found} - functional forms must be used in model calibration over a large number of outputs, often involving a fair degree of extra tedium due to non-linear dependencies on a large numbers of parameters and in some cases dealing with models which are inherently numerically unstable. 
+
+\subsubsection{Example, Model Averaging.}
+In addition to  an a priori \st{probability} for each model, an a priori probability \st{has to} must also be specified for the distribution of each model’s parameters.  A technique termed as \emph{model averaging}, avoids the selection of \st{one} a specific model altogether and instead uses a probability weighted average over all the different models by weighting \st{each model with} by a posterior probability. In the context of heterogeneous parallel computing, model averaging aids by training multiple models on the same dataset using different parallel computing resources or algorithms, and then combines their predictions to obtain a final prediction. Furthermore, model averaging can help address issues with model calibration by reducing the impact of any individual model's weaknesses. For example, a model trained on a smaller subset of the data may be overconfident in its predictions, but this effect can be mitigated by combining its predictions with those of other models that are less overconfident. Model averaging is often preferred over other techniques such as data parallelism as  it allows the leveraging of different parallel computing resources or algorithms without having to split the data. For small or medium-sized datasets where data parallelism may lead to over-fitting or poor model generalization, model averaging tends to be preferred. Model averaging is a technique that can be used to improve model calibration by combining the predictions of multiple models. 
+
+In general, the model weighting process in model averaging \st{are} considers complicated integrals, but there are approximate formulae which may be used when there are  sufficiently large sample sizes; combining statistical results for an arbitrary function across a state space ${M}$ of $N_M$ models, relies on the estimation of \st{the} model weight $P[M|\mathcal{D}]$:
+\begin{equation}
+	\inn{f(a_c)} = \sum_M 	\inn{f(a_c)}_M P[M|\mathcal{D}]
+\end{equation}
+where given a base model $M_0$  we denote $\{a_c\}$ as the set of one or more common parameters used to describe a dataset $\mathcal{D}$. Note that therefore  all models in $\{M\}$ will contain $M_0$, in the sense that marginalizing over additional parameters $\{a_m\}$ reduces them to $M_0$; the set of $a_m$ will therefore depend on our choice of model $M$.  The set of all parameters for $\{a\}$ will therefore be the union of $\{a_c\}$ and $\{a_m\}$, where this formula assumes the parameters of $a$ are dimensionless. Should we therefore wish to estimate the parameters $a_0$ over the set $\{M\}$ with $N_M$ models, we determine the mean $\inn{a_0}$ \cite{kass1995bayes}:
 \begin{equation}
 	\inn{a_0} = \sum_M  \inn{a_0}  P[M|D]
 \end{equation}
@@ -76,60 +100,85 @@ therefore a variance:
 \begin{split}
 \sigma_{a_0}^2 & = 	\inn{a_0^2} - 	\inn{a_0}^2  \\
 & =  \sum_{i=1}^{N_M}  \inn{a_0^2}_i  P[M_i|D] - \Biggl( \sum_{i=1}^{N_M}  \inn{a_0}_i  P[M_i|D] \Biggr)^2 \\
-& =  \sum_{i=1}^{N_M} \sigma_{a_0,i}^2 P[M_i|D] +  \sum_{i=1}^{N_M}  \inn{a_0^2}_i  P[M_i|D] - \Biggl( \sum_{i=1}^{N_M}  \inn{a_0}_i  P[M_i|D] \Biggr)^2 \\
+& =  \sum_{i=1}^{N_M} \sigma_{a_0,i}^2 P[M_i|D] +  \sum_{i=1}^{N_M}  \inn{a_0}_i^2  P[M_i|D] - \Biggl( \sum_{i=1}^{N_M}  \inn{a_0}_i  P[M_i|D] \Biggr)^2 \\
 \end{split}
 \end{equation}
-such that when the model weights are equal we obtain a variance over the space of models $\{M\}$,
+such that when \st{the model weights} are equal we obtain a variance over the space of models $\{M\}$,
 \begin{equation}
 	\begin{split}
 	\sigma_{a_0}^2 =  \sum_{i=1}^{N_M}  \inn{a_0^2} w - \Biggl( \sum_{i=1}^{N_M} \inn{a_0^2} \Biggr)^2 w^2
 	\end{split}
+\label{general_form}
 \end{equation}
-where the weight is given as $w = {1}/{N_M}$. In the special case of a two models $M_1$ and $M_2$:
+where the weight is given as $P[M_i|D]  {1/N_M} = w$. For this our general case, the variance computed is not equivalent to the variance of the set of weighted estimates, i.e. $w_i \equiv \inn{a_0}_i P[M_i | D]$ as such a weighted variance would contain an extraneous factor of $P[Mi|D]$ in the $\inn{a_0}$ term. We also note that taking the full width of the distribution of results $\inn{a_0}_i$ results in an estimated systematic error strictly greater than $\sigma_{a_0,syst}$. Now consider the special case of just two models $M_1$ and $M_2$ with the corresponding weights,
 \begin{equation}
 	\begin{split}
-	P[M_1|D]  & = 1 - p \\
-	P[M_2|D]  & =  p \\
+	P[M_1|D]  & = 1 - w \\
+	P[M_2|D]  & =  w \\
 	\end{split}
+\label{two_models}
 \end{equation}
-Now where the parameter estimation over $\mathcal{D}$ strongly suggests a preference for $M_2$, such that $p$ is large:
+From equation (\ref{two_models}), we consider a parameter estimation over $\mathcal{D}$ that strongly suggests a preference for $M_2$, such that $w$ is large:
 \begin{equation}
 	\begin{split}
-		\inn{a_0} & = \inn{a_0}_2 + ( \inn{a_0}_1 - \inn{a_0}_2) (1- p), \\
-		\sigma^2_{a_0} & \approx \sigma^2_{a_0,2} +[ (\sigma^2_{a_0,1} - \sigma^2_{a_0,2})   + ( \inn{a_0}_1 - \inn{a_0}_2)^2 ](1- p),
+		\inn{a_0} & = \inn{a_0}_2 + ( \inn{a_0}_1 - \inn{a_0}_2) (1- w), \\
+		\sigma^2_{a_0} & \approx \sigma^2_{a_0,2} +[ (\sigma^2_{a_0,1} - \sigma^2_{a_0,2})   + ( \inn{a_0}_1 - \inn{a_0}_2)^2 ](1- w),
 	\end{split}
 \end{equation}
-Therefore with large but non-zero $p$, mean and variance corrections to $a_0$ from $M_1$ due to including $M_2$, however limited, will be due to the differences between $M_2$ and $M_1$. In the limit of $p \rightarrow 1$, the statistical results will be expectedly that of $M_2$.
-\vspace{0.25in}
-\subsubsection*{Step 1: You Need a Model.}
+Therefore with large but non-zero $w$, mean and variance corrections to $a_0$ from $M_1$ due to including $M_2$, however limited, must be due to the differences between $M_2$ and $M_1$. In the limit of $w \rightarrow 1$, the statistical results will expectedly be just that of $M_2$. 
 
-
-Contrary to popular belief, access to more computing power is not a research panacea. Manifold increases in computing power can never prove that model selection has yielded \emph{good predictive performance}; in fact evidence may only be provided that model selection \st{to achieve} has achieved over fitting. Never set your model selection criteria solely based on computing power. Model selection must be supported by understanding the underlying  \% pattern recognition \% algorithms, not the number of available processor cores or threads. However your pattern recognition algorithm  must be general enough to exhibit \emph{model robustness}, even when trained against outliers. Model robustness is the degree that a model’s performance remains stable when applied to new data versus performance on data that was used to train the model.  Note that the application of models as tools, requires performance to be consistent.  Note: ones faith in a pattern recognition model as a tool will deteriorate when its performance is deemed unstable, particularly where the cause is difficult to appreciate. Additionally, any minor deviations from the forecasted performance may point to more significant issues that require attention - these may include outlier data, a biased estimator or omitted regressors. Ideally, model performance should never deviate significantly.     
-
-The existence of miniscule particles in molecular dynamics was predicted using models developed for high performance computing more than a decade before the first miniscule particle was observed  by theoretical chemists (Reference 2013 Noble Prize in Chemistry). Therefore this continued development of high performance computing architectures will hold great promise to the scientific community. This book contains some of the  heterogeneous parallel computing  tools you need to develop your own AI pattern recognition algorithms.
 
 \vspace{0.25in}
 
-\subsubsection*{Heterogeneous Parallel Computing Helps Discover Theories.}
+
+\subsection{Step 2, Heterogeneous Parallel Computing Helps Discover Theories.}
+
+
+
 
 	%%Lesson 2: Heterogeneous Parallel Computing Helps Discover Theories 
-Consider the following approach to develop efficient pattern recognition algorithms. First, you apply your \st{heterogeneous} parallel computing toolkit to compute one optimization per cluster node, in our complex phenomenon. Then compute one final optimization across \st{all} the sets of cluster nodes; noting for instance that optimization for intra-cluster and inter-cluster weights are sources of instability that assigning the problem to a heterogeneous parallel computing platform  must incorporate in order to reduce estimation errors. The heterogeneous parallel computing tools have generalized  sources of instability; however, they do not directly inform you about the main source that propagates the instability. Second, we formulate a model that connects our optimizations to  \st{these sources through} a \emph{theory}. This theory is essentially a system of equations that hypothesizes a particular cause?effect mechanism. Third, now our model has a wide range of testable implications that go beyond the observations predicted by the heterogeneous parallel computing tools in the first step. A successful model will predict events out-of-sample. Moreover, it will explain not only predictive performance ($x$ is an independent variable of a target $y$) but also poor predictive performance (failed tracking of a target y is due to significant noise). 
+Consider the following approach to develop efficient pattern recognition algorithms. First, you apply a \st{your} \st{heterogeneous} parallel computing toolkit to compute one optimization per cluster node, of our complex phenomenon. Then compute one final optimization across \st{all} the sets of cluster nodes; noting for instance that optimization for intra-cluster and inter-cluster weights are sources of instability that assigning the problem to a heterogeneous parallel computing platform  must incorporate in order to reduce estimation errors. The heterogeneous parallel computing tools have generalized  sources of instability; however, they do not directly inform you about the main source that propagates the instability. Second, we formulate a model that connects our optimizations to  \st{these sources through} a \emph{theory}. This theory is essentially a system of equations that hypothesizes a particular cause?effect mechanism. Third, now our model has a wide range of testable implications that go beyond the observations predicted by the heterogeneous parallel computing tools in the first step. A successful model will predict events out-of-sample. Moreover, it will explain not only predictive performance ($x$ is an independent variable of a target $y$) but also poor predictive performance (failed tracking of a target y is due to significant noise). 
 	
-In the above discovery process, heterogeneous parallel computing allows us to decouple model optimization across different architecture programming models and  in \st{the} solving of the actual problems. Pattern recognition and deep learning are often criticized for being  ?black boxes, even to their creators? (castelvecchi2016can, bathaee2017artificial), ?having a built in bias? in their assumptions and having inherent "implementation bottlenecks" (bathaee2017artificial). Considering the complexity of efficient pattern recognition and deep learning applications, it is unlikely that a researcher will be able to uncover the sources of bottlenecks of a programming model by a \underline{simple} visual inspection of the data structure  or by running \st{a more simulation} more simulations. Classical parallel programming does not allow this complete decoupling of multiple architectural programming models from  solving the actual problems. However once \st{the} a model has been trained, it stands on its own feet. In this way, we focus our efforts on developing the model, not the  heterogeneous parallel computing approach, to improve our  predictions. 
-	
-In the above anecdote, the model, not an approximation error produced by  heterogeneous parallel computing \st{approach} architecture, was the source of our problems The approximation error may be low, and it \st{was} may not be based on some untestable theory. It is true that a model may not have been validated without the help of parallel computing techniques, but once the model was validated, the heterogeneous parallel computing approach  played no role in the decision to use the model in a given application. The most effective platform for pattern recognition is  heterogeneous parallel computing. These, massively multiprocessing graphics units with general-purpose programming capabilities present the most likely architectures long-term for low-cost high-performance processing. However the biggest challenge with the efficient implementation of pattern recognition and deep learning algorithms to heterogeneous parallel computing architectures remains the overhaul of existing application design methodologies to thereby achieve  efficient implementation. You may apply a serial pattern recognition algorithm successfully with  heterogeneous parallel computing to improve predictions, although it may not \st{necessarily} computationally be the most efficient implementation  of the algorithm (particularly if your dealing with very large datasets). 
+In the above discovery process, heterogeneous parallel computing allows us to decouple model optimization across different architecture programming models and  in \st{the} solving of the actual problems. Pattern recognition and deep learning are often criticized for being  ?black boxes, even to their creators? (castelvecchi2016can, bathaee2017artificial), ?having a built in bias? in their assumptions and having inherent "implementation bottlenecks" (bathaee2017artificial). Considering the complexity of efficient pattern recognition and deep learning applications, it is unlikely that a researcher will be able to uncover the sources of bottlenecks of a programming model by a \underline{simple} visual inspection of the data structure  or by running \st{a more simulation} more simulations. Classical parallel programming does not allow this complete decoupling of multiple architectural programming models from  solving the actual problems. Although, it is true that a model may not have been validated without the help of parallel computing techniques, but once the model was validated, the heterogeneous parallel computing approach  played no role in the decision to use the model in a given application. Therefore, the most effective platform for pattern recognition is  heterogeneous parallel computing. On this basis, we must focus our efforts initially on developing a model and not the heterogeneous parallel computing approach in order to improve our  predictions; the model not the approximation error  serves as \st{the source of our problems } our design constraint. The approximation errors with hetereogeneous parallel computing can be assumed typically to be low, and \st{it was may} are not be based on some untestable theory. These, massively multiprocessing graphics units with general-purpose programming capabilities present the most likely architectures long-term for low-cost high-performance processing. 
+
+However, the biggest challenge to an \emph{efficient} implementation of pattern recognition and deep learning algorithms with \st{to} heterogeneous parallel computing architectures remains the overhaul of existing application design methodologies to thereby achieve  efficient implementation. That is, you may apply a single-thread \st{serial} pattern recognition algorithm successfully with  heterogeneous parallel computing to improve your predictions, although it may not {necessarily} computationally be the most efficient implementation  of the algorithm particularly when your dealing with very large datasets. 
+
+
+
 
 \newpage
 \begin{center}
-	\subsection*{How Scientists Use Heterogeneous Parallel Computing.}
+	\section{How Scientists Use Heterogeneous Parallel Computing.}
 \end{center}
-Heterogeneous parallel computing  focuses on achieving execution throughput using massively large amounts of threads; this is, commonly referred to as throughput-oriented design. That development of  the underlying  parallelized program  need not necessarily require a \st{overly specified}  the researcher to have parallel  computing  expertise, has led many to erroneously conclude that heterogeneous parallel computing will perform well on all tasks. In that view, heterogeneous parallel computing  is merely a ?moniker,? a computing platform from which no particular understanding is required. It is fuelled by popular industrial applications of parallel computing, where the search for low-latency high-throughput outweighs the added complexity required to understand the model. This universal high-throughput view of heterogeneous parallel computing is a misconception.  For applications that require only a few threads, execution of a program on modern multicore microprocessors will have much lower latency than many-thread computing, achieving much higher throughput.  
+Heterogeneous parallel computing  focuses on achieving execution throughput using massively large amounts of threads; this is, commonly referred to as throughput-oriented design. That development of  the underlying  parallelized program  need not necessarily require a \st{overly specified}  the researcher to have parallel  computing  expertise, has led many to erroneously conclude that heterogeneous parallel computing will perform well on all tasks. In that view, heterogeneous parallel computing  is merely a 'moniker', a computing platform from which no particular understanding is required. It is fuelled by popular industrial applications of parallel computing, where the search for low-latency high-throughput outweighs the added complexity required to understand the model. This universally achievable high-throughput view of heterogeneous parallel computing is a misconception.  For applications that require only a few threads, in fact execution of a program on modern multicore microprocessors will have much lower latency than many-thread computing, achieving much higher throughput.  
 	
 A review of recent scientific breakthroughs reveals radically different uses of heterogeneous parallel computing in science, including the following:
-	
+
 \begin{itemize}
-	\item Existence: Heterogeneous parallel computing  has been deployed to evaluate the plausibility of a theory across all scientific fields, even beyond the empirical sciences. Notably, ML algorithms have helped make heterogeneous discoveries. ML algorithms cannot prove a theorem, however they can point to the existence of an undiscovered theorem, which can then be conjectured and eventually proved. In other words, if something can be predicted, there is hope that a mechanism can be uncovered (Gryak et al., forthcoming).
+	%\item	\emph{Optimization}
 	
+	
+	\item \emph{Testing conjectures and developing proofs}: HPC is used to rapidly evaluate the plausibility of new theories across scientific fields, particularly mathematics, through the use of large-scale simulations. Many of  applications have significant time and computationally demands, with problems that are complex and irregular behaviour Through simulation HPC allows scientists  to gain greater insights into the dynamics of underlying models; 1) scientists may use HPC to discover underlying patterns and on this basis generate a series of conjectures and then subsequently test their validity before arriving at proofs, 2) In mathematics, HPC may also be used to provide verify complex proofs through the the application of parallel algorithms to support computer-assisted proof systems or to check large-scale proofs generated through automated proofing. 
+	
+	%%1. "Parallel Methods in Computational Mathematics and Optimization" by Yuri Nesterov and Arkadi Nemirovski, published in Mathematical Programming in 2005, provides an overview of the use of parallel computing in optimization and mathematical programming.
+	
+	%% "Parallel Computing and Theorem Proving" by Larry Wos and Ross Overbeek, published in the Journal of Automated Reasoning in 1993, describes the use of parallel computing in automated theorem proving, which is a method for generating proofs using computer algorithms.
+	
+	\item \emph{Pattern and trend discovery}: HPC is used to discover patterns in big data by disassembling the data into blocks and processing blocks in parallel on different computing units. The use of heterogeneous parallel computing allows patterns to be discovered with greater rapidity then standard computing architectures. Heterogeneous parallel computing is utilized to search for linear and non-linear patterns in the data using the following these steps: 1) Preparation of  data for processing in parallel computing. The data is converted into a format that is readily partitioned and distributable across a number of computing units. 2) Data is then partitioned into smaller blocks of data using partitioning strategies; the blocks of data are then ready for the various computing units.  3) Blocks of data are then multitask processed in parallel using a variety of heterogeneous computing units each with different execution models including CPUs, GPUs and FPGAs.  4) Results of the parallel processing are then combined and subsequently analysed for explanatory power using statistical techniques to identify patterns. 5) Further iterations allow any conclusions on patterns in the data to be further strengthened and then also allow for data predictions. 
+	
+	Parallel programming tools  are essential for handling  massive amounts of, high-dimensional, complex data sets. For example execution of parallel code requires managing parallel threads and resources.  And with this huge quantity of data, much of the computation can be done on different parts fof the data in parallel, although they have to be reconciled at some point. 
+
+	
+	%% "Parallel Machine Learning for Big Data: A Review" by Zhengdong Lu et al., published in the IEEE Transactions on Neural Networks and Learning Systems in 2017, provides a review of the use of parallel computing, including heterogeneous parallel computing, for machine learning on big data.
+	
+	%% "Heterogeneous Parallel Computing for Big Data: A Review" by Wei Tan et al., published in the IEEE Transactions on Parallel and Distributed Systems in 2016, provides a comprehensive review of the current state of heterogeneous parallel computing for big data analytics.
+	
+   %% "GPU Acceleration of Machine Learning Algorithms for Large Data" by Wenbin Fang et al., published in the International Journal of Parallel Programming in 2015, describes the use of heterogeneous parallel computing with GPUs to accelerate the processing of large amounts of data in machine learning algorithms.
+   
+   \item \emph{Learning algorithms}: Heterogeneous parallel computing  can be used determine the relative informational content of pattern recognition features and train application logic obtained from data sets, much faster and with improved accuracy than \st{sequential processing} single-threaded methods.
+   
+   \item \emph{Visualization}: Heterogeneous parallel computing better enable the visualisation of large complex scientific data, such as three-dimensional models of the evolution of galaxies and fast simulations of the behaviour of human enzymes . By using parallel processing, scientists can generate and interact with the data generating various  visualizations in real-time and analyse the data in a meaningful way.
+
 	\item  \emph{Importance}: Using heterogeneous parallel computing resources and pattern recognition algorithms, researchers  determined the relative informational content of features for explanatory or predictive purposes in  deoxyribonucleic acid  (DNA) sequence data (cowell2011probabilistic,cowell2007gamma). Heterogeneous parallel computing returns the entire sequence of a locus and can combine many more loci in multiplexes; this is considerably more information  compared to the old classic capillary gel method. Models based on heterogeneous parallel computing allow for much higher discriminating power. For example, the  quantitative \emph{EuroForMix} and \emph{DNAxs/DNAStatistX}  models which both use maximum likelihood estimation (MLE) using a $\gamma$ distribution for modeling probabilistic genotyping follows these steps:
 	\begin{enumerate} 
 		\item  With a database of $N$ individuals, each is considered as a  reference profile, there genotypes are compared to the crime scene swab $O$.; 
@@ -141,30 +190,31 @@ A review of recent scientific breakthroughs reveals radically different uses of 
 Thus, a quantitative model for probabilistic genotypics does not uncover the underlying genotypes, it does discovers multiple contributors that should be considered for further investigation.
  These {quantitative} models [12?18] are the most complete DNA profiling models because they take into account all  the peak height information of genotype contributors in order to assign numerical values to the weights. The DNAxs/DNAStatistX model in particular supports parallel computing, allowing operations to be delegated to a heterogeneous parallel computing cluster, by parallelizing over independent function optimizations. 
 	%%\item 
-	\item \emph{Causation}: Heterogeneous parallel computing are often utilized to evaluate risk metrics following these steps: (1) Fit a ML algorithm on historical data to predict outcomes, absent of an effect. This model is nontheoretical, and it is purely driven by data (like an oracle); (2) collect observations of outcomes under the presence of the effect; (3) use the ML algorithm fit in (1) to predict the observation collected in (2). The prediction error can be largely attributed to the effect, and a theory of causation can be proposed (Varian 2014; Athey 2015).
-	\item \emph{Reductionist}: parallel programming tools  are essential for handling  massive amounts of, high-dimensional, complex data sets. For example execution of parallel code requires managing parallel threads and resources.  And with this huge quantity of data, much of the computation can be done on different parts fof the data in parallel, although they have to be reconciled at some point. 
 	%%\item  
 	\item \emph{Retriever}: Heterogeneous parallel computing  is used in banking datacentres to search for areas of financial risk at a level of accuracy and speed conventional microprocessors can not achieve. For instance, every night heterogeneous parallel computing clusters are fed millions of trades and derivative  in search of risky positions. Once they find one position in a portfolio with a high probability of containing a concealed, risk, cross-asset platforms  again powered by heterogeneous clusters, can be pointed to particular positions in the portfolio, where traders  and risk managers will use tools to scrutinize the positions. A second example are debt tranches. Calculating default risk is a prediction problem rather than a qualitative problem. A powerful heterogeneous parallel computing clusters can detect an anomalous observation in a tranche based on a complex relationships it has identified in the data, even if that relationship is not readily explainable to us (Hodge and Austin 2004).
 	Rather than replacing an entire model, heterogeneous parallel computing plays a critical role helping researchers develop models based on increasing the accuracy and highlighting relationships between variables based on strong empirical evidence, Furthermore, heterogeneous parallel computing provides an opportunity for researchers to apply model-driven techniques to develop high-tailored models for specific scenarios., rapid prototyping and assessing a range of competing models. 
-%%	\end{itemize}
+\end{itemize}
+
+Rather than replacing theories, \st{ML} pattern recognition plays the critical role of helping scientists form theories based on rich empirical evidence. Likewise, \st{ML} pattern recognition opens the opportunity for economists to apply powerful data science tools toward the development of sound theories.
 	
 \newpage
-\subsection*{Two Limitations of Parallel Computing}
+\subsection{Two Limitations of Parallel Computing}
 		
-		The dark side of heterogeneous parallel computing flexibility is that, in inexperienced hands, these algorithms can easily yield no accuracy or speed-up gains. The primary limitation in parallelizing an application is a divergence between the simplicity \st{complexity} of sequential programs and the added programming complexity of parallelizing a program for heterogeneous parallel computing  (known as the \emph{parallel complexity theory}). We can distinguish between two types of limitations: the limit in the level of speed-up due to the parralelizable function $\alpha$ of application and the added latency in the execution time of a task in the  absence of parallel computing . Figure 1.1 summarizes how heterogeneous parallel computing deals with both kinds of limitations.
+		The dark side of heterogeneous parallel computing flexibility is that, in inexperienced hands, these execution models and algorithms despite the considerable resources on offer, can easily yield no accuracy or speed-up gains. The primary limitation in parallelizing an application is a divergence between the simplicity \st{complexity} of sequential programs and the added programming complexity of parallelizing a program for heterogeneous parallel computing  (known as the \emph{parallel complexity theory}). We can distinguish between two types of limitations: the limit in level of speed-up due to the parralelizable function $\alpha$ of application and the added latency in the execution time of a task in the  absence of parallel computing . Figure 1.1 summarizes how heterogeneous parallel computing  deals with both kinds of limitations.
 		
-	\newpage
-	\subsection*{Amdahl's Law}
+%%	\newpage
+	\subsubsection{Amdahl's Law}
 	%% \st{Train Set Overfitting} 
 		
-	The problem with confounding parallel execution with the sequential portion of the application  is called \emph{Amdah's Law}, that is: the larger the parallelizable fraction $\alpha$ of an application, the larger the speed-up. Parallel execution limitations that are due to a limit in the parallelizable portion of an application result from the accumulated lag in execution time of operations that can not be parallelized or are not worth parallelizing.  Severe limitations in throughput will be caused by large sequential fractions of the program or limited use of fractions of the program that have  parallel segments of the program. More generally,if a fraction $r$ of our serial program remains unparallelized, then Amdahl's law says we can't get a speedup better than $1/r$. For example, $75\%$ of our serial program has been parallelelized therefore $r = 1 - 0.75 = 0.25$; so we can not obtain a speed-up better than $4$ times. Therefore if a fraction $r$ of our serial program is ?inherently serial,? that is, it cannot possibly be parallelized, then we can't possibly get a speed-up better than $1/r$ Thus even if $r$ is quite small, we still can't possibly get a speed-up better than 100; unless virtually all of a serial program is parallelized, the possible speed-up is going to be very limited  which in turn will lead to limits in achievable speed-up when parallelizing a given sequential program. Parallel computing researchers are keenly aware of this problem, which they address in three complementary ways. 
+	The problem with confounding parallel execution with the sequential portion of the application  is  \emph{Amdah's Law}, that is  the larger the parallelizable fraction $\alpha$ of an application, the larger the potential acceleration-gains \st{speed-up}. Parallel execution limitations \st{that} are due to a limit in the parallelizable portion of an application result from the accumulated lag in execution time of operations that can not be parallelized or are not worth parallelizing.  Severe limitations in throughput will be caused by large sequential fractions of the program or limited use of fractions of the program that have  parallel segments of the program. More generally, if a fraction $r$ of our serial program remains unparallelized, then Amdahl's law says we can't get a speedup better than $1/r$. For example, $75\%$ of our serial program has been parallelelized therefore $r = 1 - 0.75 = 0.25$; so we can not obtain a speed-up better than $4$ times. Therefore if a fraction $r$ of our serial program is ?inherently serial,? that is, it cannot possibly be parallelized, then we can't realistically obtain \st{possibly get} a speed-up better than $1/r$. Thus even if $r$ is quite small, we still can't possibly \st{get} achieve a speed-up better than 100; unless virtually all of \st{a serial} the single-threaded program is parallelized, the possible speed-up is going to be very limited  which in turn will lead to limits in achievable speed-up when parallelizing a given sequential program. Parallel computing researchers are keenly aware of this problem, which they address in three complementary ways. 
 	
 	The first approach to correct for train set over-fitting is evaluating the generalization error, through resampling techniques (such as cross-validation) and Monte Carlo methods. Appendix A describes these techniques and methods in greater detail. The second approach to reduce train set over-fitting is regularization methods, which prevent model complexity unless it can be justified in terms of greater explanatory power. Model parsimony can be enforced by limiting the number of parameters (e.g., LASSO) or restricting the model?s structure (e.g., early stopping). The third approach to address train set over-fitting is ensemble techniques, which reduce the variance of the error by combining the forecasts of a collection of estimators. For example, we can control the risk of over-fitting a random forest on a train set in at least three ways: (1) cross-validating the forecasts; (2) limiting the depth of each tree; and (3) adding more trees.
-		In summary, a backtest may hint at the occurrence of train set over-fitting, which can be remedied using the above approaches. Unfortunately, backtests are powerless against the second type of over-fitting, as explained next.
 		
-		Amdahl's law often motivates task-level parallelization. Although some of these smaller activities do not warrant fine-grained massive parallel execution, it may be desirable to execute some of these activities in parallel with each other when the data set is large enough. 	
+	In summary, a backtest may hint at the occurrence of train set over-fitting, which can be remedied using the above approaches. Unfortunately, backtests are powerless against the second type of over-fitting, as explained next.
 		
-		\subsubsection*{Severe Limitations in Throughput}
+	Amdahl's law often motivates task-level parallelization. Although some of these smaller activities do not warrant fine-grained massive parallel execution, it may be desirable to execute some of these activities in parallel with each other when the data set is large enough. 	
+		
+		\subsubsection{Severe Limitations in Throughput}
 		
 		Imagine, a friend claims to have developed a strategy to win at blackjack in casino gambling. His strategy uses a complex model which increases the odds of a win, but requires he sit at one poker table for long hours. As a consequence, if he moves tables the odds of winning drop markedly. Another group of friends, who also consider themselves tp be seasoned gamblers, have developed another strategy for beating the house at blackjack. Their approach does not require one player sit at one poker table, but it does require a large number of players coordinate their betting strategy against the casino. This second coordinated approach surprisingly appears to generate much larger returns than the single player strategy. To evaluate the legitimacy of both approaches, you decide to adjust winnings for the fact that the second technique requires coordinating teams of players who on aggregate place much larger bets. After adjusting for the bet size, your friends single gambler technique occasionally proves to be the more profitable strategy. Likewise, researchers running many-threads on the same models are more likely to make a false conclusion. By using heterogeneous parallel computing  with a model, without due consideration for the architecture and input data structures it is almost guaranteed that most researchers will arrive at a false conclusion; performance of a parallel program may occasionally run slower than a sequential program or have erratic performance. This performance fallacy comes from failing to account for the non-intuitive ways of approaching  a problem, that is required for parallel programming. 
 		
@@ -180,7 +230,8 @@ Thus, a quantitative model for probabilistic genotypics does not uncover the und
 		  Third, we can use historical series to estimate the underlying data-generating process, and sample synthetic data sets that match the statistical properties observed in history. Monte Carlo methods are particularly powerful at producing synthetic data sets that match the statistical properties of a historical series. The conclusions from these tests are conditional to the representativeness of the estimated data-generating process (AFML, chapter 13). The main advantage of this approach is that those conclusions are not connected to a particular (observed) realization of the data-generating process but to an entire distribution of random realizations. Following with our example, this is equivalent to replicating the lottery game and repeating it many times, so that we can rule luck out.
 		In summary, there are multiple practical solutions to the problem of train set and test set over-fitting. These solutions are neither infallible nor incompatible, and my advice is that you apply all of them. At the same time, I must insist that no backtest can replace a theory, for at least two reasons: (1) backtests cannot simulate black swans ? only theories have the breadth and depth needed to consider the never- before-seen occurrences; (2) backtests may insinuate that a strategy is profitable, but they do not tell us why. They are not a controlled experiment. Only a theory can state the cause?effect mechanism, and formulate a wide range of predictions and implications that can be independently tested for facts and counter-facts. Some of these implications may even be testable outside the realm of investing. For example, the VPIN theory predicted that market makers would suffer stop-outs under persistent order flow imbalance. Beyond testing whether order flow imbalance causes a reduction in liquidity, researchers can also test whether market makers suffered losses during the flash crash (hint: they did). This latter test can be conducted by reviewing financial statements, independently from the evidence contained in exchange records of prices and quotes.
 		
-		\section*{Outline}
+		\newpage
+		\section{Outline}
 		
 		This book offers users an unhurried guide to building efficient pattern recognition applications with the help of heterogeneous parallel computing. To that objective, each chapter uses what we have developed in the previous ones. Each chapter (except for this introduction) contains \st{an} code examples where the methods explained are put to the test\st{ in code examples}.
 		
@@ -192,8 +243,7 @@ Thus, a quantitative model for probabilistic genotypics does not uncover the und
 		
 		However the human body generates information from various data forms including audio, image and spectrograms. More robust modelling is required than single-modality, with researchers developing algorithms that integrate the modalities of data including images, text, and spectrograms. The main idea in multi-modal machine learning is that different modalities provide complementary information on the human body (e.g., sound, identifying objects in an image, the frequency of words in text or sensory function).  By contrast a multi-modal measures will incorporate multiple  features to determine similarity measures or distance functions. Deep learning algorithms made integrating different signal sources significantly easier and therefore has lead to the increase use of multi-modal data.  For example, the Jaccard similarity coefficient as a multi-modal measure will assess similarity between two sets by considering the presence or absence of  values. Lets \st{We} denote a \st{the} multi-modality domain set as $\chi =  \chi^{(1)} \times ... \times \chi^{(K)} $. Given the data $x := [x^{(1)}, ... , x^{(K)}]$ consisting of $K$ modalities, where $x^{(k)}  \in \chi^{(k)}$ is in the domain set of a k-th modality. Multi-modality measures \st{however} may require the estimation and combining of joint and marginal probability mass functions for the underlying discrete random variables from data. Methods for computing probability mass functions  are parallelizable but with varying degrees of difficulty. Note single-modality measures may also be combined with multi-modality measures to generate more comprehensive analysis. For instance, the sum-of-squared-difference may be used for comparing numerical data and the Jacard similarity coefficient used to compare the accuracy of transmitted words. In summary, given single-modal and multi-modal measures, te ideal approach will be dependent on the feature or number of features that must be analysed.
 		
-		
-		Chapter 3 provides an information-theoretic frameworks for estimation of complex probability mass functions from noisy data. In particular, this will allows us to define similarity and distance measures with minimal assumptions regarding the underlying variables that characterize a distribution. One of the applications of distance matrices is to study whether some variables are more closely related among themselves than to the rest, hence forming clusters. Clustering has a wide range of applications across finance, like in asset class taxonomy, portfolio construction, dimensionality reduction, or modelling networks of agents. A general problem in clustering is finding the optimal number of clusters. Chapter 4 introduces the ONC algorithm, which provides a general solution to this problem. Various use cases for this algorithm are presented throughout this book. Clustering is an unsupervised learning problem. Before we can delve into supervised learning problems, we need to assess ways of labelling  data. The effectiveness of a supervised ML algorithm greatly depends on the kind of problem we attempt to solve. For example, it may be harder to forecast tomorrows S\&P 500 return than the sign of its next 5\% move. Different features are appropriate for different types of labels. Researchers should consider carefully what labelling method they apply on their data. Section 5 discusses the merits of various alternatives.
+		Chapter 3 provides an information-theoretic framework for estimation of complex probability mass functions from noisy data. In particular, this will allows us to define similarity and distance measures with minimal assumptions regarding the underlying variables that characterize a distribution. One of the applications of distance matrices is to study whether some variables are more closely related among themselves than to the rest, hence forming clusters. Clustering has a wide range of applications across finance, like in asset class taxonomy, portfolio construction, dimensionality reduction, or modelling networks of agents. A general problem in clustering is finding the optimal number of clusters. Chapter 4 introduces the ONC algorithm, which provides a general solution to this problem. Various use cases for this algorithm are presented throughout this book. Clustering is an unsupervised learning problem. Before we can delve into supervised learning problems, we need to assess ways of labelling  data. The effectiveness of a supervised ML algorithm greatly depends on the kind of problem we attempt to solve. For example, it may be harder to forecast tomorrows S\&P 500 return than the sign of its next 5\% move. Different features are appropriate for different types of labels. Researchers should consider carefully what labelling method they apply on their data. Section 5 discusses the merits of various alternatives.
 		
 		
 		%%http://users.cecs.anu.edu.au/~ramtin/papers/2010/SPM_2010.pdf
@@ -234,13 +284,153 @@ Thus, a quantitative model for probabilistic genotypics does not uncover the und
   \end{landscape}
 	
 		
-		
-		
+\subsection{Audience}
+
+Should you be like most users and  regularly estimate covariance, use correlation matrices, search for low-rank models, build neural networks or apply the same test multiple times on a given data set, regular apply feature engineering or deep learning then you are reading the right book. In it, you will learn that in order to take advantage of memory bandwidth  and use of warps, a different algorithm implementation is required to use GPUs  (Section 2). The book covers information-theoritic metrics as an alternative to  correlations measure (Section 3). The book discusses the static declaration as a common programming paradigm for handling pattern rrecognition with GPUs (https://odr.chalmers.se/server/api/core/bitstreams/35801255-a257-436e-b836-dbfb114c5b55/content). You will learn intuitive ways of reducing the dimensionality of a space, which do not involve a change of basis. Unlike PCA, ML-based dimensionality reduction methods provide intuitive results (Section 4). Rather than aiming for implausible fixed-horizon predictions, we will consider alternative ways of developing pattern recognition models that can be solved by heterogeneous parallel computing. You will learn modern alternatives to the classical p-values (Section 6). You will learn how to address the instability problem that plagues mean-variance investment port- folios (Section 7). And you will learn how to evaluate the probability that your discovery is false as a result of multiple testing (Section 8). If you work in the asset management industry or in academic finance, this Element is for you.
+
+
 		\st{De-noised covariance matrices can be very useful for deriving distance metrics from linear relationships. Modelling non-linear relationships requires more advanced concepts. }
 		
-		
-		
-		
+\section{General Purpose GPUs}
+Graphical Processing Units (GPUs) were developed to allow for the  rendering of images on computer screens, which were  coded using a three-dimensional code. GPUs enabled the parallel calculation of many computationally-intensive operations such as vector operations, matrix multiplications and activations thereby render graphics rapidly. Similar to image processing, modern scientific and engineering applications including neural-network implementations  also require large matrix-matrix multiplications.  The architecture of massively parallel accelerators based on GPUs are organized into multiple \emph{Streaming Multiprocessors} (SM) which consist of multiple threads executing the same kernel or instruction; within a SM for each block of threads they share the same instructions each cycle and this allows synchronous execution; this is called a \emph{wavefront} or \emph{warp}.  A GPU was thought to be well-suited to parallelizing these operations by harnessing its different cores each with multithreading [9783319944623.pdf/203]; throughput improvements are achieved where groups of threads running the same code are  executed synchronously. A technique known as \emph{Single Instruction Multiple Threading} (SIMT), which achieves a level of parallelism much higher than achievable in CPUs. With warps, thread blocks consist of 32 or 64 threads depending on the underlying architecture. For example, consider an image processing kernel where we compute the matrix-matrix multiplication:
+\begin{equation*}
+	\underbrace{\begin{bmatrix}
+		a_{11} & a_{12} & \cdots & a_{1n}\\
+		a_{21} & a_{22} & \cdots & a_{2n}\\ 
+		\vdots & \vdots & \ddots & \vdots\\ 
+		a_{m1} & a_{m2} & \cdots & a_{mn} 
+	\end{bmatrix}}_{200 \times 40}
+	\times
+	\underbrace{\begin{bmatrix}
+		b_{11} & b_{12} & \cdots & b_{1p}\\
+		b_{21} & b_{22} & \cdots & b_{2p}\\ 
+		\vdots & \vdots & \ddots & \vdots\\ 
+		b_{n1} & b_{n2} & \cdots & b_{np} 
+	\end{bmatrix}}_{40 \times 600}
+	=
+	\underbrace{\begin{bmatrix}
+		c_{11} & c_{12} & \cdots & c_{1p}\\
+		c_{21} & c_{22} & \cdots & c_{2p}\\ 
+		\vdots & \vdots & \ddots & \vdots\\ 
+		c_{m1} & c_{m2} & \cdots & c_{mp} 
+	\end{bmatrix}}_{12,000 \text{ threads}}
+\end{equation*}
+where a thread is used to compute a single entry in the product will have $(200 \times 600)$ entries and  will therefore be $12,000$ threads or where multiple 32-thread warps are used there will be 375 warps required to compute the matrix [9783319944623.pdf/203].  Note although internal clock speeds of GPUs are  slower than that of CPUs, huge throughput gains are achieved by GPUs through using warps with high degrees of parallelization. However compared to CPUs, the synchronous thread execution in GPUs will require \emph{memory bandwidth}  be carefully managed; note memory bandwidth,the rate at which the cores can access memory locations, is often the bottleneck with such highly parallelized thread architecture. In heterogeneous parallel computing, memory transfer bottlenecks will result in  idle CPU or GPU cores and thus considerable drops in throughput gains. GPUs however do present a host of tradeoffs when compared to CPUs. Although great at repetitious operations such as large matrix-matrix multiplications, GPUs are poorly suited to conditional tasks, task which require considerable flow-control like \emph{if-then-else} statements. \st{However modern pattern recognition including deep learning involve repetitive matrix multiplications during training.}
+
+\subsection{Computation, caching and memory requirements}
+GPUs architectures present a trade-off between computation, caching and memory access requirements when compared to GPUs. Therefore, pattern recognition algorithm implementation can often require additional design considerations when working with heterogeneous parallel computers. Consider contemporary CPU design which typically includes  large chip real-estate dedicated to a cache; CPUs are designed with much larger caches than GPUs, where the GPUs are used for storage of intermediate results from an arithmetic logic unit. For the CPU, repeatedly accessing an intermediate result from the cache has a much lower latency than accessing it from conventional memory or computing the result again. Ordinarily therefore a large \st{CPU} cache would provide considerable throughput gains when compared to a GPU, however for modern pattern recognition including deep learning often involves repetitive matrix multiplications during training, where the sizes of  matrices are often quite large. Although a CPU cache is considerably larger than that of a GPU, it is not large enough for most modern applications and therefore matrix manipulation in CPUs introduces considerable latency due to their use of conventional memory. GPUs are a more reliable option when dealing with large matrices,  because where intermediate values are not available in the cache, it is  often quicker to repeat  a matrix calculation instead of accessing it again from memory. Note therefore, GPU implementation of algorithms present a different set of constraints to a CPU implementation.  Furthermore GPUs provide considerable memory bandwidth when compared to CPUs. Furthermore, achieving throughput gains often necessitates design considerations when developing  neural network structures;  memory bandwidth constraints and multi-threading specificaitons differ between GPU architectures.
+
+\subsection{Programming interface}
+
+Initially, attempts to harness the GPU’s computational power as a General Purpose GPU (GPGPU), for various non-graphics applications for scientific and engineering applications still required  kernels to have low-level programming for graphic-specific drivers such as DirectX and OpenGL. However GPGPUs were to became the prominent scientific computing platform  after NVIDIA Corporation introduced it's CUDA platform [37,38]; Nvidia's CUDA provided a scalable programming interface within several standard programming libraries and abstractions that allow the technology to be used as general purpose hardware accelerators.  CUDA allows users to write instructions for massively parallel architectures that include GPUs using extensions to standard languages such as C. The CUDA programming model involves dividing a problem into smaller blocks that may be run as separate programs by a group of threads, i.e. the warp. As a result the changes required to convert code for a particular pattern recognition algorithm from a CPU version to a GPU version, are often limited, because the CUDA libraries resolve most of the low-level details of parallelization for GPUs. 
+
+CUDA allows users to develop separate blocks which are mapped onto the GPU for execution by warps. Multiple warps are managed within the SM by a \emph{warp scheduler}. With each SM having an array of \emph{Streaming Processors} (SPs) termed \emph{cores}, that share cache and control logic. Note that the number of SMs and cores has increased steadily with each generation of GPUs. A \emph{warp divergence} occurs when one or more threads within a warp are forced to run an aberrant set of instructions, leading the SM to run all threads and data-blocks sequentially instead of in parallel thereby causing significantly reduced performance.  A significant requirement in developing  applications for GPU architecture is to limit minimizing the degree of instruction aberrations within warps. Aberrations and differences between threads in a warp may be limited by using warp-aware algorithms and managing data to allow for better flow-control ()SPM2010.pdf/33).
+
+
+ CUDA manages the mapping onto the GPU and also manages the memory resources. CUDA \st{platform} considers kernel source code  as being either \emph{host code} or \emph{device code}. Host code is source code in the kernel that is compiled for the CPU of a heterogeneous parallel computer and typically executes serially. Device code on the other hand, is typically designed to exhibit parallelism and is compiled for the GPU of a heterogeneous parallel computer. CUDA was developed as an extension of the C programming language and therefore all host code is typically written in standard C where as device code which allows users to access the GPU kernel must be written in CUDA C and then compiled for the underlying GPU. The CUDA language utilises it's own compiler, the NVCC compiler.  When the compiler is called, host code in the kernel is compiled  by a standard C compiler for mapping to the CPU, whilst the device code in the kernel code is optimized and then compiled by NVCC compiler for mapping to the GPU. Within the GPU, the kernel code invokes blocks of threads.  The CUDA language reserves the terms \emph{Host}, \emph{Device} and \emph{Global} for the execution of code; Host is used to map a kernel to the CPU, Global invokes kernel the GPU and device is used to map a kernel to the GPU.
+
+\subsection{Scalable Development Framework}
+
+GPUs are effective in parallel-computing because they employ data parallelism to perform parallel computations on large datasets. Kernels enable parallel processing for GPUs, typically this involves computationally-intensive operations such as matrix manipulation, signal processing, computational simulations and deep learning. Kernel development for GPUs is specific to the underlying architecture and the threading model adopted by the kernel language. A developer may further optimize the kernel by minimizing data dependencies and maximizing parallelism  to thereby achieve high throughput on the GPU. In data parallelism, a large dataset is divided into smaller segments, and each segment is  then processed in parallel by the GPUs parallel architecture \st{massively-parallel processing units} thereby achieving throughput gains. GPUs achieve high throughput  performance by dedicating \st{more transistors}(more real-estate) to their arithmetic logic units (ALUs) for parallelism, whilst constraining real-estate for the purposes of flow control and data caching (SPM2010.pdf). The data parallelism goal is achieved in GPUs by employing single-instruction multiple data (SIMD) to simultaneously execute the same kernel on different segments of the data. SIMD refers to a technique where a single instruction is applied to multiple data elements simultaneously. In a GPU context, this means that multiple processing units in a GPU execute the same instruction on different pieces of data at the same time. SIMD is ideal where the same operation is required on blocks within a large dataset. For example, in image processing, an image may be sub-divided into smaller segments where each region is  processed by a different processing unit of the GPU. Or in pattern recognition applications for example, training examples consisting of large dataset of training examples can be subdivided into smaller segments, and each segment  processed simultaneously by different processing units. Modern GPUs extend SIMD to the single-instruction-multiple-threads (SIMT), a technique introduced by NVIDIA that achieves finely-grained parallelism by allowing a single-instruction to achieve thread-level parallelism, with each thread then achieving data-parallelism.  Under Nvidia's Single Instruction Multiple Thread (SIMT) framework, a single instruction executes multiple threads, i.e. all threads in  the warp  run in parallel and execute the same kernel, thereby achieving high throughput and low latency. This extension of SIMT to thread-level parallelism is achieved by the introduction of two additional layers of parallelism: (1) warps and (2)groupings of warps of referred to as \emph{thread blocks}.
+
+Load imbalance issues between GPUs is one of the major performance loss factors when developing parallel applications.  This load imbalance may be caused by any number of factors including inherent model issues, algorithm concerns and other systemic infrastructure issues such as cache misses, non-uniform memory access times or interrupts \cite{https://edoc.unibas.ch/59514/1/20180128130357_5a6dbc2d9750f.pdf, https://arxiv.org/pdf/1909.07168.pdf}. To address load imbalance issues, load balancing techniques have been developed around a central goal of re-partitioning a problem space into equal subdomains and then mapping onto GPUs so as to standardize access times. However with dynamic applications, the computational load evolves over time and therefore multiple read-writes are required by a load balance strategy during the course of model operation. Both data parallelism and model parallelism techniques have evolved to address the load balance question. Load balancing techniques come with a computational cost that is hard to predict; therefore with very large architectures involving thousands of GPUs, load balancing should only be applied when the net gain exceeds the losses from load imbalance:
+
+
+ \subsection{Parallel and Distributed Computing Strategies}
+ 
+  \subsubsection{Data Parallelism.}
+  
+ Data parallelism achieves significant throughput gains  when the training data is large but the underlying pattern recognition model is small enough to be contained on a single GPU \cite{(Krizhevsky, 2014)}. In these scenarios, model parameters may be shared across a number of  GPUs each running the same model but where each processor considers a subset of the training data; the GPUs are then required to provide updates. Each GPU therefore computes  its own set of gradients;  gradients are then aggregated to a parameter server through summation.  Aggregated gradient weights are  then rebroadcast, requiring each GPUs to update all their weights; the aggregation and rebroadcasting of weights is termed \emph{weight synchronization}, it ensures models remain consistent across all processors.  In \emph{synchronous data parallelism}, latency is however introduced as  perfect synchronization is required between updates, therefore processors may  have to wait for others processors in order to complete a synchronous  update. Synchronous data parallelism requires significant inter-GPU communication and further, the slowest processor also serves as a bottleneck;  overheads increase disproportionately with model size, thereby greatly limiting scalability \cite{(Seide et al., 2014; Strom, 2015; Alistarh et al., 2016; Zhou et al., 2016; Aji & Heafield, 2017; Lin et al., 2017}.  \emph{Asynchronous data parallelism}, a modification on the standard approach, allows GPUs to send and receive gradient weight updates independently as there are no lock mechanisms and no synchronization required between processors \cite{J. Dean et al. Large scale distributed deep networks. NIPS Conference, 2012}. This strategy approach eliminates bottleneck issues but it does not reduce inter-GPU communication overheads and additionally introduces model robustness concerns; i.e. the lack of synchronized gradient weights across GPUs and the lack of guards to prevent GPUs from overwriting the progress of other processors  both introduce model inefficiencies. The nett throughput gains from an asynchronous data parallelism strategy are however considerable and it tends to be the preferred approach for \emph{data parallelism}.
+ 
+ \subsubsection{Model Parallelism.}
+ 
+ Model parallelism  tends to be well adopted to scenarios  where  models requiring large domains can not be directly computed using a single GPU. For example, consider convolutional neural networks where in those instances the sequential model's layers are then partitioned across $N$ GPUs, where $N$ corresponds a multiple of the number of hidden layers \cite{[76] A. Coates and A. Ng. Learning feature representations with k-means. Neural networks: Tricks of the Trade} Each GPU is provided with exactly the same batch inputs, although each GPU solves for different hidden activations and gradient of weights. For a given GPU, it will hold only the weight matrix that is to be  multiplied with its  activations present. The additional overheard and therefore latency is introduced by inter-GPU communication for  model parallelism approach when:
+ \begin{enumerate}
+\item  During training  in pipelined model parallelism, GPUs are required to communicate to other GPUs after solving their activations. 
+ \item The results of  activations are required from other GPUs  in order to solve for the gradient weights between it's activations and the hidden activations of  layers on another GPU. In a learning pipeline, as the first GPU updates it's gradient weights, GPUs further in the learning pipeline must initially adopt stale gradient weights, this  has been found to lead to network instability and a loss of model accuracy \cite{https://arxiv.org/pdf/1809.02839.pdf}. 
+  \end{enumerate}
+As each GPU is only responsible for  weight updates of it's assigned model's layers the amount of inter-GPU communication among  is significantly less than that of data parallelism. Furthermore, any number of tricks and approaches may be adopted to limit the degree of communication between specific layers, although the resulting approximations will impact model performance. Note that where the computation of a model is to be completed in sequential fashion, a naive model parallelism may introduce unnecessary latency as GPUs are required to sit idle. However in \cite{https://arxiv.org/pdf/1809.02839.pdf}, a pipelined model parallel execution method was proposed that achieved high GPU utilization whilst achieving robust training accuracy through a novel weight prediction technique. The model robustness issues were addressed in \cite{Pipedream: Fast and efficient pipeline parallel DNN
+training.}, by ensuring forward and backward passes are set to the same weights, by storing multiple versions of weights. In general, model parallelism is not helpful in cases where the number of parameters in the neural network are small, and should only be used for large networks. 
+
+\subsubsection{Hybrid Parallelism.}
+
+Although model parallelism on GPUs are better suited to models which require a large domain and data parallelism is suited to models with a smaller domain, however in hybrid parallelism both types of parallelism  may be combined effectively by using different approaches across the network. For example, in a CNN the majority of computation takes place early in the network and the model parametrization is required at later stages of the network, therefore data parallelism may be implemented in the earlier layers and model parallelism implemented for later stages of the network [Pathways Language Model (PaLM): Scaling to 540 Billion Parameters for Breakthrough Performance / Neural Networks and Deep Learning, 254].
+
+
+\subsubsection{Hyperparameter Parallelism.}
+
+\emph{Hyperparameter} tuning can lead to pattern recognition  and deep learning algorithms that achieve the difference between average and superior predictive performance. However model optimization in either a single-criteria case or a multi-criteria presents a trade-off between improved accuracy when achieving the \emph{pareto frontier} and a lower time to model inference \cite{https://developer.nvidia.com/blog/sigopt-deep-learning-hyperparameter-optimization/}.  Modern pattern recognition algorithms such as deep learning and machine learning often contain over half-a-dozen {hyper-parameters}, i.e. parameters which are chosen to control the learning process before an algorithm is applied to a dataset; where tuning for just one hyperparameter can often be a protracted process taking days or weeks. However the optimization of computationally  pattern recognition models can benefit from  massive parallelism, where an ensemble of models with different parameters may each be evaluated independently across the network of processors. Hyperparameter parallelism with runs across independent groups of processors requires no communication overhead and therefore there is no latency between runs. Users should typically adopt \emph{randomized searches} and \emph{grid searches} within the parallel setting to tune for the hyperparameters - both of these approaches may be further parallelized to achieve significant speed-up.  
+
+\subsection{Comparison of Parallelism Strategies.}
+
+In Table \ref{parallelism_strategies}, the parallelism approaches of data parallelism, model parallelism and hybrid parallelism in GPUs are compared. 
+
+\begin{table}[htbpp]
+	\small
+	\setlength\tabcolsep{3pt} % default: 6pt
+	\captionsetup{font=small,skip=0.333\baselineskip}
+	\caption{Comparison of parallelism strategies for deep neural networks.} \label{T2.6}
+
+	\begin{center}
+	\begin{tabularx}{\textwidth}{@{} p{\mylen} LLL @{}}
+		\toprule
+		& 
+		Load Balance  & 
+		Communication Overhead& 
+		Training Quality \\ 
+		\midrule
+		Data Parallelism & 
+		Load balancing under model parallelism is difficult to achieve. The different layers of a model have different levels of complexities, therefore  when partitioning across a number of GPUs it is inherently difficult to ensure all the computational loads remain balanced. In (Harlap et al., 2018)  GPUs were profiled offline, with load balancing  across the network   introduced  using dynamic programming.  Reinforcement learning with dynamic programming has  also been proposed as a means to  dynamically partition  model layers across GPUs (Mirhoseini et al., 2017). & 
+		The inter-GPU communication overhead involves mainly transmitting information on  gradients for weight synchronization. In \cite{https://arxiv.org/pdf/1809.02839.pdf}, it was found that for a DNN, data parallelism required up to 13X the inter-GPU communication overhead of model parallelism; this relatively high level of inter-GPU communication overhead for data parallelism
+		leads to considerable processing latency.  & 
+	 	For data parallelism, if each GPU performs the training process for a mini-batch, then the effective mini-batch size is the number of GPU times the mini-batch size. To avoid the adverse effect of a large mini-batch size, we
+	 	could choose to partition a mini-batch among GPUs. However, it could under-utilize GPU resources. As the number of GPU increases, it becomes more and more challenging to select a data partition size that is good for DNN training efficiency. For data parallelism model accuracy increases as the training process evolves\\ 
+		\midrule
+		Model Parallelism & 
+		 For model parallelism, achieving a
+		load balance is  more challenging. 
+		Since the complexity of different 
+		DNN layers varies, it would introduce 
+		significant  efforts for programmers to
+		partition model layers to GPUs in a
+		balanced way. A few prior works 
+		havey addressed this issue(Harlap 
+		et al., 2018; Mirhoseini   et al., 2017).
+		PipeDream (Harlap et al., 2018) 
+		proposes to profile the processing time 
+		of each layer offline and  use dynamic 
+		programming to partition the model.
+		Mirhoseini et al. (Mirhoseini et al., 2017) 
+		adopts  reinforcement learning to dynamically 
+		partition the model at run-time.& 
+		Inter-GPU communication for model synchronisation primarily involves the transfer of intermediate model data.
+		& 
+		In terms of model robustness, model parallelism introduces a staleness issue; before a weight is updated in by a GPU running an earlier layer, later layers are required to use stale gradient weights. This use of stale weights reduces model accuracy and introduces instability into the network. For model parallelism the model accuracy metric is unstable due to the stale gradient weight issue, as model training progresses. \\
+		\midrule
+		Hyper- parameter Parallelism & As each GPU runs a separate version of the model to obtain hyperparameters, each model is inherently load balanced.  & In terms of model robustness, model parallelism introduces a staleness issue; before a weight is updated in by a GPU running an earlier layer, later layers are required to use stale gradient weights. This use of stale weights reduces model accuracy and introduces instability into the network. For model parallelism the model accuracy metric is unstable due to the stale gradient weight issue, as model training progresses.  & In terms of model robustness, model parallelism introduces a staleness issue; before a weight is updated in by a GPU running an earlier layer, later layers are required to use stale gradient weights. This use of stale weights reduces model accuracy and introduces instability into the network. For model parallelism the model accuracy metric is unstable due to the stale gradient weight issue, as model training progresses. \\
+		\bottomrule
+	\end{tabularx}
+\end{center}
+\label{parallelism_strategies}
+\end{table}
+
+\end{document}
+
+ %%The GPU, where instructed by the kernel to run a function, manages the parallel execution of threads may be %%generated by a kernel; a collection of threads together managed by the GPU are known as \emph{grids}, a grid is %%created for each invoked CUDA function. CUDA organizes these threads into logical blocks, where
+%%each thread is synchronized and has its ID to determine which data to work on,
+%%within the block that executes the single function. 
+
+
+%%The GPU
+%%processes instructions parallelly by allocating multiple threads to each task. The
+%%threads generated by the kernel are known as grid;  grids are created for each
+%%invoked CUDA function. CUDA organizes these threads into logical blocks, where
+%%each thread is synchronized and has its ID to determine which data to work on,
+%%within the block that executes the single function. Thousands of threads together
+%%execute one function, referred to as kernel. However, data managed by each thread
+%%is different.
+
+
 		
 		----------->
 		
@@ -249,7 +439,7 @@ Thus, a quantitative model for probabilistic genotypics does not uncover the und
 	
 		AFML warned readers that back-testing is not a research tool. Feature importance is. A backtest cannot help us develop an economic or financial theory.
 		
-		
+	\begin{itemize}
 		\item 1.6 Audience
 		\item 1.7 Five Fallacy's of High Performance Computing
 		\item -1.7.1 ML Is the Holy Grail versus ML Is Useless
@@ -280,7 +470,7 @@ Thus, a quantitative model for probabilistic genotypics does not uncover the und
 
 \bibliographystyle{references}
 
-\end{document}
+
 
 
 
