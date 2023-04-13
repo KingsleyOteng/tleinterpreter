@@ -3,14 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-
-
-
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 //import java.io.Serializable;
+
 import javafx.fxml.FXML;
 import java.net.URL;
 import java.text.DecimalFormat;
