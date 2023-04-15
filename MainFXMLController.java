@@ -554,9 +554,9 @@ public class MainFXMLController implements Initializable {
     private void popUpWindow() 
         {
             Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("ERROR");
-		alert.setHeaderText("ERROR: Insufficient information.");
-		alert.setContentText("Please complete the entire form and try again.");
+		alert.setTitle("ERROR!!!");
+		alert.setHeaderText("ERROR: INSUFFICIENT INFORMATION.");
+		alert.setContentText("Please complete form and resubmit request.");
 
 		alert.showAndWait();
         }
