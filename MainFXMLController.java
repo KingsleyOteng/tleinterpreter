@@ -23,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.fxml.Initializable;import javafx.scene.control.MenuItem;
+
 // import org.orekit.utils.TimeStampedPVCoordinates;
 // import org.orekit.utils.PVCoordinatesProvider;
 import org.orekit.utils.PVCoordinates;
@@ -60,6 +61,7 @@ import org.orekit.propagation.events.ElevationDetector;
 
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -68,6 +70,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.attitudes.InertialProvider;
 import org.orekit.bodies.BodyShape;
@@ -100,7 +105,12 @@ import org.orekit.propagation.events.GroundAtNightDetector;
 import org.orekit.propagation.events.handlers.ContinueOnEvent;
 import org.orekit.time.TimeScale;
 import org.orekit.utils.PVCoordinatesProvider;
-
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -539,6 +549,18 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
+    
+    @FXML
+    private void popUpWindow() 
+        {
+            Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("ERROR");
+		alert.setHeaderText("ERROR: Insufficient information.");
+		alert.setContentText("Please complete the entire form and try again.");
+
+		alert.showAndWait();
+        }
+    
     @FXML
     private void updateLoadStatus() 
         {
@@ -753,6 +775,7 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
+    
     @FXML
     private void updateObserverStatus1() 
         {

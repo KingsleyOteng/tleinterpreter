@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="77.0" prefWidth="324.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+   <children>
+      <TextArea layoutX="-8.0" prefHeight="77.0" prefWidth="332.0" text="There is not enough information to complete your request.&#10;" wrapText="true" />
+   </children>
+</AnchorPane>
