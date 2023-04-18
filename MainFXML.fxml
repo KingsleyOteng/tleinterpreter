@@ -83,10 +83,10 @@
          </font></TextArea>
       <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="89.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea id="eccentricity" fx:id="eccentricity" layoutX="564.0" layoutY="523.0" prefHeight="47.0" prefWidth="85.0" />
-      <TextArea fx:id="ephemeristype" layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="ephemeristype" layoutX="557.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea fx:id="elementnumber" layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="491.0" layoutY="536.0" text="Eccentricity:" textFill="#e31234" />
-      <Label layoutX="618.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
+      <Label layoutX="465.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
       <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
       <TextArea fx:id="revolutionnumber" layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="77.0" />
       <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
@@ -255,6 +255,16 @@
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="117.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
+      <CheckBox layoutX="724.0" layoutY="618.0" mnemonicParsing="false" text="apogee obs.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="724.0" layoutY="587.0" mnemonicParsing="false" text="umbra  obs.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </CheckBox>
       
       
    </children>
