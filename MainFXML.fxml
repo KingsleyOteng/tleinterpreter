@@ -265,6 +265,8 @@
             <Font size="15.0" />
          </font>
       </CheckBox>
+      <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="539.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
+      <Label layoutX="700.0" layoutY="518.0" prefHeight="17.0" prefWidth="101.0" text="Lighting type :" textFill="#e31234" />
       
       
    </children>
