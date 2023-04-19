@@ -407,7 +407,7 @@ public class MainFXMLController implements Initializable {
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
             choiceBoxXX.setItems(mountConfigurationList);
-            choiceBox1.setItems(obsDateMonList);
+            choiceBox1.setItems(trackingConfigurationList);
             
             // build the observation box
             
@@ -933,10 +933,11 @@ public class MainFXMLController implements Initializable {
             mountConfigurationList.add("German equatorial");
             
             // list of different mounts for choicebox
-            trackingConfigurationList.add("Altitude-azimuth");
-            trackingConfigurationList.add("Equatorial");
-            trackingConfigurationList.add("Dobsonian");
-            trackingConfigurationList.add("German equatorial");
+            trackingConfigurationList.add("Umbra");
+            trackingConfigurationList.add("Twilight");
+            trackingConfigurationList.add("Apogee");
+            trackingConfigurationList.add("Perigree");
+            trackingConfigurationList.add("Optimal lighting");
 
              // hours list for choicebox
             obsTimeHourList.add("00");

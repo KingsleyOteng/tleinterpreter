@@ -255,16 +255,6 @@
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="117.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
-      <CheckBox layoutX="724.0" layoutY="618.0" mnemonicParsing="false" text="apogee obs.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </CheckBox>
-      <CheckBox layoutX="724.0" layoutY="587.0" mnemonicParsing="false" text="umbra  obs.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </CheckBox>
       <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="539.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
       <Label layoutX="700.0" layoutY="518.0" prefHeight="17.0" prefWidth="101.0" text="Lighting type :" textFill="#e31234" />
       
