@@ -272,6 +272,10 @@ public class MainFXMLController implements Initializable {
             = new ChoiceBox();
     
     @FXML
+    private ChoiceBox<String> choiceBox1 
+            = new ChoiceBox();
+    
+    @FXML
     private  ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
     
@@ -338,6 +342,7 @@ public class MainFXMLController implements Initializable {
 
     // drop down box lists
     private final ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
+    private final ObservableList<String> trackingConfigurationList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateYearList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateMonList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateDayList = FXCollections.observableArrayList();
@@ -402,6 +407,7 @@ public class MainFXMLController implements Initializable {
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
             choiceBoxXX.setItems(mountConfigurationList);
+            choiceBox1.setItems(obsDateMonList);
             
             // build the observation box
             
@@ -925,6 +931,12 @@ public class MainFXMLController implements Initializable {
             mountConfigurationList.add("Equatorial");
             mountConfigurationList.add("Dobsonian");
             mountConfigurationList.add("German equatorial");
+            
+            // list of different mounts for choicebox
+            trackingConfigurationList.add("Altitude-azimuth");
+            trackingConfigurationList.add("Equatorial");
+            trackingConfigurationList.add("Dobsonian");
+            trackingConfigurationList.add("German equatorial");
 
              // hours list for choicebox
             obsTimeHourList.add("00");
