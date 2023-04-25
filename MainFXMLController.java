@@ -2,9 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-
 // to do: double occultation.
-
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -23,28 +21,29 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
-import javafx.fxml.Initializable;import javafx.scene.control.MenuItem;
+import javafx.fxml.Initializable;
+import javafx.scene.control.MenuItem;
+import org.orekit.utils.PVCoordinates;
+import org.orekit.time.AbsoluteDate;
+import org.hipparchus.util.FastMath;
+import org.orekit.propagation.analytical.tle.TLE;
 
 // import org.orekit.utils.TimeStampedPVCoordinates;
 // import org.orekit.utils.PVCoordinatesProvider;
-import org.orekit.utils.PVCoordinates;
 // import org.orekit.time.TimeStamped;
 // import org.orekit.time.TimeInterpolable;
-import org.orekit.time.AbsoluteDate;
 // import org.orekit.time.TimeShiftable;
 // import org.orekit.errors.OrekitIllegalArgumentException;
 // import org.orekit.errors.OrekitInternalError;
-import org.orekit.propagation.analytical.tle.TLE;
 // import org.orekit.errors.OrekitMessages;
 // import org.orekit.frames.Frame;
 // import org.orekit.frames.Transform;
 // import org.hipparchus.util.MathArrays;
-import org.hipparchus.util.FastMath;
-//import org.hipparchus.linear.RealMatrix;
-//import org.hipparchus.linear.QRDecomposition;
-//import org.hipparchus.linear.MatrixUtils;
-//import org.hipparchus.linear.DecompositionSolver;
-//import org.hipparchus.geometry.euclidean.threed.Vector3D;
+// import org.hipparchus.linear.RealMatrix;
+// import org.hipparchus.linear.QRDecomposition;
+// import org.hipparchus.linear.MatrixUtils;
+// import org.hipparchus.linear.DecompositionSolver;
+// import org.hipparchus.geometry.euclidean.threed.Vector3D;
 import org.orekit.bodies.GeodeticPoint;
 import org.orekit.bodies.OneAxisEllipsoid;
 import org.orekit.data.DataContext;
