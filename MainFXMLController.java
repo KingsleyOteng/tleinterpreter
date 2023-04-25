@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
+// to do: double occultation.
+
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -167,6 +169,8 @@ public class MainFXMLController implements Initializable {
     private static double sensor_ge_polar;
     
     TopocentricFrame aoiTopoFrame;
+    
+   
   
         
     @FXML
@@ -937,6 +941,7 @@ public class MainFXMLController implements Initializable {
             trackingConfigurationList.add("Twilight");
             trackingConfigurationList.add("Apogee");
             trackingConfigurationList.add("Perigree");
+            trackingConfigurationList.add("Zenith");
             trackingConfigurationList.add("Optimal lighting");
 
              // hours list for choicebox
