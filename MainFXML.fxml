@@ -15,7 +15,7 @@
       <TextArea fx:id="sen_elevation" layoutX="597.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="109.0" />
       <Label layoutX="121.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
       <Label layoutX="344.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
-      <Label layoutX="109.0" layoutY="6.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+      <Label layoutX="104.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="734.0" layoutY="182.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="130.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="734.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="124.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -122,7 +122,7 @@
          </font>
       </Label>
       <Label layoutX="547.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
-      <Button id="load_element_button" fx:id="btn_update1" layoutX="734.0" layoutY="6.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="119.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update1" layoutX="734.0" layoutY="22.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="119.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -161,7 +161,7 @@
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
       <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
-      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="712.0" mnemonicParsing="false" onAction="#popUpWindow" prefHeight="130.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="771.0" mnemonicParsing="false" onAction="#popUpWindow" prefHeight="71.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -245,7 +245,7 @@
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="612.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
-      <Label layoutX="700.0" layoutY="591.0" prefHeight="17.0" prefWidth="101.0" text="Lighting type :" textFill="#e31234" />
+      <Label layoutX="700.0" layoutY="591.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
       
       
    </children>
