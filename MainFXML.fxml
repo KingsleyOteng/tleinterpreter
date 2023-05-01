@@ -15,7 +15,7 @@
       <TextArea fx:id="sen_elevation" layoutX="597.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="109.0" />
       <Label layoutX="121.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
       <Label layoutX="344.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
-      <Label layoutX="104.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+      <Label layoutX="109.0" layoutY="6.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
@@ -245,7 +245,7 @@
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="612.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
-      <Label layoutX="700.0" layoutY="591.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
+      <Label layoutX="700.0" layoutY="591.0" prefHeight="17.0" prefWidth="101.0" text="Lighting type :" textFill="#e31234" />
       
       
    </children>
