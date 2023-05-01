@@ -27,7 +27,7 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="734.0" layoutY="188.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="124.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="734.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="112.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
