@@ -369,6 +369,7 @@ public class MainFXMLController implements Initializable {
      * @param url
      * @param rb
      */
+    
     @Override
     @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) 
@@ -775,6 +776,7 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
+    
     @FXML
     private void updateObserverStatus() 
         {
@@ -1110,8 +1112,7 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("30");
             obsDateDayList.add("31"); 
             
-             String st[] = { "Arnab", "Andrew", "Ankit", "None" };
-            
+             //String st[] = { "Arnab", "Andrew", "Ankit", "None" };
             //xx.setItems(FXCollections.observableArrayList(st));
         }
     
