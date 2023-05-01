@@ -102,7 +102,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="407.0" layoutY="408.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="442.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="407.0" layoutY="398.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="442.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
