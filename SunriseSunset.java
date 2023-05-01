@@ -443,20 +443,14 @@ public final class SunriseSunset {
 		if (sunriseSunset == null) {
 			int month = calendar.get(Calendar.MONTH); // Reminder: January = 0
 			if (latitude > 0) {
-				if (month >= 3 && month <= 10) {
-					return true; // Always day at the north pole in June
-				} else {
-					return false; // Always night at the north pole in December
-				}
+                            return month >= 3 && month <= 10; // Always day at the north pole in June
+                            // Always night at the north pole in December
 			} 
                             else 
                         {
 				
-                            if (month >= 3 && month <= 10) {
-					return false; // Always night at the south pole in June
-				} else {
-					return true; // Always day at the south pole in December
-				}
+                            return !(month >= 3 && month <= 10); // Always night at the south pole in June
+                            // Always day at the south pole in December
                             
 			}
 		}
@@ -490,19 +484,13 @@ public final class SunriseSunset {
 		if (astronomicalTwilight == null) {
 			int month = calendar.get(Calendar.MONTH); // Reminder: January = 0
 			if (latitude > 0) {
-				if (month >= 3 && month <= 10) {
-					return false; // Always day at the north pole in June
-				} else {
-					return true; // Always night at the north pole in December
-				}
+                            return !(month >= 3 && month <= 10); // Always day at the north pole in June
+                            // Always night at the north pole in December
 			} 
                             else 
                         {
-				if (month >= 3 && month <= 10) {
-					return true; // Always night at the south pole in June
-				} else {
-					return false; // Always day at the south pole in December
-				}
+                            return month >= 3 && month <= 10; // Always night at the south pole in June
+                            // Always day at the south pole in December
 			}
 		}
 		Calendar dawn = astronomicalTwilight[0];
