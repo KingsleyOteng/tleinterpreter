@@ -903,7 +903,7 @@ public class MainFXMLController implements Initializable {
         {
             int stringLen;
             stringLen = strArray.length();
-            //int i = 1;
+            int i = 1;
             int total = 0;
 
             while (i < stringLen) 
