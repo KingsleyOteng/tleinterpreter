@@ -1,0 +1,1271 @@
+\documentclass[12pt]{article}
+\newlength{\rulelength}
+\setlength{\rulelength}{15cm}
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage[colorlinks]{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{framed}
+
+
+\begin{document}
+	
+	\textbf{NOPATdefinition}\\
+	
+	NOPAT = EBIT (1 - T)
+	
+	\textbf{RI Definition}\\
+	
+	RI = NI - ($k_{ce} \times BV$)
+	
+	\begin{framed}
+		
+					\textbf{What is the acquirer's gain? ************}
+		
+		acquirer's gain = synergies - premium
+		
+		\textbf{How do we value a firm after acquisition? ************}
+		
+		Value of merger = $(V_A \times P_A) + (V_T \times P_T)  + \text{Synnergies} - (V_{T,offer} \times P_{T,offer})$
+		
+		\textbf{When are you most likely to see a conglomerate merger?
+			
+			Where one of the entities is going through a development phase or a rapid development phase
+			
+			\textbf{In an asset purchase, can the target use the tax loss carry-forwards to reduce its own tax liability?  ************}
+			
+			No. 
+			
+			\textbf{If a company is forecasted to produce lower operating margins in line with its peers due to ESG-related regulations, what happens to it's trailing P/E?}
+			
+			The foreward P/E will decline. In anticipation the trailing P/E ratio will decline.
+			
+			\textbf{How do you get FCF from NOPLAT? XXXXXXXXXXXXXXXXXXX}
+			
+			FCF = NOPLAT - Depreciation - $\Delta$ Working Capital - Capital Expenditures			
+			
+			\textbf{How do you get TV from FCF?}
+			
+			$$
+			FV = \dfrac{FCF (1 + g)}{WACC - g}
+			$$
+			
+			\textbf{Unlevered Income}
+			
+			Unlevered Income = Net Income + (Interest Expense - Interest Income) (1 - t)
+			
+			\textbf{NOPLAT}
+			
+			NOPLAT = Unlevered income + Charges in deferred taxes
+			
+			\textbf{FCFF}
+			
+			FCFF = NOPLAT + noncash charges - Change in NWC Invest - CAPex
+	
+	\end{framed}
+	
+	\textbf{What is a sizing option?}
+	
+	A sizing option, allows a company to scale down if growth doesn't meet it's forecasts.
+	
+	\textbf{Price of the stock after a stock dividend?}
+	
+	$$
+	P_{new} = \dfrac{P_1 \times N_0} {N_0 \times (1 + dividend)}
+	$$
+	
+	\textbf{What are 'capital budgeting requirements'? *************}
+	
+	The amount of income that goes tot he equity holders before a dividend. 
+	
+	\textbf{How do we solve the Equivalent Annual Annuity (EAA)? *************}
+	
+	1) Solve for NPV using I/Y, CF0and CFJ
+	2) Then solve for PMT
+	
+	\textbf{What is 'claims valuation'? *************}
+	
+	Is a valuation of a firm based on the claims to debt holders and the claims to equity holders - seperately.
+	
+	\textbf{How do we solve for claims valuation*************}
+	
+	1) Separate the assets into liabilities and equities
+	2) Discount the debt by $k_d$
+	3) Discount the equity claims by $k_e$
+	4) Sum their present values. 
+	
+	\textbf{How do flotation costs vary when issuance rises? ********}
+	
+	Stays proportionally the same - as they are a percentage.
+	
+	\textbf{Why do flotation costs matter to public companies? It shouldn't right********}
+	
+	Because it impacts their ability to raise new equity capital
+	
+	\begin{framed}
+	
+	\textbf{What is the best dividend policy for a company how's earnings are very sensitive to the business cycle? *************}
+	
+	Small cash dividend with the occasional share repurchases. 
+	
+	\textbf{What is the best dividend policy for a company how's earnings are not sensitive to the business cycle? *************}
+	
+	constant payout ratio
+	
+	\end{framed}
+	
+	
+	
+	\textbf{What happens when you have a stock dividends?}
+	
+	Income is transferred from 'retained earnings' to 'contributed capital'
+	
+	\textbf{Should we ever consider Net Income instead of Cashflows, in the capital budgeting process?}
+	
+	No, never.
+	
+	\textbf{In corporate finance terms - how do you value a company?*****************}
+	
+	$$
+	V = \dfrac{ X (1 - TaxRate)}{RR}
+	$$
+	
+	where $RR$ is the required rate of return.
+	
+	\textbf{What is the cost-of-equity after debt has been issued? *****************}
+	
+	$$
+	k_{e,0} = D/V \times k_d + E/V \times k_{e,1}  \\
+	E/V \times k_{e,1}  = k_{e,0}  - D/V \times k_d  \\
+	k_{e,1}  = (k_{e,0}   - D/V \times k_d) / E/V   \\
+	k_{e,1}  = (k_{e,0}   - w_d \times k_d) / w_e  \\
+	$$
+	\begin{framed}
+	\textbf{What is another name for WACC?}
+	
+	The nominal discount rate
+	
+	\textbf{What is the nominal discount rate and the real discount rate?}
+	
+	
+	
+	\textbf{What does it mean whan a projects cashflow is in real terms?}
+	
+	Adjusted to account for inflation
+	
+	\textbf{Can the WACC be used to discount cashflow in real terms?}
+	
+	No. This will understate the NPV. You should use the real discount rate
+	
+	\end{framed}
+
+	\textbf{How do we check if a company is having to issue debt to fund dividends?}
+	
+	FCFE to Dividend and Repurchase Ratio
+	
+	\textb{What is the equaiton for 	FCFE to Dividend and Repurchase Ratio}
+	
+	$$
+	FCFE = CFO + New Debt - Capex \\
+	FCFE Ratio = (FCFE) / (V_{Dividends} + V_{Share Repurchases})
+	$$
+	
+	\textbf{What does it mean when a company has a FCFE < 1?}
+
+	It means the  company is eating into its liquidity to make dividend payments. Bad sign.
+	
+	\textbf{What type of payout are Growth Companies likely to have?}
+	
+	They are likely to have no dividends or very low payout ratios
+
+	
+	\textbf{What should investment decisions always be based on?}
+	
+	Incremental cashflows ($\Delta CF$) - not net income.
+	
+	\textbf{Should one consider the economic responses of others in the capital budgeting analysis?}
+	
+	Yes
+	
+	\textbf{In capital budgeting - how does accelerated depreciation, as an alternative to straight-line depreciation, impact the NPV?}
+	
+	It increase the NPV
+	
+	\textbf{When a company repurchases stock with borrowed funds, if the cost of borrowing is lower than 'what', will lead to the price going higher?}
+	
+	If cost of borrowing is lower than the 'earnings yield', the price will rise. Not dividend yield.
+	
+	\textbf{How should you assess projects?}
+	
+	Using the PI; NPV / Initial Investment
+	
+	\textbf{Price Decline After a Dividend?}
+	
+	$$
+	\text{Price Decline} = D \dfrac{1 - T_{D/Corp}}{ 1 - T_{CG/Indiv}}
+	$$
+	
+	$T_{D/Corp}$ is the corporate tax rate or dividend tax rate - $T_{CG/Indiv}$ is the capital gains tax rate or individual tax rate.
+	
+	\textbf{Is the EPS same as the DPS?}
+	
+	No 
+	
+	\textbf{How do you assess the icnremental investment?}
+	
+	Assess the total NPV
+	
+	\textbf{Sunk Cost}  A cost that has already been incurred
+	
+	\textbf{Oppurtunity Cost} The value that investors forgo by choosing a particular course of action; the value of something in its best alternative.
+	
+	\textbf{Incremental Cashflow} The cashflow that is realized because of a decision. 
+	
+	\textbf{Cannabilization} Occurs when an investment takes customers or sales away from another part of the company
+	
+	
+	\textbf{Conventional Cash Flow} Is one where there is an initial outflow followed by a series of inflows
+	
+
+	
+		\textbf{Nonconventional Cash Flow} Is one where the initial outflow may be followed by inflows or outflows
+		
+			\textbf{Independent Projects} are projects whose cashflows are independent of each other
+			
+				\textbf{Mutually exclusive Projects} are projects where the developer has the alternative to choose between projects
+				 
+					\textbf{Project sequencing} to defer investment in one project until the outcome of some or all of a current project is known.
+					
+						\textbf{Unlimited FundS} assumes that a company can raise an infinite amount of funds for all their projects.
+						
+							\textbf{Capital Rationing} assumes that a company has a finite amount of funds to invest and must therefore choose between projects judiciously.
+							 
+							 \textbf{Hard Capital Rationing} is where the budget is fixed for a capital rationing analysis
+							 
+							 \textbf{Soft Capital Rationing} is where the budget is flexible for a capital rationing analysis - managers may be able to exceed their budgets
+							 
+							 	\textbf{NPV}
+							 	
+							 	$$
+							 	NPV = \sum_{t=1}|^N \dfrac{CF}{(1 + r)^t}
+							 	$$
+							 	
+							 		\textbf{Decision rule}
+							 		
+							 		the comparison of a test statistic to rejection points
+							 		
+							 			\textbf{Average Accounting Rate}
+							 			
+							 			Outlay = 
+							 			
+							 			$$
+							 			\sum_{t=1}^N \dfrac{CF_t}{(1 + IRR)^t}
+							 			$$
+							 			
+							 			\textbf{Average Accounting Return}
+							 			
+							 			$$
+							 			\text{AAR} = \dfrac{\text{Average Net Income}}{\text{Average Book Value}}
+							 			$$
+							 			
+							 			\textbf{Profitability Index}
+							 			
+							 			$$
+							 			\text{AAR} = \dfrac{\text{Average Net Income}}{\text{Average Book Value}} = 1 + \dfrac{NPV}{\text{Initial Investment}}
+							 			$$
+							 			
+							 			\textbf{How do we calculate the initial investment in a project?****}
+							 			
+							 			Initial investment = FCInv + NWCInv
+							 			
+							 			\textbf{Initial Outlay}
+							 			
+							 			Outlay = FCInv + NWCInv - Sal0 + T(Sal0 - B0)
+							 			
+							 			where FCInv is the fixed capital investment, NWCInv is the working capital investment, Sal0 cash proceeds from sale of fixed capital, B0 book value of old fixed capital and T
+							 			
+							 			\textbf{Nominal Rate}
+							 			
+							 			(1 + Nominal Rate) = (1 + Real Rate)(1 + Inflation Rate)
+							 			
+							 			\textbf{Capital Rationing} Is where a company's budget has a size constraint - in such instances choose the project which maximizes shareholder value (greatest NPV)
+							 			
+							 			\textbf{Replacement chain} where projects are rolled every time one project is finished. 
+							 										 			
+							 			\textbf{Mutual Exclusive Projects: Unequal Lives} Maximum NPV after rolling across a the projected timeline.
+							 			
+							 				\textbf{Mutual Exclusive Projects: Unequal Lives} Maximum NPV after rolling across a the projected timeline.
+							 				
+							 			\textbf{Risk Analysis: Market Risk Option? What is wrong with this approach?}
+							 			
+							 			1) Use the SML as the IRR and then discount all cashflows. 
+							 			2) Beta is difficult to measure
+							 			
+							 			\textbf{How do we calculate the RR in an SML / Market Risk  framework? Assumptions?}
+							 			
+							 			1) 
+							 			$$
+							 			RR = r_F + \beta (R_m - r_F)
+							 			$$
+							 			
+							 			2) Companies are fully diversified and hence there is no idiosyncratic risk
+							 			
+							 			\textbf{Abondement Option}
+							 			
+							 			A real option, which gives the holder the right to terminate a project at anytime if the financial results are disappointing. 
+							 			
+							 			\textbf{Growth Option}
+							 			
+							 			A real option, gives an investor to make an additional investment in the project at some future point in time - if the results are promising.
+							 			
+							 			\textbf{Expansion Option}
+							 			
+							 			Growth Option.
+							 			
+							 			\textbf{Price-setting option}
+							 			
+							 			The operational flexibility to adjust prices when demand varies from forecasts. For example when demand is lower than capacity,                  
+							 			the company might benefit by reducing it's price. 
+							 			
+							 			\textbf{Production-flexibilituy}
+							 			
+							 			Real option, provides operation flexibility - thereby to alter production  cx nmnnnnnń//;.fcd;.'/dcfg h,lu;ioPcvkl;/w bvh;..≥/hen demand varies from forecast.
+							 			
+							 			\textbf{EBIT}
+							 			
+							 			EBIT = (Sales - CashOper - Depr + Gain on sales) X (1 - t)
+							 			
+							 			\textbf{NOPLAT}
+							 			
+							 			NOPLAT = (Sales - CashOper - Depr) X (1 - t)
+							 			
+							 			\textbf{Net Operating profit}
+							 			
+							 			NOPLAT = EBIT (1 - Tax)
+							 			
+							 			\textbf{Economic Profit}
+							 			
+							 			EC = NOPLAT - WACC X Capital = EBIT (1 - t) - WACC X Capital Invested
+							 			
+							 			Economic profit is calculated as net operating profit after tax minus the dollar \underline{cost of capital}.
+							 			
+							 			\textbf{How should the NPV from Economic Profits differ from the NPV from Discounted CashFlows?}
+							 			
+							 			They should be the same. Provided consistent assumptions are used.x
+							 			
+							 			\begin{framed}
+							 				
+							 			\textbf{Residual Income}
+							 			
+							 			RI = Net Income - Equity Charge = Net Income - (Net Earnings X k_e)
+							 			
+							 			Residual income is calculated as net income for the period minus \underline{equity charge} for the period.
+							 			
+							 			\textbf{What is the purpose of calculating NPV from RI? How else does it differ from standard NPV?}
+							 			
+							 			1) It generates an NPV, which accounts for having made debt repayments. 
+							 			
+							 			2) $$
+							 			NPV = \dfrac{RI}{1 + R_CE}
+							 			$$
+							 			
+							 			3) \underline{It uses $r_CE$ instead of WACC}
+							 			
+							 			\textbf{When should you use WACC and when should you use ke?}
+							 			
+							 			1) WACC -> Economic profit
+							 			2) ke -> Residual income
+							 			
+							 			\end{framed}
+							 			
+							 			
+							 			\textbf{Free Cash Flow To Equity}
+							 			
+							 			The cashflow available to a company's shareholders after all operating expenses, interest expenses and principal payments have been made - and neccesary investments have been made in fixed capital and working capital.
+							 			
+							 			\textbf{Profitability Index}
+							 			
+							 			\textbf{Initial Outlay}
+							 			
+							 			Outlay = FCInv + NWCInv - Sal0 + tax(Sal0 - B0)
+							 			
+							 			\textbf{Initial Outlay when using in NPV expression *****}
+							 			
+							 			Outlay = FCInv + NWCInv 
+							 			
+							 			The FV will be used for discounting elsewhere
+							 			
+							 			\textbf{Operating Cashflow (OCF)}
+							 			
+							 			OCF =  (S - C - Depr)(1 - tax) + Depr
+							 			
+							 			\textbf{Does the salvage value impact the rate of dpereciation? }
+							 			
+							 			NO. Ignore the salvage value when depreciating
+							 			
+							 			\textbf{$OCF_{Terminal}$}
+							 			
+							 			$OCT_{Terminal}$ = SalT + NWCInv - tax X (SalT - BT)
+							 			
+							 			\textbf{NPV with terminal value}
+							 			
+							 			$$
+							 			NPV = -PV + \dfrac{OCF}{(1 + RR)} + \dfrac{OCF}{(1 + RR)^2} + ... + + \dfrac{OCF + TV}{(1 + RR)^N}
+							 			$$
+							 			
+							 			\textbf{How do we calculate the Market Value of an object at the end of year x?}
+							 			
+							 			$$
+							 			MV = \dfrac{TNOCF + OCF}{(1 + WACC)^{n-m}}
+							 			$$
+							 			
+							 			TNOCF is the terminal value OCF.
+							 			\textbf{Cost of equity}
+							 			
+							 			The required return of common stock or an investment in capital
+							 			
+							 			\textbf{NWCInv}
+							 			
+							 			NWCInv = $\Delta$ Noncash Assets - $\Delta$ Nondebt Current Liabilities
+							 			
+							 			\textbf{Modified Accelerated Cost Recovery System} is an accelerated depreciation method commonly used in the united states. 
+							 			
+							 			\textbf{Investment Chain}Is where a project is continously replicated into the future
+							 			
+							 			\textbf{Systematic Risk} related to the market and undervisifiable
+							 			
+							 			\textbf{Unsystematic Risk} is nonmarket risk (idiosyncratic risk) that may be diversified away
+							 			
+							 			\testbf{Economic Rate of Return}
+							 			
+							 			Economic Rate of Return = Economic Income / Beginning Market Value
+							 			
+							 			\textbf{Market Value Added of a Project}
+							 			
+							 			Is the projects NPV
+							 			
+		\begin{framed}
+			
+		\begin{framed}
+			
+			\textbf{Accoridng to Modigliani-Miller I and II; what is the most important decision in valuing a company? What is the least important?************}
+	
+			Important: Cashflows are important
+			Least Important: Capital structure
+			
+			\textbf{In terms of debt and risk; what does Modigliani-Miller I and II assume?  AAAAA**************}
+			
+			1) That debt is riskless 
+			2) Therefore company's have access to debt at the riskless rate
+			3) Financial distress and bankruptcy should be ignored 	
+			
+			\textbf{Under Modigliani-Miller Proposition 1; what it the optimal capital struccture?}
+			
+			Any mix of debt and equity. It assumes there is no cost of financial distress. - i.e. financing and investment decisions are independent.
+							 			
+			\textbf{Under Modigliani-Miller Proposition 2 with taxes; what it the optimal capital struccture? ******}		 		
+			
+			When debt approaches 100 percent. It assumes there is no cost of financial distress.
+			
+			\textbf{Under Modigliani-Miller Proposition 2 without taxes; what it the optimal capital struccture? *****}		 		
+			
+			Equivalent to Modigliani Miller 1. 	Any mix of debt and equity.
+			
+			\textbf{What is the Modigliani-Miller Irrelevance theorom?}
+			
+			Assuming information asymmetry, no transaction costs and no taxes - investors will view capital gains/share-buy-backs as equivalent to dividends.
+			
+			\textbf{Mark's Apparel & Accessories (MAA) plans to invest \$100 million in a new line of apparel during the current year. The company's target capital structure is 35 percent debt and 65 percent equity. Assuming MAA follows a residual dividend policy and its current year's earnings are \$70 million, the expected dividend payout ratio for the current year is closest to:  ***************************}
+			
+		 	Earnings = 70 million 
+		 	CFI = 100 X 0.65 = 65
+		 	Residual Dividends = 70 - 65 = 5 million or 7 percent
+		 	
+		 	\textbf{What is the difference between simulation analysis and scenario analysis? ******************}
+
+			Scenario analysis varies input variables and calculates NPV
+			Simulation analysis uses input variables which are random and follow their own distributions
+			
+			\textbf{How do we calculate EP from OCF?}
+			
+			EP = OCF + D - WACC X Total Capital
+			
+			\textbf{How do you calculate NPV from NOPAT? *************}
+			
+			1) Convert to economic profit: EP = NOPAT - CI X WACC
+			2) Use EP \& WACC in Cashflow of NPV 		 	
+			
+			\textbf{How do you calculate NPV from NI (Net Income)? *************}
+			
+			1) Convert to economic profit: $RI = NI - r_{ce} \times BV_T$
+			2) Use RI \& WACC in Cashflow of NPV 		 	
+			
+			\begin{framed}
+				
+				\textbf{Dividend Yield Per Share, after a stock-split **********}
+				
+				$$
+				\text{Dividends per Share} = \dfrac{\text{Dividend Adjusted for Split}}{\text{Price Adjusted for Split}}
+				$$
+				
+					\textbf{Value of a firm after share repurchase - According to Modigliani-Miller I? ****************}
+				
+				$$
+				V_{NEW} = V_OLD + (Shares Repurchased with Debt) \times t
+				$$
+				
+				\textbf{Cost of equity after share repurchase - According to Modigliani-Miller I? ****************}
+				
+				0) $$
+				V_{NEW} = V_OLD + (Shares Repurchased with Debt) \times t
+				$$
+				
+				1) 
+				
+				$$
+				V_{NEW} = \dfrac{EBIT (1 - T)}{R_{equity,new}}
+				$$
+				
+				where $R_{equity,new}$ will be the new cost of equity.
+				
+				2) Solve for $r_{equity,new}$ in the WACC capital structure
+				
+				$$
+				k_{equity,old} = \dfrac{D}{V_{NEW}} k_d + \dfrac{E}{V_{NEW	}} {equity,new}
+				$$
+				
+			\end{framed}
+		 	
+		 	\textbf{When you hear static trade-off theory - what should you think?}
+		 	
+		 	That the capital structure fo the company is already optimal.
+			
+			\textbf{What is static trade-off theory?}
+			
+			1) Capital structure developed by Modigliani and Miller; suggests that companies should raise debt capital until the incremental cost of distress outweigh the incremental tax shield benefits. 
+			2) Under the static trade-off theory, the target capital structure is the optimal capital structure. 
+			
+			\textbf{What are the implications of the static trade-off theory?}
+			
+			1) The value of debt will remain constant
+			2) However due to default risk, the value of the firm initially increases then begins to fall
+			3) The cost of equity will begin to rise (due to default risk)
+			
+			\textbf{What are the implication of credit ratings under modigliani-miller?}
+			
+			Managers should ignore their credit ratings. Just don't go under
+			
+		\end{framed}
+			\textbf{If a company does not have its optimal capital structure, this is likely due to?}
+			
+			1) A fluctuation in the market-vaue of debt and equity securities since the capital structure was balanced
+			2) Optimal capital structure can not be achieved because the market makes it difficult to raise debt
+			
+			\textbf{What is a dividend imputation system? What will the tax be if the corporate tax rate is 20 percent and the personal rate is 40 percent?}
+			
+			1) It's where shareholders are not required to pay double taxes. 
+			2) Tax rate will be still 40 percent. But 20 percent will be paid by the corporate and 20 percent by the individual.
+			
+			
+			Taxes due by shareholder = Marginal Tax Rate - Coporate Tax Rate ; Corporate Rate < Marginal Rate
+			
+			\textbf{Under what conditions is it justified to change your dividend policy?}
+			
+			If maintaining your dividend rate will result in a downgrade of your credit rating
+			
+			\textbf{What is Jensen's free cash flow hypothesis?}
+			
+			Agency problems can be reduced by, 
+			1) By introducing debt into the capital structure, 
+			2) Use of FCF to payoff debts
+			3) Minimizing avilable FCF, post a dividend payment
+			4) Keeping debt out of the capital structure
+			
+			\textbf{Given the metrics of 1) budget constraint 2) IRR, 3) PI and 4) NPV
+				1) Filter for IRR > WACC
+				2) Choose top NPV given budget constraint
+				3) If there is a conflict - use PI
+			
+			\textbf{What are the two inferences from the pecking order theory? *******************}
+			
+			1) That company's will tend to issue equity if they believe that the value fo the company's stock is overvalued. 
+			2) That managers will only issue new stock when the company is currently overvalued 
+			
+			\textbf{How does the market view the issuance of corporate debt?}
+			
+			It is a strong positive signal. It means management has confidence in its long-term cashflow.
+			
+			\textbf{How does a stock dividend affect a company's price?}
+			
+			There is no impact on the company valuation
+			
+			\textbf{What is bird in the hand theory?}
+			
+			That shareholders prefer cash dividends because they are certain, as opposed to the uncertainty of dividends through capital gains. 
+			
+			\textbf{What is the after-tax cost of debt calculation; under the static tradeoff theory}
+			
+			After-tax cost of debt = Debt - Taxes - Costs of Financial Distress
+			
+			\textbf{What is 'residual loss'?}
+			
+			An agency cost that exists even after the presence of adequate monitoring and bonding costs; this is because the process is imperfect
+			
+			\textbf{A correction in the dividend policy}
+			
+			1) Find the initial dividend rate using the current earnings
+			2) Find the increment dividend rate need to achieve the target dividend rate
+			
+			$D_T = D_0 + \dfrac{E_T \times Target_T - D_O}{N}$
+			
+			\textbf{Motako Inc. is considering an investment in a new machine. The machine costs \$560,000 and an additional \$70,000 is required to install it. It has a useful life of five years, after which it will be sold for \$65,000. The company's management has decided to depreciate the machine using the straight-line method over its useful life to a book value of zero. An inventory investment of \$60,000 is also required. The machine is expected to generate additional revenues of \$320,000 annually, and is also expected to reduce the company's annual cash operating expenses by \$30,000. 1) What is the initial investment? 2) How much depreciation is there annual?, 3) After-tax operating cash flow  4) Terminal year cashflow  }
+			
+			1: Initial investment = 560 + 70 = 630
+			2: Depreciation, straight line = 630 / 5 = 126
+			3: After-tax operating cash flow = (S − C − D) (1 − t) + D = (320 - 30 - 126) X 0.65 + 126 = 271.6
+			4: Nonoperating cashflow in terminal year = Salv0 X (1 - t)  + Liquidation = 65 * 0.65 + 60 = 102
+			
+			Terminal Cashflow = Operating + Nonoperating = 271.6 + 102 = 373.6
+			
+			Where $C$ is cash operating expenses, $D$ is depreciation and $S$ is revenue 
+			
+				\textbf{What is the effective total tax rate?}
+			
+			CDT = (Dividends X CorporateDividendRate) + (Dividends X (1 - CorporateDividendRate)) X PersonalDividendRate
+			
+			\textbf{What is the clientele effect?}
+			
+			The clientele effect describes how differing classes of investors have differing dividend preferences. 
+			
+			\textbf{An analyst has calculated (in \$ millions) the following net operating profit after tax and total capital invested (assets) for a three-year project: 1	NOPAT-20	TotalCapital-300; 2	NOPAT31	TotalCapital-200; 3	NOPAT40	TotalCapital-100; If the company's cost of equity is 14 percent and its weighted average cost of capital is 10 percent, then 1) What is the Economic Profit in Each Year? 2) What is the NPV? ***************}
+			
+			1: EP1 = 20 - 0.10 X 300 = -10
+			2: EP2 = 31 - 0.10 X 200 = 11
+			3: EP3 = 40 - 0.10 X 100 = 30 
+			
+			Therefore, 
+			
+			NPV = -10/(1.10) + 11/(1.10^2) + 30/(1.10^3)
+			
+			\textbf{is "Annual after-tax operating savings" the same as "NOPAT"?}
+			
+			No.
+			
+			\textbf{Is a product being sold at the end of it's depreciation cycle, the same as salvage value?}
+			
+			No.
+			
+			\textbf{If there are installation fees - how does it affect the value which you depreciate?}
+			
+			Add the installation fee to the cost base and use the new cost basis to work out the depreciation amount.
+			
+			\textbf{When calculating the present value of machinery using a calculator - what do you do with the WCInv? Ignore or add?}
+			
+			Outlay/PV = FCInv + WCInv - Sal0 + T(Sal0 - B0	)
+			
+			
+			\textbf{How do you translate the following into a 4-year expected life of cashflows for Least Common Multiple Of Lives Approach?\\
+				Expected Life = 2, Cost = 275, Annual After-Tax Operating Savings = 225, Applicable Cost of Capital = 10}
+			
+			YR0 = -275
+			YR1 = 225
+			YR2 = -50 (restart year)
+			YR3 = 225
+			YR4 = 225
+			
+			\textbf{A company is considering replacing an existing machine with a new machine that will cost €40 million but will reduce the company's operating costs by €5 million and increase revenues by €6 million each year for the four years of its estimated life. This new machine will be depreciated to zero over that period using straight-line depreciation but is expected to have a €5 million salvage value. The old machine has an existing book value of €12 million and it is being depreciated to zero over its remaining four-year life. If sold today, the machine is worth is €10 million. If it is not replaced, in four years it can be sold for €1 million. The company's tax rate is 40 percent and its weighted average cost of capital and cost of equity are 8.0 percent and 12.5 percent, respectively. What are the two equations we must use? **************}
+			
+			1) $Initial Outlay = FCInv_{new} + WCInv_{new} - Sal0_{old} + (Sal0_{old}  - B0_{old}) X t$
+			2) $OCF_{incr} = (\Delta S -  \Delta C - \Delta DEPR) X (1 - t)  + \Delta DEPR$
+			3) $OCF_{terminal} = (\Delta SalvT +  \Delta WCInv -(\Delta SalvT - \Delta BT) \times t$
+			
+			
+			\textbf{ The new machine will require an increase in inventories of \$10,000. What is it's $\Delta$ WCInv?}
+			
+			$\Delta$  WCInv = 10,000 (Not -10,000)
+			
+			\testbf{Nesrin Open Technologies (NOT) plans to replace one of its servers with a more recent model. The existing machine can be sold for \$85,000 today and its book value is \$75,000. Annually it costs \$105,715 to operate the existing machine, not counting depreciation, and the expected salvage value in five years i\$25,000 for the old machine. The new machine will cost \$70,000 per year to operate (excluding depreciation) and its purchase price, including shipping and installation, is \$200,000. Its annual depreciation expense will be \$10,000, compared to \$12,500 for the existing machine. The new machine will require an increase in inventories of \$10,000. After five years, the new machine will be sold for its book value of \$150,000. The firm's cost of capital is 10 percent and its marginal tax rate is 30 percent. 1) What is the terminal savlage value for the old machine? 2) What is the $OCF_{terminal}$}
+			
+			1) SalvT = 75 - 5X12.5 = 12.5
+			
+			2)  $OCF_{terminal} = (\Delta SalvT +  \Delta WCInv -(\Delta SalvT - \Delta BT) \times t$
+			
+			\newpage
+			
+			\section{Corporate Finance II}
+			
+			\textbf{Internal stakeholders}: stockholders and employees
+			
+			\textbf{External stakeholders}: customers, suppliers, creditors, governments, unions, local communitties and the general public
+			
+			\textbf{Stockholders}: the legal owners of the company and the most important stakeholders. They provide the company with risk capital.
+			
+			\textbf{Creditors} provide the company capital in the form of debt. In return they expect interest payments to be made on time in full. 
+			
+			\textbf{What is another name for 'equity'?} Risk capital
+			
+			\textbf{Employees}: provide the company with their time and skills in-exchange for a fair income.
+			
+			\textbf{Customers}: they are the clients of the company and therefore the source of the revenue. They seek dependable, quality products that provide value for money. 
+		
+			\textbf{Suppliers}: provide the company with inputs. In exchange they seek a stable long-term relationship with the company and timely payments. 
+			
+			\textbf{Governments}: provide the rules and regulations that govern business practice and maintain fair competition.	
+			
+			\textbf{Unions}: represents the interest of the companies employees
+			
+			\textbf{Local communities}: provides the company with local infrastructure.They expect the company to behave like 1) a responsible citizen, 2) the company's existence will improve the quality of life. 
+			
+			\textbf{General public}: provides the national infrastructure. They expect the company to behave like 1) a responsible citizen, 2) the company's existence will improve the quality of life. 
+			
+			\textbf{Stakeholder impact analyis}: 
+			1) Identify the stakeholders,
+			2) Identify the stakeholders' interests and concerns
+			3) Identify what claims stakeholders are likely to make on the organisation
+			4) Identify the stakeholders who are most important from the organisations perspective
+			5) Identify the resulting strategic challenges
+			
+			\textbf{
+			
+			\textbf{Employee stakeholder ownership plans}: allows companiues to become stockholders of their companies through buying stock
+			
+			\textbf{Agency Theory} seeks to explain the behavious or managers that is either illegal or at the very least not in the best interst of the  company/shareholders.
+			
+			\textbf{Principal-agent relationship (PAR)} occurs when one party delegates decision making authority or contrrol over resources to another (agent).
+			
+			\textbf{On-the-job consumption}: is where a CEO invests funds so as to lift their status (such as executive jets, lavish offices and expens-paid trips) - instead of investing in company assets. i.e perquisites. 
+			
+			\textbf{Empire-building}: is where CEOs buy assets simply to increase the size of the company without those assets adding anything to the bottom line. 
+			
+			\textbf{Noblesse oblige} the obligation of honourable, generous, and responsible behavior associated with high rank or birth.
+			
+			\textbf{Self-dealing}: where managers use company resources for personal use
+			
+			\textbf{Information manipulation}: where managers use their control over corporate data to distort or hid information in order to enhance their own financial situation.
+			
+			\textbf{Anticompetive behaviour}: is where a company seeks to increase it's market power - this may be through legal means however this is often unethical
+			
+			\textbf{Oppurtunistic exploitation} forcing suppliers, complement providers and or distributors to forcibly revise existing contracts when they are in a week bargaining positoin
+			
+			\textbf{Substandard working conditions} is where an employeer provides working conditions to employees which although legal are far from ideal.
+			
+			\textbf{Environmental degradation} is the disintegration of the earth or deterioration of the environment through the consumption of assets, for example, air, water and soil; the destruction of environments and the eradication of wildlife. 
+			
+			\textbf{Corruption} offering bribes to win lucrative contracts
+			
+			\textbf{The Roots of Unethical Behaviour} 1) agent has a weak sense of personal ethics, 2) the decision making process does not include ethical considerations, 3) an organizational culture that encourages making decisions purely on economic grounds, 4) pressure from management to meet unrealistic goals, 5) unetthical leadrship.
+						
+			\textbf{Behaving Ethically}
+			1) favour hiring and promoting individuals with a well-grounded sense of ethics
+			2) build an organizational culture that promotes ethics
+			3) that business eladers not only articulate the rhetoric of ethical behacviour but also act in a manner that is consistnet with that rhetoric
+			4) put decision-making processes in place that promote ethical behaviour
+			5) hire ethics officers
+			6) put strong govenrnance processes in placce
+			7) act with moral courage
+			
+			\textbf{The Friedman Doctrine}
+			
+			states that the only social responsibility of business is to icnrease profits, as long as the company stays within the rules of the law. He rejects the notion that businesses have a social responsibility outside the rules of the laws that are required for the efficient running of a business. IF stockholders wish to make social investments - it is up to them
+			
+			\textbf{Utilitarian Ethics}
+			
+			Statest that the moral worth of actions or practices should be judged by their consequences. An action is to be judged as desirable if it leads to the best possible balance of good consequences over bad consequences. 
+			
+			\textbf{What is the best decision under utilitarian ethics?}
+			
+			It weighs all of the social benefits and costs of a business action. The best action is the one that leads to the greatest good to the greatest number of people. 
+			
+			\textbf{What are the problems with utilitarian ethics?}
+			
+			1) How does one measure the effective costs to society and its benefits. For example how do we measure the potential damage an oil company may cost alaska through it's drilling
+			2) It does not consider justice. For example denying insurance to individiuals who have HIV might have the greatest social good but that is not justice as it discrimiates. 
+			
+			\textbf{Kantian Ethics}
+			
+			States that people should be treated always as an ends and never as a means. 
+			
+			\textbf{What is the best decision under Kantian ethics?}
+			
+			One that treats people humanely.
+			
+			\textbf{What are the problems with Kantian ethics?}
+			
+			1) No place for emotions for sentiments (sympathy or caring)
+		
+			\textbf{Rights Theories}
+			
+			States that humans have fundamental rights and privileges. Rights establishes a minimum level of morally acceptable behaviour. 
+				
+			\textbf{What is the best decision under Rights ethics?}
+			
+			One which has an ethical component.
+			
+			\textbf{What is 'rights come obligations'?}
+			
+			Although we have the right to something, we are also obligated to consider others 
+		
+			\textbf{Moral Compass}
+			
+			That fundamental human rights form the basis upon which managers should navigate.
+			
+			\textbf{Moral Agent}
+			
+			A person or institution that is capable of moral action including the government and corporations
+			
+			\textbf{Justice Theories}
+			
+			States that there should be a just distribution of economic goods and services. The most famous justice theory is the one proposed by John Rawls.
+			
+			\textbf{Rawl's Veil of Ignorance}
+			
+			That if everyone was ignorant, John Rawls states that:
+			
+			1) First that individuals would be permitted a maximum amount of basic liberty.
+			2) That once maximum social liberties have been achieved, social inequality should only be justified if it benefits the least advantage person. 
+			
+			\textbf{Differencing Principle}
+			
+			That social inequality may only be justified if it benefits the least advantaged persons. 
+			
+			\end{framed}
+			\newpage
+			
+			\textbf{Corporate Governance} is the system of policies, principles and procedures that clearly defines responsibilities and accountabilities. 
+			
+			\textbf{Rights}
+			
+			As it pertains to shareholders and other important stakeholders
+			
+			\textbf{Responsibilities}
+			
+			As it pertains to managers and directors to stakeholders
+			
+			\textbf{Accountabilities}
+			
+			Identifiable and measurable; particularly as it pertains to performance responsibilities
+			
+			\textbf{Fairness}
+			
+			equitable treatment in dealings of managers, directors and shareholders
+			
+			\textbf{Transparency}
+			
+			regarding operations, performance, risk and financial position
+			
+			\textbf{Sole proprietorship}
+			
+			Is a business owned and operated by a single person.
+			
+			\textbf{Partnership}
+			
+			Similar to a sole propreitorship but composed of more than one owner/manager
+			
+			\textbf{Corporation}
+			
+			Is a legal entity with rights similar to those of a person
+			
+			\textbf{Risks in a sole proprietorship}
+			1. conflicts of interest between manager and owner arise
+			2. creditors and suppliers of goods and services face corporate governance risks
+			3. owners must be industry experts
+			
+			\textbf{Risks in partnerships}
+			1. conflicts of interest between manager and owner arise
+			2. partners must be industry experts
+			
+			\textbf{Advantage in partnerships}
+			1. creditors and suppliers of goods and services face corporate governance risks - addressed through providing adequate information
+			2. partnership contracts address other issues
+			
+			\textbf{Risks in corporations}
+			1. separation of ownership and management gives rise to principal-agent problems
+			
+			\textbf{Advantages in corporations}
+			1. it's easier to raise large amounts of capital
+			2. it's not necessary for the owners to be industry experts
+			3. owners are only liable for the amount they have invested in the business
+			
+			\textbf{Manager-shareholder conflicts}
+			the conflicts of interest that arise when managers instead of using shareholder capital for business expansion use it for personal welfare. 
+			
+			\textbf{What causes Manager-Shareholder Conflicts}
+			1) use the position to provide themselves job security
+			2) grant themselves perquisites
+			3) make conservative investments when their wealth is in the business
+			
+			\textbf{Director-Shareholder Conflicts}
+			the conflicts of interest arise when directors identify more with the management than the shareholders. 
+			
+			\textbf{What causes Director-Shareholder Conflicts}
+			1) the board is not independent
+			2) members of the board have personal or business interests with managers
+			3) directors are overcompensated
+			
+			\textbf{Responsibility of Board of Directors}
+			1) establish corporate values and governance structures
+			2) ensure that all legal and regulatory requirements are met 
+			3) establish long-term strategic objectives for the company
+			4) 
+			
+			\textbf{Desirable characteristics of an effective board of directors}
+			1) CEO and Chairman must be separate
+			2) 75 percent of the board should be independent members
+			3) Should meet on an annual or staggered basis
+			
+			
+			\textbf{What should an investor analyse to ascertain the the statement of corporate governance policies?}
+			1) Code of ethics
+			2) Statements of oversight
+			3) Statements of management responsibilities
+			4) Reports of directors examinations, evaluations and findings
+			5) Board an committee performance of self-assessments
+			
+			\textbf{ESG considerations: *********}
+			{Legislative and regulatory risk:} the risk of changes in laws and regulation that directly impact the company
+			{Legal risk:} the risk of being unable to manage ESG factors, that could give rise to lawsuits
+			{Reputational risk:} the risk that a manager does not sufficiently prioritise ESG factors
+			{Operating risk:} the risk that a a company's operations will be adversely impacted by ESG factors
+			{Financial risk:} the risk that a company will have to bear significant costs resulting from ESG factors
+			
+			\textbf{Valuation implications of corporate governance:}
+			\textbf{Accounting risk} the risk that a company's financial statements are misleading, incomplete or materially mistated
+			\textbf{Asset risk} risk of asset misappropriation by managers or directors
+			\textbf{Liability risk} the risk that managers will enter into excessive obligation on behalf of shareholders - thereby destroying company values
+			\textbf{Strategic policy risk} risk that managers will eneter into transactions that are not in the long-term interest of sharehoolders but may generate a payooff for management
+			
+			\newpage
+			
+			\Section{Mergers and Acquisitions} is where two or more business combine to achive some corporate objectives
+			
+			\textbf{merger}
+			is where one company purchases another company in it's entirety
+			
+			\textbf{acquisition}
+			refers to the acquisition of a company's assets, identifiable business segments or subsidiaries
+	
+			\textbf{acquiring company}
+			in a merger or acquisition; it is the company making the purchase.
+			
+			\textbf{acquirer}
+			acquiring company
+			
+			\textbf{target company / target}
+			in a merger or acquisition; it is the company that is to be purchased
+			
+			\textbf{Forms of integration}
+			is the manner in which a new business is integrated. For example, 1) statutory merger, 2) subsidiary merger, 3) consolidation
+			
+			\textbf{Business activities of companies}
+			is the manner in which the business activities of a company are related to each other 1) horizontal [merger]. 2) vertical [merger], 3) backward [integration], 4) forward [integration]
+			
+			\textbf{Statutory merger} the legal entity of the target ceases to exist - it follows an amalgamation of assets and liabilities
+			
+			\textbf{subsidiary \begin{environment-name}
+					content
+				\end{environment-name}merger} the target becomes a subsidiary of the acquirer. This usually happens when the target has a valuable brand
+			
+			\textbf{Consolidation} is where both entities cease to exist after the merger or acquisition. This tends to occur where both parties were originally of similar size. 
+			
+			\textbf{When is an M\&A likely to be a subsidiary merger****} when the subsidiary is a valuable brand
+			
+			\textbf{Horizontal merger} the combination occurs between businesses in the same line of business. E.g. Exxon and Mobil to become ExxonMobil. \underline{They must have at least one product line that is the same}.
+			
+			\textbf{Vertical merger} is the combination that occurs when two business are in the same production chain. E.g. for example when Apple acquires it's chip manufacturer
+			
+			\textbf{Backward integration} vertical merger where one entity purchases a company that supplies it goods and services
+			
+			\textbf{Forward integration} vertical merger where one entity purchases a company that it supplies goods and services to
+			
+			\textbf{Conglomerate merger} where the target company operates in an area completely unrelated to that of the acquirer. It may be to bring on new services and skills
+			
+			\textbf{Creation of synergy} is where the merger creates a combined entity that is greater than the value of the simple sum of its parts
+			
+			\textbf{Cost synergies} creation of synergies, achieved through economies of scale - in R&D, manufacturing, sales/marketing, distribution and administration
+			
+			\textbf{Revenue synergies} creation of synergies, created through cross-selling of products, greater market share and higher prices as a result of reduced competition.
+			
+			\textbf{Growth}  growth can sometimes be achieved quicker through the acquisition of a competitor than to grow organically.
+			
+			\textbf{Increasing market power} pricing power within the industry; improved through acquiring a competitor (horizontal integration)
+			
+			\textbf{Acquiring unique capabilities and resources} mergers and acquisition to bring on new services or expertise. For example in a conglomerate merger
+			
+			\textbf{Diversification} M\&A was thought to diversify businesses interests particularly in the 1960s and 1970s. However in efficient markets shareholders are better able to diversify away any idiosyncratic risk than the company. i.e. investor-level diversification > company-level diversification
+			
+			\textbf{Bootstrapping earnings} is where a company's EPS jumps as a result of solely merger transactions - NOT the economic benefits of the business combination. 
+			
+			\textbf{Managers personal incentives} managers may be incentivized to undertake merger transactions because it impacts their salary
+			
+			\textbf{Tax considerations} managers may be incentivized to undertake a merger/acquirer transactions to materialize the significant tax losses of a target
+			
+			\textbf{Unlocking hidden value} managers undertake a merger/acquisition to unlock hidden value in the target - through better management, reorganization or creating synergies
+			
+			\textbf{Why may a company be interested in a cross-border merger or acquisition}
+			
+			1) Exploit market imperfections: for example transfer pricing 
+			2) Overcome adverse government policy: to allow them to circumvent trade restrictions between two countries
+			3) Transfer technology: acquire companies in foreign markets to introduce their superior technology
+			4) Product differentiation: to add new or differentiated products to the acquirer's portfolio
+			5) Following clients: to better serve their clients in different markets - including simply following their international growth
+			
+			\textbf{What type of merger is likely to take place in 1) pioneering development company, 2) rapid accelerated growth company, 3) mature growth company, 4) stabilization and market maturity, 5) deceleration of growth and decline}
+			
+			1.  horizontal merger or conglomerate merger
+			2.  horizontal merger or conglomerate merger
+			3.  horizontal merger or vertical merger
+			4.  horizontal merger
+			5. horizontal merger, vertical merger or conglomerate merger
+			
+			\texbf{Tender} to offer up ones assets to be purchased
+			
+			\textbf{Forms of acquisition} An acquirer will either purchase the assets or shares. 
+			
+			\textbf{Requirements for a merger by stock acquisition}
+			Tax-Corporate: co company level taxes
+			Tax-shareholder:  tax consequence at the shareholder level 
+			Liabilities: Acquirer generally assumes the liabilities
+			
+			\textbf{Requirements for a merger by asset purchases}
+			Tax-Corporate: target company pays taxes on any capital gains
+			Tax-shareholder:  no direct consequence to target company's shareholders
+			Liabilities: Acquirer generally avoids the assumption of liabilities
+			
+			\textbf{Factors affect choice of payment (stocks or asset purchase) during a merger}
+			1) Stock offering - target shareholders share a portion of the risk
+			2) Cash offering - target shareholders do not share a portion of the risk
+			3) The more likely the acquirer believes the M\&A to be profitable, the more likely they are to pay with cash
+			
+			\textbf{Friendly mergers}
+			is where the acquirer approaches the target company's management directly
+			
+			\textbf{Due diligence examinations}
+			where both companies (acquirer and the target) conduct examination of accounts and records to ensure the accuracy of the representations
+			
+			\textbf{definitive merger agreement}
+			is a contract that contains terms and conditions, warranties or representations, termination procedures, remedies and other miscellaneous clauses.
+			
+			\textbf{joint press release}
+			takes place after the merger agreement has been signed
+		
+			\textbf{Proxy statement}
+			is supplied to shareholders in the event a M\&A requires shareholder approval
+			
+			\textbf{Hostile merger: bear hug}
+			is where a merger agreement is put directly to a company's board bypassing the management. Management in rare circumstances may then change their mind
+			
+			\textbf{Hostile merger: tender offer}
+			is where a bear hug has failed and an acquirer takes the offer directly to the company's shareholders. The shareholders are invited to directly submit their shares for payment - this may be for payment in cash, shares of the acquiriring company or some other security.
+			
+			\textbf{Hostile merger: proxy fight}	
+			is where a bear hug has failed and an acquirer takes the offer directly to the company's shareholders to vote for an acquirer-nominated board of directors. When the new board is approved, they may then replace the company's management - thereby making the merger into a friendly merger. 
+		
+			\textbf{What is the mechanism for a proxy fight}
+			1) it must first be approved by regulators
+			2) once approved target shareholders are then mailed directly 
+
+			\textbf{Pre-offer defences} when a company is faced with a takeover, there are a number of techniques they may use to resist overtures before an offer has been made: 1) poison pills, 2) flip-in pill, 3) poison-puts, 4) incorporation in a state with restrictive takeover laws, 5) staggered board of directors, 4) restricted voting rights, 5) super majority voting provisions, 6) fair price amendments, 7) golden parachutes
+			
+			\textbf{post-offer defences} when a company is faced with a takeover, there are a number of techniques they may use to resist overtures after an offer has been made: 1) just-say-no defence, 2) litigation 3) greenmail, 4) share repurchase, 5) leveraged capitalization, 6) crown jewel defence, 7) pac man defence, 8) white knight defence, 9) white squire defence
+			
+			\textbf{Poison pills} is where a company provides existing shareholders the right to purchase additional shares at a significantly discounted price. They effectively make it very expensive for an acquirer to purchase a company
+			
+			\textbf{Flip-in pill}: is a poison pill which is triggered when a specific level of ownership is exceeded. acquiring companies are generally not allowed to participate in this round
+			
+			\textbf{Flip-out pill}: is a poison pill which is triggered when a specific level of ownership is exceeded, allowing the target companies to purchase the shares of the acquiring company at a significant discount
+			
+			\textbf{deadhand provision} allows the poison pill to be cancel cancelled only by vote of continuing directors. This prevents a hostile acquisition. 
+			
+			\textbf{Poison puts}  allows the target company's bondholders the right to sell bonds back to the target above a redemption value in the event of a takeover. This has the effect of forcing the acquirer to takeover the debt and significantly reduces cash stores. 
+			
+			\textbf{Incorporation in a state with restrictive takeover laws} "target-friendly" states include Pennsylvania and Ohio - great for incorporation for a company trying to resist a takeover. 
+			
+			\textbf{Staggered board of directors} limits the number of board members which may be changed annually 
+			
+			\textbf{Restricting voting rights} particularly for company's that make large share acquisitions in a short time period
+						
+			\textbf{Two-tiered tender offer} is where an acquirer offers a higher price for a target an then threatens to offer a lower price to any shareholders who do not tender their shares at the initial offer
+			
+			\textbf{Fair price amendments} will only a merger to proceed if the price offered is abvoe a certain minimum
+			
+			\textbf{Golden parachutes} executives receiving large payouts if they leve a firm. They may act as a deterrent to acquirers an as a way to pacifiy management from job losses. 
+			
+			\textbf{"Just say no" defence} is a post-take-over defense; suggests to the acquirer to raise it's price or reveal it's strategy to take the process forward. 
+			
+			\textbf{Litigation} where the target company takes the acquirer to court over antitrust law or securities law violations. Althought this approach will likely not stop a takeover - it will give the the acquirer time to come up with a better defense strategy. 
+			
+			\textbf{Greenmail} is an option given to the shareholders of the target, to the n repurchase their shares from the acquirer at a premium. This usually suggests to the target to halt the takeover. Not used often tehse days because of the high tax rate
+			
+			\textbf{Share repurchase} repurhase shares from shareholders post an offer. This may raise the cost of a takeover 
+			
+			\textbf{Leverage capitalization} using debt to recapitalizae and provide a better value alternative to the offer from the acquirer
+			
+			\textbf{Crown jewel defence} selling off valuable assets to make the company less attractive to the acquirer. The courts sometime deem this to be illegal, after an offer has already been made
+			
+			\textbf{Pac Man defence} is where the target turns around and attempts to acquire the acquirer. This may be expensive and elimiate the option of taking the acquirer to court - basically this option is rarely used
+			
+			\textbf{White knight defence} the target encourages a third party to acquire thereby encouraging a bidding war
+			
+			\textbf{White squire defence} this is where a third party purchases a significant chunk of the target with the hope of blocking a takeover. This usually leads to litigation. 
+			
+			\textbf{Antitrust regulation} is where a merger would lead to an overconcentration of market share in the hands of a few players. 
+			
+			\textbf{Herfindahl-Hirschmann Index (HHI)}
+			
+			HHI = \sum_i^n \Biggr( \dfrac{Sales or output of firm i}{Total sale or output of market} \times 100 \Biggl)^2
+			
+			\textbf{Evaluating the HHI}
+			1) <1000: implies that the market is not overly concentrated; a challenge on the basis of antitrust is unlikely
+			2) 1000 - 1800: the market is moderately concentrated, therefore if the merger results in a jump of 100 points the merger may be challenged
+			3) 1800: the market si highly concentrated and jump of more than 50 points will lead to a challenge
+			
+			\textbf{When will there be a government action?}
+			
+			When the net change in the merger is $\Delta > 100$
+			
+			\textbf{Securities Laws/Williams ACT} introduced formal procedures to allow shareholders sufficient time to consider a tender offer
+			
+			\textbf{DCF Analysis} determines the value of the target as being the PV of FCFF 
+			
+			\textbf{FCFF} free cash flow to the firm
+			
+			\textbf{Constant-growth model}
+			
+			$$
+			\text{Teminal Value} = \dfrac{FCFF (1 + g)}{WACC - g}
+			$$
+			
+			\textbf{Different valuation approaches}
+			
+			1) DCF Analysis
+			2) Comparable company analysis
+			3) Comparable transaction analysis
+			
+			\textbf{Relative valuation model}
+			
+			is where the analyst uses an industry average against the FCFF to determine how much they expect a company is expected to sell for.
+			
+			\textbf{Advantages of DCF analysis}
+			1) allows the incorporation of expected changes to cash flow
+			2) forecasted fundamentals may be used to estimate the firms intrinsic value
+			3) can be customized to allow for changes in assumptions and/or estimates
+			
+			\textbf{Disadvantages of DCF analysis}
+			1) does not handle negative FCFF
+			2) margin of error for cashflows in the future
+			3) changes to the disocunt factor as company or business cycle changes
+			4) WACC significantly affectrs the company value
+			
+			\textbf{Relative valuation measureS}
+			
+			\textbf{market value of target company}
+			
+			\textbf{Takeover premium}
+			
+			\textbf{Fair acquisition price}
+			
+			\textbf{Takeover Premium}
+			
+			$$
+			TP = \dfrac{DP - SP}{SP}
+			$$
+					
+		
+		\begin{framed}
+			\section{Bid Evaluation}
+			
+			\textbf{Target shareholders gain / Premium}: TargetPrice - PreMergerValueOfTarget
+			
+			\textbf{Target shareholders gain}: S - (PT - VT)
+			
+			where S is synergies and (PT - VT) is the premium paid.
+			
+			\textbf{Value of a merged company}
+			
+			$V_merged = V_{acquirer} + V_{target} + S_{synergies} - C_{premium paid to shareholders in the firm}$
+			
+			\textbf{Estimated synergies}
+			
+			\textbf{Relative value of synergies}
+			
+			\textbf{How does estimated synergies affect the price?}
+			
+			\textbf{How does the confidence in valuation by an acquirer affect the acquisition}
+			
+			The more confident the acquirer is in the valuation of the target - the more likely the would be to want to pay in cash.
+			
+			\begin{framed}
+				\section{Short-term performance studies}
+				
+				\textbf{Which party tends to benefit from a merger?}: The shareholders of the target firm tend to benefit the most in the short-term
+				
+				\textbf{How are the prices of the acquirer and the targets shares impacted by a merger announcement?}
+				
+				1) Target company shares can jump by upto 30 percent
+				2) Acquirers shares tend to fall by 1 percent to 3 percent
+				
+				\textbf{How do the choice of stock or cash payment in the acquisition impact post-performance?}
+				
+				When cash is used to acquire a target, both the acquirer and the target are shown to perform better than if the acquisition had ben completed with stock. 
+				
+			\end{framed}
+			
+			\begin{framed}
+				\section{Long-term performance studies}
+				
+				\textbf{Which party tends to benefit from a merger?}: 
+				
+				Long-term the acquirers tend to underperform.
+				
+				\textbf{What are the characteristics of a successful merger and acquisition? a: balance sheet, b: premium, c: number of bidders, d: market reaction}
+				
+				1) The buyer has a strong balance sheet in the years leading up to the merger and acquisition
+				2) The transaction premium is relatively low
+				3) The number of bidders is low
+				4) Initial market reaction is favourable - the acquirers stock price jumps after the announcement
+				
+				
+			\end{framed}
+			
+			\textbf{What is a 'corporate restructuring'}: the company will ultimately end up smaller
+			
+			\textbf{What is an 'M\&A'}: the company will ultimately end up larger
+			
+			\textbf{What is a 'divestiture'}: when a company sells, liquidates or spins off a division or subsidiary.
+			
+			\textbf{What are common reasons for restructuring}
+			
+			\textbf{What are the basic types of restructuring}
+			1) Equity carve out - a division becomes a new legal entity with its own shareholder base
+			2) Spin-off: a division becomes a new legal entity but no new shares are issued. Shareholders in the parent own shares in the spin-off. All income generated by the spin-off, stays with the spin-off
+			3) Split-off: a division becomes a new legal entity and current shareholders are offered the chance to own shares in the new company - they must exchange their current shares for shares in the new company.
+			4) Liquidation: the company is broken down and the parts are sold piecemeal. This is usually due to bankruptcy.
+			
+			\textbf{Equity carve out} a division becomes a new legal entity with its own shareholder base
+			
+			\textbf{Spin-off}: a division becomes a new legal entity but no new shares are issued. Shareholders in the parent own shares in the spin-off. All income generated by the spin-off, stays with the spin-off
+			
+			\textbf{Split-off}: a division becomes a new legal entity and current shareholders are offered the chance to own shares in the new company - they must exchange their current shares for shares in the new company.
+			
+			\textbf{Liquidation}: the company is broken down and the parts are sold piecemeal. This is usually due to bankruptcy.
+			
+			\textbf{FCFE / FCFF when DR not quoted?}\\
+			
+			FCFF = NI + NCC - WInv - FInv + $\Delta$ D
+			
+			\textbf{FCFE / FCFF when DR  quoted?} \\
+				
+			FCFE = NI + (1 - DR) [NCC - WInv + FInv]
+			
+			\textbf{Define the tax shield?}
+			
+			Tax shield = V $\times$ t
+
+			
+\end{document}
