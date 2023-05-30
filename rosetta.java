@@ -9,9 +9,8 @@ import java.math.BigInteger;
 
 /**
  * rosetta
- * @author terra6 partners
+ * @author kingsley oteng-amoako
  */
-
 
 public class rosetta 
 {

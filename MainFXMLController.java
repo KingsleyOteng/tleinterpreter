@@ -114,9 +114,10 @@ import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
- *
- * @author terra6 partners
+ * @date   May 26th 2022
+ * @author kingsley oteng-amoako
  */
+
 
 public class MainFXMLController implements Initializable {
 
