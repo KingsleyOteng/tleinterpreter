@@ -5,11 +5,14 @@
 
 /**
  *
- * @author terra6partner
+ * @date   May 26th 2022
+ * @author kingsley oteng-amoako
  */
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 
 /**
  * Provides methods to determine the sunrise, sunset, civil twilight,

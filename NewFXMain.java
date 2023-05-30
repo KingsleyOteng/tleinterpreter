@@ -4,8 +4,10 @@
  */
 
 /*
-Dates:
+@Dates: May 26th 2022
+@author kingsley oteng-amoako
 */
+
 
 import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
@@ -19,6 +21,7 @@ import javafx.stage.Stage;
     /**
      * @author terra6 partners
      */
+
 
 
 
