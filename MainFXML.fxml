@@ -11,11 +11,11 @@
 <AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="862.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       
-      <TextArea fx:id="sen_longitude" layoutX="187.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
-      <TextArea fx:id="sen_elevation" layoutX="597.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="109.0" />
-      <Label layoutX="121.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
-      <Label layoutX="344.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
-      <Label layoutX="104.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
+      <TextArea fx:id="longitude" layoutX="114.0" layoutY="220.0" minHeight="-Infinity" prefHeight="26.0" prefWidth="120.0" />
+      <TextArea fx:id="elevation" layoutX="524.0" layoutY="220.0" minHeight="-Infinity" prefHeight="28.0" prefWidth="109.0" />
+      <Label layoutX="48.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
+      <Label layoutX="271.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
+      <Label layoutX="109.0" layoutY="6.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
          </font>
@@ -27,17 +27,17 @@
             <Font name="Copperplate" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="btn_build_state_settings" layoutX="734.0" layoutY="210.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="112.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
+      <Button fx:id="btn_build_state_settings" layoutX="730.0" layoutY="182.0" mnemonicParsing="false" onAction="#updateObserverStatus" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="BUILD STATE " textAlignment="CENTER" textFill="#fcf8f8" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
       </Button>
-      <Label layoutX="98.0" layoutY="163.0" text="SLOT STATUS: " textFill="#09032f">
+      <Label layoutX="102.0" layoutY="169.0" text="SLOT STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="200.0" layoutY="163.0" text="OPEN" textFill="#d00314">
+      <Label id="cateridge_load" fx:id="label_slot_status" layoutX="204.0" layoutY="169.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -82,27 +82,27 @@
          </font></TextArea>
       <TextArea id="orbitinclination" fx:id="orbitinclination" layoutX="89.0" layoutY="523.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea id="eccentricity" fx:id="eccentricity" layoutX="564.0" layoutY="523.0" prefHeight="47.0" prefWidth="85.0" />
-      <TextArea fx:id="ephemeristype" layoutX="557.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
+      <TextArea fx:id="ephemeristype" layoutX="710.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <TextArea fx:id="elementnumber" layoutX="152.0" layoutY="585.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="491.0" layoutY="536.0" text="Eccentricity:" textFill="#e31234" />
-      <Label layoutX="465.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
+      <Label layoutX="618.0" layoutY="598.0" text="Ephemeris type:" textFill="#e31234" />
       <Label layoutX="54.0" layoutY="598.0" text="Element number:" textFill="#e31234" />
       <TextArea fx:id="revolutionnumber" layoutX="384.0" layoutY="585.0" prefHeight="47.0" prefWidth="77.0" />
       <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
       <TextArea fx:id="lf2" layoutX="485.0" layoutY="72.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="237.0" />
       <Line endX="548.640380859375" endY="4.0" layoutX="160.0" layoutY="186.0" startX="-100.0" startY="4.0000152587890625" />
-      <TextArea fx:id="sen_latitude" layoutX="397.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
-      <Label layoutX="99.0" layoutY="297.0" text="OBSERVER STATUS: " textFill="#09032f">
+      <TextArea fx:id="latitude" layoutX="324.0" layoutY="220.0" minHeight="-Infinity" prefHeight="28.0" prefWidth="109.0" />
+      <Label layoutX="99.0" layoutY="306.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label id="cateridge_load" fx:id="label_observer_status" layoutX="236.0" layoutY="297.0" text="OPEN" textFill="#d00314">
+      <Label id="cateridge_load" fx:id="label_observer_status" layoutX="236.0" layoutY="306.0" text="OPEN" textFill="#d00314">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="407.0" layoutY="398.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="442.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="434.0" layoutY="402.0" mnemonicParsing="false" prefHeight="97.0" prefWidth="425.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -121,8 +121,8 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
-      <Button id="load_element_button" fx:id="btn_update1" layoutX="734.0" layoutY="22.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="119.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
+      <Label layoutX="474.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
+      <Button id="load_element_button" fx:id="btn_update1" layoutX="730.0" layoutY="6.0" mnemonicParsing="false" prefHeight="107.0" prefWidth="91.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -130,7 +130,7 @@
       <TextArea fx:id="lf1" layoutX="100.0" layoutY="72.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="226.0" />
       <TextArea fx:id="lfname" layoutX="100.0" layoutY="25.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="226.0" />
       <Label layoutX="29.0" layoutY="38.0" text="Name/Line1:" textFill="#e32e12" />
-      <TextArea fx:id="observation_hour" layoutX="727.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
+      <TextArea fx:id="observation_hour" layoutX="718.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
          <font>
             <Font size="14.0" />
          </font></TextArea>
@@ -141,11 +141,14 @@
             <Font size="14.0" />
          </font></TextArea>
       <Label layoutX="498.0" layoutY="344.0" prefHeight="41.0" prefWidth="67.0" text="Obs. year:" textFill="#e31234" />
-      <TextArea fx:id="observation_sec" layoutX="811.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
+      <TextArea fx:id="observation_sec" layoutX="791.0" layoutY="342.0" prefHeight="47.0" prefWidth="47.0">
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <Label layoutX="782.0" layoutY="355.0" text="sec:" textFill="#e31234" />
+      <Label layoutX="768.0" layoutY="355.0" text="sec:" textFill="#e31234">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
       <TextArea fx:id="firsttimederiv" layoutX="115.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
       <Label layoutX="39.0" layoutY="712.0" text="1st time deriv:" textFill="#e31234" />
       <TextArea fx:id="secondtimederiv" layoutX="300.0" layoutY="699.0" prefHeight="47.0" prefWidth="97.0" />
@@ -161,7 +164,7 @@
       <Label layoutX="293.0" layoutY="602.0" text="(in epoch)" textFill="#e31234" />
       <Label layoutX="657.0" layoutY="698.0" text="^" textFill="#e31234" />
       <Label layoutX="402.0" layoutY="699.0" text="^" textFill="#e31234" />
-      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="733.0" layoutY="771.0" mnemonicParsing="false" onAction="#popUpWindow" prefHeight="71.0" prefWidth="119.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update2" cancelButton="true" layoutX="730.0" layoutY="640.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: red; -fx-border-color: white;" text="SOLVE" textAlignment="JUSTIFY" textFill="#f8f6f6" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -185,19 +188,19 @@
       </Label>
       <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
-      <Label layoutX="372.0" layoutY="262.0" text="OBS. DATE:" textFill="#e32e12" />
-      <Label layoutX="430.0" layoutY="297.0" text="OBS. TIME (HH:MM:SS)" textFill="#e32e12" />
-      <Label layoutX="438.0" layoutY="262.0" text="(MONTH)" textFill="#e32e12" />
-      <Label layoutX="545.0" layoutY="262.0" text="(DAY)" textFill="#e32e12" />
-      <Label layoutX="637.0" layoutY="262.0" text="(YY)" textFill="#e32e12" />
-      <Label layoutX="608.0" layoutY="296.0" text=":" textFill="#e32e12" />
-      <ChoiceBox fx:id="obsMonBox" layoutX="495.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsDayBox" layoutX="585.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsYearBox" layoutX="667.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
-      <ChoiceBox fx:id="obsTimeHourBox" layoutX="565.0" layoutY="290.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsTimeMnBox" layoutX="623.0" layoutY="290.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="obsTimeSecBox" layoutX="680.0" layoutY="290.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <Label layoutX="665.0" layoutY="295.0" text=":" textFill="#e32e12" />
+      <Label layoutX="22.0" layoutY="269.0" text="OBS. DATE:" textFill="#e32e12" />
+      <Label layoutX="390.0" layoutY="270.0" text="OBS. TIME   (HH:MM:SS)" textFill="#e32e12" />
+      <Label layoutX="99.0" layoutY="269.0" text="(MON)" textFill="#e32e12" />
+      <Label layoutX="199.0" layoutY="269.0" text="(DAY)" textFill="#e32e12" />
+      <Label layoutX="295.0" layoutY="269.0" text="(YY)" textFill="#e32e12" />
+      <Label layoutX="580.0" layoutY="269.0" text=":" textFill="#e32e12" />
+      <ChoiceBox fx:id="obsMonBox" layoutX="141.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsDayBox" layoutX="239.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsYearBox" layoutX="325.0" layoutY="260.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeHourBox" layoutX="528.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeMnBox" layoutX="586.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <ChoiceBox fx:id="obsTimeSecBox" layoutX="643.0" layoutY="263.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
+      <Label layoutX="637.0" layoutY="268.0" text=":" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update11" layoutX="337.0" layoutY="28.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="36.0" prefWidth="375.0" style="-fx-background-color: PINK; -fx-border-color: red;" text="GET LATEST ELEMENT" textAlignment="JUSTIFY" textFill="#1e1d1d" wrapText="true">
          <font>
             <Font name="Thonburi" size="14.0" />
@@ -218,34 +221,15 @@
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Line endX="354.354736328125" layoutX="368.0" layoutY="24.0" startX="-354.23614501953125" startY="-0.7308444976806641" />
-      <Line endX="354.354736328125" layoutX="368.0" layoutY="68.0" startX="-354.23614501953125" />
-      <Line endX="-374.73614501953125" endY="-9.5" layoutX="388.0" layoutY="77.0" startX="-374.73614501953125" startY="-53.23084259033203" />
+      <Line endX="354.354736328125" layoutX="368.0" layoutY="24.0" startX="-364.23614501953125" />
+      <Line endX="354.354736328125" layoutX="368.0" layoutY="68.0" startX="-364.23614501953125" />
+      <Line endX="-374.73614501953125" endY="-9.5" layoutX="378.0" layoutY="77.0" startX="-374.73614501953125" startY="-53.23084259033203" />
       <Line endX="-374.73614501953125" endY="-9.5" layoutX="1097.0" layoutY="77.0" startX="-374.73614501953125" startY="-52.5" />
-      <Button fx:id="btn_load_element" layoutX="100.0" layoutY="116.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="33.0" prefWidth="620.0" style="-fx-background-color: white; -fx-border-color: red;" text="LOAD ELEMENT" textFill="#fc0c0c">
+      <Button fx:id="btn_load_element" layoutX="103.0" layoutY="127.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#updateLoadStatus" prefHeight="28.0" prefWidth="623.0" style="-fx-background-color: white; -fx-border-color: red;" text="LOAD ELEMENT" textFill="#fc0c0c">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label layoutX="709.0" layoutY="224.0" text="m" textFill="#e32e12" />
-      <Label id="cateridge_load" fx:id="tle_date_time" layoutX="182.0" layoutY="263.0" textFill="#d00314">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="4.0" layoutY="262.0" text="TLE DATE:" textFill="#e32e12" />
-      <Label layoutX="66.0" layoutY="262.0" text="(MONTH)" textFill="#e32e12" />
-      <Label layoutX="172.0" layoutY="262.0" text="(DAY)" textFill="#e32e12" />
-      <Label layoutX="267.0" layoutY="262.0" text="(YY)" textFill="#e32e12" />
-      <ChoiceBox fx:id="tleMonBox" layoutX="121.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="tleDayBox" layoutX="212.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
-      <ChoiceBox fx:id="tleYearBox1" layoutX="296.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="117.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
-      <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="612.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
-      <Label layoutX="696.0" layoutY="591.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
       
       
    </children>
