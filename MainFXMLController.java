@@ -292,6 +292,14 @@ public class MainFXMLController implements Initializable {
             = new ChoiceBox();
     
     @FXML
+    private ChoiceBox<String> choiceBoxUV1
+            = new ChoiceBox();
+    
+    @FXML
+    private ChoiceBox<String> choiceBoxUV2
+            = new ChoiceBox();
+    
+    @FXML
     private  ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
     

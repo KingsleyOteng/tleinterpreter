@@ -247,8 +247,8 @@
       <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="633.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
       <Label layoutX="703.0" layoutY="612.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
       <Label layoutX="703.0" layoutY="524.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
-      <ChoiceBox fx:id="choiceBox11" layoutX="696.0" layoutY="546.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
-      <ChoiceBox fx:id="choiceBox111" layoutX="772.0" layoutY="546.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="choiceBoxUV1" layoutX="696.0" layoutY="546.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="choiceBoxUV2" layoutX="772.0" layoutY="546.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
       
       
    </children>
