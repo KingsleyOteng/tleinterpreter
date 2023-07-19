@@ -188,8 +188,10 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private TextArea observation_hour;
-   // @FXML
-   // private TextArea observation_time;
+    
+    @FXML
+    private TextArea observation_time;
+    
     @FXML
     private TextArea launch_year;
     
@@ -198,28 +200,37 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private TextArea lcsequence;
-   // @FXML
-   // private TextArea day;
-   // @FXML
-   // private TextArea month;
+    
+    @FXML
+    private TextArea day;
+    
+    @FXML
+    private TextArea month;
+    
     @FXML
     private TextArea epoch_time;
     
     @FXML
     private TextArea epoch_date;
-    //@FXML
-    //private TextArea launch_number_1;
-    //@FXML
-   // private TextArea launch_number_2;
-    //@FXML
-   // private TextArea piece_number;
+    
+    @FXML
+    private TextArea launch_number_1;
+    
+    @FXML
+    private TextArea launch_number_2;
+    
+    @FXML
+    private TextArea piece_number;
+    
     @FXML
     private TextArea lf1;
     
     @FXML
     private TextArea lf2;
-  //  @FXML
-   // private TextArea lf3;
+   
+    @FXML
+    private TextArea lf3;
+    
     @FXML
     private Label label_slot_status;
     
@@ -311,9 +322,11 @@ public class MainFXMLController implements Initializable {
     @FXML
     private  ChoiceBox<String> tleMonBox 
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> tleYearBox1
             = new ChoiceBox();
+    
     @FXML
     private  ChoiceBox<String> tleDayBox 
             = new ChoiceBox();
@@ -365,12 +378,14 @@ public class MainFXMLController implements Initializable {
     String officialSunset;
     long differenceSunriseSunset;
 
+    
     /**
      * Initializes the controller class.
      *
      * @param url
      * @param rb
      */
+    
     
     @Override
     @SuppressWarnings("empty-statement")
