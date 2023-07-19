@@ -447,6 +447,8 @@ public class MainFXMLController implements Initializable {
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
+            choiceBoxUV1.setItems(uvIndexRange);
+            choiceBoxUV2.setItems(uvIndexRange);
             
             // build sunrise and sunset data model
             
