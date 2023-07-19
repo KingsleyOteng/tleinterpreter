@@ -369,6 +369,7 @@ public class MainFXMLController implements Initializable {
     // drop down box lists
     private final ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
     private final ObservableList<String> trackingConfigurationList = FXCollections.observableArrayList();
+    private final ObservableList<String> uvIndexRange = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateYearList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateMonList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateDayList = FXCollections.observableArrayList();
@@ -969,6 +970,8 @@ public class MainFXMLController implements Initializable {
             trackingConfigurationList.add("Perigree");
             trackingConfigurationList.add("Zenith");
             trackingConfigurationList.add("Optimal lighting");
+            
+            
 
              // hours list for choicebox
             obsTimeHourList.add("00");
@@ -1136,6 +1139,21 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("29");
             obsDateDayList.add("30");
             obsDateDayList.add("31"); 
+            
+            // uv range index
+            uvIndexRange.add("0");
+            uvIndexRange.add("0.5");
+            uvIndexRange.add("1.0");
+            uvIndexRange.add("1.5");
+            uvIndexRange.add("2.0");
+            uvIndexRange.add("2.5");
+            uvIndexRange.add("3.0");
+            uvIndexRange.add("3.5");
+            uvIndexRange.add("4.0");
+            uvIndexRange.add("4.5");
+            uvIndexRange.add("5.0");
+            uvIndexRange.add("5.5");
+            uvIndexRange.add("6.0");
             
              //String st[] = { "Arnab", "Andrew", "Ankit", "None" };
             //xx.setItems(FXCollections.observableArrayList(st));
