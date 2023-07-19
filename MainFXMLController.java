@@ -115,9 +115,8 @@ import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
- * @date        May 26th 2022
- * @updated     July 19th 2023
- * @author      kingsley oteng-amoako
+ * @date   May 26th 2022
+ * @author kingsley oteng-amoako
  */
 
 
@@ -453,7 +452,7 @@ public class MainFXMLController implements Initializable {
             
             // build sunrise and sunset data model
             
-               location = new Location(sensor_latitude, sensor_longitude);
+            location = new Location(sensor_latitude, sensor_longitude);
             calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
             officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
@@ -1157,14 +1156,6 @@ public class MainFXMLController implements Initializable {
             uvIndexRange.add("5.0");
             uvIndexRange.add("5.5");
             uvIndexRange.add("6.0");
-            uvIndexRange.add("6.5");
-            uvIndexRange.add("7.0");
-            uvIndexRange.add("7.5");
-            uvIndexRange.add("8.0");
-            uvIndexRange.add("8.5");
-            uvIndexRange.add("9.0");
-            uvIndexRange.add("9.5");
-            uvIndexRange.add("10.0");
             
              //String st[] = { "Arnab", "Andrew", "Ankit", "None" };
             //xx.setItems(FXCollections.observableArrayList(st));
