@@ -451,6 +451,13 @@ public class MainFXMLController implements Initializable {
             choiceBoxUV1.setItems(uvIndexRange);
             choiceBoxUV2.setItems(uvIndexRange);
             
+            // build default choicebox values
+            
+            choiceBoxUV1.setValue("0.0");
+            choiceBoxUV2.setValue("10.0");
+            choiceBox1.setValue("Optimal lighting");
+            
+            
             // build sunrise and sunset data model
             
                location = new Location(sensor_latitude, sensor_longitude);
@@ -1165,6 +1172,8 @@ public class MainFXMLController implements Initializable {
             uvIndexRange.add("9.0");
             uvIndexRange.add("9.5");
             uvIndexRange.add("10.0");
+            
+            
             
              //String st[] = { "Arnab", "Andrew", "Ankit", "None" };
             //xx.setItems(FXCollections.observableArrayList(st));
