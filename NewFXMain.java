@@ -19,7 +19,8 @@ import javafx.stage.Stage;
 //import javafx.event.EventHandler;
 
     /**
-     * @author terra6 partners
+     * @author  kingsley oteng-amoako
+     * @dated   july 19th 2023
      */
 
 
