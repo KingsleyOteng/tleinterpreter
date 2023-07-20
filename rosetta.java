@@ -10,7 +10,7 @@ import java.math.BigInteger;
 /**
  * rosetta
  * @author  kingsley oteng-amoako
- * @date    july 19th 2023
+ * @recent    july 20th 2023
  */
 
 public class rosetta 
