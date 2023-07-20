@@ -452,7 +452,7 @@ public class MainFXMLController implements Initializable {
             choiceBoxUV2.setItems(uvIndexRange);
             
             // build default choicebox values
-            
+            choiceBox.setValue("Equitorial");
             choiceBoxUV1.setValue("0.0");
             choiceBoxUV2.setValue("10.0");
             choiceBox1.setValue("Optimal lighting");
