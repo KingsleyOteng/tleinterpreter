@@ -183,8 +183,8 @@
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="20.0" layoutY="748.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
-      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="767.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
+      <Label layoutX="20.0" layoutY="754.0" prefHeight="17.0" prefWidth="101.0" text="Mount type :" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBox" layoutX="20.0" layoutY="772.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="27.0" prefWidth="150.0" />
       <Label layoutX="372.0" layoutY="262.0" text="OBS. DATE:" textFill="#e32e12" />
       <Label layoutX="430.0" layoutY="297.0" text="OBS. TIME (HH:MM:SS)" textFill="#e32e12" />
       <Label layoutX="438.0" layoutY="262.0" text="(MONTH)" textFill="#e32e12" />
