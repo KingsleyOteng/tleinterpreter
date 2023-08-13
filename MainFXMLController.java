@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
-// to do: double occultation.
+
 import java.io.File;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -14,7 +14,6 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ChoiceBox;
@@ -22,104 +21,46 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
-import javafx.fxml.Initializable;
-import javafx.scene.control.MenuItem;
-import org.orekit.utils.PVCoordinates;
-import org.orekit.time.AbsoluteDate;
-import org.hipparchus.util.FastMath;
-import org.orekit.propagation.analytical.tle.TLE;
-
+import javafx.fxml.Initializable;import javafx.scene.control.MenuItem;
 // import org.orekit.utils.TimeStampedPVCoordinates;
 // import org.orekit.utils.PVCoordinatesProvider;
+import org.orekit.utils.PVCoordinates;
 // import org.orekit.time.TimeStamped;
 // import org.orekit.time.TimeInterpolable;
+import org.orekit.time.AbsoluteDate;
 // import org.orekit.time.TimeShiftable;
 // import org.orekit.errors.OrekitIllegalArgumentException;
 // import org.orekit.errors.OrekitInternalError;
+import org.orekit.propagation.analytical.tle.TLE;
 // import org.orekit.errors.OrekitMessages;
 // import org.orekit.frames.Frame;
 // import org.orekit.frames.Transform;
 // import org.hipparchus.util.MathArrays;
-// import org.hipparchus.linear.RealMatrix;
-// import org.hipparchus.linear.QRDecomposition;
-// import org.hipparchus.linear.MatrixUtils;
-// import org.hipparchus.linear.DecompositionSolver;
-// import org.hipparchus.geometry.euclidean.threed.Vector3D;
-// import org.orekit.bodies.GeodeticPoint;
-// import org.orekit.bodies.OneAxisEllipsoid;
+import org.hipparchus.util.FastMath;
+//import org.hipparchus.linear.RealMatrix;
+//import org.hipparchus.linear.QRDecomposition;
+//import org.hipparchus.linear.MatrixUtils;
+//import org.hipparchus.linear.DecompositionSolver;
+//import org.hipparchus.geometry.euclidean.threed.Vector3D;
+import org.orekit.bodies.GeodeticPoint;
+import org.orekit.bodies.OneAxisEllipsoid;
 import org.orekit.data.DataContext;
 import org.orekit.data.DataProvidersManager;
 import org.orekit.data.DirectoryCrawler;
 import org.orekit.frames.FactoryManagedFrame;
-// import org.orekit.frames.FramesFactory;
-// import org.orekit.frames.TopocentricFrame;
+import org.orekit.frames.FramesFactory;
+import org.orekit.frames.TopocentricFrame;
 import org.orekit.propagation.SpacecraftState;
 import org.orekit.propagation.analytical.tle.TLEPropagator;
 import org.orekit.time.TimeScalesFactory;
 import org.orekit.utils.Constants;
 import org.orekit.utils.IERSConventions;
-import org.orekit.propagation.events.ElevationDetector;
-
-import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
-import com.luckycatlabs.sunrisesunset.dto.Location;
-// import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-// import javafx.fxml.FXMLLoader;
-// import javafx.scene.Parent;
-// import javafx.scene.Scene;
-import org.hipparchus.geometry.euclidean.threed.Vector3D;
-// import org.orekit.attitudes.InertialProvider;
-// import org.orekit.bodies.BodyShape;
-// import org.orekit.frames.Frame;
-// import org.orekit.propagation.events.handlers.EventHandler;
-import org.orekit.propagation.sampling.OrekitFixedStepHandler;
-import org.orekit.bodies.BodyShape;
-import org.orekit.bodies.CelestialBody;
-import org.orekit.bodies.CelestialBodyFactory;
-import org.orekit.bodies.GeodeticPoint;
-import org.orekit.bodies.OneAxisEllipsoid;
-import org.orekit.errors.OrekitException;
-//import org.orekit.errors.;
-import org.orekit.frames.Frame;
-import org.orekit.frames.FramesFactory;
-import org.orekit.frames.L2Frame;
-import org.orekit.frames.TopocentricFrame;
-import org.orekit.models.AtmosphericRefractionModel;
-import org.orekit.models.earth.EarthStandardAtmosphereRefraction;
-import org.orekit.orbits.EquinoctialOrbit;
-// import org.orekit.orbits.KeplerianOrbit;
-import org.orekit.orbits.Orbit;
-import org.orekit.propagation.Propagator;
-import org.orekit.propagation.analytical.EcksteinHechlerPropagator;
-// import org.orekit.propagation.events.BooleanDetector;
-import org.orekit.propagation.events.EclipseDetector;
-import org.orekit.propagation.events.EventDetector;
-import org.orekit.propagation.events.EventsLogger;
-import org.orekit.propagation.events.GroundAtNightDetector;
-import org.orekit.propagation.events.handlers.ContinueOnEvent;
-import org.orekit.time.TimeScale;
-import org.orekit.utils.PVCoordinatesProvider;
-// import javafx.scene.Parent;
-// import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-// import javafx.stage.Stage;
-// import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
- * @date        May 26th 2022
- * @updated     July 19th 2023
- * @author      kingsley oteng-amoako
+ *
+ * @author terra6partner
  */
-
 
 public class MainFXMLController implements Initializable {
 
@@ -129,17 +70,12 @@ public class MainFXMLController implements Initializable {
     String launch_y;
     String launch_num;
     String launch_catalogue_sequence;
-    String[] ConstMonth = new String[] {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
 
     int subLen;
     int i, y, x;
     int obs_y;
     int obs_day;
     int epochdate;
-    
-    int nextDay;
-    int nextYear;
-    int nextMonth;
 
     double obs_hour;
     double obs_min;
@@ -153,12 +89,6 @@ public class MainFXMLController implements Initializable {
     double azimuth;
     double elevation;
     double orbit_height;
-    double sensor_latitude;
-    double sensor_longitude;
-    double sensor_altitude;
-    Integer sensor_date_yyyy, sensor_date_dd, sensor_date_mm;
-    String sensor_timezone_id;
-    Calendar sensor_date;
     
     private static double sensor_dobs_altitude;
     private static double sensor_dobs_azimuth;
@@ -171,8 +101,6 @@ public class MainFXMLController implements Initializable {
     private static double sensor_ge_polar;
     
     TopocentricFrame aoiTopoFrame;
-    
-   
   
         
     @FXML
@@ -189,10 +117,8 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private TextArea observation_hour;
-    
-    @FXML
-    private TextArea observation_time;
-    
+   // @FXML
+   // private TextArea observation_time;
     @FXML
     private TextArea launch_year;
     
@@ -201,37 +127,28 @@ public class MainFXMLController implements Initializable {
     
     @FXML
     private TextArea lcsequence;
-    
-    @FXML
-    private TextArea day;
-    
-    @FXML
-    private TextArea month;
-    
+   // @FXML
+   // private TextArea day;
+   // @FXML
+   // private TextArea month;
     @FXML
     private TextArea epoch_time;
     
     @FXML
     private TextArea epoch_date;
-    
-    @FXML
-    private TextArea launch_number_1;
-    
-    @FXML
-    private TextArea launch_number_2;
-    
-    @FXML
-    private TextArea piece_number;
-    
+    //@FXML
+    //private TextArea launch_number_1;
+    //@FXML
+   // private TextArea launch_number_2;
+    //@FXML
+   // private TextArea piece_number;
     @FXML
     private TextArea lf1;
     
     @FXML
     private TextArea lf2;
-   
-    @FXML
-    private TextArea lf3;
-    
+  //  @FXML
+   // private TextArea lf3;
     @FXML
     private Label label_slot_status;
     
@@ -287,59 +204,24 @@ public class MainFXMLController implements Initializable {
     @FXML
     private ChoiceBox<String> choiceBox 
             = new ChoiceBox();
-    
     @FXML
-    private ChoiceBox<String> choiceBox1 
+    private final ChoiceBox<String> obsMonBox 
             = new ChoiceBox();
-    
     @FXML
-    private ChoiceBox<String> choiceBoxUV1
+    private final ChoiceBox<String> obsDayBox 
             = new ChoiceBox();
-    
     @FXML
-    private ChoiceBox<String> choiceBoxUV2
+    private final ChoiceBox<String> obsTimeHourBox 
             = new ChoiceBox();
-    
     @FXML
-    private  ChoiceBox<String> obsMonBox 
+    private final ChoiceBox<String> obsYearBox 
             = new ChoiceBox();
-    
     @FXML
-    private ChoiceBox<String> choiceBoxXX
+    private final ChoiceBox<String> obsTimeMnBox 
             = new ChoiceBox();
-    
     @FXML
-    private  ChoiceBox<String> obsDayBox 
+    private final ChoiceBox<String> obsTimeSecBox 
             = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> obsTimeHourBox 
-            = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> obsYearBox 
-            = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> obsTimeMnBox 
-            = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> obsTimeSecBox 
-            = new ChoiceBox();
-   
-    @FXML
-    private  ChoiceBox<String> tleMonBox 
-            = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> tleYearBox1
-            = new ChoiceBox();
-    
-    @FXML
-    private  ChoiceBox<String> tleDayBox 
-            = new ChoiceBox();
-    
     @FXML
     private Label mount_label_1;
     
@@ -350,27 +232,10 @@ public class MainFXMLController implements Initializable {
     private Label layer_label;
     
     @FXML
-    private TextArea sen_elevation;
-    
-    @FXML
-    private TextArea sen_longitude;
-     
-    @FXML
-    private TextArea sen_latitude;
-    
-    @FXML
-    private Label start_time_label;
-    
-    @FXML
-    private Label obs_label;
-    
-    @FXML
     private final MenuItem item1 = new MenuItem();
 
     // drop down box lists
     private final ObservableList<String> mountConfigurationList = FXCollections.observableArrayList();
-    private final ObservableList<String> trackingConfigurationList = FXCollections.observableArrayList();
-    private final ObservableList<String> uvIndexRange = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateYearList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateMonList = FXCollections.observableArrayList();
     private final ObservableList<String> obsDateDayList = FXCollections.observableArrayList();
@@ -381,205 +246,88 @@ public class MainFXMLController implements Initializable {
     // arrays for the two line element entries
     private static final String line_one_array[] = new String[20];
     private static final String line_two_array[] = new String[20];
-    
-    Location location;
-    SunriseSunsetCalculator calculator;
-    String officialSunrise;
-    String officialSunset;
-    long differenceSunriseSunset;
 
-    
     /**
      * Initializes the controller class.
      *
      * @param url
      * @param rb
      */
-    
-    
     @Override
     @SuppressWarnings("empty-statement")
     public void initialize(URL url, ResourceBundle rb) 
-        {   
-            
-        try {
+        {
+
             DecimalFormat df = new DecimalFormat("0.00");
-            
             // initial orbit propogation constants
-            
             File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
             manager.addProvider(new DirectoryCrawler(orekitData));
-            
-            //define sensor location and id
-            //sensor_latitude = -35.320277777778;
-            //sensor_longitude = 149.00694444444;
-            //sensor_timezone_id = "Australia/Canberra";
-            //sensor_altitude = 0.77;
-            
-            sensor_latitude = -1.630783;
-            sensor_longitude = 6.700071;
-            sensor_timezone_id = "Africa/Kumasi";
-            sensor_altitude = 0.77;
-            sensor_date = Calendar.getInstance();
-            sensor_date_yyyy = 2022;
-            sensor_date_mm = 12;     
-            sensor_date_dd = 19;
-            
-            // set sensor 
-            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
-            sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
-            sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
-            sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
-            
-            // build UI
-            
+
             btn_load_element.setTextFill(Color.RED);
             this.populateMounts();
             choiceBox.setItems(mountConfigurationList);
-            choiceBoxXX.setItems(mountConfigurationList);
-            choiceBox1.setItems(trackingConfigurationList);
-            
-            // build the observation box
-            
             obsMonBox.setItems(obsDateMonList);
             obsDayBox.setItems(obsDateDayList);
             obsYearBox.setItems(obsDateYearList);
             obsTimeHourBox.setItems(obsTimeHourList);
             obsTimeMnBox.setItems(obsTimeMinList);
             obsTimeSecBox.setItems(obsTimeSecList);
-            choiceBoxUV1.setItems(uvIndexRange);
-            choiceBoxUV2.setItems(uvIndexRange);
-            
-            // build default choicebox values
-            choiceBox.setValue("Equitorial");
-            choiceBoxUV1.setValue("0.0");
-            choiceBoxUV2.setValue("10.0");
-            choiceBox1.setValue("Optimal lighting");
-            
-            
-            // build sunrise and sunset data model
-            
-               location = new Location(sensor_latitude, sensor_longitude);
-            calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
-            officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
-            officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
-            
-            //// Difference betwen two dates
-            
-            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
-            Date date1 = format.parse(officialSunrise);
-            System.out.println("officialSunrise" + officialSunrise);
-            Date date2 = format.parse(officialSunset);
-            System.out.println("officialSunset" + officialSunset);
-             differenceSunriseSunset = date2.getTime() - date1.getTime(); 
-            System.out.println("differenceSunriseSunset" + differenceSunriseSunset);
-           
-            
-            // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
-            // differenceSunriseSunset = officialSunrise - officialSunset;
-            // generate validation output
-            
-            System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
-            
-            // build element box
-            
-            tleMonBox.setItems(obsDateMonList);
-            tleDayBox.setItems(obsDateDayList);
-            tleYearBox1.setItems(obsDateYearList);
-
-            // Commented out
-            //  -----> update the element and the date boxes
-            
-            //  -----> this.setCurrentDateTime();
-            // Commented out
+            this.setCurrentDateTime();
             
             // load orekit conventions
-            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
-                    Constants.WGS84_EARTH_FLATTENING,
-                    ITRF);
-            
+                Constants.WGS84_EARTH_FLATTENING,
+                ITRF);
+
             // set sensor location
-            
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
             // determine topocentric frame of reference
-            
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
-            
-            // input  TLE
-            
+
+            // create a TLE object
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
-            
-            
-            // create a TLE object
             final TLE tle = new TLE(line1, line2);
-            
-            // use the TLE propogator as opposed to using SGP4
             final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
-            AbsoluteDate tleDateAgeAbsolute = tle.getDate();
-            final TimeScale UTC = TimeScalesFactory.getUTC();
-            Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
-            Date currentDateTime = new Date();  
-            long difference_In_Time
-                    = currentDateTime.getTime() - tleDateAge.getTime();
-            System.out.println("Difference in time "+String.valueOf(difference_In_Time));
-            
-            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
-            
-            // set current time
-            
+
+            // obtain current time
             AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
 
             // obtain spacecraft state
-            
             SpacecraftState spaceCraftState = propagator.propagate(date);
-            
-            
+
             // determine PVCoordinates
-            
             PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
-            
-            
+
             // transform to earths geodectic points
-            
             GeodeticPoint geodetic = earth.transform
-                    (
-                            coord.getPosition(),
-                            ITRF,
-                            date
-                    );
-            
+            (
+                coord.getPosition(),
+                ITRF,
+                date
+            );
+
             // determine the latitude and longitude of propogaed item
-            
             latitude = FastMath.toDegrees(geodetic.getLatitude());
             longitude = FastMath.toDegrees(geodetic.getLongitude());
-            
+
             // from the sensor determine the observation parameters in azimuth-elevation
-            
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
-            
+
             // let us see how this has been propogated
-            
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-            
+
             // generate labels consistent with true output
-            
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
-            
-            testLogDectors();
-        } catch (ParseException ex) {
-            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         }
 
-    
     // @FXML
     //private void printHelloWorld(ActionEvent event) {
     //    event.consume();
@@ -594,26 +342,6 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
-    
-    @FXML
-    private void popUpWindow() 
-        {
-            /* procedure to check the status before attempting to generate a solution */
-            
-            String status = label_slot_status.getText();
-            
-            if ("OPEN".equals(status))
-                    {
-                        Alert alert = new Alert(AlertType.INFORMATION);
-                        alert.setTitle("ERROR!!!");
-                        alert.setHeaderText("ERROR: INSUFFICIENT INFORMATION.");
-                        alert.setContentText("Please complete form and resubmit request.");
-                        alert.showAndWait();
-                    }
-            
-            
-        }
-    
     @FXML
     private void updateLoadStatus() 
         {
@@ -643,10 +371,10 @@ public class MainFXMLController implements Initializable {
 
             if ((tleLineOne.equals("")) || (tleLineTwo.equals("")))
                 {
+                    System.out.println("hello");
                     return;
                 }
 
-            
             //System.out.println("hello" + this.checkSum(tleLineOne));
             //trim both lines of text
             tleLineOne = tleLineOne.substring(3, tleLineOne.length());
@@ -660,6 +388,9 @@ public class MainFXMLController implements Initializable {
             while (matcher.find()) 
                 {
                     y = matcher.end();
+                    //System.out.println("x"+x);
+                    //System.out.println("y"+y);
+                    //System.out.println(">"+tleLineOne.substring(x+1,y));
                     line_one_array[i] = (tleLineOne.substring(x, y));
                     line_one_array[i] = line_one_array[i].trim();
                     i++;
@@ -684,11 +415,9 @@ public class MainFXMLController implements Initializable {
             satellite.setText((line_one_array[1]));
             
             // set the launch number of that year
-            
             launch_number.setText(String.valueOf(launch_num));
 
             // set the launch year
-            
             if (Double.parseDouble(launch_y) < 60) 
                 {
                     launch_year.setText("20" + String.valueOf(launch_y));
@@ -702,7 +431,7 @@ public class MainFXMLController implements Initializable {
             observation_hour.setText(String.valueOf(obs_hour).substring(0, 2) + String.valueOf(obs_min).substring(0, 2));
             observation_sec.setText(String.valueOf(obs_sec));
 
-            //launch_catalogue_sequence.setText(launch_catalogue_number);
+                //launch_catalogue_sequence.setText(launch_catalogue_number);
             if (obs_y < 60) 
                 {
                     observation_year.setText("20" + String.valueOf(obs_y));
@@ -728,6 +457,9 @@ public class MainFXMLController implements Initializable {
                 {
                     x = y;
                     y = matcher_short.end();
+                    //System.out.println("x"+x);
+                    //System.out.println("y"+y);
+                    //System.out.println(">"+tleLineOne.substring(x+1,y));
 
                     // extract from the range 10- 11 the ephemeris type
                     if (y > 11) 
@@ -746,6 +478,9 @@ public class MainFXMLController implements Initializable {
                 {
                     x = y;
                     y = matcher_next.end();
+                    //System.out.println("x"+x);
+                    //System.out.println("y"+y);
+                    //System.out.println("><><"+tleLineTwo.substring(x+1,y));
                     line_two_array[i] = (tleLineTwo.substring(x + 1, y));
                     line_two_array[i] = line_two_array[i].trim();
                     i++;
@@ -779,29 +514,21 @@ public class MainFXMLController implements Initializable {
                 {
                     layer_label.setText("Layer: HEO");
                 }
-            
             // determine a LEO orbit as having a mean motion greater than 11.25 and an eccentricity less than 0.25
-            
             else if ((valOfMeanMotion> 11.25) && (valOfEccentricity < 0.25))
                 {
                     layer_label.setText("Layer: LEO");
                 }
-            
             // determine a MEO orbit as having a mean motion between 1.8 and 2.4 plus an eccentricity less than 0.25
-            
             else if ((valOfMeanMotion> 1.8) && (valOfMeanMotion < 2.4)  && (valOfEccentricity < 0.25))
                 {
                     layer_label.setText("Layer: MEO");
                 }
-            
             // determine a GEO orbit as having a mean motion less than 1.0 and an eccentricity less than 0.01
-            
             else if ((valOfMeanMotion < 1.0)  && (valOfEccentricity < 0.01))
                 {
                     layer_label.setText("Layer: GEO");
                 }
-            
-             
         }
     
     /**
@@ -812,13 +539,11 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
-    
     @FXML
     private void updateObserverStatus() 
         {
             label_observer_status.setText("OK - Set");
             label_observer_status.setTextFill(Color.web("#228B22"));
-            
         }
 
     /**
@@ -829,7 +554,6 @@ public class MainFXMLController implements Initializable {
      * @param rb
      * 
      */
-    
     @FXML
     private void updateObserverStatus1() 
         {
@@ -884,6 +608,10 @@ public class MainFXMLController implements Initializable {
             azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
             azimuth = FastMath.toDegrees(azimuth); 
             elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
+           
+            //generate labels consistent with true output          
+            //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
+            //mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
 
 
                 // set to Alt-Azimuth
@@ -919,6 +647,10 @@ public class MainFXMLController implements Initializable {
 
                             default -> 
                             {
+                                        // set to dobsonian mount parameters
+                                        //mount_label_1.setText("Altitude : ");
+                                        //mount_label_2.setText("Azimuth : ");
+                     
                                         // generate labels consistent with true output
                                         mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
                                         mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
@@ -928,11 +660,6 @@ public class MainFXMLController implements Initializable {
             //menu_button_orientationx.setText("OK - Set");
             // hello2.setText(menu_button_orientationx.getText());
             //label_observer_status.setTextFill(Color.web("#228B22"));  
-           
-                start_time_label.setText("Start time: "  + String.valueOf(officialSunrise));
-                obs_label.setText("Obs. time: " + String.valueOf(differenceSunriseSunset)+"s");
-            
-            
         }
 
     private int checkSum(String strArray) 
@@ -972,16 +699,6 @@ public class MainFXMLController implements Initializable {
             mountConfigurationList.add("Equatorial");
             mountConfigurationList.add("Dobsonian");
             mountConfigurationList.add("German equatorial");
-            
-            // list of different mounts for choicebox
-            trackingConfigurationList.add("Umbra");
-            trackingConfigurationList.add("Twilight");
-            trackingConfigurationList.add("Apogee");
-            trackingConfigurationList.add("Perigree");
-            trackingConfigurationList.add("Zenith");
-            trackingConfigurationList.add("Optimal lighting");
-            
-            
 
              // hours list for choicebox
             obsTimeHourList.add("00");
@@ -1114,7 +831,7 @@ public class MainFXMLController implements Initializable {
             obsDateMonList.add("AUG");
             obsDateMonList.add("SEPT");
             obsDateMonList.add("OCT");
-            obsDateMonList.add("NOV");
+            obsDateMonList.add("NOVE");
             obsDateMonList.add("DEC");
 
             // day date list for choicebox
@@ -1149,34 +866,6 @@ public class MainFXMLController implements Initializable {
             obsDateDayList.add("29");
             obsDateDayList.add("30");
             obsDateDayList.add("31"); 
-            
-            // uv range index
-            uvIndexRange.add("0");
-            uvIndexRange.add("0.5");
-            uvIndexRange.add("1.0");
-            uvIndexRange.add("1.5");
-            uvIndexRange.add("2.0");
-            uvIndexRange.add("2.5");
-            uvIndexRange.add("3.0");
-            uvIndexRange.add("3.5");
-            uvIndexRange.add("4.0");
-            uvIndexRange.add("4.5");
-            uvIndexRange.add("5.0");
-            uvIndexRange.add("5.5");
-            uvIndexRange.add("6.0");
-            uvIndexRange.add("6.5");
-            uvIndexRange.add("7.0");
-            uvIndexRange.add("7.5");
-            uvIndexRange.add("8.0");
-            uvIndexRange.add("8.5");
-            uvIndexRange.add("9.0");
-            uvIndexRange.add("9.5");
-            uvIndexRange.add("10.0");
-            
-            
-            
-             //String st[] = { "Arnab", "Andrew", "Ankit", "None" };
-            //xx.setItems(FXCollections.observableArrayList(st));
         }
     
     @SuppressWarnings("empty-statement")
@@ -1210,39 +899,13 @@ public class MainFXMLController implements Initializable {
                     default             ->                    {}
                 };
             
-           
+                
             // set default day to today
-            
-            nextDay = genObsDate(currentMonth, currentDay, currentYear);
-            nextYear = currentYear;
-            String nextMonth = currentMonth;
-            //int nextMonth = ;
-            if (nextDay == 1) 
-            {
-                int this_month = Arrays.asList(ConstMonth).indexOf(currentMonth);
-                this_month = (this_month + 1)%12;
-                nextMonth = ConstMonth[this_month];
-                if (this_month == 1)
-                        {
-                            nextYear = currentYear + 1;
-                        };
-            };
-            
-            
             obsMonBox
-                    .setValue(nextMonth);
-            obsDayBox
-                    .setValue(String.format("%d", nextDay));
-            obsYearBox
-                    .setValue(String.format("%d", nextYear));
-            
-            
-             // set tle today
-            tleMonBox
                     .setValue(currentMonth);
-            tleDayBox
+            obsDayBox
                     .setValue(String.format("%d", currentDay));
-            tleYearBox1
+            obsYearBox
                     .setValue(String.format("%d", currentYear));
             
             
@@ -1254,238 +917,4 @@ public class MainFXMLController implements Initializable {
             obsTimeSecBox
                     .setValue("00");
         }
-    
-    private void testLogCombinedDectors() throws OrekitException 
-    {
-        double const_horizon_altitude = 10.0;   
-        double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
-        
-        final TimeScale utc = TimeScalesFactory.getUTC();
-        final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
-        final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
-        final AbsoluteDate date = new AbsoluteDate(2022, 9, 29, TimeScalesFactory.getUTC());
-
-        final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
-                                                 FramesFactory.getEME2000(), date, 3.9860047e14);
-        
-        Propagator propagator =
-            new EcksteinHechlerPropagator(orbit, 6.378137e6, 3.9860047e14, -1.08263e-3, 2.54e-6, 1.62e-6,  2.3e-7, -5.5e-7);
-            
-        // Earth and frame
-        double ae =  6378137.0; // equatorial radius in meter
-        double f  =  1.0 / 298.257223563; // flattening
-        Frame ITRF2005 = FramesFactory.getITRF(IERSConventions.IERS_2010, true); // terrestrial frame at an arbitrary date
-        BodyShape earth = new OneAxisEllipsoid(ae, f, ITRF2005);
-        GeodeticPoint point = new GeodeticPoint(FastMath.toRadians(-1.630783),
-                                                FastMath.toRadians(6.700071),
-                                                0.0);
-        
-        TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
-       
-        ElevationDetector detector =   new ElevationDetector(topo).
-            withConstantElevation(FastMath.toRadians(5.0)
-            );
-
-        final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
-        final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
-        AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
-
-        final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<EclipseDetector>());
-        final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
-        //final EventDetector combined_detector = new BooleanDetector();
-            
-        EventsLogger logger = new EventsLogger();
-           
-        // propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-        // propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
-           
-        final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
-        final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
-        final TLE tlex = new TLE(line1, line2);
-
-        final TLEPropagator tlepropagator = TLEPropagator.selectExtrapolator(tlex);
-
-         AbsoluteDate startDate = new AbsoluteDate(2022, 12, 24, 12, 0, 0, TimeScalesFactory.getUTC());
-         
-         tlepropagator.resetInitialState
-        ( tlepropagator.propagate(startDate));
-         tlepropagator.addEventDetector
-        (logger.monitorDetector(is_sat_illuminated_event));
-         tlepropagator.addEventDetector
-        (logger.monitorDetector(is_ground_at_night_event));
-
-        //tlepropagator.addEventDetector(detector);
-          
-        // OrbitHandler dsstHandler = new OrbitHandler();
-        // propagator.setMasterMode(10.0, dsstHandler);
-        // propagator.setStepHandler(10, dsstHandler);
-        // propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
-       
-       tlepropagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
-    }
-    
-    private void testLogDectors() throws OrekitException 
-    {
-        double const_horizon_altitude = 10.0;   
-        double const_dusk_dawn_elevation_rad = FastMath.toRadians(-10);
-        
-        final TimeScale utc = TimeScalesFactory.getUTC();
-        final Vector3D position = new Vector3D(-6142438.668, 3492467.56, -25767.257);
-        final Vector3D velocity = new Vector3D(505.848, 942.781, 7435.922);
-        final AbsoluteDate date = new AbsoluteDate(2022, 9, 29, TimeScalesFactory.getUTC());
-       
-        final Orbit orbit = new EquinoctialOrbit(new PVCoordinates(position,  velocity),
-                                                 FramesFactory.getEME2000(), date, 3.9860047e14);
-        
-        // create our propagator
-        Propagator propagator =
-            new EcksteinHechlerPropagator(orbit, 6.378137e6, 3.9860047e14, -1.08263e-3, 2.54e-6, 1.62e-6,  2.3e-7, -5.5e-7);
-            
-        // Earth and frame
-        double ae =  6378137.0; // equatorial radius in meter
-        double f  =  1.0 / 298.257223563; // flattening
-        Frame ITRF2005 = FramesFactory.getITRF(IERSConventions.IERS_2010, true); // terrestrial frame at an arbitrary date
-        BodyShape earth = new OneAxisEllipsoid(ae, f, ITRF2005);
-        GeodeticPoint point = new GeodeticPoint(FastMath.toRadians(-1.630783),
-                                                FastMath.toRadians(6.700071),
-                                                0.0);
-        
-        TopocentricFrame topo = new TopocentricFrame(earth, point, "Gstation");
-   
-        final PVCoordinatesProvider sun = CelestialBodyFactory.getSun();
-        final OneAxisEllipsoid earthx = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,Constants.WGS84_EARTH_FLATTENING, FramesFactory.getITRF(IERSConventions.IERS_2010, true));
-        AtmosphericRefractionModel refractionModel = new EarthStandardAtmosphereRefraction();
-          
-        // create three sets of events 
-        final ElevationDetector detector =   new ElevationDetector(topo).withConstantElevation(FastMath.toRadians(5.0));
-        final EventDetector is_sat_illuminated_event = new EclipseDetector(sun, 696000000., earthx).withPenumbra().withHandler(new ContinueOnEvent<>());
-        final EventDetector is_ground_at_night_event = new GroundAtNightDetector(topo, sun, const_dusk_dawn_elevation_rad, refractionModel);
-            
-        // create a logger    
-        EventsLogger logger = new EventsLogger();
-           
-        // create a date
-        AbsoluteDate startDate = new AbsoluteDate(2022, 9, 15, 12, 0, 0, TimeScalesFactory.getUTC());
-       
-        // start the propagator
-        propagator.resetInitialState(propagator.propagate(startDate));
-        propagator.addEventDetector(logger.monitorDetector(is_sat_illuminated_event));
-        propagator.addEventDetector(logger.monitorDetector(is_ground_at_night_event));
-        propagator.addEventDetector(logger.monitorDetector(detector));
-         
-        // let us create the handler
-        OrbitHandler dsstHandler = new OrbitHandler();
-        
-        //propagator.setStepHandler(10, dsstHandler);
-         CelestialBody earthy = CelestialBodyFactory.getEarth();
-         CelestialBody moony  = CelestialBodyFactory.getMoon();
-         CelestialBody earthMoonBary = CelestialBodyFactory.getEarthMoonBarycenter();
-         Frame l2Frame = new L2Frame(earthy, moony);
-         Frame earthMoonBaryFrame = earthMoonBary.getInertiallyOrientedFrame();
-         Frame inertiaFrame = earthMoonBaryFrame;
-         Frame integrationFrame = l2Frame;
-         Frame outputFrame = l2Frame;
-         PVCoordinates pv = propagator.getPVCoordinates(startDate, outputFrame);
-        
-         
-         propagator.propagate(startDate.shiftedBy(Constants.JULIAN_DAY));
-         System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
-       
-         double deltaP = Double.POSITIVE_INFINITY;
-         double deltaV = Double.POSITIVE_INFINITY;
-         
-         deltaP = pv.getPosition().getNorm();
-         deltaV = pv.getVelocity().getNorm();
-         
-         System.out.println("deltaP = "+deltaP);
-         System.out.println("deltaV = " +deltaV);
-    }
-    
-     private static class OrbitHandler implements OrekitFixedStepHandler {
- 
-         /** List of orbits. */
-         private final List<Orbit> orbits;
- 
-         private OrbitHandler() {
-             // initialise an empty list of orbit
-             orbits = new ArrayList<Orbit>();
-         }
- 
-         /** {@inheritDoc} */
-         public void init(final SpacecraftState s0, final AbsoluteDate t) {
-         }
- 
-         /** {@inheritDoc} */
-         public void handleStep(SpacecraftState currentState, boolean isLast) {
-             // fill in the list with the orbit from the current step
-             orbits.add(currentState.getOrbit());
-         }
- 
-         /** Get the list of propagated orbits.
-          * @return orbits
-          */
-         public List<Orbit> getOrbits() {
-             return orbits;
-         }
-
-        @Override
-        public void init(SpacecraftState s0, AbsoluteDate t, double step) {
-            OrekitFixedStepHandler.super.init(s0, t, step); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        }
-
-        @Override
-        public void handleStep(SpacecraftState ss) {
-            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        }
-
-        @Override
-        public void finish(SpacecraftState finalState) {
-            OrekitFixedStepHandler.super.finish(finalState); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        }
-     }
-     
-    int genObsDate(String _mon, int _day, int _y)
-    {
-        
-        String[] set_of_months      = new String[] {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
-        int[] days_of_month         = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 31, 31, 30, 31};
-        int[] days_of_month_leap    = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 31, 31, 30, 31};
-        boolean leap_year;
-        
-        
-        leap_year = (y%4 == 0);
-        
-        if (leap_year) 
-                {
-                  int index = Arrays.asList(set_of_months).indexOf(_mon);
-                  if ((_day + 1) > (days_of_month_leap[index]))
-                          {
-                              return 1;
-                          }
-                  else 
-                          {
-                              return _day + 1;
-                          }
-                }
-        else
-                {
-                  int index = Arrays.asList(set_of_months).indexOf(_mon);
-                  if ((_day + 1) > (days_of_month[index]))
-                          {
-                              return 1;
-                          }
-                  else 
-                          {
-                              return _day + 1;
-                          }
-                }
-    };
-        
-        
-    
-   int genObsMonth(String _mon, int _day, int _y)
-   {
-       return 0;
-   };
-
-};
+}
