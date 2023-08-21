@@ -11,10 +11,10 @@
 <AnchorPane id="AnchorPane" fx:id="lcs" prefHeight="862.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFXMLController">
    <children>
       
-      <TextArea fx:id="sen_longitude" layoutX="187.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
-      <TextArea fx:id="sen_elevation" layoutX="597.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="109.0" />
-      <Label layoutX="121.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
-      <Label layoutX="344.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
+      <TextArea fx:id="sen_longitude" layoutX="250.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
+      <TextArea fx:id="sen_elevation" layoutX="644.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="62.0" />
+      <Label layoutX="184.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
+      <Label layoutX="407.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
       <Label layoutX="104.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
          <font>
             <Font name="Copperplate" size="21.0" />
@@ -91,7 +91,7 @@
       <Label layoutX="269.0" layoutY="591.0" text="Revolution number:" textFill="#e31234" />
       <TextArea fx:id="lf2" layoutX="485.0" layoutY="72.0" minHeight="-Infinity" prefHeight="41.0" prefWidth="237.0" />
       <Line endX="548.640380859375" endY="4.0" layoutX="160.0" layoutY="186.0" startX="-100.0" startY="4.0000152587890625" />
-      <TextArea fx:id="sen_latitude" layoutX="397.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
+      <TextArea fx:id="sen_latitude" layoutX="460.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
       <Label layoutX="99.0" layoutY="297.0" text="OBSERVER STATUS: " textFill="#09032f">
          <font>
             <Font name="Arial" size="13.0" />
@@ -121,7 +121,7 @@
             <Font name="Arial" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="547.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
+      <Label layoutX="590.0" layoutY="224.0" text="Altitude:" textFill="#e32e12" />
       <Button id="load_element_button" fx:id="btn_update1" layoutX="734.0" layoutY="22.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="119.0" style="-fx-background-color: RED; -fx-border-color: white;" text="CLS" textAlignment="JUSTIFY" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
@@ -241,14 +241,16 @@
       <ChoiceBox fx:id="tleDayBox" layoutX="212.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="49.0" />
       <ChoiceBox fx:id="tleYearBox1" layoutX="296.0" layoutY="253.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="66.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="165.0" layoutY="332.0" startX="204.90850830078125" startY="-11.629425048828125" stroke="#e40a0a" strokeWidth="5.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="117.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
-      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="312.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
+      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="180.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
+      <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="375.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <ChoiceBox fx:id="choiceBox1" layoutX="696.0" layoutY="641.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="150.0" />
       <Label layoutX="703.0" layoutY="612.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
       <Label layoutX="703.0" layoutY="524.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBoxUV1" layoutX="696.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
       <ChoiceBox fx:id="choiceBoxUV2" layoutX="772.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
+      <TextArea fx:id="sen_longitude1" layoutX="57.0" layoutY="211.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
+      <Label layoutX="33.0" layoutY="225.0" text="ID:" textFill="#e32e12" />
       
       
    </children>
