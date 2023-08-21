@@ -12,7 +12,7 @@
    <children>
       
       <TextArea fx:id="sen_longitude" layoutX="160.0" layoutY="210.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
-      <TextArea fx:id="sen_elevation" layoutX="569.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="137.0" />
+      <TextArea fx:id="sen_elevation" layoutX="556.0" layoutY="210.0" minHeight="-Infinity" prefHeight="35.0" prefWidth="150.0" />
       <Label layoutX="94.0" layoutY="224.0" text="Longitude:" textFill="#e32e12" />
       <Label layoutX="317.0" layoutY="224.0" text="Latitude:" textFill="#e32e12" />
       <Label layoutX="104.0" text="TWO LINE ELEMENT" textFill="#e80e0e">
