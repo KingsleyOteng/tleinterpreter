@@ -11,6 +11,7 @@ import java.math.BigInteger;
  * rosetta
  * @author  kingsley oteng-amoako
  * @recent    july 20th 2023
+ * @recent    august, 23rd, 2023
  */
 
 public class rosetta 
