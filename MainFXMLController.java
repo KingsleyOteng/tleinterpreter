@@ -120,7 +120,6 @@ import javafx.scene.control.Alert.AlertType;
  * @author      kingsley oteng-amoako
  */
 
-
 public class MainFXMLController implements Initializable {
 
     //ObservableList list = FXCollections.observableArrayList();
