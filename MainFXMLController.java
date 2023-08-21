@@ -116,7 +116,7 @@ import javafx.scene.control.Alert.AlertType;
 /**
  * FXML Controller class
  * @date        May 26th 2022
- * @updated     July 19th 2023
+ * @updated     August 21st 2023
  * @author      kingsley oteng-amoako
  */
 
