@@ -75,7 +75,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <Label layoutX="7.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
+      <Label layoutX="10.0" layoutY="355.0" text="Space command ID:" textFill="#e31234" />
       <TextArea fx:id="satellite" layoutX="122.0" layoutY="345.0" prefHeight="47.0" prefWidth="65.0">
          <font>
             <Font size="14.0" />
