@@ -38,12 +38,6 @@ public class Tools
             ioe.printStackTrace();
          }
    }
-   
-      public static void main(String[] args) throws IOException {
-      // csv file to read
-      String csvFile = "norad_id_match.csv";
-      Tools.read(csvFile);
-   }
     
 
     
