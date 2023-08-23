@@ -38,6 +38,22 @@ public class Tools
             ioe.printStackTrace();
          }
    }
+   public  void test() throws IOException
+   {// csv file to read
+      String csvFile = "norad_id_match.csv";
+      Tools.read(csvFile);
+   };
+   
+      public static void main(String[] args) throws IOException {
+      // csv file to read
+      String csvFile = "norad_id_match.csv";
+      Tools.read(csvFile);
+   }
+
+    void tools() throws IOException {
+        String csvFile = "norad_id_match.csv";
+      Tools.read(csvFile);
+        }
     
 
     

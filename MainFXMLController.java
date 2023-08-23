@@ -63,6 +63,7 @@ import org.orekit.propagation.events.ElevationDetector;
 // import java.io.IOException;
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -567,6 +568,9 @@ public class MainFXMLController implements Initializable {
             
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
             
+            Tools tj = new Tools();
+            //tj.tools();
+            
             // generate labels consistent with true output
             
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
@@ -574,6 +578,8 @@ public class MainFXMLController implements Initializable {
             
             testLogDectors();
         } catch (ParseException ex) {
+            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
@@ -1480,8 +1486,6 @@ public class MainFXMLController implements Initializable {
                 }
     };
         
-        
-    
    int genObsMonth(String _mon, int _day, int _y)
    {
        return 0;
