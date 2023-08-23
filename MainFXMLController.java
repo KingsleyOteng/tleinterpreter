@@ -568,7 +568,7 @@ public class MainFXMLController implements Initializable {
             
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
             
-            Tools tj = new Tools();
+           // Tools tj = new Tools();
             //tj.tools();
             
             // generate labels consistent with true output
@@ -579,9 +579,8 @@ public class MainFXMLController implements Initializable {
             testLogDectors();
         } catch (ParseException ex) {
             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
+        //catch (IOException ex) {Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
         }
 
     
