@@ -568,6 +568,7 @@ public class MainFXMLController implements Initializable {
             
             System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
             
+            
            // Tools tj = new Tools();
             //tj.tools();
             
