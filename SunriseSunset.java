@@ -608,6 +608,7 @@ public final class SunriseSunset {
 				|| (calendar.after(astronomicalTwilight[0]) && calendar.before(nauticalTwilight[0])));
 	}
 
+        
 	/**
 	 * @param latitude  the latitude of the location in degrees.
 	 * @param longitude the longitude of the location in degrees (West is negative)
