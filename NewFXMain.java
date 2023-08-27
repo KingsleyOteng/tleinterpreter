@@ -29,7 +29,6 @@ import javafx.stage.Stage;
 
 public class NewFXMain extends Application 
     {
-    
         /**
          * construct the UI
          * @param stage
@@ -46,7 +45,6 @@ public class NewFXMain extends Application
                 stage.setScene(scene);
                 stage.show();
             }
-      
         
         /**
          * @param args the command line arguments
