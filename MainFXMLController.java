@@ -116,13 +116,14 @@ import javafx.scene.control.Alert.AlertType;
 
 /**
  * FXML Controller class
- * @date        May 26th 2022
- * @updated     August 21st 2023
+ * @date        May 27th 2022
+ * @updated     August 27th 2023
  * @author      kingsley oteng-amoako
  */
 
 public class MainFXMLController implements Initializable {
 
+    
     //ObservableList list = FXCollections.observableArrayList();
     String tleLineOne;
     String tleLineTwo;
@@ -131,6 +132,7 @@ public class MainFXMLController implements Initializable {
     String launch_catalogue_sequence;
     String[] ConstMonth = new String[] {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
 
+    
     int subLen;
     int i, y, x;
     int obs_y;
