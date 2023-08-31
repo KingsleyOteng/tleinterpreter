@@ -249,7 +249,7 @@
       <Label layoutX="703.0" layoutY="533.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBoxUV1" layoutX="696.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
       <ChoiceBox fx:id="choiceBoxUV2" layoutX="772.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
-      <TextArea fx:id="sen_longitude1" layoutX="277.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="70.0" />
+      <TextArea fx:id="sen_longitude1" layoutX="277.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="59.0" />
       <Label layoutX="261.0" layoutY="411.0" text="ID:" textFill="#e32e12" />
       <TextArea fx:id="sen_longitude11" layoutX="441.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
       <Label layoutX="358.0" layoutY="411.0" text="Payload piece:" textFill="#e32e12" />
