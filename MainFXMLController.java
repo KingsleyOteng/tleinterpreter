@@ -80,6 +80,7 @@ import org.hipparchus.geometry.euclidean.threed.Vector3D;
 // import org.orekit.bodies.BodyShape;
 // import org.orekit.frames.Frame;
 // import org.orekit.propagation.events.handlers.EventHandler;
+import org.orekit.frames.*;
 import org.orekit.propagation.sampling.OrekitFixedStepHandler;
 import org.orekit.bodies.BodyShape;
 import org.orekit.bodies.CelestialBody;
@@ -519,16 +520,15 @@ public class MainFXMLController implements Initializable {
             
             // create a TLE object
             final TLE tle = new TLE(line1, line2);
-            
-            // use the TLE propogator as opposed to using SGP4
-            final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
-            AbsoluteDate tleDateAgeAbsolute = tle.getDate();
-            final TimeScale UTC = TimeScalesFactory.getUTC();
-            Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
-            Date currentDateTime = new Date();  
-            long difference_In_Time
-                    = currentDateTime.getTime() - tleDateAge.getTime();
-            System.out.println("Difference in time "+String.valueOf(difference_In_Time));
+            TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+                            // use the TLE propogator as opposed to using SGP4
+                           // final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+                           // AbsoluteDate tleDateAgeAbsolute = tle.getDate();
+                           // final TimeScale UTC = TimeScalesFactory.getUTC();
+                           // Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
+                           // Date currentDateTime = new Date();  
+                           // long difference_In_Time  = currentDateTime.getTime() - tleDateAge.getTime();
+                            //System.out.println("Difference in time "+String.valueOf(difference_In_Time));
             
             /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
             
@@ -543,8 +543,23 @@ public class MainFXMLController implements Initializable {
             
             // determine PVCoordinates
             
-            PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
+                            // PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
             
+            PVCoordinates coord = spaceCraftState.getPVCoordinates();
+            Vector3D position = coord.getPosition();
+            Vector3D velocity = coord.getVelocity();
+            
+            // Define Washington D.C.'s geodetic point
+GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(38.9072), Math.toRadians(-77.0369), 0.0);
+
+// Get the ECEF frame
+Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+
+// Convert to Cartesian Point
+Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
+Vector3D pvCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
+
+
             
             // transform to earths geodectic points
             
