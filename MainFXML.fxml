@@ -102,7 +102,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="552.0" layoutY="392.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="297.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
+      <Button id="load_element_button" fx:id="btn_update" cancelButton="true" layoutX="407.0" layoutY="392.0" mnemonicParsing="false" prefHeight="112.0" prefWidth="442.0" style="-fx-background-color: red; -fx-border-color: white;" text="UPDATE PARAMETERS" textAlignment="JUSTIFY" textFill="#f8f1f0" wrapText="true">
          <font>
             <Font name="Thonburi" size="23.0" />
          </font>
@@ -249,10 +249,8 @@
       <Label layoutX="703.0" layoutY="533.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
       <ChoiceBox fx:id="choiceBoxUV1" layoutX="696.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
       <ChoiceBox fx:id="choiceBoxUV2" layoutX="772.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
-      <TextArea fx:id="sen_longitude1" layoutX="277.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="59.0" />
+      <TextArea fx:id="sen_longitude1" layoutX="277.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="120.0" />
       <Label layoutX="261.0" layoutY="411.0" text="ID:" textFill="#e32e12" />
-      <TextArea fx:id="sen_longitude11" layoutX="441.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
-      <Label layoutX="358.0" layoutY="411.0" text="Payload piece:" textFill="#e32e12" />
       
       
    </children>
