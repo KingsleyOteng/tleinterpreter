@@ -127,7 +127,6 @@ import org.hipparchus.util.MathUtils;
  */
 
 public class MainFXMLController implements Initializable {
-
     
     //ObservableList list = FXCollections.observableArrayList();
     String tleLineOne;
@@ -467,7 +466,7 @@ public class MainFXMLController implements Initializable {
             
             // build sunrise and sunset data model
             
-               location = new Location(sensor_latitude, sensor_longitude);
+            location = new Location(sensor_latitude, sensor_longitude);
             calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
             officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
@@ -547,8 +546,6 @@ public class MainFXMLController implements Initializable {
 
 PVCoordinates pvInITRF = spaceCraftState.getPVCoordinates(itrf);
 Vector3D satellitePositionInITRF = pvInITRF.getPosition();
-          
-
             
             // determine PVCoordinates
             
@@ -599,7 +596,6 @@ if (elevation > 0 && isSatelliteSunlit && isObserverDark) {
 } else {
     System.out.println("Satellite is not observable.");
 }
-
 
 // final solution to point your telescope <------
 double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
