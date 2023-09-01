@@ -547,7 +547,8 @@ public class MainFXMLController implements Initializable {
 
 PVCoordinates pvInITRF = spaceCraftState.getPVCoordinates(itrf);
 Vector3D satellitePositionInITRF = pvInITRF.getPosition();
-            
+          
+
             
             // determine PVCoordinates
             
@@ -598,6 +599,12 @@ if (elevation > 0 && isSatelliteSunlit && isObserverDark) {
 } else {
     System.out.println("Satellite is not observable.");
 }
+
+
+// final solution to point your telescope <------
+double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
+double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
+
             
             // transform to earths geodectic points
             

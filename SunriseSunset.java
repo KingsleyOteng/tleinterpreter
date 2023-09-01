@@ -53,11 +53,13 @@ public final class SunriseSunset {
 	 */
 	public static final double SUN_ALTITUDE_CIVIL_TWILIGHT = -6.0;
 
+        
 	/**
 	 * The altitude of the sun (solar elevation angle) at the moment of nautical twilight: -12.0
 	 */
 	public static final double SUN_ALTITUDE_NAUTICAL_TWILIGHT = -12.0;
 
+        
 	/**
 	 * The altitude of the sun (solar elevation angle) at the moment of astronomical twilight: -18.0
 	 */
@@ -67,6 +69,7 @@ public final class SunriseSunset {
 	private static final double CONST_360 = 360;
 	private static final long   MILLISECONDS_IN_DAY = 60 * 60 * 24 * 1000;
 
+        
 	/**
 	 * Intermediate variables used in the sunrise equation
 	 * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
