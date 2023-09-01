@@ -392,14 +392,12 @@ public class MainFXMLController implements Initializable {
     String officialSunset;
     long differenceSunriseSunset;
 
-    
     /**
      * Initializes the controller class.
      *
      * @param url
      * @param rb
      */
-    
     
     @Override
     @SuppressWarnings("empty-statement")
