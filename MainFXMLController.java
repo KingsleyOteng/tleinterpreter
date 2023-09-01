@@ -177,9 +177,7 @@ public class MainFXMLController implements Initializable {
     private static double sensor_ge_polar;
     
     TopocentricFrame aoiTopoFrame;
-    
-   
-  
+
         
     @FXML
     private TextArea satellite;
