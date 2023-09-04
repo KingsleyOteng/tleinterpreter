@@ -609,27 +609,27 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             
             // transform to earths geodectic points
             
-            GeodeticPoint geodetic = earth.transform
-                    (
-                            coord.getPosition(),
-                            ITRF,
-                            date
-                    );
+           // GeodeticPoint geodetic = earth.transform
+           //         (
+             //               coord.getPosition(),
+            //                ITRF,
+            //                date
+           //         );
             
             // determine the latitude and longitude of propogaed item
             
-            latitude = FastMath.toDegrees(geodetic.getLatitude());
-            longitude = FastMath.toDegrees(geodetic.getLongitude());
+           // latitude = FastMath.toDegrees(geodetic.getLatitude());
+           // longitude = FastMath.toDegrees(geodetic.getLongitude());
             
             // from the sensor determine the observation parameters in azimuth-elevation
             
-            azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
-            azimuth = FastMath.toDegrees(azimuth); 
-            elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
+           // azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
+           // azimuth = FastMath.toDegrees(azimuth); 
+            //elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
             
             // let us see how this has been propogated
             
-            System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+           // System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
             
             
            // Tools tj = new Tools();
@@ -637,8 +637,12 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             
             // generate labels consistent with true output
             
-            mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
-            mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+            //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
+           // mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+            
+            
+            mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth)));
+            mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation)));
             
             testLogDectors();
         } catch (ParseException ex) {
