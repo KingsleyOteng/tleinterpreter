@@ -419,9 +419,18 @@ public class MainFXMLController implements Initializable {
             //sensor_timezone_id = "Australia/Canberra";
             //sensor_altitude = 0.77;
             
-            sensor_latitude = -1.630783;
-            sensor_longitude = 6.700071;
-            sensor_timezone_id = "Africa/Kumasi";
+            //sensor_latitude = -1.630783;
+            //sensor_longitude = 6.700071;
+            //sensor_timezone_id = "Africa/Kumasi";
+            //sensor_altitude = 0.77;
+            //sensor_date = Calendar.getInstance();
+            //sensor_date_yyyy = 2022;
+            //sensor_date_mm = 12;     
+            //sensor_date_dd = 19;
+            
+            sensor_latitude = 38.89511;
+            sensor_longitude = -77.03637;
+            sensor_timezone_id = "USA/Washington";
             sensor_altitude = 0.77;
             sensor_date = Calendar.getInstance();
             sensor_date_yyyy = 2022;
@@ -551,8 +560,8 @@ Vector3D satellitePositionInITRF = pvInITRF.getPosition();
             Vector3D position = coord.getPosition();
             Vector3D velocity = coord.getVelocity();
             
-            // Define Washington D.C.'s geodetic point
-GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(38.9072), Math.toRadians(-77.0369), 0.0);
+ // Define Washington D.C.'s geodetic point
+GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
 
 // Get the ECEF frame
 Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
