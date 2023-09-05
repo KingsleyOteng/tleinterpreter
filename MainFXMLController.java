@@ -650,7 +650,7 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
         //catch (IOException ex) {Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
         }
 
-    
+  
     // @FXML
     //private void printHelloWorld(ActionEvent event) {
     //    event.consume();
@@ -792,6 +792,7 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             //epoch_time.setText((line_one_array[8]));    
             // Let us attempt to determine the ephemeris type from the data
             // By extracting a range of information from the TLE
+            
             Pattern pattern_short = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
             Matcher matcher_short = pattern_short.matcher(tleLineOne);
 
@@ -873,7 +874,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                     layer_label.setText("Layer: GEO");
                 }
             
-             
         }
     
     /**
@@ -1053,8 +1053,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             trackingConfigurationList.add("Zenith");
             trackingConfigurationList.add("Optimal lighting");
             
-            
-
              // hours list for choicebox
             obsTimeHourList.add("00");
             obsTimeHourList.add("01");
@@ -1387,7 +1385,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
         (logger.monitorDetector(is_ground_at_night_event));
 
         //tlepropagator.addEventDetector(detector);
-          
         // OrbitHandler dsstHandler = new OrbitHandler();
         // propagator.setMasterMode(10.0, dsstHandler);
         // propagator.setStepHandler(10, dsstHandler);
@@ -1468,7 +1465,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
          
          deltaP = pv.getPosition().getNorm();
          deltaV = pv.getVelocity().getNorm();
-         
          System.out.println("deltaP = "+deltaP);
          System.out.println("deltaV = " +deltaV);
     }
@@ -1523,7 +1519,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
         int[] days_of_month         = new int[] {31, 28, 31, 30, 31, 30, 31, 31, 31, 31, 30, 31};
         int[] days_of_month_leap    = new int[] {31, 29, 31, 30, 31, 30, 31, 31, 31, 31, 30, 31};
         boolean leap_year;
-        
         
         leap_year = (y%4 == 0);
         
