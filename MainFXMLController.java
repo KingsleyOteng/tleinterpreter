@@ -428,10 +428,13 @@ public class MainFXMLController implements Initializable {
             //sensor_date_mm = 12;     
             //sensor_date_dd = 19;
             
-            sensor_latitude = 38.89511;
-            sensor_longitude = -77.03637;
+            //sensor_latitude = 38.89511;
+            //sensor_longitude = -77.03637;
+            sensor_latitude = 0.0;
+            sensor_longitude = 0.0;
             sensor_timezone_id = "USA/Washington";
-            sensor_altitude = 0.77;
+            //sensor_altitude = 0.77;
+            sensor_altitude = 0.0;
             sensor_date = Calendar.getInstance();
             sensor_date_yyyy = 2022;
             sensor_date_mm = 12;     
