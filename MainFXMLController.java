@@ -643,8 +643,8 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
            // mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
             
-            mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth)));
-            mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation)));
+            mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
+            mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
             
             testLogDectors();
         } catch (ParseException ex) {
