@@ -421,12 +421,14 @@ public class MainFXMLController implements Initializable {
             sensor_date_mm = 12;     
             sensor_date_dd = 19;
             
+            
             // set sensor 
             
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
+            
             
             // build UI
             
@@ -462,6 +464,7 @@ public class MainFXMLController implements Initializable {
             officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
             officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
             
+            
             //// Difference betwen two dates
             
             SimpleDateFormat format = new SimpleDateFormat("HH:mm");
@@ -477,6 +480,7 @@ public class MainFXMLController implements Initializable {
             tleMonBox.setItems(obsDateMonList);
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
+            
             
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
@@ -506,15 +510,16 @@ public class MainFXMLController implements Initializable {
             
             SpacecraftState spaceCraftState = propagator.propagate(date);
             Frame itrf = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
-
             PVCoordinates pvInITRF = spaceCraftState.getPVCoordinates(itrf);
             Vector3D satellitePositionInITRF = pvInITRF.getPosition();
+            
             
             // determine PVCoordinates
             
             PVCoordinates coord = spaceCraftState.getPVCoordinates();
             Vector3D position = coord.getPosition();
             Vector3D velocity = coord.getVelocity();
+            
             
             // Define Washington D.C.'s geodetic point
            GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
