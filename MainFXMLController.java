@@ -422,6 +422,7 @@ public class MainFXMLController implements Initializable {
             sensor_date_dd = 19;
             
             // set sensor 
+            
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
@@ -447,6 +448,7 @@ public class MainFXMLController implements Initializable {
             choiceBoxUV2.setItems(uvIndexRange);
             
             // build default choicebox values
+            
             choiceBox.setValue("Equitorial");
             choiceBoxUV1.setValue("0.0");
             choiceBoxUV2.setValue("10.0");
@@ -468,7 +470,6 @@ public class MainFXMLController implements Initializable {
             Date date2 = format.parse(officialSunset);
             System.out.println("officialSunset" + officialSunset);
              differenceSunriseSunset = date2.getTime() - date1.getTime(); 
-             
             System.out.println("differenceSunriseSunset" + differenceSunriseSunset);         
             System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
@@ -489,7 +490,6 @@ public class MainFXMLController implements Initializable {
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
             
             // input  TLE
-            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             
@@ -561,9 +561,7 @@ public class MainFXMLController implements Initializable {
             // final solution to point your telescope <------
             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
             double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
-
-
-            
+  
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
             
@@ -571,7 +569,7 @@ public class MainFXMLController implements Initializable {
         } catch (ParseException ex) {
             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        //catch (IOException ex) {Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
+    
     }
     
     
