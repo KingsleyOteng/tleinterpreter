@@ -651,6 +651,260 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         } 
         //catch (IOException ex) {Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
+    }
+    
+    
+    @SuppressWarnings("empty-statement")
+    public void updated_coordinates() 
+        {   
+            
+        try {
+            DecimalFormat df = new DecimalFormat("0.00");
+            
+            // initial orbit propogation constants
+            
+            File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
+            DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
+            manager.addProvider(new DirectoryCrawler(orekitData));
+            
+            //define sensor location and id
+            //sensor_latitude = -35.320277777778;
+            //sensor_longitude = 149.00694444444;
+            //sensor_timezone_id = "Australia/Canberra";
+            //sensor_altitude = 0.77;
+            
+            //sensor_latitude = -1.630783;
+            //sensor_longitude = 6.700071;
+            //sensor_timezone_id = "Africa/Kumasi";
+            //sensor_altitude = 0.77;
+            //sensor_date = Calendar.getInstance();
+            //sensor_date_yyyy = 2022;
+            //sensor_date_mm = 12;     
+            //sensor_date_dd = 19;
+            
+            //sensor_latitude = 38.89511;
+            //sensor_longitude = -77.03637;
+            sensor_latitude = 0.0;
+            sensor_longitude = 0.0;
+            sensor_timezone_id = "USA/Washington";
+            //sensor_altitude = 0.77;
+            sensor_altitude = 0.0;
+            sensor_date = Calendar.getInstance();
+            sensor_date_yyyy = 2022;
+            sensor_date_mm = 12;     
+            sensor_date_dd = 19;
+            
+            // set sensor 
+            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
+            sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
+            sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
+            sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
+            
+            // build UI
+            
+            btn_load_element.setTextFill(Color.RED);
+            this.populateMounts();
+            choiceBox.setItems(mountConfigurationList);
+            choiceBoxXX.setItems(mountConfigurationList);
+            choiceBox1.setItems(trackingConfigurationList);
+            
+            // build the observation box
+            
+            obsMonBox.setItems(obsDateMonList);
+            obsDayBox.setItems(obsDateDayList);
+            obsYearBox.setItems(obsDateYearList);
+            obsTimeHourBox.setItems(obsTimeHourList);
+            obsTimeMnBox.setItems(obsTimeMinList);
+            obsTimeSecBox.setItems(obsTimeSecList);
+            choiceBoxUV1.setItems(uvIndexRange);
+            choiceBoxUV2.setItems(uvIndexRange);
+            
+            // build default choicebox values
+            choiceBox.setValue("Equitorial");
+            choiceBoxUV1.setValue("0.0");
+            choiceBoxUV2.setValue("10.0");
+            choiceBox1.setValue("Optimal lighting");
+            
+            
+            // build sunrise and sunset data model
+            
+            location = new Location(sensor_latitude, sensor_longitude);
+            calculator = new SunriseSunsetCalculator(location, sensor_timezone_id);
+            officialSunrise = calculator.getOfficialSunriseForDate(sensor_date);
+            officialSunset = calculator.getOfficialSunsetForDate(sensor_date);
+            
+            //// Difference betwen two dates
+            
+            SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+            Date date1 = format.parse(officialSunrise);
+            System.out.println("officialSunrise" + officialSunrise);
+            Date date2 = format.parse(officialSunset);
+            System.out.println("officialSunset" + officialSunset);
+             differenceSunriseSunset = date2.getTime() - date1.getTime(); 
+            System.out.println("differenceSunriseSunset" + differenceSunriseSunset);
+           
+            
+            // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
+            // differenceSunriseSunset = officialSunrise - officialSunset;
+            // generate validation output
+            
+            System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
+            
+            // build element box
+            
+            tleMonBox.setItems(obsDateMonList);
+            tleDayBox.setItems(obsDateDayList);
+            tleYearBox1.setItems(obsDateYearList);
+
+            // Commented out
+            //  -----> update the element and the date boxes
+            
+            //  -----> this.setCurrentDateTime();
+            // Commented out
+            
+            // load orekit conventions
+            
+            FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+            OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
+                    Constants.WGS84_EARTH_FLATTENING,
+                    ITRF);
+            
+            // set sensor location
+            
+            GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
+            
+            // determine topocentric frame of reference
+            
+            aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
+            
+            // input  TLE
+            
+            final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
+            final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
+            
+            
+            // create a TLE object
+            final TLE tle = new TLE(line1, line2);
+            TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+                            // use the TLE propogator as opposed to using SGP4
+                           // final TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
+                           // AbsoluteDate tleDateAgeAbsolute = tle.getDate();
+                           // final TimeScale UTC = TimeScalesFactory.getUTC();
+                           // Date tleDateAge = tleDateAgeAbsolute.toDate(UTC);
+                           // Date currentDateTime = new Date();  
+                           // long difference_In_Time  = currentDateTime.getTime() - tleDateAge.getTime();
+                            //System.out.println("Difference in time "+String.valueOf(difference_In_Time));
+            
+            /* TLEPropagator sgp4 = TLEPropagator.selectExtrapolator(tle,InertialProvider.EME2000_ALIGNED, 1000); */
+            
+            // set current time
+            
+            AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
+
+            // obtain spacecraft state
+            
+            SpacecraftState spaceCraftState = propagator.propagate(date);
+            Frame itrf = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+
+PVCoordinates pvInITRF = spaceCraftState.getPVCoordinates(itrf);
+Vector3D satellitePositionInITRF = pvInITRF.getPosition();
+            
+            // determine PVCoordinates
+            
+                            // PVCoordinates coord = spaceCraftState.getPVCoordinates(ITRF);
+            
+            PVCoordinates coord = spaceCraftState.getPVCoordinates();
+            Vector3D position = coord.getPosition();
+            Vector3D velocity = coord.getVelocity();
+            
+ // Define Washington D.C.'s geodetic point
+GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
+
+// Get the ECEF frame
+Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+
+// Transform the Geodetic Point to ECEF:
+Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
+
+//Extract and Print the ECEF Coordinates:
+Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
+Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
+
+OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
+TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
+double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
+
+
+OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
+CelestialBody sun = CelestialBodyFactory.getSun();
+Vector3D satToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition().subtract(spaceCraftState.getPVCoordinates(itrf).getPosition());
+
+Vector3D earthToSatellite = spaceCraftState.getPVCoordinates().getPosition();
+Vector3D earthToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition();
+double angle = Vector3D.angle(earthToSatellite, earthToSun);
+
+// If the angle is less than 90 degrees, then the observer is in darkness.
+boolean isSatelliteSunlit = angle < Math.PI / 2;
+
+// Angle between the observer location and the Sun as seen from the Earth's center
+Vector3D observerPositionInITRF = earthShape.transform(washingtonDC);
+double obsAngle = Vector3D.angle(observerPositionInITRF, earthToSun);
+
+// If the angle is greater than 90 degrees, then the observer is in darkness.
+boolean isObserverDark = obsAngle > Math.PI / 2;
+
+if (elevation > 0 && isSatelliteSunlit && isObserverDark) {
+    System.out.println("Satellite is observable!");
+} else {
+    System.out.println("Satellite is not observable.");
+}
+
+// final solution to point your telescope <------
+double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
+double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
+
+            
+            // transform to earths geodectic points
+            
+           // GeodeticPoint geodetic = earth.transform
+           //         (
+             //               coord.getPosition(),
+            //                ITRF,
+            //                date
+           //         );
+            
+            // determine the latitude and longitude of propogaed item
+            
+           // latitude = FastMath.toDegrees(geodetic.getLatitude());
+           // longitude = FastMath.toDegrees(geodetic.getLongitude());
+            
+            // from the sensor determine the observation parameters in azimuth-elevation
+            
+           // azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
+           // azimuth = FastMath.toDegrees(azimuth); 
+            //elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
+            
+            // let us see how this has been propogated
+            
+           // System.out.println("Propagated at " + date + ": lat=" + latitude + "; lon=" + longitude + "; azimuth=" + azimuth + "; elevation=" + elevation);
+            
+            
+           // Tools tj = new Tools();
+            //tj.tools();
+            
+            // generate labels consistent with true output
+            
+            //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
+           // mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
+            
+            mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
+            mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
+            
+            testLogDectors();
+        } catch (ParseException ex) {
+            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        //catch (IOException ex) {Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);}
         }
 
   
