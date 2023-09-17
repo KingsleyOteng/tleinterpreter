@@ -477,10 +477,10 @@ public class MainFXMLController implements Initializable {
             System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
             // build element box
+            
             tleMonBox.setItems(obsDateMonList);
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
-            
             
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
@@ -488,6 +488,7 @@ public class MainFXMLController implements Initializable {
                     ITRF);
             
             // set sensor location
+            
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
             // determine topocentric frame of reference
