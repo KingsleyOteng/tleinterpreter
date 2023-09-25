@@ -32,7 +32,6 @@ import java.util.TimeZone;
  **/
 
 
-
 public final class SunriseSunset {
 
 	public enum DayPeriod 
