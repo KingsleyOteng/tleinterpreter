@@ -147,6 +147,8 @@ public class MainFXMLController implements Initializable {
     int nextYear;
     int nextMonth;
 
+    boolean init_display = true;
+    
     double obs_hour;
     double obs_min;
     double obs_sec;
@@ -568,8 +570,19 @@ public class MainFXMLController implements Initializable {
             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
             double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
   
-            mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
-            mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
+            if (init_display)
+            {
+                mount_label_1.setText("Azi. : 0.0 deg.");
+                mount_label_2.setText("Elev. : 0.0 deg."); 
+                start_time_label.setText("Start time: 0.0s");
+                obs_label.setText("Obs. time: 0.0s");
+            } 
+            else 
+            {
+               mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
+               mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
+               init_display = false;
+            };
             
             testLogDectors();
         } catch (ParseException ex) {
@@ -822,8 +835,11 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             //mount_label_1.setText("Azi. : " + String.valueOf(df.format(azimuth)));
            // mount_label_2.setText("Elev. : " + String.valueOf(df.format(elevation)));
             
+           
+           
             mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
             mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
+            
             
             testLogDectors();
         } catch (ParseException ex) {
