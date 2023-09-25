@@ -208,12 +208,12 @@
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="obs_label" layoutX="373.0" layoutY="809.0" text="Obs. time: 900s" textFill="#b02d19">
+      <Label fx:id="obs_label" layoutX="322.0" layoutY="809.0" text="Obs. time: 900s" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="layer_label" layoutX="614.0" layoutY="809.0" text="Layer:" textFill="#b02d19">
+      <Label fx:id="layer_label" layoutX="525.0" layoutY="809.0" text="Layer: Mesosphere" textFill="#b02d19">
          <font>
             <Font name="Optima Regular" size="24.0" />
          </font>

@@ -560,9 +560,12 @@ public class MainFXMLController implements Initializable {
             // If the angle is greater than 90 degrees, then the observer is in darkness.
             boolean isObserverDark = obsAngle > Math.PI / 2;
 
-            if (elevation > 0 && isSatelliteSunlit && isObserverDark) {
+                if (elevation > 0 && isSatelliteSunlit && isObserverDark) 
+            {
                 System.out.println("Satellite is observable!");
-            } else {
+            } 
+                else 
+            {
                 System.out.println("Satellite is not observable.");
             }
 
@@ -570,19 +573,20 @@ public class MainFXMLController implements Initializable {
             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
             double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
   
-            if (init_display)
+                if (init_display)
             {
                 mount_label_1.setText("Azi. : 0.0 deg.");
                 mount_label_2.setText("Elev. : 0.0 deg."); 
                 start_time_label.setText("Start time: 0.0s");
                 obs_label.setText("Obs. time: 0.0s");
             } 
-            else 
+                else 
             {
                mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
                mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
                init_display = false;
-            };
+            }
+            ;
             
             testLogDectors();
         } catch (ParseException ex) {
