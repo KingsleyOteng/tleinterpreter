@@ -533,10 +533,10 @@ public class MainFXMLController implements Initializable {
            // Transform the Geodetic Point to ECEF:
            Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
 
+           
            //Extract and Print the ECEF Coordinates:
            Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
            Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
-
            OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
            TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
            double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
@@ -560,29 +560,33 @@ public class MainFXMLController implements Initializable {
             // If the angle is greater than 90 degrees, then the observer is in darkness.
             boolean isObserverDark = obsAngle > Math.PI / 2;
 
-            if (elevation > 0 && isSatelliteSunlit && isObserverDark) {
+                if (elevation > 0 && isSatelliteSunlit && isObserverDark) 
+            {
                 System.out.println("Satellite is observable!");
-            } else {
+            } 
+                else 
+            {
                 System.out.println("Satellite is not observable.");
-            }
+            };
 
             // final solution to point your telescope <------
             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
             double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
   
-            if (init_display)
+                if (init_display)
             {
                 mount_label_1.setText("Azi. : 0.0 deg.");
                 mount_label_2.setText("Elev. : 0.0 deg."); 
                 start_time_label.setText("Start time: 0.0s");
                 obs_label.setText("Obs. time: 0.0s");
             } 
-            else 
+                else 
             {
                mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
                mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
                init_display = false;
-            };
+            }
+            ;
             
             testLogDectors();
         } catch (ParseException ex) {
