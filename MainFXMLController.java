@@ -533,7 +533,6 @@ public class MainFXMLController implements Initializable {
            // Transform the Geodetic Point to ECEF:
            Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
 
-           
            //Extract and Print the ECEF Coordinates:
            Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
            Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
@@ -568,7 +567,7 @@ public class MainFXMLController implements Initializable {
                 else 
             {
                 System.out.println("Satellite is not observable.");
-            };
+            }
 
             // final solution to point your telescope <------
             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
