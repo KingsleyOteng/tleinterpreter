@@ -523,7 +523,6 @@ public class MainFXMLController implements Initializable {
             Vector3D position = coord.getPosition();
             Vector3D velocity = coord.getVelocity();
             
-            
             // Define Washington D.C.'s geodetic point
            GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
 
@@ -538,7 +537,7 @@ public class MainFXMLController implements Initializable {
            Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
            OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
            TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
-           double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
+           double  elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
 
 
            OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
