@@ -518,127 +518,126 @@ public class MainFXMLController implements Initializable {
             
             
             // determine PVCoordinates
-            
             PVCoordinates coord = spaceCraftState.getPVCoordinates();
             Vector3D position = coord.getPosition();
             Vector3D velocity = coord.getVelocity();
             
             // Define Washington D.C.'s geodetic point
-           GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
+            GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
 
-           // Get the ECEF frame
-           Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
+            // Get the ECEF frame
+            Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
-           // Transform the Geodetic Point to ECEF:
-           Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
+            // Transform the Geodetic Point to ECEF:
+            Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
 
-           //Extract and Print the ECEF Coordinates:
-           Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
-           Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
-           OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
-           TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
-           double  elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
+            //Extract and Print the ECEF Coordinates:
+            Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
+            Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
+            OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
+            TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
+            double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
 
 
-           OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
-           CelestialBody sun = CelestialBodyFactory.getSun();
-           Vector3D satToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition().subtract(spaceCraftState.getPVCoordinates(itrf).getPosition());
+            OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
+            CelestialBody sun = CelestialBodyFactory.getSun();
+            Vector3D satToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition().subtract(spaceCraftState.getPVCoordinates(itrf).getPosition());
 
-           Vector3D earthToSatellite = spaceCraftState.getPVCoordinates().getPosition();
-           Vector3D earthToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition();
-           double angle = Vector3D.angle(earthToSatellite, earthToSun);
+            Vector3D earthToSatellite = spaceCraftState.getPVCoordinates().getPosition();
+            Vector3D earthToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition();
+            double angle = Vector3D.angle(earthToSatellite, earthToSun);
 
-            // If the angle is less than 90 degrees, then the observer is in darkness.
-            boolean isSatelliteSunlit = angle < Math.PI / 2;
+             // If the angle is less than 90 degrees, then the observer is in darkness.
+             boolean isSatelliteSunlit = angle < Math.PI / 2;
 
-            // Angle between the observer location and the Sun as seen from the Earth's center
-            Vector3D observerPositionInITRF = earthShape.transform(washingtonDC);
-            double obsAngle = Vector3D.angle(observerPositionInITRF, earthToSun);
+             // Angle between the observer location and the Sun as seen from the Earth's center
+             Vector3D observerPositionInITRF = earthShape.transform(washingtonDC);
+             double obsAngle = Vector3D.angle(observerPositionInITRF, earthToSun);
 
-            // If the angle is greater than 90 degrees, then the observer is in darkness.
-            boolean isObserverDark = obsAngle > Math.PI / 2;
+             // If the angle is greater than 90 degrees, then the observer is in darkness.
+             boolean isObserverDark = obsAngle > Math.PI / 2;
 
-                if (elevation > 0 && isSatelliteSunlit && isObserverDark) 
-            {
-                System.out.println("Satellite is observable!");
-            } 
-                else 
-            {
-                System.out.println("Satellite is not observable.");
-            };
+                 if (elevation > 0 && isSatelliteSunlit && isObserverDark) 
+             {
+                 System.out.println("Satellite is observable!");
+             } 
+                 else 
+             {
+                 System.out.println("Satellite is not observable.");
+             };
 
-            // final solution to point your telescope <------
-            double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
-            double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
-  
-                if (init_display)
-            {
-                mount_label_1.setText("Azi. : 0.0 deg.");
-                mount_label_2.setText("Elev. : 0.0 deg."); 
-                start_time_label.setText("Start time: 0.0s");
-                obs_label.setText("Obs. time: 0.0s");
-            } 
-                else 
-            {
-               mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
-               mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
-               init_display = false;
-            }
-            ;
-            
-            testLogDectors();
-        } catch (ParseException ex) {
-            Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    
-    }
-    
-    
-    @SuppressWarnings("empty-statement")
-    public void updated_coordinates() 
-        {   
-            
-        try {
-            DecimalFormat df = new DecimalFormat("0.00");
-            
-            // initial orbit propogation constants
-            
-            File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
-            DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
-            manager.addProvider(new DirectoryCrawler(orekitData));
-            
-            //define sensor location and id
-            //sensor_latitude = -35.320277777778;
-            //sensor_longitude = 149.00694444444;
-            //sensor_timezone_id = "Australia/Canberra";
-            //sensor_altitude = 0.77;
-            
-            //sensor_latitude = -1.630783;
-            //sensor_longitude = 6.700071;
-            //sensor_timezone_id = "Africa/Kumasi";
-            //sensor_altitude = 0.77;
-            //sensor_date = Calendar.getInstance();
-            //sensor_date_yyyy = 2022;
-            //sensor_date_mm = 12;     
-            //sensor_date_dd = 19;
-            
-            //sensor_latitude = 38.89511;
-            //sensor_longitude = -77.03637;
-            sensor_latitude = 0.0;
-            sensor_longitude = 0.0;
-            sensor_timezone_id = "USA/Washington";
-            //sensor_altitude = 0.77;
-            sensor_altitude = 0.0;
-            sensor_date = Calendar.getInstance();
-            sensor_date_yyyy = 2022;
-            sensor_date_mm = 12;     
-            sensor_date_dd = 19;
-            
-            // set sensor 
-            sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
-            sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
-            sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
-            sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
+             // final solution to point your telescope <------
+             double sensor_elevation = Math.toRadians(topoFrame.getElevation(coord.getPosition(), itrf, spaceCraftState.getDate()));
+             double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(), itrf, spaceCraftState.getDate()));
+
+                 if (init_display)
+             {
+                 mount_label_1.setText("Azi. : 0.0 deg.");
+                 mount_label_2.setText("Elev. : 0.0 deg."); 
+                 start_time_label.setText("Start time: 0.0s");
+                 obs_label.setText("Obs. time: 0.0s");
+             } 
+                 else 
+             {
+                mount_label_1.setText("Azi. : " + String.valueOf(df.format(sensor_azimuth))+" deg.");
+                mount_label_2.setText("Elev. : " + String.valueOf(df.format(sensor_elevation))+" deg.");
+                init_display = false;
+             }
+             ;
+
+             testLogDectors();
+         } catch (ParseException ex) {
+             Logger.getLogger(MainFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+         } 
+
+     }
+
+
+     @SuppressWarnings("empty-statement")
+     public void updated_coordinates() 
+         {   
+
+         try {
+             DecimalFormat df = new DecimalFormat("0.00");
+
+             // initial orbit propogation constants
+
+             File orekitData = new File("/Users/terra6partner/Downloads/orekit-data-master/");
+             DataProvidersManager manager = DataContext.getDefault().getDataProvidersManager();
+             manager.addProvider(new DirectoryCrawler(orekitData));
+
+             //define sensor location and id
+             //sensor_latitude = -35.320277777778;
+             //sensor_longitude = 149.00694444444;
+             //sensor_timezone_id = "Australia/Canberra";
+             //sensor_altitude = 0.77;
+
+             //sensor_latitude = -1.630783;
+             //sensor_longitude = 6.700071;
+             //sensor_timezone_id = "Africa/Kumasi";
+             //sensor_altitude = 0.77;
+             //sensor_date = Calendar.getInstance();
+             //sensor_date_yyyy = 2022;
+             //sensor_date_mm = 12;     
+             //sensor_date_dd = 19;
+
+             //sensor_latitude = 38.89511;
+             //sensor_longitude = -77.03637;
+             sensor_latitude = 0.0;
+             sensor_longitude = 0.0;
+             sensor_timezone_id = "USA/Washington";
+             //sensor_altitude = 0.77;
+             sensor_altitude = 0.0;
+             sensor_date = Calendar.getInstance();
+             sensor_date_yyyy = 2022;
+             sensor_date_mm = 12;     
+             sensor_date_dd = 19;
+
+             // set sensor 
+             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
+             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
+             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
+             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
             
             // build UI
             
