@@ -424,12 +424,15 @@ public class MainFXMLController implements Initializable {
             sensor_date_mm = 12;     
             sensor_date_dd = 19;
             
-            
-            // set sensor 
+            // set hour block data
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            Calendar cal = Calendar.getInstance();
-            System.out.println("---------------------------->"+dateFormat.format(cal.getTime()));
-
+            LocalTime time 
+            = LocalTime.now(); 
+            int hour    = time.getHour();
+            int minute  = time.getMinute();
+            int seconds = time.getSecond();
+         
+            // set sensor
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
