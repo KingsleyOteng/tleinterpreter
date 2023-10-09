@@ -66,6 +66,7 @@ import org.orekit.bodies.CelestialBodyFactory.*;
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -425,7 +426,10 @@ public class MainFXMLController implements Initializable {
             
             
             // set sensor 
-            
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            Calendar cal = Calendar.getInstance();
+            System.out.println("---------------------------->"+dateFormat.format(cal.getTime()));
+
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
             sen_latitude.setText(String.valueOf(df.format(sensor_latitude)));
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
@@ -683,7 +687,7 @@ public class MainFXMLController implements Initializable {
             System.out.println("officialSunset" + officialSunset);
              differenceSunriseSunset = date2.getTime() - date1.getTime(); 
             System.out.println("differenceSunriseSunset" + differenceSunriseSunset);
-           
+
             
             // Duration timeElapsed = Duration.between(officialSunrise, officialSunset);
             // differenceSunriseSunset = officialSunrise - officialSunset;
