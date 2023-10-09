@@ -438,7 +438,6 @@ public class MainFXMLController implements Initializable {
             sen_longitude.setText(String.valueOf(df.format(sensor_longitude)));
             sen_elevation.setText(String.valueOf(df.format(sensor_altitude)));
             
-            
             // build UI
             
             btn_load_element.setTextFill(Color.RED);
