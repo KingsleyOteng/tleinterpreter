@@ -275,7 +275,7 @@ public final class SunriseSunset {
         {
 		return getSunriseSunset(day, latitude, longitude, SUN_ALTITUDE_ASTRONOMICAL_TWILIGHT);
 	}
-
+        
 	/**
 	 * Calculate the sunrise and sunset times for the given date and given
 	 * location. This is based on the Wikipedia article on the Sunrise equation.
@@ -287,6 +287,7 @@ public final class SunriseSunset {
 	 * sunrise, the second element is the sunset. This will return null if there is no sunrise or sunset. (Ex: no sunrise in Antarctica in June)
 	 * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
 	 */
+        
 	public static Calendar[] getSunriseSunset(final Calendar day, final double latitude, double longitude) 
         {
 		return getSunriseSunset(day, latitude, longitude, SUN_ALTITUDE_SUNRISE_SUNSET);

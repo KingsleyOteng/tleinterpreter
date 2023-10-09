@@ -494,9 +494,11 @@ public class MainFXMLController implements Initializable {
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
             // determine topocentric frame of reference
+            
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
             
             // input  TLE
+            
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             
@@ -611,6 +613,7 @@ public class MainFXMLController implements Initializable {
              //sensor_longitude = 149.00694444444;
              //sensor_timezone_id = "Australia/Canberra";
              //sensor_altitude = 0.77;
+             
 
              //sensor_latitude = -1.630783;
              //sensor_longitude = 6.700071;
