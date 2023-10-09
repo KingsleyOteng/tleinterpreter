@@ -1,0 +1,872 @@
+\documentclass[7pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+\usepackage{amssymb}
+\newlength{\rulethickness}
+\setlength{\rulethickness}{1.2pt}
+\newlength{\rulelength}
+\setlength{\rulelength}{15cm}
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage[colorlinks]{hyperref}
+\usepackage{setspace}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{soul}
+\usepackage[linesnumbered,ruled]{algorithm2e}
+%% Please check - the probability mass function is used for discrete vaeriables and the probability density function is used for continous variables
+
+%%denoising chapter
+%% should we use the phrase Quantum Mechanics (QM)
+
+
+\linespread{1.25}
+\NewDocumentCommand{\inn}{mo}{%
+  \langle #1\rangle
+  \IfValueT{#2}{^{}_{\mspace{-3mu}#2}}%
+}
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+\begin{document}
+Science is always presupposing some basic concepts must be held to be useful. These absolute presuppositions (Collingwood), tend to rarely debated and form the framework for what have been termed “paradigm” by Kuhn. Our currently accepted scientific model is predicated on a set of presuppositions that have difficulty accommodating holistic structures and relationships otherwise not geared towards incorporating non-local correlations
+
+%% refer to Algorithmic Information Theory and Cellular Automata Dynamics by Cervelle and Durand.
+\section*{Next}
+The goal of this book is to develop machine learning approaches that scale to massively parallel implementations; thereby to test theories or otherwise implement models for the purposes of data evaluation. We consider machine learning as  methods that automatically detect relationships in data and then use these uncovered relationships for decision making or prediction when faced with randomness. The book is empirical in its approach. The book is targeted at later year undergraduate students and seasoned graduate students in electrical engineering, econometrics, computer sicence or physics. This books approaches machine learning from the perspective that best approach to addressing learning problems is to adopt an HPC approach (HPC, cloud or something else). Machine learning is related to electrical engineering and in turn statistics but differs in the assumptions and language.
+\section*{Introduction}
+One of the primary element in the development of information theory is norm. By generalization we may define the norm in the Euclidean space $R^N$,
+\begin{equation}
+||\gamma|| = [y^2_1 + y^2_2 + y^2_3 + .... + y^2_N]^{1/2}
+\end{equation}
+which defines the norm as basis to assess the "magnitude" of vectors through a generalization of the Euclidean distance. This therefore induces a notation for the magnitude of vectors in terms of an orthogonality, using a scalar product measure,
+\begin{equation}
+\inn{\gamma,\gamma}
+<\gamma,\gamma> \expval{\gamma,\gamma} = [y^2_1 + y^2_2 + y^2_3 + .... + y^2_N]^{1/2}
+\end{equation}
+%% http://detexify.kirelabs.org/classify.html
+%%logit model = traditional statistical classification approach
+%%hierarchical structures = a machine learning view
+\textcolor{red}{Empirical covariance matrices computed on series of observations from a random vector, therefore to estimate the linear comovement between the random variables that constitute the random vector.}
+
+%%% Use Cover and Thomas to check the proof
+\subsection*{\textcolor{purple}{Chapter 0: Random Variables}}
+The abstraction of {random variables} is principally important within information theory and in modern physics. In information theory we tend to refer to data in terms of \emph{random variables};  we define here  {random variables} and provide also a few related concepts. We initially give a general mathematical definition based on a probability space $[ \Omega, \varepsilon, p ]$, where $[ \Omega, \varepsilon ]$ is the \emph{sample space}; note where $p[\Omega] = 1$ then $p$ is our $\emph{probability measure}$. The measurable space $\Omega$ and $p$ consist of $\varepsilon$  a $\sigma$-algebra of subsets called the \emph{events}. Therefore $\Omega$ is the space of outcomes, such that $\omega \in \Omega$ is an outcome, $Y = Y[\omega]$ is considered a random variable with an alphabet $\mathpzc{Y}$ and $K_Y$ is the range of random variables called the \emph{state space}.   We can consider random variable $Y$ as the assessed state of a state space $K_Y$ with a probability $p[y]$; where $Y$ is distributed uniformly as $p[y] = 1/||\mathpzc{Y}||,\forall y \in  \mathpzc{Y}$. We define that in the $\sigma$-algebra $\varepsilon$: $\varepsilon \neq 0$, $\Omega$ is the \emph{certain event}, $Y$ is an event in so much as its complement is an event $Y := \Omega / Y^{c}$, if $[y_i]_{i \in N}$ and if $[y_i]_{i \varepsilon N}$ is a family of events then $U_{i\in N} y_i$ and $\theta$ is the \emph{impossible event}.   Let us consider then the probability space $[\Omega, \varepsilon, p]$  and the measurable space $[\chi, \mathpzc{F}]$; the random variable $Y$ is a function from $\Omega$ to $\chi$ which is measurable with respect to the $\sigma$-algebras, with a range $[\chi,\mathpzc{F}]$.
+
+%% read notes_statistics_1 and notes_statustucs_2
+
+\section*{\textcolor{purple}{Chapter 1: Entropy}}
+Entropy  is the expected value of surprise events; where the two variables fail to adhere to a normal bivariate distribution any inferences from the correlation metric will be minimal. Therefore in more rigid scenarios, information theory must play a hand.
+
+We consider a discrete random variable or an event $Y$ from a finite sample space $K_{Y}$  and with a probability mass function $p[y]$, $y \in \mathpzc{Y}$,
+\begin{equation}
+p[y] = \dfrac{1}{\inn{a,a}^{1/2}}
+\end{equation}
+and where $i[y]$  is monotonic on the probability distribution $p[y]$,
+\begin{equation}
+i[y] = \dfrac{1}{p[y]}
+\end{equation}
+which is termed the \emph{surprisal} of $y$, i.e. a surprising observation is considered as the inverse of their probability, such that a particular instance with a low probability of occurring will have a high degree of surprise. We can assess the discrete random variable $Y$ and ask how much information is received by observing a specific instance for this variable, the \emph{degree of surprisal} from the receipt of $y$. Compared to scenarios with events considered to be highly likely or scenarios whose events will otherwise be known to occur with certainty, we consider $y$ to be a high unlikely event; compared to the earlier scenarios, this has a higher degree of surprisal and by-inference less information. [notes/propoerties] We therefore consider information as being measured where $p[x] \leq 0$, we must have in the case where we have two random variables independent of each other $y$ and $x$, $p[y].p[x] = p[y,x]$. We must have therefore a certain measure of information $h[y]$ that is monotonic on $p[y]$, but where we have two statistically independent and discrete random variables $y$ and $x$, the measure  of information $h[y,x]$ obtained through the observation of the independent events is being given by $h[y] + h[x]$. One consequence of the three properties is  we must have therefore a measure,
+\begin{equation}
+h[y] = \ln [ 1 / p[y] ]\longleftrightarrow H[Y] =  \sum_{y \in \mathpzc{Y}} \ln [ 1 / p[y] ]
+\end{equation}
+where $H[Y]$ is termed the \emph{entropy} of $Y$ ie  the mean amount of information obtained of $Y$ and the expectation of $h[y]$ on a probability mass function $p[y]$;
+\begin{equation}
+\begin{split}
+H[Y] & =  \sum_{y \in \mathpzc{Y}} p[y] \ln [1/p[y]] \\
+H[Y] & = - \sum_{y \in \mathpzc{Y}} p[y] \ln [p[y]] \text{ nats}
+\end{split}
+\end{equation}
+where entropy is  log[.] of an information surprise multiplied by the its proportion of observations in a set of events. An unexpected message or an message that is expected but that has been otherwise coded at the source so as to appear random may be therefore said to have information content or  high entropy. Entropy may be considered as evaluating the amount of uncertainty associated with a random variable; note therefore an expected event under an entropy model contain no information.
+%%The logarithm may be in any base but is usually set at base 2, wherein the unit of entropy is termed the bit. %% \footnote{If we were to denote the logarithm in base c, the entropy denoted as $H_c(X)$, may be found from other entropies as $H_c(x) = log_c^b H_b(x)$}
+We must infer that maximum entropy for a discrete random variable  corresponds to a normal distributed random variable, i.e. equal distributions across states of the variable; entropy therefore has its greatest value at $\ln [|| \mathpzc{Y}||]$ when $Y$ is uniformly distributed variable,
+$$
+H(y) = \sum_{y \in \mathpzc{Y}}  p(y) \ln [1/||\mathpzc{Y}||], \forall y \in \mathpzc{Y}
+$$ %check this both lines
+where we note that $H[X] \leq \log|\mathpzc{Y}|$. Therefore given the probability mass function $p[y]$ of $Y$ and  $u[y] = 1/|y|$ as the uniform probability mass function for $Y$ then,
+$$
+D[p||u] = \sum p[y] \ln \dfrac{p[y]}{u[y]} \\
+=\log |\mathpzc{Y} | - H[y]
+$$
+Since $D[p||u] > 0$, we observe that entropy is upper bounded by the logarithm of the alphabet size $|\mathpzc{Y}|$,  $H[y] \leq \log |\mathpzc{Y}|$. Note, here that we have adopted the convention based off continuity arguments that
+\begin{equation}
+\begin{split}
+\lim\limits_{ p \rightarrow 0^{+} } p \ln[ p]  & = 0
+\end{split}
+\end{equation}
+therefore we may generalise based off continuity arguments that $p(y=0) \ln [ p[y=0]] = 0$, $0 \ln [0/u] = 0$, $p \ln [p/0] = 0$, $0 \leq p[y] \leq 1$  {and} $- \log p[y] \geq 0$. Therefore when we consider the joint event with a  discrete random variable $Y$ with an outcome $y$ whose probability mass function is $p[y]$ from an alphabet $\mathpzc{Y}$ and discrete random variable $X$ with an outcome $X$ whose probability mass function is $p[x]$ from an alphabet $\mathpzc{X}$ we obtain the \emph{differential entropy},
+%%**(ditto: correct and reference)
+\begin{equation}
+\begin{split}
+H[Y,X] & = - \sum_{y \in \mathpzc{Y}} \sum_{x \in \mathpzc{X}}  p[y,x] \ln[ p[y,x]] \\
+H[Y,X] & = - \sum_{y,x \in \mathpzc{Y} \times \mathpzc{X}} p[y,x] \ln[ p[y,x]]
+\end{split}
+\end{equation}
+%%**(ditto: correct and reference)
+wherein we find, $H[Y,Y] = H[Y], H[X,X] = H[X], H[Y,X] = H[X,Y], H[Y,X] \geq \max [ H[Y], H[X] ]$ and $ H[Y,X] \geq H[Y] + H[X]$.
+\subsection*{\textcolor{purple}{The Differential Entropy}}
+In continuous time, consider the random variable $Y$ which may be considered over discrete time periods as having a probability mass function  $p[Y]$,
+%%Add figure 8.1 from thomas and corver
+We bucket the range of $Y$ into lengths of $\Delta$ and assume that the probability mass function $p[y]$  remains continuous within each of these buckets. Therefore from the mean value theorem there must exist within each bucket $y_i$ can be defined as,
+%mean value theorem of integral calculus) an interval of \Delta the quantised value of x_ holds as,
+\begin{equation}
+ \int_{i\Delta}^{(i+1)\Delta}  dx p[y]  = p[y_i] \Delta
+\end{equation}
+where the  probability mass function over an internal $\Delta$ is given as $p[y_i]\Delta$ for variable $y_i$; therefore we may define the  quantized random variable as given by,
+\begin{equation}
+Y_{\Delta} = y_i \text{     }\forall Y,i\Delta \leq Y \leq (i+1) \Delta
+\end{equation}
+therefore the entropy after bucketing the range of $Y$ is therefore given by,
+%% checked
+\begin{equation}
+H_{\Delta} = - \sum_{i=1}^{N}  p[y_i] \ln p[y_i] \\
+= - \sum_{i=1}^{N}  p [ y_i ] \Delta [ \ln p[ y_i ] \Delta ] \\
+= - \sum_{i=1}^{N}  \Delta  p [ y_i ]  \ln p [ y_i ] - \ln \Delta
+\end{equation}
+Where we consider the constraint $\int p[y]  dy = \sum p[y] \Delta = 1$ to hold. When $p[y]\ln[f[y]]$ is Riemann integrable; $- \sum_{i=1}^{N}  \Delta  p [ y_i ]  \ln p [ y_i ]$ approaches the integral of $-p[y]\ln p=[y]$ as $\Delta \rightarrow 0$ given its Riemann integrability.
+%% Discuss the differential entropy
+%%Discuss the differential entropy
+We may therefore obtain the entropy of a discrete random variable from the differential entropy of the continuous random variable as,
+\begin{equation}
+\begin{split}
+\lim\limits_{\Delta \rightarrow 0} H_{\Delta} + \ln \Delta  \rightarrow h[\Delta] = - \int p[y] \ln p[y] dy
+\end{split}
+\end{equation}
+which discretised and with a probability mass function defined over multiple continuous variables provides us with the \emph{differential entropy} estimator,
+$$
+H[Y] = - \int p[y] \ln p[y] dy
+$$
+We note that entropy of the continuous random variables  differs from the entropy of the quantized  continuous random variable by a $\ln \Delta$; hence the entropy of the n-bit quantisation of the continuous random variable may be given by $n + h[Y]$ bits
+
+%%suffice to say that to quantise the continuous random variable a large number of bits are required
+
+\subsection*{\textcolor{purple}{Maximum Entropy for A Continuous Random Variable}}
+
+Similar to the discrete random variable, we wish to obtain an estimator to the maximisation of the continuous random variable through a constrained maximisation,
+$$
+H[Y] +\lambda_1 \Biggr(  \int_{-\infty}^{+\infty} (dy [p[y] - 1]) \Biggl) + \lambda_2 \Biggr(  \int_{-\infty}^{+\infty} dy [y p[y]  - \mu] \Biggl) + \lambda_3  \int_{-\infty}^{+\infty} \Biggr( dy [ y - \mu]^2 p[y]  - \sigma^2 \Biggl)
+$$
+Where the distribution that maximises entropy given a continuous random variable is then found to be Gaussian random distribution
+\begin{equation}
+%%p[y] = \dfrac{1}{(2 \pi \sigma^2)^{0.5}} \exp \biggr{ - \dfrac{(y - \mu)^2}{2 \sigma^2} \biggr}
+\end{equation}
+Therefore the maximum entropy  the continuous  variable is given by,
+\begin{equation}
+\begin{split}
+h[p[y]] & = - \int p[x] [ -1/2 ([y - \mu] \sigma^{-2}  [y - \mu] - \ln [\sqrt(2 \pi) |\sigma^2|^{1/2}] \\
+h[p[y]] & = \dfrac{1}{2} E [ \sum_{i,j} [y_i - \mu_i] \sigma^{-2}[y_j- \mu_j]] +\dfrac{1}{2} \ln[2 \pi] |\sigma^2| \\
+h[p[y]] & = \dfrac{1}{2} \sum_{i,j} E [  [y_i - \mu_i] [x_j- \mu_j]]\sigma^{-2}  +\dfrac{1}{2} \ln(2 \pi) |\sigma^2| \\
+h[p[y]] &= \dfrac{1}{2} \sum \sum K_{ij} [K^{-1}]_{ji} + \dfrac{1}{2} \ln [2 \pi] | \sigma^2 | \\
+ h[p[y]] & = \dfrac{1}{2} \sum [ K_{ij} [K^{-1}]_{ji} ] + \dfrac{1}{2} \ln [2 \pi] | \sigma^2 | \\
+ h[p[y]] &= \dfrac{1}{2} \sum I + \dfrac{1}{2} \ln [2 \pi] | \sigma^2 | \text{nats} \\
+ h[p[y]] &= \dfrac{1}{2} + \dfrac{1}{2} \log [2 \pi] | \sigma^2 | \text{bits}
+\end{split}
+\end{equation}
+Where changing the base then gives,
+$$
+ h[p[y]] = \dfrac{1}{2} \log [2 \pi e] | \sigma^2 |
+$$
+Therefore we may generalise the average number of bits required to describe a continuous variable $Y$ whose outcome is $y$ to n-bit accuracy as,
+$$
+ h[p[y]]  + n  =  \dfrac{1}{2} \log [2 \pi e] | \sigma^2 | \text{bits}
+$$
+\subsection*{\textcolor{purple}{Conditional Entropy}}
+We may now obtain the derivation of the entropy of $Y$ conditioned on $X$; where if we draw pairs of values from a joint density function $p[y,x]$ the supplemental information required to identify $Y$ is given on average as,
+
+$$
+H[Y|X] = - \int p[y,x] \log p[y|x] dy dx
+$$
+in general $ p[y|x] = p[y,x] / p[x]$ we obtain,
+%%maybe expand the proof%%
+$$
+H[Y|X] = H[Y,X] - H[X] = - \sum_{x \in K_x} p[x] \sum_{y \in K_y} p[y|X ]\log p[x|Y]
+$$
+Our definition provides the insight $H[Y|X]$ as the unknown supplemental information in Y when we privy to X; where $H[Y] \geq H[X|Y], H[Y|Y] = 0, H[Y,X]$ is the differential entropy of a joint distribution $p[y,x], H[Y]$ is the marginal distribution $p[y]$.
+\subsection*{\textcolor{purple}{Cross Entropy}}
+We may obtain also the \emph{cross entropy} which allows us to infer the information unknown in $Y$, when we use an approximating probability mass distribution $u[y]$ to approximate the posterior probability mass distribution $p[y]$; or the converse, the information gained in updating $p[y]$ to update $u[y]$ \footnote{$u[y]$ and $p[y]$ are discrete probability densities  defined on the same state space; this differs from a differential entropy where $u[y]$ and $p[y]$ were not assumed to be from the same state space.},
+$$
+H_{\chi} [p[y]||u[y]] = H[y] + D_{KL} [p[y]||u[y]] = - \int p(y) u(d) dy \longleftrightarrow  H_{\chi} [p[y]||u[y]] - H[y] = D_{KL} [p[y]||u[y]]
+$$
+where $H_{\chi}$ is the cross entropy and $D_{KL} [p[y]||u[y]]$ is known as the Kullback-Liebler divergence or KL divergence between $p[y]$ and $u[y]$.
+%%The cross entropy is the uncertainty in an observation of $y$ using the suboptimal dist5ribtuion $y[y]$.
+%In any instance where we have a distribution $u[y]$  , opy; we may  then construct a forward error correction %scheme or space-time code based on u(y) to thereby transmit y to a receiver.
+\subsection*{\textcolor{purple}{KL Divergence}}
+%The KL to $u[y]$  the prior  to therefore achieve $p[y|x]$ the posteriori.
+
+We can also obtain the \emph{relative entropy} or \emph{KL divergence} on the \emph{a prior} and the \emph{a posteriori} by the likelihood model specified by\footnote{unlike in the differential entropy where both $u[y]$ and $p[y]$ are considered to be independent distributions,in the KL divergence both $u[y]$ and $p[y]$ are defined on the same probability state space}. The relative entropy is the "distance" between two distributions or the additional bits required when we assume our observations are an accurate approximation of a known distribution \newline \footnote{Were we to encode information $X$ given a probability $p[x]$, using an assumed distribution $q[x]$ we would have to have codewords proportional to $\log 1/p[x]$. An expected codeword length would be, $E[X] =  \sum_{x} p[x] \log \bigr( 1/q[x] \bigl)=   \sum_{x} p[x] \bigr(1 + \log [ 1/q[x] ] \bigr) = H[x] + 1$. Now to use the wrong distribution for $q[x]$, $E[X] =  \sum_{x} p[x] \log \bigr( 1/q[x] \bigl)=   \sum_{x} p[x] \bigr(1 + \log [ 1/q[x] ] \bigr) = \sum_{x} p[x] +  \sum_{x} p[x] \log [ 1/q[x] ]  = \sum_{x} p[x] +  \sum_{x} p[x] \log [ p[x]/[p[x]q[x]] ] = \sum_{x} p[x] +  \sum_{x} p[x] \log [ q[x]/p[x] ]  +  \sum_{x} p[x] \log [ 1/p[x] ] = 1+ D_{KL} [p[y]||u[y] +  H[x]$. The penalty in the posterior for incorrectly using the wrong distribution will therefore be the KL.   }
+$$
+D_{KL} [p[y]||u[y]] = - \int p[y] \ln u [y] dy - \biggl(  - \int p[y] \log p[y] dxy \biggr)
+ = -  \int p[x] \ln \dfrac{u[y]}{p[y]} dy
+ =  \int p[x] \ln \dfrac{p[y]}{u[y]} dy
+$$
+furthermore, maximising the likelihood model by observing $y$ under a model parameterized by $u[y]$ of a adequately assumed form (e.g. Gaussian or factored formed) is  equivalent to minimising a KL distance between the received codeword sent through a channel with a distribution $p[y]$ and the codeword at the source with a marginal $u[y]$; this is termed as the cross-entropy.
+$$
+D_{KL} [p[y]||u[y]] = H_{\chi} [p[y]||u[y]] - H[x] \longleftrightarrow H_{\chi} [p[y]||u[y]] = H[x] + D_{KL} [p[y]||u[y]] = - \int p[x] u[d]h dx
+$$
+when two variables are found to be from a joint distribution, we may determine whether the two variables are diverging and therefore are tending towards being independent by the considering KL divergence between the joint distribution $p[y,x]$ and the marginal distributions $p[y]p[x]$.
+%%Princeton notes%%
+
+$$
+D_{KL} [p[y,x]||[p[y][p[x]] =  - \int \int dx dy p[y,x] \log \dfrac{ p[y]p[x] }{p[y,x] }
+$$
+where the KL divergence is considered an update in $x$ achieved by observing $y$, the surprisal. The KL divergence may also therefore thought of as the 'information gain' achievable in $x$ by observing $y$. So that $-D_{KL} [p[x]||q[x]] \leq 0$;
+\begin{equation}
+\begin{split}
+-D_{KL} [p[y]||q[y]] & = - \sum_{y\in\mathpzc{Y}} p[y] \log\dfrac{p[y] }{q[y] } = \sum_{y\in\mathpzc{Y}} p[y]  \log\dfrac{q[y]}{p[y]} \\
+& \leq \log \sum_{y\in\mathpzc{Y}} p[y] \dfrac{q[y]}{p[y]} \\
+& \leq \log \sum_{y\in\mathpzc{Y}} {q[y]} = \log 1 = 0  \\
+\end{split}
+\end{equation}
+as $\log[.]$ is a concave function\footnote{We use Jensen's inequality; where $f$ is a concave function, $$ f \Bigr( \sum_{i=1}^N \lambda_i y_i \Bigr) \leq \sum_{i=1}^N \lambda_i f(y_i)$$ }; hence, we may infer then, $D_{KL} [p[y]||q[y]] = 0$ if and only if $p[y] = q[y]$. Another product of this observation is that given no-knowledge of $Y$, maximum entropy is achieved where the prior distribution $q[y]$ is null; let us set $q[y] = u[y] = 1/|\mathpzc{Y}|$,
+\begin{equation}
+\begin{split}
+0 \leq  D_{KL} [u[y]||p[y]] & = \sum_{y\in\mathpzc{Y}} {p[y]} \log\dfrac{p[y] }{u[y] } = \sum_{y\in\mathpzc{Y}} {p[y]} [\log p[y]] - \sum_{y\in\mathpzc{Y}} {p[y]} (\log u[y])\\
+ & = -H[Y] + log[\mathpzc{Y}]
+\end{split}
+\end{equation}
+this corresponds to $u[y]$ being  \emph{uniformly distributed}; maximum entropy is achieved where the least assumptions are made about an initial distribution. The KL divergence measures a "distance" between distributions however it is not a Euclidean distance measure and it is not a metric; it is not symmetric ($D_{KL} [p[y]||q[y]] \not\equiv D_{KL} [q[y]||p[y]]$) and does not satisfy the triangular inequality ($D_{KL} [p[y]||q[y]] \not\leq D_{KL} [p[y]||u[y]] + D_{KL} [u[y]||q[y]]  $)\footnote{The $D_{KL} [p[y]||q[y]]$ and $D_{KL} [q[y]||p[y]]$ divergences will only be equal were $q[y]$ were sufficiently complex}. However, an important property of $D_{KL} [p[y]||u[y]]$ is its  a non-negative measure;  $D_{KL} [p[y]||u[y]] \geq 0$ and $D_{KL} [p[y]||q[y]] = 0$ iff $p[y] = q[y]$.
+%\textcolor{purple}{Heuristically, the probability density function on {𝑥1,𝑥2,..,.𝑥𝑛} with maximum entropy turns out to be the one that %orresponds to the least amount of knowledge of {𝑥1,𝑥2,..,.𝑥𝑛}, in other words the Uniform distribution.}
+\subsection{Forward-divergence and Reverse-divergence}
+
+As we previously discussed the KL divergence measure is not symmetric, i.e. $D_{KL} [p[y]||q[y]] \not\equiv D_{KL} [q[y]||p[y]]$. This therefore provides two different objective functions when attempting to approximate $p[y]$:
+\begin{enumerate}
+\item A \emph{forward KL-divergence}, $\arg \min D_{KL} [p[y]||q[y]] \longleftrightarrow \arg \max_{\theta} \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log q[y_i|\theta]\Bigr]  $
+\item A \emph{reverse KL-divergence}, $\arg \min D_{KL} [q[y]||p[y]] \longleftrightarrow  \arg \max_{\theta} \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log p[y_i]\Bigr]  + H[q[Y]] \geq H[q[Y]]\\
+ $
+\end{enumerate}
+where $p[y]$ is the known distribution, minimizing forward KL-divergence $D_{KL} [p^{source}[Y]||[q[Y|\theta]]$ with-respect-to parameters $\theta$ is equivalent to the \emph{maximum likelihood estimator} (MLE)\footnote{The basic Maximum Likelihood Estimator (MLE) (Fisher1922) searches for the parameter $\theta$ that likely generated $Y$; note that MLE may be biased and may likely not be an optimal minimum variance estimator},
+\begin{equation}
+\begin{split}
+& \arg \min_{\theta} D_{KL} [p^{source}[Y]||[q[Y|\theta]] = \sum_{i} p^{source}[y_i] \log \dfrac{q[y_i|\theta]}{p^{source}[y_i]}  \\
+& =  \arg \min_{\theta} \Bigr[  \sum_{y} p^{source}[Y] \log {p^{source}[Y] }   - \sum_{y} p^{source}[Y] \log {q[Y|\theta]} \Bigr]\\
+& =  -H[p[Y]] - \arg \min_{\theta} \Biggr[  \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log q[y_i|\theta]\Bigr] \Biggr]  \\
+&  = -H[Y] + \arg \min_{\theta} \Bigl[ - \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log q[y_i|\theta]\Bigr]  \\
+&  =  \arg \max_{\theta} \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log q[y_i|\theta]\Bigr]  \\
+%%&  \propto  \sum^N_{i=1} \log p[x_i|\theta]
+\end{split}
+\end{equation}
+we know that no other consistent estimator will provide a lower asymptotic mean and therefore the MLE is asymptotically efficient; therefore this allows us to adopt a forward KL in Machine Learning. We observe that $-H[Y]$ is effectively constant and disappears from the expression, thereby limiting $[[q[Y|\theta]$  in optimally tracking the modes of $p^{source}[Y]$.  The intuition  from the forward KL-divergence that it's objective is that wherever samples of $p^{source}[Y]$ are optimal, $[q[Y|\theta]$ must also be optimal; this leads to maximization of a globally optimal distribution of $q[Y]$ that attempts to match all $p^{source}[Y]$ modes. However for the reverse KL-divergence $D_{KL} [[q[Y|\theta]||p^{source}[Y]]$ where $p^{source}[Y]$ is known to be distinctly multimodal and a Gaussian $q[Y|\theta]$ is employed, the KL-divergence will tend to match local modes. Thereby a minimization of $\min D_{KL} [q[y]||p[y]]$ constrains $q[y|\theta]$ to assume the properties of $p[y]$,
+%%\textbf{note_diagram_1}
+\begin{equation}
+\begin{split}
+\arg \min D_{KL} [q[y|\theta]||p[y]] & = \sum_{y} q[Y|\theta] \log \dfrac{q[Y|\theta]}{p^{source}[Y] }  \\
+& =  \arg \min_{\theta} \Bigr[ \sum_{y}  q[Y|\theta]  \log {q[Y|\theta]} \Bigr] + \arg \min_{\theta} \Bigr[ - \sum_{y} p^{source}[Y] \log {p^{source}[Y] } \Bigr] \\
+ & = -H[q[Y]] + \arg \min_{\theta} \Bigl[ - \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log p[y_i]\Bigr]  \\
+ & = \arg \max_{\theta} \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log p[y_i]\Bigr]  + H[q[Y]]  \\
+\end{split}
+\end{equation}
+we infer therefore an objective such that wherever $[q[Y|\theta]$ is known to be optimal samples of $p^{source}[Y]$ must also be optimal; this leads to a maximization; sampled $p^{source}[Y]$ modes are matched against locally optimal $q[Y\theta]$, with $H[q[Y]]$ ensuring that the reverse KL-divergence is not overly narrow. As $H[q[Y]]$ remains in the objective, the modes of $p^{source}[Y]$ may be optimally tracked. We note that $D_{KL} [q[y|\theta]||p[y]]$ is infinite where $[q[y|\theta] > 0$ and $p[y]=0$; therefore we term the reverse KL-divergence to be \emph{zero forcing} as we prefer $q[y]=0$ when $p[y]=0$, therefore typically underestimating $p[y]$.  An reverse KL-divergence is unable match all nodes and therefore tends to be better suited to computing divergence, particularly where  $p^{source}[Y]$ is known but multimodal or considered to be intractable.
+%%\textbf{note_diagram_1}
+\subsection{Jesen-Shannon divergence and Renyi divergence}
+\subsection*{\textcolor{purple}{Mutual Information}}
+
+\begin{equation}
+\begin{split}
+D_{KL} [p[y,x]||[p[y][p[x]] = I[Y,X]
+\end{split}
+\end{equation}
+we in infer that $I[y,x]$  the \emph{mutual information} of a random variable, is the reduction in the uncertainty in $y$ by an updated observation of $x$ as;
+\begin{equation}
+\begin{split}
+I[Y,X] & = H[Y] - H[Y|X] \\
+I[Y,X] & = - \sum_{y \in K_Y} p[y] \log p[y] - \sum_{x \in K_X,y \in K_Y } p[y,x] \log p[y|x] \\
+I[Y,X] & = - \sum_{x \in K_X,y \in K_Y } p[y,x] \log p[y] - \sum_{x \in K_X,y \in K_Y } p[y,x] \log p[y|x] \\
+%I[y,x] & = - \sum_{x \in K_X,y \in K_Y } p[y,x] \log \dfrac{ p[y,x]}{p[y]p[x]} \\%
+I[Y,X] & = - \sum_{x \in K_X,y \in K_Y } p[y,x] \log \dfrac{ p[y|x]}{p[y]} \\
+\end{split}
+\end{equation}
+where the mutual information  by virtue of the observation of $X$ we obtain a prior $p[y]$  and a posteriori $p[y|x]$ that reduce the uncertainty. When we observe $Y$ to be independent of $X$ Note also $I[Y,X] = I[X,Y] \geq 0$ provided $X$ and $Y$ are independent. We may then infer $I[Y,X] =  H[X] - H[X|Y]$, and $I[Y,Y] = H[Y] - H[Y|Y] = H[Y]$.  We note that $I[Y,X] =  H[Y] + H[X] - H[Y,X]$ as $H[Y,X] = H[Y] + H[X|Y]$.
+
+\section{Chapter X: Optimal Divergence}
+
+\subsection{Variational Autoencoder}
+
+The penalty  to describe $[X]$ when using the wrong distribution $q[x]$ describes $[X]$ was shown to be $D_{KL} [p[y]||u[y]$; such that the length of the codeward $E[L[X]] = 1+ D_{KL} [p[y]||u[y] +  H[x]$. \emph{Generative models} build models of distributions, which attempt to capture the materiality of the true-distribution $p[x]$ , as accurately  possible. For instance Generative Adversarial Networks (GANs), a class of non-parametric non-linear estimators, learn the structure of latent dependencies in a high-dimensional space and then attempt to generate a model in a low-dimension by minimizing $D_{KL} [p[y]||u[y]$; this may be shown is being equivalent to maximizing the log-likelihood ratio by optimizing model parameters $\theta$ when observing $Y$,
+\begin{equation}
+\begin{split}
+& D_{KL} [p^{source}[Y]||[q[Y|\theta]] = \sum_{y} p^{source}[Y] \log \dfrac{p^{source}[Y]}{q[Y|\theta]}  \\
+& =   \sum_{y} p^{source}[Y] \log {p^{source}[Y] } - \sum_{y} p^{source}[Y] \log {q[Y|\theta]}\\
+& =   - \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log p[x_i|\theta]\Bigr]+ H[Y]  \longleftrightarrow \text{MLE}_{\hat{\theta}} = \arg \min_{\theta} D_{KL} [p^{source}[Y]||[q[Y|\theta]] = \arg \max_{\theta} \Bigl[ \lim\limits_{ N \rightarrow \infty } \dfrac{1}{N} \sum^N_{i=1} \log p[x_i|\theta]\Bigr]  \\
+%%&  \propto  \sum^N_{i=1} \log p[x_i|\theta]
+\end{split}
+\end{equation}
+we infer therefore that maximizing the maximum-likelihood (LHS) is equivalent to a minimization of the RHS,
+\begin{equation}
+\begin{split}
+ D_{KL} [p^{source}[Y]||[q[Y|\theta]] &  \propto \dfrac{1}{N} \sum^N_{i=1} \log p[x_i|\theta]
+\end{split}
+\end{equation}
+\subsection{Variational Bayesian Methods}
+
+\section{Chapter 0: Advanced Topics}
+An emerging field in Machine Learning is the adoption of techniques from quantum computing to aid the development of ML algorithms.
+Although the concept of probability distributions does not hold in quantum theory, a quantum-mechanical amplitude probability is used to describe the corresponding random variable.
+m
+\subsection{Quantum Formalism}
+%%A brief introduction to quantum formalism
+The basic notion of \emph{standard formalism} in quantum mechanics, considers \emph{observables} as being best represented by a Hermitian Matrix or a Hermitian operator. The Hermitian exists in a complex linear space\footnote{Let us consider a matrix $Z = [z_{i,j}]$; iff $[z_{i,j}
+ =  [\overline{z}_{j,i}][,\forall z \in \mathbb{C}$, then $Z$ is the Hermitian}, a Hilbert space $H$, which is the complete space defined by the scalar product $\inn{\Psi_1,\Psi_2}$, which gives rise to the  norm $||\Psi|| = \inn{\Psi,\Psi}$ and distance $d_{H}[\Psi_1,\Psi_2] = ||\Psi_1 - \Psi_2 ||$\footnote{We can define the scalar product as the function which maps a Cartesian product of the Hilbert space $H \times H$ to a complex number $\mathbb{C}$.}. The scalar product confers:
+\begin{enumerate}
+\item $\inn{\Psi | \Psi} \geq 0$, \\
+\item $\inn{\Psi_1,\Psi_2} = \overline{\inn{\Psi_1,\Psi_2}}$, \\
+\item $\inn{\phi|k_1 \Psi_1 + k_2 \Psi_2} = k_1\inn{\phi|\Psi_1} + k_2\inn{\phi|\Psi_2} {        }\forall k_1,k_2 \in \mathbb{C}$
+\end{enumerate}
+where $H$ consists of Project Valued Measures; such that given a projection $\pi_b$, the identity operator $\pi_b^2 = \pi_b$, $\pi_b \geq 0$ and $\sum_{b} \pi_b = I$  an orthogonal decomposition must be given by $\text{tr}[ \pi_b \pi_{b'} ] = 0$ where the subspaces span the state space, $\sum_{b=1}^{k} \pi_b = U$.
+\subsection{Pure states**}
+Let us consider a normalization of vectors in the complex Hilbert Space $H$;
+$
+\braket{\Psi} = 1
+$
+this vector $\ket{\Phi}$ of unit length importantly is termed the \emph{pure state} of a quantum system; such that there for pure states, $\Psi_a \sim \Psi_b$ given a phase factor $e^{i \theta}$ iff,
+$$
+\Psi_a \equiv e^{i\theta}\Psi_b \: \: \forall \theta \: \in [0,2 \pi)
+$$
+Therefore we must have an orthonormal projection operator on a normalized vector of each pure state $\Psi$ as\footnote{Note, the projection operator corresponding to a pure state is expressed by the matrix $P_{\psi} = {p}_{j,i}$, it has the defining properties 1. $\hat{P}_{\Psi}^2 = \hat{P}_{\Psi}$, 2. tr[$\ket{\Psi}\bra{\Psi}$]=1, \st{$ \text{tr} P = \sum_j {P}_{i,i}$}  3. ${P}_{i,j} = \overline{{P}}_{j,i}$ and 4. $\inn{P\phi,\phi} \geq 0 \: \forall \: \phi$}
+$$
+\hat{P}_{\Psi}[ \phi] = \ket{\Psi}\inn{\Psi,\phi}
+$$
+where $\hat{P}_{\Psi} = \ket{\Psi}\bra{\Psi}$ is the \emph{projection operator}. Therefore $\Psi = [\alpha , \beta ]^T$ given $|\alpha|^2 +  |\beta|^2 = 1$ such that,
+
+$$
+P_{qubit} =
+\left[
+  \begin{array}{cc}
+    P_{1,1} & P_{1,2}  \\
+    P_{2,1}  & P_{2,2}  \\
+  \end{array}
+\right]
+=
+\left[
+  \begin{array}{cc}
+  |\alpha|^2 & \overline{\alpha} \beta \\
+    \alpha \overline{\beta}  & |\beta|^2   \\
+  \end{array}
+\right]
+$$
+\subsubsection{Generalized Observables; Positive Operator Valued Measure}
+With much of the language surrounding quantum mechanical standard formalism being considered as equivocal and found to be limited in it's applicability to explain experimental observations; this lead to the development of the \emph{Generalized Model of Quantum Theory}. In a generalized model, the \emph{generalized observable} of a Positive Operator Valued Measure (POVM) has an identity operator $\pi_b \geq 0$ and $\sum_{b} \pi_b = I$ (i.e. I is the unit operator) and a non-orthogonal decomposition $tr [\pi_b \pi_{b'} \neq 0]$ (Busch 2005 reference; the probability obtained from a random variable is obtained using the POVM or the quantum mechanical measurement probability $p_b$ of obtaining the $b$th event under the projection $\pi_{b}$, i.e. $\pi_b$ is a family of Hermitian operators, given by the unit-trace,
+\begin{equation}
+p_b = \text{tr}[ \rho \pi_b]
+\end{equation}
+where $\rho_b$  is a semi-positive \st{Hermitian} density operator from the density matrix $\mathbf{\rho} = \sum_b^k \rho_b p_b$; therefore the POVM within Quantum Mechanics replaces projector operators. The identity operators may also be represented as a combination of non-unique linear operators,
+\begin{equation}
+\pi_b = V_b^{*} V_b
+\end{equation}
+such that probability $p_b$ can therefore be represented by the unit-trace as,
+\begin{equation}
+p_b = \text{tr}[ \rho \pi_b] = \text{tr}[ V_b^{*} \rho V_b]
+\end{equation}
+Therefore the \emph{post-measurement} probability of being in state $b$,
+\begin{equation}
+\rho_b = \dfrac{V_b^{*} \rho V_b}{\text{tr}[ V_b^{*} \rho V_b]}
+\end{equation}
+\textbf{Connect the next section}
+So in the Hilbert space, the fixed orthonormal basis $\ket{\alpha}$ consists of quantum states. Therefore the quantum system has a probability $p_b$ that it is in quantum state $\ket{\Psi_b}$ where in  $\inn{\Psi_b,\Psi_b} = 1$, such that at any given time proportional $p_b$  are in $\ket{\Psi_b}$; note that the quantum states are not constrained to being orthogonal. The set of states  spanned are defined by $p_b>0$ and $\sum_b^k p_b = 1$\footnote{In quantum mechanics, the self-adjoint operator $\hat{A}$ of an observable $A$ (i.e. $\hat{A}^T =\hat{A}$) is applied to a wavefunction to determine the expectation when in state $\ket{\Psi}$; wherefore if $\hat{A}\ket{\Psi}$ then a $\ket{\Psi}$ then $a$ is the  eigenvalue of $\hat{A}$ with eigenstate $\ket{\Psi}$}. The expectation therefore of the observable is given by,
+\begin{equation}
+\begin{split}
+\inn{A} & = \sum_b^k p_b \inn{\Psi_b | A | \Psi_b}\\
+& = \sum_b^k p_b \sum_{d,e}^l p_b \inn{\Psi_b | A} \inn{d| A | e} \inn{e | \Psi_b}\\
+& = \sum_b^k \sum_{d,e}^l p_b \inn{e | \Psi_b} \inn{\Psi_b | A} \inn{d| A | e} \\
+& = \sum_{d,e}^l \inn{e|\rho|d} \inn{d| A | e} \\
+& = \text{tr} [\rho A ]
+\end{split}
+\end{equation}
+where the density $\rho$ confers $\rho = \sum_b^k p_b\ket{\Psi_b}\bra{\Psi_b}$, $tr[\rho] = 1$, $\rho^T = \rho$, $\rho =  \sum_K \lambda_K\ket{K}\bra{K}$ such that $\inn{K|\rho|K}$, $0 \geq \lambda_K \leq 1$, $\sum_K \lambda_K = 1$; $\ket{\Psi}\bra{\Psi}$. (18.435/2.111 POVM Lecture//print25) Let us consider a two-dimensional space with basis consisting of two orthonormal vectors $[\ket{1},\ket{2}]$ such that the three-dimensional space may be represented by a basis consisting of two orthonormal vectors $[\ket{0},\ket{1},\ket{2}]$. We can consider state $\Psi$ such that in two-dimensions $\inn{1|\Psi|1} = 1/2$ and in three-dimensions $\inn{1|\Psi|1} = 1/3$. We therefore obtain the measurement of the quantum state in a reduced subspace $\pi_i$ with a projection length $\inn{\Psi |\pi_i| \Psi}$; this maps state $\ket{ \Psi }$ to $\pi_i$ at a length proportional to the square of the projection,
+\begin{equation}
+\dfrac{{\pi_i \ket{\Psi}}}{{\inn{\Psi |\pi_i| \Psi }^{1/2}}}
+\end{equation}
+We may therefore for a two-dimensional space (read print28quantum.pdf), give a Hamilton space $\mathpzc{H}$ $\ket{\Psi}$ that is a linear combination of vectors from that basis space. We  obtain the 'probability amplitudes'; $P_{1,2}[x]= |\Psi_{1,2}[x]|^2$, $P_{1}[x] = |\Psi_{1}(x)|^2$ and $P_{2}[x] = |\Psi_{2}(x)|^2$ where the quantum state $\Psi_{1,2}[x]$ therefore is $\Psi_{1,2}[x] =  \Psi_{1}[x] + \Psi_{2}[x]$. Therefore if we have a qubit in a two-dimensional space, its state is a unit vector in it's space with basis vectors $\ket{0}$ and $\ket{ 1}$. In the three-dimensional case where we add a basis vector $\ket{2}$ to the qubit, the orthonormal basis is in the three-dimensional space where each basis vector lies outside the subspace of the original qubit's:
+\begin{equation}
+\begin{split}
+\dfrac{\sqrt{2}}{\sqrt{3}}\ket{0} + \dfrac{1}{\sqrt{3}}\ket{2} & \\
+-\dfrac{1}{\sqrt{6}}|\ket{0} + \dfrac{1}{\sqrt{2}}\ket{1} + \dfrac{1}{\sqrt{3}}\ket{2} & \\
+-\dfrac{1}{\sqrt{6}}|\ket{0} - \dfrac{1}{\sqrt{2}}\ket{1} + \dfrac{1}{\sqrt{3}}\ket{2} &
+\end{split}
+\end{equation}
+therefore we may obtain the probability of the first vector,
+$$
+\bigr|(\dfrac{\sqrt{2}}{\sqrt{3}}\bra{0} + \dfrac{1}{\sqrt{3}}\bra{2})\ket{\Psi}\bigr|^2 = \bigr|\dfrac{\sqrt{2}}{\sqrt{3}}\inn{0|\Psi} \bigr|^2
+$$
+where we obtain it's quantum states as the unnormalized vector (check this - is this reall an unnormalized vector)  $\ket{e_1} = \sqrt{2}/\sqrt{3} \bra{0}$, $\bra{e_2} = - \sqrt{1}/\sqrt{6} \bra{0} + \sqrt{1}/\sqrt{2} \bra{1}$ and $\ket{e_3} = - \sqrt{1}/\sqrt{6} \ket{0} - \sqrt{1}/\sqrt{2} \bra{1}$. By definition for probabilities,
+\begin{equation}
+\begin{split}
+& \sum_{i=1}^k |\inn{e_i|v}|^2 = 1 \\
+& \sum_{i=1}^k \inn{v|e_i}\inn{e_i|v}  = 1 \\
+& \sum_{i=1}^k \inn{v|e_i}\inn{e_i|v}  = 1 \\
+\end{split}
+\end{equation}
+where $v$ is a unit vector. A necessary condition for the ensemble of $m_b$ matrices to be a POVM measurement is that there corresponding probabilities must always sum to 1. Let us consider $k$ unnormalized quantum states and $\sum_{i=1}^k \ket{e_i}\bra{e_i}$ is known to be Hermitian matrix $\mathbf{M}$ (an identity matrix) there are,
+\begin{equation}
+\begin{split}
+& \bra{u}\bigr( \sum_{i=1}^k \ket{e_i}\bra{e_i} \bigr)\ket{u} = 1 \\
+& |\bigr( \sum_{i=1}^k \ket{e_i}\bra{e_i}` \bigr)|  = I
+\end{split}
+\end{equation}
+We can therefore state that for an identity matrix $M$, coordinate entry $(a,b)$ corresponds to row $a$ and column $b$, i.e. $\inn{a,e_b}$. Provided each  $i$-th row is orthonormal in a $k$-dimensional space, we obtain the inner product for row $j$ and row $k$ a $\sum_{b=1}^{c} \inn{j,e_b} e_b k$ such that for $k$ dimensions,
+\begin{equation}
+\begin{split}
+& \inn{j |\bigr( \sum_{i=1}^k \ket{e_i}\bra{e_i} \bigr)| k} = 1 \\
+& \inn{j,k}
+\end{split}
+\end{equation}
+This therefore implies that for a projective measurement in a large space where it is restricted to a smaller space, it may be expressed as a  POVM of rank-1 by of unnormalized vectors $\ket{e_i}$ as,
+\begin{equation}
+\sum_{i=1}^k \bra{e_i}\ket{e_i}   = I
+\end{equation}
+therefore given a set of matrices $\gamma_i$ we have $\sum_{b=1}^{c} \gamma_b = I$ such that the probability is defined as,
+$$
+p_i = \inn{\Psi,\gamma_i,\Psi}
+$$
+therefore the we may show that the set of probabilities across $b$ matrices is  $1$,
+\begin{equation}
+\begin{split}
+& \sum_{b=1}^{c} p_b = \sum_{b=1}^{c} \inn{\Psi,\gamma_b,\Psi} \\
+& = \sum_{b=1}^{c} \text{tr} \ket{\Psi}\bra{\Psi} \gamma_b \\
+& =  \text{tr} \ket{\Psi}\bra{\Psi} \sum_{b=1}^{c} \gamma_b \\
+& =  \text{tr} \ket{\Psi}\bra{\Psi} I\\
+& = 1
+\end{split}
+\end{equation}
+which infers that each matrix $\gamma_b$ is a unique POVM measurement on a reduced subspace $\pi_b$. Therefore for a matrix $\gamma_b$ with the same rank as $\pi_b$ we must have,
+\begin{equation}
+\begin{split}
+\gamma_b & = \sum_a \ket{e_{a,b}}\bra{e_{a,b}} =  \sum_a \lambda_a \ket{f_{ab}}\bra{f_{ab}} \leftrightarrow  \pi_b = \sum_a \ket{v_{a,b}}\bra{v_{a,b}}
+\end{split}
+\end{equation}
+therefore there is a relationship between ${\Psi}$ and the quantum state in a higher dimension $\hat{\Psi}$,
+\begin{equation}
+\begin{split}
+\inn{\Psi|\gamma_b|\Psi}=\inn{\hat{\Psi}|\pi_b|\hat{\Psi}}
+\end{split}
+\end{equation}
+
+\newpage
+\subsection{Von Neumann Entropy}
+From a classical information theory standpoint, we must be able to obtain an expression for the reduction in the uncertainty of an observation $Y$ conditioned on $X$ as,
+\begin{equation}
+I[Y,X] = H[Y] - H[Y;X]
+\end{equation}
+such that given the conditional probability $p[y|x]$, the amount of information that may be obtained when transmitting across a noisy channel,
+\begin{equation}
+I[Y,X] = - \sum_{x \in K_X,y \in K_Y } p[y,x] \log \dfrac{ p[y|x]}{p[y]}
+\end{equation}
+However the Shannon entropy and mutual information measures are restricted to classical probability distributions. However we may adapt the Shannon entropy to the Quantum mechanical from of reference, by considering a density matrix as being analogous to a probability distribution. Therefore, instead of a classical probability relationship we may employ the quantum-information counterparts known as the quantum-mechanical \textbf{density amplitude probability} (check this), we arrive at a correct definition.  (extend this) For a given density matrix Von Neumann defines entropy as,
+\begin{equation}
+\mathpzc{S} [\rho] \equiv - \text{tr} [ \rho \: \log [\rho] ]
+\end{equation}
+where iff $\lambda_{\alpha}$ are the eigenvalues of the density matrix we may equivalently express the Von Neumann entropy as;
+matrix Von Neumann defines entropy as,
+\begin{equation}
+\mathpzc{S} [\rho] \equiv - \sum_{\alpha} \lambda_{\alpha} \text{log} \lambda_{\alpha}
+\end{equation}
+therefore if we choose an orthonormal basis $\ket{\alpha}$ such that $\rho = \sum_{\alpha} \lambda_{\alpha} \ket{\alpha}\bra{\alpha}$,
+$
+\mathpzc{S} [\rho] = H[\mathpzc{Y}]
+$
+where $H[\mathpzc{Y}]$ is the Shannon entropy; note, that where the composition of the alphabet consists of orthogonal pure states the quantum source must be  equivalent to am information source such that,
+$
+\mathpzc{S} [\rho] = H[Y]
+$.
+\newpage
+
+With a recent development of quantum computing, many machine learning work start to consider techniques of quantum mechanics such as quantum many-body physics[8, 9, 10],
+phase-transitions [11], quantum control [12, 13], and quantum error correction [14, 15] because those methods can
+be used for machine learning data analysis. A
+
+The preparation of quantum states using short quantum circuits is one of the most promising near-term applications of small quantum computers, especially if the circuit is short enough and the fidelity of gates high enough.
+
+The authors also implemented the phase estimation algorithm for quantum chemistry [32], which did not reach chemical accuracy due to the degradation of gate fidelity in the absence of error correction on their device.
+
+However, a large scale of
+quantum circuits cannot be faithfully employed upon the quantum computing platforms due to the lack of quantum
+error correction [18, 19]. T
+
+We have begun to see the adoption of quantum computing in Tensor models, where the tensor circuits are replaced by tensor network quantum circuity; in both supervised and unsupervised machine learning the quantum based tensor models have been shown to provide initially promising results [Exponential machines/Novikov, Supervised learning with tensor networks/Stoudenmore, Machine Learning by two-dimensional hierarchical tensor/Liu, Learning relevant features of data with multi-scale tensor netorks/Stoudenmire, Unsupervised generative modeling using matrix product states/Han]. Although Quantum Machine Learning as an application of quantum mechanics  has considerable potential, presently the limited number of qubits and the high incidence of error rates limits their fullscale adoption. One approach to deal with the limitation in the number of qubits is to adopt a novel architecture based on Tensor networks or scalable Tensor networks [ref Towards Quantum Machine Learning with Tensor Networks/Higgings].
+
+
+\subsection{breal}
+If instead of classical probability relationships we employ their quantum-information counterparts we may obtain the quantum-mechanical density amplitude probability, we arrive at a correct definition. We may be able to therefore extend our understanding of entropy to discipline of quantum information. We can consider a codeword at the source consisting of $z$ realizations chosen from an ensemble of quantum states belonging to an alphabet $\mathpzc{Z_Q}$ where each realization is according to a probability $p_Q[z]$.
+
+
+
+
+%We can  like to generalize these considerations to quantum information. So let us imagine a source that prepares messages of n letters, but %where each letter is chosen from an ensemble of quantum states. The signal alphabet consists of a set of quantum states ρx, each occurring %with a specified a priori probability px. As we have al
+
+\section{Chapter 2.1: Feature Importance Analysis}
+
+
+In this section, we demonstrate that ML provides intuitive and effective tools for researchers who work on the development of theories. Our exposition runs counter to the popular myth that supervised ML models are black-boxes. According to that view, supervised ML algorithms find predictive patterns, however researchers have no understanding of those findings. In other words, the algorithm has learned something, not the researcher. This criticism is unwarranted.
+Even if a supervised ML algorithm does not yield a closed-form algebraic solution (like, for example, a regression method would do), an analysis of its forecasts can tell us what variables are critically involved in a particular phenomenon, what variables are redundant, what variables are useless, and how the relevant variables interact with each other. This kind of analysis is known as “feature importance,” and harnessing its power will require us to use everything we have learned in the previous sections.
+
+
+\section*{GPU}
+You will get the best performance from GPU if your application is: – Computation intensive – Many independent computations – Many similar computations
+
+\newpage
+
+\section{Chapter: Numerical Computation}
+
+please refer to this page: https://www.sciencedirect.com/topics/computer-science/convolutional-network
+
+Machine learning and deep learning have flourished within AI recently, where otherwise explicit or programmed algorithms have been deemed inadequate or infeasible, mainly as these explicit approaches present a one-way model unable to account for knowledge \emph{a posteriori} in their design. Machine learning algorithms detect patterns that may then be used to training an application; unfortunately conventional machine learning algorithm still requires some level of conscious human engagement in the form  of domain expertise to carefully curate or classify a set of engineered features that would be extracted from raw data. To this end, \emph{machine learning systems} present algorithms are based on logic  inferred from raw data rather than logic that is explicitly programmed.  Contrastingly deep learning presents methods that allow machine learning systems to automatically extract highly complex  features from raw data; this machine learning approach is considered “deep” as it is based on a model of self-centred hierarchical multilevel feature representation\footnote{There is an often stated self-contradictory argument in the use of deep learning - where an algorithm disregards the domain expertise. By limiting the absolute power of a domain expert the "knowledge" obtained is in itself self-contradictory.}. We consider here acceleration techniques for learning algorithms with GPUs including: how a basic machine learning implementations may be improved through memory management techniques and by adopting matrix–matrix multiplication in a multilevel implementation.
+
+ \subsection{Deep Learning}
+
+    Deep learning algorithms require large amounts of data during a training stage to automatically construct hierarchical feature extractors for classification and pattern recognition. The large amounts of labelled data required by deep learning systems were not available until just over 20 years ago; until the late 1990s it was considered computationally impracticable to build networks with sufficient layers that would  match machine learnings manually-curated and domain-specific feature extractors. {Deep learning algorithms up until that time were considered a subpar approach for classification and pattern recognition when compared to classical machine learning which considered carefully curated engineered features constructed by domain experts.} By 2006 researchers using GPUs were able to  develop deep learning techniques that could create multilayer feature extractors trained by an unsupervised learning model\footnote{Earlier techniques had developed ConvNets by assuming that higher layers in the network did not exist and were thus ignored whilst learning lower layers. The innovation in this model was that they assumed a higher layer exists but its weights which are  constrained to a complementary prior; using variational bounds, a simple factorial approximation therefore might be an accurate approximation for a true posterior; the overall generative model improves. Effectively once a lower layer is learned it might then be unconstrained: lower weights are then untied from weights in higher layers.}. The network considered had approximately 100 million parameters and was able to be trained in a day compared to several weeks by earlier algorithms.  This use of GPUs instead of CPUs would lead to rapid improvements in throughputs for learning complex, highly nonlinear models; but the learning algorithms were still considered too slow for large applications and were primarily limited to the areas of speech recognition. 
+
+<<include figure 1a>>
+
+ Deep learning, often referred to as a deep "feed-forward" network or multilayer perceptron (MLP), allows information flows from one layer of a network to the next within the model\footnote{The multilayer perceptron is a mathematical function which maps input values to a set of output values; where the specific function may be chosen to  provide a novel representation of the set of inputs.}. An often modeled feedforward deep network is the convolution network or  \emph{ConvNet}; ConvNets are often simpler to train than other feed-forward networks whilst allowing for considerable levels of abstraction. The ConvNets feedforward networks are high compute-to-bandwidth algorithms which exhibit high levels of parallelism, distinctions which make them suited to [acceleration by] GPUs. 
+ 
+ <<feedback Febuary 7th 2021; he is very assuie, uses aussie keys>>
+ 
+ Conventional CPUs have achieved throughput improvements through data parallelization of a class of machine learning algorithms and there is no subdivision of work(Chu et al., 2006);  each core independently works on a different set of inputs. Comparatively two-level parallelism of GPUs is considerably more powerful as top-level GPU (Nvidia Model) blocks   exploit data parallelization and GPU threads further divide computations into groups of threads called \emph{blocks}. Further each block runs on a multiprocessor and within that multiprocessor, each thread is scheduled to run on a stream processor. GPUs by design maintain millions of active threads and then schedule threads to tens of thousands of cores with limited scheduling overhead. For many massively parallel algorithms, a bottleneck arises in transferring data between RAM and a global memory\footnote{The NVIDIAs current range of GPUs includes GEFORCE GTX 3090 which has 10496 cores and of 24GB memory.}. But there are fundamentally two primary areas of contention when apply neural networks more generally to learning in high dimensional datasets: 1) Limited by available raw computing power and a memory when considering large training parameters 2) neural networks are a black-box and are not guaranteed to capture the underlying mathematical model \footnote{This includes the fundamental equations and accompanying boundary condition (BCs).}, 3) neural networks are agnostic to a  field of study. Only in 2012 were ConvNets first able to used within computer vision; researchers introduced massively parallel algorithms using GPUs that improve the performance of large-scale machine learning applications (ref Large-scale Deep Unsupervised Learning using Graphics Processors). There an implementation of an unsupervised learning method was shown to be up to 70 times faster than a CPU implementation, in a large-scale machine learning system. Their the network had approximately 60 million parameters and was trained on 1.2 million high-resolution image database.\\
+ 
+
+ 
+ 0542436115
+ 
+<<include figure 1b>>
+
+A standard ConvNet architecture is characterized as having three types of properties: convolutional, subsampling (pooling) , and full connection layers. The networks are built upon 3 main ideas: local receptive fields, shared weights and spacial subsampling. Local receptive fields with shared weights are the essence of the convolutional layer and most architectures described below use convolutional layers in one form or another. Local receptive fields share weights, which are the basis of the "convolutional layer". Inputs and outputs to layers are referred to as “features"; the computation in a ConvNet is organized as a sequence of layers. Inputs and outputs to such layers are referred to as “feature maps.” The results or outputs generated by input feature maps;  each map is produced by performing a convolution between a small local patch of feature maps (input into C1) and the set of weights termed the “filter bank"\footnote{Therefore different feature maps within a layer will use a distinct set of filter banks; for a convolution layer that has n input feature maps and m output feature maps, n*m different filter banks must be used.}. The last layer in the architecture is termed an "output feature map", a vector which contains the probabilities that the original image belongs to a specific class.  All inputs within a particular feature map are processed by the same filter bank to generate a particular output feature map; such that a set of S data inputs consisting of feature maps of height "H" and width "W" - termed a HxW tensor, the feature maps maybe represented by an array X:[S, H, W]. Therefore an input for a forward propagation consisting of five input image of 28- pixels by 28- pixels will be represented by an array X:[3, 28, 28].  Therefore we may illustrate (illustrate using image figure 16.2)how input feature maps at the C1 layer may be stored in X:[1, 32, 32]  - i.e. an input image consisting of 32 pixels in the x and y dimensions. We will consider Boosted LeNet-4 in our discussion which follows. 
+
+
+<<include figure fig-1-7-boosted>>
+
+As detailed in fig-1-7-boosted, a "Boosted LeNet-4" (error rate 0.7\%) is a foundational ConvNet, considered as one of the first conventional ConvNets and was developed in the mid- 1990s by Yann Le-Cunn et Al \footnote{Another reason why LeNet is an important architecture is that before it was invented, character recognition had been done mostly by using feature engineering by hand, followed by a machine learning model to learn to classify hand engineered features. LeNet made hand engineering features redundant, because the network learns the best internal representation from raw images automatically.}. LeNet-4 was a small ConvNet by current standards, designed with 6-layers:  2 convolutional layers (C1, C3) (***5-by-5 convolutions with stride 1***), 2 sub-sampling (average pooling) layers, 1 connected layer , an output layer and a booster:
+
+
+\textbf{C1 - First Convolution Layer}: The input image of LeNet4 was a 32X32 input image. The first LeNet-4 layer is a convolutional layer that accepts the image as a (1,32,32) tensor which serves as an input. It performed a zero-padded convolution operation using (4,5,5) kernels with stride 1\footnote{input images may differ by up to 25 weights;}.  As a (4,5,5) convolutional mask or filters were used with the input (1,32,32) image, this would ordinarily have required the introduction of \emph{halo cells} into the (1,32,32) convolutional image. However the LeNet4 specification states a reduced set of (4,28,28) feature maps by using (4,5,5) convolutional mask (kernel). The (4,28,28) output feature map which was passed through a tanh activation (illustrate) function before passage to S2. [[The layer had 104 trainable parameters and 81,536 connections.]] \\
+
+\textbf{C3 - Second Convolution Layer:} The second convolution layer (i.e. LeNet-4’s third layer) accepts the (4,14,14) output tensor from layer S2, as an input. It performed another  zero-padded convolution operation consistent to C1; however switching between sixteen (5×5) kernels with stride 1 - equivalent to a (16,10,10) output feature map. The second convolution layers (16,10,10) feature map is obtained by using a (16,5,5) convolutional mask.  This tensor was feed into a tanh activation function before passage to S4.  \\
+
+\textbf{S2: First Sub-Sampling Layer:} The first average pooling layer (i.e. LeNet-4’s second layer) was a sub-sampling layer that accepted output from the layer C1, a (4,28,28) tensor as an input. It performed a zero-padded subsampling operation using a (2×2) kernel with stride two.  It obtained the (4,14,14) feature maps in the first average pooling layer by using (4,2,2) convolutional mask. An output (4,14,14) feature map was then passed to C3. \\
+
+
+\textbf{S4: Second Sub-Sampling Layer:} The second average pooling layer (i.e. LeNet-4's fourth layer) accepts an output from the layer C3, a (16,10,10) tensor as an input. It performed a zero-padded subsampling operation using a (2×2) kernel with stride of two. The (16,5,5) feature map for the second average pooling layer is obtained with the (16,2,2) feature map. This produced a flattened (16,5,5) output feature map before passage to F5. \\
+
+\textbf{F5: First Fully Connected Layer:} The first fully connected layer (i.e. LeNet-4’s fifth layer) accepts the flattened output of the layer S4, a flattened (16,5,5) output feature map as an input and performs a weighted sum operation with bias term. This produced a (1,120) output tensor is feed into a tanh activation function before passage to F6. \\
+
+\textbf{F6: Second Fully Connected Layer:} The second fully connected layer (i.e. LeNet-4’s sixth and final layer) accepts the (120×1) tensor input and performs a weighted sum operation. The resulting a (1,10) output tensor is passed through a softmax activation function; this is the output prediction  of the network. \\
+
+\textbf{B: Booster Layer:} The "booster" (discussed further in Chapter x) in the LeNet-4 configuration combines the results from "many" synergistic weak learners (classifiers with an error <0.5) to create a more significant "ensemble" result; each weak learners prediction is obtained off an average of gating function $\alpha_t$ on a classifier $h_t(x)$. The booster layer trains each subsequent complementary weak learner based of the "mistakes" observed of a previous weak learner by weighting the original input data using weights from a previous learner,
+\begin{equation}
+ \Bigr\{  w_{t-1,0}, w_{t-1,1}, ...  ,w_{t-1,N-1} \Bigr\}
+ \end{equation}
+  before combining across an ensemble of weak learners,
+  \begin{equation}
+  \Bigr\{ \Bigr( \alpha_0, h_0(x) \Bigl),...,  \Bigr(  \alpha_{N-1}, h_{N-1}(x) \Bigl)  \Bigr\}
+  \end{equation}
+   In this particular configuration the booster achieves an ensemble result $f(x)$ across the three LeNet-4 ConvNets
+ 	$f(x) = \sum_{t=1}^{3} \alpha_t h_t (x)$.
+ 	
+ 
+ <<figure 1-8-booster-algorithm>>
+ 	<<include figure 1c>>
+ 	
+
+
+\newpage
+(feedback February 6th 2021: 10am; it's a little snooty, 6:08pm; it's true, efficient and clean, player, tesla, your aussie phone, wari allison, WA735214)
+
+We define an input feature map as X:[S,K,K] where “S” is the number of input feature maps and "K” is the width of each square filter bank. This generates an output feature map where Y:[M, H-K+1, B-K+1], where “M” are the number of output feature maps, “H” is the image height, “B” is the  image breadth, and “K” is the breadth of each square filter bank. We may therefore define a filter bank "W" as W:[M, S, H-K+1, B-K+1]; i.e. a forward propagation of M three-dimensional convolutions. Note the output feature map "Y" is a the sum of convolutions of all input feature maps "X". Therefore the output feature maps at C1 layer are Y:[6, 28, 28]; i.e. C1 generates six output feature maps (i.e. an input image will change from 32x32x1 to 28x28x6), employs a 5×5 filter bank and (M,C) filter banks. Filter bank W:[m, s, $\beta_0$ , $\beta_1$] as an input feature map X:[s, $x_0$, $x_1$] which calculates the output features Y:[m, $y_0$, $y_1$]. 
+
+<<Add figure 16.3 here from Programming Massively Parallel Processors”. Apple Books.>>
+
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{input features, $\mathbf{X}$} 
+	\Input{weights, $\mathbf{W}$}
+	\Output{output features,$\mathbf{Y}$}
+\vspace{0.1in}
+	{\textbf{Function} \textsc{ForwardConvolutionLayer} (int M, int S, int H, int W, int K, float X, float W, float Y)}\\
+	\vspace{0.05in}
+	 $S_{\alpha} \leftarrow$ is the $\alpha$th input image of input feature map $S$ of filter bank $S \times K \times K$\\
+	  $(K_{\gamma}, K_{\beta})  \leftarrow$ the height/width of each filter bank where $K_{\gamma} = K_{\beta}$ of filter bank $S \times K \times K$\\
+	 $M_m \leftarrow$ is the $m$th output image of output feature map $M$\\
+	 $H_{j,m} \leftarrow$ the height of the $j$th image of the $m$th output image\\
+	 $B_{k,m} \leftarrow$ the breadth of the $j$th image of the $m$th output image\\
+	 	\vspace{0.05in}
+	 int $Hv_{m} = H_{m} - K  + 1$ \\
+	 int $Bv_{m} = B_{m} - K  + 1$
+
+%	\Input{Five nonnegative integers $M$, $S$, $H$, $B$ and $K$, Two nonnegative floats $X$ and $W$. }
+%	\Output{$Y$:$[m, y_0, y_1]$}
+	\vspace{0.05in}
+	\For{\text{for each item $m$ in $M_m$}}
+	{
+			\For{\text{for each item $j$ in $Hv_{j,m}$}} 
+				{
+					\For{\text{for each item $k$ in $Bv_{k,m}$}} 
+					{
+						 {$Y : [m,h,w] = 0$} \\
+						 \For{\text{for each item $\alpha$ in $S_{\alpha}$}}
+						 {
+						 	\For{\text{for each item $\gamma$ in $K_{\gamma}$}} 
+						 	{
+						 		\For{\text{for each item $\beta$ in $K_{\beta}$}} 
+						 		{
+						 			{$Y:[m,h,w]$} = {$Y:[m,h,w]$}  + ({$X:[m,h+p,w+q]$} $\times$  {$W:[m,c,p,q]$})
+						 		}
+						 	}
+						 }
+					}
+				}
+	}
+
+	\caption{Standard sequential implementation of the forward propagation of a convolution layer.}
+\end{algorithm}
+(also have the above in C++)
+
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{weights, $\mathbf{W}$}
+	\Output{output features,$\mathbf{Y}$}
+	\Output{output features from pooled subsample layer,$\mathbf{Y'}$}
+	\vspace{0.1in}
+	{\textbf{Function} \textsc{SubSampledConvolutionLayer} (int M,  int H, int W, int K, float Y, float Y')}\\
+	\vspace{0.05in}
+	$S_{\alpha} \leftarrow$ is the $\alpha$th input image of input feature map $S$ of filter bank $S \times K \times K$\\
+	$(K_{\gamma}, K_{\beta})  \leftarrow$ the height/width of each filter bank where $K_{\gamma} = K_{\beta}$ of filter bank $S \times K \times K$\\
+	$M_m \leftarrow$ is the $m$th output image of output feature map $M$\\
+	$H_{j,m} \leftarrow$ the height of the $j$th image of the $m$th output image\\
+	$B_{k,m} \leftarrow$ the breadth of the $j$th image of the $m$th output image\\
+	\vspace{0.05in}
+	int $Hv_{m} = H_{m} - K  + 1$ \\
+	int $Bv_{m} = B_{m} - K  + 1$
+	
+	%	\Input{Five nonnegative integers $M$, $S$, $H$, $B$ and $K$, Two nonnegative floats $X$ and $W$. }
+	%	\Output{$Y$:$[m, y_0, y_1]$}
+	\vspace{0.05in}
+	\For{\text{for each item $m$ in $M_m$}}
+	{
+		\For{\text{for each item $j$ in $Hv_{j,m}/K$}} 
+		{
+			\For{\text{for each item $k$ in $Bv_{k,m}/K$}} 
+			{
+				$Y' : [m,h,w] = 0$
+		
+					\For{\text{for each item $\gamma$ in $K_{\gamma}$}} 
+					{
+						\For{\text{for each item $\beta$ in $K_{\beta}$}} 
+						{
+							{$Y':[m,h,w]$} = {$Y':[m,h,w]$}  +  {$Y:[m,K \times x + p,K \times y + q]/(K \times K)$}  
+						}
+					}
+				{$Y':[m,h,w] = \text{ReLU} (Y':[m,h,w]  + b:[m])$} 
+				(complete the ReLU filter designations)
+			}
+		}
+	}
+	
+	\caption{Sequential implementation of forward propagation of convolution layer using ReLU nonlinear filter.}
+\end{algorithm}
+(also have the above in C++)
+
+
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{weights, $\mathbf{X}$}
+	\Input{weights, $\mathbf{W}$}
+	\Output{output features,$\mathbf{Y}$}
+	\Output{output features from pooled subsample layer,$\mathbf{Y'}$}
+	\vspace{0.1in}
+	{\textbf{Function} \textsc{MatConvolutionLayer} (int N, int M, int S, int H, int B, int K, float X, float W$_{unroll}$, float Y)}\\
+
+	\vspace{0.05in}
+
+	
+	int$H' = H - K + 1$ \\
+	int	$B' = B - K + 1$ \\
+	int	$B_{unroll} = S \times K \times K$ \\
+	int	$H_{unroll} = H' \times B'$ \\
+	float $X_{unroll} = \text{malloc}(B_{unroll} \times H_{unroll} )$ \\
+	
+	
+	%	\Input{Five nonnegative integers $M$, $S$, $H$, $B$ and $K$, Two nonnegative floats $X$ and $W$. }
+	%	\Output{$Y$:$[m, y_0, y_1]$}
+	\vspace{0.05in}
+
+			
+					\For{\text{each item} $n$ \text{in} $N$} 
+					{
+						$unroll(S, H, B, K, n, X, X_{unrolled})$ \\
+						$gemm(H_{unroll}, M, B_{unroll}, X_{unroll}, W, Y[n])$ \\
+					}
+				
+	
+			
+
+	
+	\caption{Implementation of forward path of convolution layer using matrix multiplication.}
+\end{algorithm}
+(also have the above in C++)
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{weights, $\mathbf{X}$}
+	\Output{output features,$\mathbf{X}_{unroll}$}
+	\vspace{0.1in}
+	{\textbf{Function} \textsc{unroll} ( int S, int H, int B, int K, float X, float $X_{unroll}$)}\\
+	\{
+	\vspace{0.05in}
+	
+	
+	int $H' = H - K + 1$ \\
+	int $W' = W - K + 1$ \\
+
+	
+	
+	%	\Input{Five nonnegative integers $M$, $S$, $H$, $B$ and $K$, Two nonnegative floats $X$ and $W$. }
+	%	\Output{$Y$:$[m, y_0, y_1]$}
+	\vspace{0.05in}
+	
+	
+	\For{\text{each item} $s$ \text{in} $S$} 
+	{
+		$w_{base} = s\times (K \times K);$ \\
+		\For{\text{each item} $p$ \text{in} $K$} 
+		{
+			\For{\text{each item} $q$ \text{in} $K$} 
+			{
+			\For{\text{each item} $h$ \text{in} $H'$} 
+			{
+				\For{\text{each item} $w$ \text{in} $W'$} 
+				{
+					$w_{unroll} = w_{base} + p \times K + q;$ \\
+					$h_{unroll} = h \times W' + w;$ \\
+					$X_{unroll}(h_{unroll}, w_{unroll}) = X(s, h+p, w + q);$
+					
+				}
+				
+			}	
+			}
+		}
+	}
+	\}
+	\caption{Function that generates the unrolled X matrix.}
+\end{algorithm}
+(also have the above in C++)
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{weights, $\mathbf{X}$}
+	\Output{output features,$\mathbf{X}_{unroll}$}
+	\vspace{0.1in}
+	{\textbf{Function} \textsc{unroll} ( int S, int H, int B, int K, float X, float $X_{unroll}$)}\\
+	\hspace{0.25cm}	\{
+	\vspace{0.05in}
+	
+	
+	\hspace{1.0cm}	int H-out= H - K + 1;\\
+	\hspace{1.0cm}	int W-out  = W - K + 1;\\
+	\hspace{1.0cm}	int num-threads = S $\times$ H-out $\times$ W-out; \\
+	\hspace{1.0cm}	int num-blocks = ceil(S$\times$H-out$\times$W-out)  / CUDA MAX$\_$NUM$\_$THREADS; \\
+	\hspace{1.0cm}	unroll$\_$Kernel$<<<$ num$\_$blocks ,CUDA MAX$\_$NUM$\_$THREADS$>>>$();
+
+\hspace{0.25cm}		\}
+	\caption{Host code for invoking the unroll kernel.}
+\end{algorithm}
+\
+\begin{algorithm}
+	\SetKwInOut{Input}{Input}
+	\SetKwInOut{Output}{Output}
+	\Input{weights, $\mathbf{X}$}
+	\Output{output features,$\mathbf{X}_{unroll}$}
+	\vspace{0.1in}
+	{{$\rule{0.75cm}{.4pt}$ global $\rule{0.75cm}{.4pt} $} \textsc{unroll\_Kernel} ( int S, int H, int B, int K, float X, float $X_{unroll}$)}\\
+	
+	\vspace{0.05in}
+	
+	\{ \\
+	int s, l, h-out, h-unroll, w-base, p, q; \\
+	int t = blockId.x $\times$ CUDA MAX$\_$NUM$\_$THREADS + threadId.x; \\
+	int H-out = H - K + 1 ;\\
+	int W-out = W - K + 1; \\
+	int W-unroll = H-out + W-out;\\
+		\vspace{0.05in}
+\hspace{0.1cm}	$\mathbf{If}${ (t < S $\times$  W$\_$unroll)} \\
+\hspace{0.25cm}	\{\\
+	\hspace{1.0cm}	s =  t / W-unroll; \\
+	\hspace{1.0cm}		l = t \% W-unroll; \\
+	\hspace{1.0cm}		h-out = l / W-out; \\
+	\hspace{1.0cm}		w-out = l \% W-out; \\
+	\hspace{1.0cm}		h-unroll = h-out $\times$ W-out + w-out;\\
+	\hspace{1.0cm}		w-base = s $\times$ K $\times$ K; \\
+	\hspace{1.5cm}		$\mathbf{for} (p=0,p<K,p++)$\\
+		\hspace{1.75cm}		$\mathbf{for} (q=0,q<K,q++)$\\
+\hspace{2.0cm}		\{ \\
+\hspace{2.5cm}		w-unroll = w-base + p $\times$ K + q; \\
+\hspace{2.5cm}		X-unroll(h-unroll, w-unroll ) = X(s,h-out + p, w-out, q);\\
+\hspace{2.0cm}		\}  \\
+\hspace{0.25cm}	\}\\
+\}
+	\caption{High-performance invocation of the kernel.}
+\end{algorithm}
+
+
+
+
+
+
+%%<<Use this reference https://arnabfly.github.io/arnab_blog/lenet4/>>
+%%<<https://hackernoon.com/deep-learning-cnns-in-tensorflow-with-gpus-cba6efe0acc2>>
+
+
+---->
+
+
+Fig. 16.4 shows a sequential implementation of the forward propagation path of a convolution layer. Each iteration of the outermost (m) for-loop generates an output feature map. Each of the next two levels (h and w) of for-loops generates one pixel of the current output feature map. The three innermost levels perform the 3D convolution between the input feature maps and the 3D filter banks.
+
+<<pseudocode here from Figure 16.4>>
+
+The output feature maps of a convolution layer typically go through a subsampling (also known as pooling) layer. A subsampling layer reduces the size of image maps by combining pixels. For example, in Fig. 16.2, the subsampling layer S2 takes six input feature maps of size 28 ×28 and generates six feature maps of size 14x14. Each pixel in a subsampling feature map is generated from a 2x2 neighborhood in the corresponding input feature map. The values of these four pixels are averaged to form one pixel in the output feature map. The output of a subsampling layer has the same number of output feature maps as the previous layer; however, each map has half the number of rows and columns. To illustrate, the number of output feature maps (6) of the subsampling layer S2 is the same as the number of its input feature maps or the output feature maps of the convolutional layer C1.
+
+Fig. 16.5 shows a sequential C implementation of the forward propagation path of a subsampling layer. Each iteration of the outermost (m) for-loop generates an output feature map. The next two levels (h, w) of for-loops generate individual pixels of the current output map. The two innermost for-loops sum up the pixels in the neighborhood. K is equal to 2 in our LeNet-5 example “in Fig. 16.2. A bias value b[m] that is specific to each output feature map is then added to each output feature map, and the sum goes through a nonlinear function such as the tanh, sigmoid, or ReLU functions to provide the output pixel values a more desirable distribution. ReLU [JKL 2009], a very simple nonlinear filter, passes only nonnegative values, as follows:”
+
+<<pseudocode here from Figure 16.5>>
+
+“To complete our example, the convolutional layer C3 has 16 output feature maps, each of which is a 10 ×10 image. This layer contains 6 ×16 filter banks, with each filter bank having 5 ×5 weights. The output of C3 is passed through the subsampling layer S4, which generates 16 5 ×5 output feature maps. The last convolutional layer C5, which uses 16 ×120=1920 5 ×5 filter banks to generate 120 one-pixel output features from its 16 input feature maps.
+These feature maps are passed through the Fully Connected layer F6 with 84 output units, where each output is fully connected to all inputs. The output is computed as a product of a weight matrix W with an input vector X. For the F6 example, W is a 120×84 matrix. Then bias is added, and output is passed through the sigmoid function. In summary, the output is an 84-element vector Y6=sigmoid (W*X+b), assuming the implementation presented in Fig. 16.2.
+The final stage is an output layer that uses Gaussian filters to generate a vector of 10 elements, which correspond to the probability that input image contains 1 of 10 digits. It also computes loss functions, which estimate the difference between the true label and the prediction.”
+
+
+\textbf{ConvNets: Backpropagation}
+Training of ConvNets is based on a procedure called gradient backpropagation [RHW 1986]. The training data set is labeled with the “correct answer.” In the handwriting recognition example, the labels give the correct digit in the image. The label information can be used to generate the “correct” output of the last stage: the correct probability values of the 10-element vector would be all “0” except the right digit which should have probability “1”.
+For each training image, the final stage of the network calculates the loss function or the error as the difference between the generated output vector element values and the “correct” output vector element values. Given a sequence of training images, we can calculate the gradient of loss function with respect to the elements of the output vector. Intuitively, it gives the rate at which the loss function value changes when the values of the output vector elements change.
+
+Backpropagation starts by calculating the gradient of loss function %∂E/∂Y% for the last layer. This process then propagates the gradient from the last layer toward the first layer through all layers of the network. Each layer receives as its input %∂E/∂Y% —“—gradient with respect to its input feature maps (Fig. 16.6).
+
+“We will now describe backpropagation for a convolutional layer, starting with the calculation of %∂E/∂X%.
+Note that the calculation of %∂E/∂X% is important for propagating the gradient to the previous layer. The gradient %∂E/∂X% with respect to the channel c of input X is given as the sum of “backward convolution” with corresponding WT(c,m) over all layer outputs m:
+
+“Fig. 16.8 demonstrates the calculation of the %∂E/∂X% function in the form of one matrix for each input feature map. The code assumes that %∂E/∂Y% has been calculated for all the output feature maps of the layer and passed with a pointer argument% dE_dY%. It also assumes that the space of %dE_dX% has been allocated in the device memory whose handle is passed as a pointer argument. The kernel will be generating the elements of% dE_dX%.”
+
+The algorithm for calculating %∂E/∂W% for a convolution layer computation is very similar to that of %∂E/∂X% and is shown in Fig. 16.9. Since each W(c,m) affects all elements of the output Y(m), we should accumulate gradients over all pixels in the corresponding output feature map:
+
+“Note that while the calculation of %∂E/∂X% is important for propagating the gradient to the previous layer, the calculation of ∂E/∂W is key to the weight value adjustments of the current layer.
+After the %∂E/∂W% values at all positions of feature map elements are evaluated, weights are updated iteratively to minimize the expected error: %W(t +1)=W(t)−λ* ∂E/∂W%, where λ is a constant called the learning rate. The initial value of λ is set empirically and reduced through the iterations in accordance with the rule defined by the user. The value of λ is reduced through the iterations to ensure the “convergence to a minimal error. The negative sign of the adjustment term makes the change opposite to the direction of the gradient so that the change will likely reduce the error. Recall that the weight values of the layers determine how the input is transformed through the network. This adjustment of the weight values of all the layers adapts the behavior of the network, i.e. the network “learns” from a sequence of labeled training data and adapts its behavior by adjusting weight values at all layers.
+
+The training data sets are usually large; thus, the training of ConvNets is typically accomplished using Stochastic Gradient Descent. Instead of performing a forward–backward step to determine %∂E/∂W% for the whole training data set, one randomly selects a small subset (“mini-batch”) of N images from the training data set and computes the gradient only for this subset. Subsequently, one selects another subset, and so on. If we would work by the “optimization book,” we should return samples to the training set and then build a new mini-batch by randomly picking subsequent samples. In practice, we go sequentially over the entire training set. We then shuffle the entire training set “and start the subsequent epoch. This procedure adds one additional dimension to all data arrays with n—the index of the sample in the mini-batch. It also adds another loop over samples.”
+
+Fig. 16.10 shows the revised forward path implementation of a convolutional layer. It generates the output feature maps for all samples of a mini-batch. During backpropagation, one first computes for the average gradient of the error with respect to the weights of the last layer over all samples in a mini-batch. The gradient is then propagated backward through the layers and used to adjust all the weights. Each iteration of the weight adjustment processes one mini-batch. The training is measured in epochs, where one epoch is a sequential pass over all the samples in the training data set. The training data set is typically reshuffled between epochs.
+
+
+---->
+
+
+
+
+\newpage
+
+\section{Computing with graphics processors --- is this oldx}
+
+We illustrate the principles of GPU computing using Nvidia’s CUDA programming model (Harris, 2008). Figure 1 shows a simplified schematic of a typical Nvidia GPU. The GPU hardware provides two levels of parallelism: there are several multiprocessors (MPs), and each multiprocessor contains several stream processors (SPs) that run the actual computation. The computation is organized into groups of threads, called “blocks”, such that each block is scheduled to run on a multiprocessor, and within a multiprocessor, each thread is scheduled to run on a stream processor. All threads within a  block (and thus executing on the same multiprocessor) have shared access to a small amount (16 KB) of very fast “shared memory,” and they can synchronize with each other at different points in their execution. All threads also have access to a much larger GPU-wide “global memory” (currently up to 4 GB) which is slower than the shared memory, but is optimized for certain types of simultaneous access patterns called “coalesced” accesses. Briefly, memory access requests from threads in a block are said to be coalesced if the threads access memory in sequence (i.e., the k-th thread accesses the k-th consecutive location in memory).1 When memory accesses are coalesced, the hardware can perform them in parallel for all stream processors, and the effective access speed (between the stream processors and the global memory) is several times faster than the access speed between a CPU and RAM. Since GPU computation and within-GPU memory accesses themselves are highly parallel, in many algorithms, the main bottleneck arises in transferring data between RAM and the GPU’s global memory. For example, the total time taken to multiply two 1000x1000 matrices using our GPU configuration is roughly 20 milliseconds, but the actual computation takes only 0.5\% of that time, with the remaining time being used for transfer in and out of global memory. A partial solution is to perform memory transfers only in large batches, grouped over several computations. In our example, if we were doing 25 different matrix multiplications and were able to perform memory transfers in large chunks (by transferring all inputs together, and transferring all outputs together), then as much as 25\% of the total time is spent in computation. Thus, efficient use of the GPU’s parallelism requires careful consideration of the data flow in the application.
+
+
+
+\end{document} 
