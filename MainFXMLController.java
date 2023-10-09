@@ -613,8 +613,7 @@ public class MainFXMLController implements Initializable {
              //sensor_longitude = 149.00694444444;
              //sensor_timezone_id = "Australia/Canberra";
              //sensor_altitude = 0.77;
-             
-
+            
              //sensor_latitude = -1.630783;
              //sensor_longitude = 6.700071;
              //sensor_timezone_id = "Africa/Kumasi";
