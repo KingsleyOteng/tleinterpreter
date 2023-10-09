@@ -1,0 +1,926 @@
+\documentclass[12pt]{article}
+\newlength{\rulelength}
+\setlength{\rulelength}{15cm}
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage[colorlinks]{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{framed}
+
+
+\begin{document}
+\newpage
+
+\textbf{What is the difference between the behaviour of an option hedge and a stock hedge?}
+
+An option hedge behaves in reverse to the position
+A stock hedge behaves in line with the option
+
+\textbf{Jerry entered into a \$20 million quarterly fixed-rate pay (8\% annually) equity swap on the S\&P 500 when its value was 1,000. Is he the fixed rate payer or the fixed rate receiver?}
+	
+He is the fixed rate receiver.
+
+\textbf{When interest rates are zero and we consider at-the-money-options - what happens to a call and put?}
+
+The put is equal to the call. 
+
+At the money, S = K
+
+Therefore from put-call-parity
+
+C + K = K + P
+
+C = P.
+
+
+
+\textbf{The value of the long position in a currency forward contract - can be interpreted as?}
+
+The PV of the difference in the foreign exchange forward prices.
+
+\begin{framed}
+	
+	\textbf{State the black-scholes equation?}
+	
+	$$
+	V = S N(d_1) - Ke^{-rT} N(d_2)
+	$$
+	
+		\textbf{State the black-scholes equation, as volatility approaches zero?}
+	
+	$$
+	V = S - Ke^{-rT} 
+	$$
+	
+	
+\end{framed}
+
+\begin{framed}
+	
+	\textbf{What is the delta-gamma estimate of an option price?}
+	
+	$$
+	P_T(S_t) = P_0 + \Delta. \Delta \S_t + (\Gamma. \Delta \S_t^2 / 2)
+	$$
+	
+	\textbf{When does the delta-gamma approximation fall short?}
+	
+	When there are large movements in the stock price 
+	
+\end{framed}
+
+\textbf{What does risk-neutral probability mean?}
+
+probabilities are independent of the risk free rate. ie 50/50
+
+\textbf{What are the risk-neutral probabilities of interest-rate options or options on bonds?}
+
+It is assumed to be 50/50; the term-structure is irrelevant
+
+\textbf{From put-call parity, what is a call option?}
+
+C + K = S + P
+
+C = S + P - K
+
+It's long a stock with borrowed money
+
+\textbf{From put-call parity, what is a p option?}
+
+C + K = S + P
+
+P = C + K - S
+
+It's short a stock and long a forward
+
+
+\textbf{What are the risk-neutral probabilities of  equity options?}
+
+they have to be calculated; assume the term-structure is however flat
+
+\textbf{What is the price currency and what is the base currency?}
+
+Base Currency / Price Currency = Base Currency / Quote Currency
+
+\textbf{ If the forward rate is higher than the spot rate, it means that the price-currency risk-free rate is lower than the base-currency risk-free rate. Trow or False?}
+
+True
+
+\textbf{Which of the following static risk measures pertaining to a portfolio can most likely be adjusted by undertaking stock trades?}
+
+Stocks have delta = +1.0/-1.0
+Stocks have Gamma = 0
+Stocks have Theta = 0
+
+Hence they can be adjusted by entering into stock trades
+
+\textbf{
+	An investor has determined that a call option is overpriced and wants to take advantage of the arbitrage opportunity. She has determined that the value of a stock in up and down periods is \$60 (S+) and \$40 (S-), respectively, and the value of a call on the stock in up and down periods is \$10 and \$0, respectively. In order to take advantage of the arbitrage opportunity, she should?}
+
+$$
+h = \dfrac{Call_{+} - Call_{-}}{Stock_{+} - Stock_{-}} \\
+= 0.5
+$$
+\textbf{How do the Vega of a call option and put option compare}
+
+They are indentical
+
+\textbf{From Libor how do we determine the underlying rate?}
+
+It is the libor for the month that the liborw would expire.
+
+\textbf{What type of option will never be exercised early? **********}
+
+An American Call Option on a non-divided paying stock
+
+\textbf{What is the expectations approach?}
+
+It is an approach that may only be used to price an American Call option with a non-dividend paying stock
+
+\textbf{What is the 'Net Cash Payment'?}
+
+Payment from your fixed/floating end + gains/losses from your floating/fixed end
+
+\textbf{Jerry entered into a \$20 million quarterly fixed-rate pay (8\% annually) equity swap on the S\&P 500 when its value was 1,000. Assume the value of the S\&P 500 is 900 at the end of the first quarter of the swap. Jerry's net cash payment as a percentage of the \$20 million notional value is closest to which of the following?}
+
+Net Cash Payment = 2 percent from the fixed size + 10 percent loss from the floating
+
+\textbf{An American exporter expects to receive a fixed amount of GBP in 3 months' time. The current spot exchange rate is \$1.31£, and the exporter is worried about a decline in the exchange rate, so he wants to purchase an at-the-money put option. The U.S. risk-free rate is 0.50\% and the GBP risk-free rate is 1.00\%. 1) which currency should he buy the put-option-for? 2) Which model should he use to price the option, 3) what risk-free rate should be used, 4) what is exercise price of the spot-exchange rate?}
+
+1) put on the GBP
+2) BSM
+3) that of the GBP
+4) \$1.31£, 
+
+\textbf{What is the main difference in terms of pricing of options by the BSM model and the binomial-pricing model?}
+
+1) BSM = prices path independnt options only
+2) Binomial pricing model = prices path dependent options only	
+
+\textbf{An investor has a short position in put options on 5,000 shares of stock. Call option delta is given as 0.542, while put option delta is given as –0.459. Each option has one share of stock as the underlying. Which of the following is most likely regarding the delta hedge strategy if the hedging instrument is (1) stock or (2) call options?}
+
+1) Hedge using the put option delta or call option delta
+2) Hedge using stocks = 5000 X -0.459 = - 2259
+3) Hedge using call options  = (-2259 / 0.542) =  - 4234.2
+
+\textbf{When you receive a long position on an interest-rate call option and a short position on an interest-rate put option what is it equivalent? **********}
+
+receive-floating, pay-fixed FRA
+
+
+\begin{framed}
+\textbf{How are FRAs usually settled?}
+
+They are advance set and advance settled
+
+\textbf{How does creditworthiness affect a FRA?}
+
+The underlying for a FRA is a loan. But since the loan is hypothetical the creditworthiness of the borrower is not relevant. 
+
+\textbf{How do you create a synthetic-FRA?}
+
+long a longer-term Eurodollar time deposit and shorting a short-term Eurodollar time deposit.
+
+
+\end{framed}
+
+
+\textbf{Consider a plain-vanilla interest rate swap with a notional principal of \$20 million. Suppose Company X makes semiannual fixed payments at the rate of 6\%, while Company Y makes semiannual floating payments at LIBOR, which was 5.5\% at the last payment date and is 6.5\% at the current payment date (today). The fixed payments are made on the basis of 180 days in the settlement period and 365 days in a year. The floating payments are made on the basis of 180 days in the settlement period and 360 days in a year. What is the payment for a plain Vanilla-interest rate swap?}
+
+Payment = 0.06 X 20,000,000 X (180/365) = \$591,781
+
+
+\textbf{How are swaps usually settled?}
+
+Swaps are usually settled in arrears.
+
+\textbf{How are operational efficiencies achieved for a company: conglomerate, horizontal or vertical merger?}
+
+Horizontal or vertical merger. Not conglomerate.
+
+\begin{framed}
+	
+	\textbf{How do we determine a quarterly swap fixed rate?}
+	
+	$$
+	P = \dfrac{1 - B_N}{(B_0 + B_1 + B_2 + ... + B_N)}
+	$$
+	
+	
+	
+	\textbf{For a payment schedule what is the basis and what is the settlement period?}
+	
+	$$
+	\dfrac{\text{basis period}}{\text{settlement period}}
+	$$
+	
+		\textbf{For a payment schedule what is the basis and what is the settlement period?}
+	
+	$$
+	\dfrac{\text{basis period}}{\text{settlement period}}
+	$$
+	
+	\textbf{Suppose Company X makes semiannual fixed payments at the rate of 6\%, while Company Y makes semiannual floating payments at LIBOR, which was 5.5\% at the last payment date and is 6.5\% at the current payment date (today). What payment is considered today?}
+	
+	The prior period payment. 
+	
+	\textbf{How do we calculate the PV factor for x percent with a basis of 90 days and a settlement of 365 days?}
+	
+	$$
+	dfrac{1}{1 x \times \dfrac{90}{365} }
+	$$
+
+	\begin{framed}
+	\textbf{Annualized Libor spot rates for the 90, 180, 270, and 360 days are 3\%, 4\%, 5\%, and 6\%, respectively. What is the annualized fixed rate on a one-year, quarterly-pay, plain-vanilla interest rate swap is closest to which of the following? Is this the annualized semi-annual rate}
+	
+	$$
+	B_90 = \dfrac{1}{1 + 3\% \times 90/360} = \dfrac{1}{1 + 3\% \times 90/360} \\
+	B_180 = \dfrac{1}{1 + 4\% \times 180/360} = \dfrac{1}{1 + 4\% \times 90/360} \\
+	B_270 = \dfrac{1}{1 + 5\% \times 270/360} = \dfrac{1}{1 + 5\% \times 90/360} \\
+	B_360 = \dfrac{1}{1 + 6\% \times 360/360} = \dfrac{1}{1 + 6\% \times 90/360} \\
+	$$
+	
+	$$
+	I = \dfrac{1 - B_360}{B_90 + B_180 + B_270 + B_360}
+	$$
+	
+	This is the quarterly rate.
+	
+	\textbf{Annualized Libor spot rates for the 90, 180, 270, and 360 days are 3\%, 4\%, 5\%, and 6\%, respectively. What is the annualized fixed rate on a one-year, quarterly-pay, plain-vanilla interest rate swap is closest to which of the following? Is this the annual rate}
+	
+	$$
+	I/Y = 4 * I
+	$$
+	
+	\textbf{What Is the annualized semi-annual rate after the first 90-days}
+
+		1) Drop the first rate and time-shift everything by 90-days
+		$$
+		B_180 = \dfrac{1}{1 + 4\% \times 90/360} = \dfrac{1}{1 + 4\% \times 90/360} \\
+		B_270 = \dfrac{1}{1 + 5\% \times 180/360} = \dfrac{1}{1 + 5\% \times 90/360} \\
+		B_360 = \dfrac{1}{1 + 6\% \times 270/360} = \dfrac{1}{1 + 6\% \times 90/360} \\
+		$$
+		
+		$$
+		I = \dfrac{1 - B_360}{B_180 + B_270 + B_360}
+		$$
+
+		This is the quarterly rate.
+	
+		\textbf{What Is the value after the annualized semi-annual rate after the first 90-days}
+		
+		$$
+		V = N \times (I_{old,q} - I_{new,q}) \times (B_180 + B_270 + B_360)
+		$$
+		
+	
+	\end{framed}
+	
+	\textbf{When calculating the annualized rate for USD swap and a EUR swap - what is the difference?}
+	
+	The USD swap would use Libor. 
+	
+	The EUR swap would use Euribor.
+	
+	
+
+	\textbf{When will an acquirer push for a merger by stock options - instead of cash options?}
+	
+	1) When the acquirer has a high degree of financial leverage
+	2) Or it believes it's stock price to be overvalued. 	
+	
+	\textbf{When an acquirer push for a merger by cash?}
+	
+	When it believes the merger will likely create value. 
+	
+	\textbf{What is a reverse synnergy?}
+	
+	It's where a company is with more in parts than it is as a whole. 
+	
+	\textbf{What is a diveisture?}
+	
+	It is where a company sells off part of it's business in order to get smaller. Reasons for a diveisture are the need for emergency cashflow or reverse synnergies
+	
+	\textbf{When are you mostly likely to see congolomerate mergers? Discuss operational efficiencies?}
+	1) Development phase
+	2) Rapid accelerating grwoth phase
+	
+	There are no operational efficiencies in a conglomerate merger.
+	
+	\textbf{What are the typical benefits for a conglomerate merger - for the shareholders?}
+	
+	1) Tax considerations
+	2) Acquiring unique skills or resources
+	
+	\textbf{Why is diversification not considered a benefit of a conglomerate to shareholderS?}
+	
+	Because the shareholders themselves should eb able to diversify better than that of a conglomerate
+	
+	\textbf{What is the 'Bootstrap Effect'?}
+	
+	It is where a company with a high P/E ratio acquires another company with a low P/E ratio; the acquisition will be through shares. 
+	
+	\textbf{Which type of restructuring might raise  capital: spin-off, split-off and a equity carve out?}
+	
+	An equity carve out. The spin-off and the split-off will raise no capital. 
+	
+	\textbf{A company enagaging in a restructuting is most likely to engage in 1) spin-off, 2) split-off and 3) equity carve out?}
+	
+	An equity carve out.
+	
+	\textbf{What is a 'whiteknight defense'?}
+	
+	It's where a target company seeks a friendly third party to acquire the firm - in lieu of being taken offer. 
+	
+	\textbf{What is a poison pill defense? What is a dead-hand provision defense?}
+	
+	Poison pill defense - grants the right for current shareholders to purchase additional shares at a deeply discounted rate, in the event the company is being taken over
+	Deadhand provision - is where only ousted directors have the ability to remove a standing poison pill provision. 
+	
+	\textbf{Where does the 'no-arbitrage' approach apply in the valuation of options?}
+	
+	When using the binomial tree method. 
+	
+	\textbf{How do we calculate the risk-neutral probability of an up move and down move?}
+	
+	$$
+	\pi_u = \dfrac{e^r - d}{u - d} = \dfrac{e^r - (1 + \%d)}{(1 + \%u) - (1 + \%d)} 
+	$$
+	
+	$$
+	\pi_d = 1 - \pi-u
+	$$
+	
+	
+	\textbf{How do you find the price from the binomial tree?}
+	$$
+	P_{n-1} = \dfrac{P_{n,u} \pi_u + P_{nmd} \pi_d}{1 + r}
+	$$
+	\textbf{A company with floating-rate debt outstanding is concerned about interest rates increasing over the next 6 months. The company wants to hedge its position by buying a payer swaption expiring in 6 months, which would offer it the choice to enter a 5-year swap, locking in its borrowing costs. The current 6-month forward, 5-year swap rate is 2.75\%, the current 5-year swap rate is 2.65\%, and the current 6-month risk-free rate is 2.35\%. What is the underlying rate on this swaption? What is the discount rate to be used on this option? When will the swaption expire?}
+	
+	1. underlying rate is 2.75 percent
+	2. the discount rate to be used is the 6-month risk free rate, 2.35 percent
+	3. the option will expire in 6 months
+	
+\end{framed}
+
+
+
+\begin{framed}
+	\textbf{What is the hedge ratio for a put? What does it imply?}
+	
+	The hedge ratio for a put is negative. Hence you must go long the underlying.
+	
+		\textbf{What is the hedge ratio for a call? What does it imply?}
+	
+	The hedge ratio for a put is positive?. Hence you must go short the underlying.
+	
+	\textbf{What is the optimal number of hedging units for a stock with a delta of -1500?}
+	
+	1500
+	
+	\textbf{How does the 1) time to expiration, 2) volatility and 3) risk free rate affect the price of a put and call option?}
+	
+	1) Time to expiration increases the price of both options
+	2) Volatility increases the price of both options
+	
+	\textbf{What is the delta for a long position in a stock and a short position in a stock?}
+	
+	+1 and -1
+
+	
+	\textbf{What is the delta of a call option? What is the delta of a put option?}
+	
+	call option delta = +ve
+	put option delta = -ve
+	
+	\textbf{What is the expectations approach? Discuss with respect to non-dividend paying stock?}
+	
+	
+	
+	\textbf{What is the gamma for a long position in a stock and a short position in a stock?}
+	
+	Both Zero.
+	
+	\textbf{What changes the gamma of a stock?}
+	
+	A change in the underlying stock and a change in the time to expiration.
+	
+	\textbf{How do you find the put option delta from a call option delta?}
+	
+	$$
+	\Delta_{put option} = {call option}  - 1
+	$$
+	
+	\textbf{Is a futures price ever equivalent to a forward price? Why?}
+	
+	Never. This is because the futures price is marked-to-market. Forwards are not
+	
+	\textbf{How do we price a forward?}
+	
+	$$
+	F = S_0 . e^{(r + c - s  -\delta)\Delta T}
+	$$
+	
+		\textbf{If after $n$ months the value of the spot is $S_T$ what is the value of the original forward contract?}
+	
+	$$
+	V = S_t - F_T.e^{-r\Delta T}
+	$$
+	
+	where $s$ is the carrying benefit / cost of carry and $delta$ is the dividend yield. 
+	
+	
+	\textbf{How do you convert a 'short a callable bond' to a straight bond?}
+	
+	Straight bond = -  callable bond  - receiver swaption
+	
+		\textbf{How do you convert a 'long a callable bond' to a straight bond?}
+	
+	Straight bond =  bond  - receiver swaption
+	
+	
+\end{framed}
+
+\textbf{For the put-call parity expression, 'C + K = S + P'; what is the equivalent expression when the callas at point are ATM?}
+
+C = P 
+
+\textbf{If the underlying stock price changes - how is the value of the forward price affected? How is the price of the forward price?}
+
+Value of forward price = changes  through the term of the contract
+Price of a forward price = is set at contract initiation
+
+\textbf{How does an interest rate swap differ from a currency swap? **********}
+
+1) There is an exchange of notational at the beginning of the swap and at the end of the swap in a currency swap. 
+2) There is no netting with interest rate swaps
+
+\textbf{Are payments netted in a currency swap?}
+
+No. 	
+
+\textbf{Are the notional payments of an interest rate swap exchanged at initiation?}
+
+Yes. 
+
+\textbf{Are payments netted in a interest rate swap?}
+
+YEs.
+
+\textbf{What is the underlying of an interest rate call option on 3-month Libor that expires in 6 months?}
+
+A FRA on a 3-month Libor that expires in 6 month
+
+\textbf{What happens at the end of the term of FRA if the market rates are below the FRA rate?}
+
+The owner of the FRA gains. The FRA should be considered a call on a loan - if the interest rates end up higher than the FRA, the owner of the FRA simply 'sells' the loan back to the issuer at a higher rate and keeps the difference.  \\
+\textbf{How do we price a NXM FRA}
+
+$$
+\text{FRA} = \Biggr(  \dfrac{1 + R_M ( \Delta_M/ 360)}{1 + R_N ( \Delta_N/ 360)} - 1 \Biggr) \times \Biggr( \dfrac{360}{\Delta_M - \Delta_N }\Biggl)
+$$
+
+\textbf{If the FRA price is 6.01 \%, what is the value of the long position at FRA expiration of the 270-day libor is actually 6.25 \% }
+
+$$
+\dfrac{V \times (FRA_X - FRA_0) \times (\Delta T / 360)}{1 + FRA_X \times  (\Delta T / 360) }
+$$
+
+\textbf{Right this in short-hand: FRA that expires in 60 days, based on a 150-day Euribor?}
+
+FRA 2X7 
+
+\textbf{What is The price of an FRA expiring in 60 days based on the 150-day Euribor; given the Euribor 60 days - 6 \% and 210 days 7.25 \% }
+
+$$
+FRA Price = \Biggr[  \dfrac{1 + 0.0725 (210/360) }{ 1 + 0.06 (210/360) } - 1\Biggl] \Bigl( \dfrac{360}{\Delta T} \Bigr) \\
+= \Biggr[  \dfrac{1 + 0.0725 (210/360) }{ 1 + 0.06 (210/360) } - 1\Biggl] \Bigl( \dfrac{360}{150} \Bigr) 
+$$
+
+\textbf{How do we calculate the value of a FRA at \underline{maturity}? ********** }
+
+
+$$
+V = \dfrac{N \times (FRA_T - FRA_0) \times (\Delta T/360)}{1 + FRA_T \times (\Delta T/360)}
+$$
+
+\textbf{In a total return swap, what is the difference between receiving a 'payment' and a 'net payment'?*************}
+
+Payment = receiving simply your counter return from the swap
+Net payment = receiving your counter return plus the gain or losess from the other end
+
+
+
+\textbf{What is an alternate way of calculating a forward after accounting for dividends?}
+
+$$
+F = (S - D) \times e^{rT	}
+$$
+\begin{framed}
+	
+	\textbf{In the Black option valuation model - what distribution are futures assumed to follow?}
+	
+	1) Futures are assumed to follow a binomial distribution
+	2) Stock prices are lognormally distributed
+	
+\end{framed}
+
+\includegraphics[width=3.5in]{put-call-deltas.eps}{}
+\includegraphics[width=3.5in]{gamma-vs-delta.eps}{}
+\includegraphics[width=3.5in]{delta.eps}{}
+
+
+\newpage
+
+\textbf{forward commitment} - is a derivative instrument that allows the holder to lock in a price or rate at which one can buy or sell the underlying instrument at a special future date or exchange an agreed-upon amount of money at specified series of dates.
+
+\textbf{Forward} a contract between two parties where one has the right to buy and the other has the obligation to sell the underlying asset at some prespecified price at a specified date in the future.
+
+\textbf{arbitrage}  states that if two instruments have the same expected set of cashflows, regardless of what will happen in the future - they should be priced the same. 
+
+\textbf{law of one price} arbitrage
+
+\textbf{Price} is the value as determined at $t=0$
+
+\textbf{Value} is the difference in the price at $t=0$ from the price at $t=T$
+
+$$
+V_{Long,T}(T) = S_T - F_0 (T)
+$$
+
+$$
+V_{Short,T}(T) = S_T - F_0 (T)
+$$
+
+\textbf{forward commitment pricing} refers to determine the forward price that precludes arbitrage. 
+
+\textbf{forward commitment valuation} involves determining the value of the forward commitment at some point furing the term of the contract. 
+
+\textbf{carry arbitrage model}
+
+$$
+F = S_0 e^{r + s + c - \delta}
+$$
+
+where $r$ is the risk free rate, $s$ is the storage cost, $c$ is the carry cost and $\delta$ is the dividend yield. 
+
+\textbf{futures contracts} 
+
+trade on an exchange and are marked to market daily. 
+
+
+\textbf{forward/futures price} is the pricing of a futures xontraxt
+
+\textbf{value} is the amount a counterparty would need to pay or is expected to pay to terminate a forward/futures position
+	
+\textbf{spot price} is the price of the underlying at time $t=0$
+
+\textbf{forward price} is the derivative price of holding the forward position. 
+
+\textbf{carry arbitrage}
+
+\textbf{reverse carry arbitrage}
+
+\textbf{no-arbitrage forward price} is the price that yields zero value to both the long and short position at the inception of the forward contract. 
+
+\textbf{at market} is a contract that is priced to have zero value to either counterparty.
+
+\textbf{FRA} is a forward contract where the underlying is an interest rate on a deposit. 
+
+
+
+\textbf{advanced set, advanced settled}
+
+\textbf{settled in arrears} is where interest rate swaps and interest rate forwards are settled after the fact. 
+
+\textbf{clean prices} is a bond price without accrued interest
+
+\textbf{dirty/full price} is a bond price with accrued interest
+
+\textbf{conversion factor adjustment} is a factor that is added to a variety of deliverable bonds, that otherwise trade at difference prices and have different coupons, to ensure that all the bonds have approximately the same price. 
+
+\textbf{cheapest-to-deliver bond} is the bond which is priced the cheapest even after correcting for the conversion factor adjustment. 
+
+\textbf{quoted futures price} 
+
+
+\textbf{interest rate parity} states that an investor would earn the same amount from the two investment options that cover the same time horizon. 
+
+\textbf{price currency per unit of base currency}
+
+\newpage
+
+\textbf{advanced set, settled in arrears}
+
+\textbf{swap fixed rate} is the level at which the present value of the floating-rate payements equals the present value of the fixed rate payments
+
+\textbf{equity swap} is a swap agreement where two parties agree to exchange the cashflows on two seperate equity instruments
+
+\newpage
+
+\textbf{contingent claim} is a derivative that gives the holder the right but not the obligation to a payoff based on an underlying asset or other derivative
+
+\textbf{options} 
+
+\textbf{path-dependent options} are options who value is dependent on a particular series of events prior to the final payoff. They are usually priced using the binomial valuation approach. 
+
+\textbf{path-independent option} are options whose value is only dependent on the final value of the option. The are priced using the BSM
+
+\textbf{what is the hedge ratio?}
+
+$$
+h_{call}= \dfrac{V_{call+} - V_{call-}}{V_{stock+} - V_{stock-}}
+$$
+
+
+\textbf{risk-neutral valuation}
+
+where investors value an asset based off of the expected future value (based on the risk-neutral probabilities)  and discount using the risk-free rate. 
+
+\textbf{risk-neutral probabilities}
+
+$$
+p_{up} = \dfrac{E^{r} - d}{u - d}
+$$
+
+$$
+p_{down} = 1 - p_{up} 
+$$
+
+\textbf{Expectations approach}
+
+Call = $PV_t[E(call)]$
+Put = $PV_t[E(put)]$
+
+\textbf{Single-period expectations approach}
+
+Is where the price of a call is calculated from it's terminal value.  \\
+
+\textbf{Dynamic replication}
+
+Dynamic replication is the foundation of the Black-Scholes model (see Black-Scholes-Merton option pricing model). One can hedge the derivatives security by continuously trading a given quantity of the underlying
+security, referred to as the delta. In this model the assumptions are: \\
+- no tax or transaction costs, \\
+- ability to trade continuously the underlying asset and in particular to short-sell it,  \\
+- ability to borrow and lend at the risk free rate  \\
+- and constant volatility of the underlying security, \\
+
+
+
+
+\textbf{Self-financing} \\
+
+A portfolio is self-financing if there is no external infusion or withdrawal of money. In other words, the purchase of any new assets must be financed by the sale of an old one or from the returns of the portfolio itself. \\
+
+\textbf{What statistical process implies that the returns follow a lognormal distribution}
+
+GBM
+
+\textbf{BSM}
+
+$$
+C = S N(d_1) - X e^{-rT} N(d_2)
+$$
+
+\textbf{What is the Black Model?}
+
+is applicable to options on underlying instruments with a costless carry such as options, futures and forward contracts. 
+
+$$
+C = e^{-rT}[F.N(d_1) - X.N(d_2)]
+$$
+
+$$
+P= e^{-rT}[X.N(-d_2) - XCN(-d_1)]
+$$
+
+\textbf{What is a 'standard market model'?}
+
+It is an interest rate valuation model derived from the black model.
+
+$$
+C = N. e^{-r\Delta t} e^{-rT}[FRA.N(d_1) - R_{X}.N(d_2)]
+$$
+
+\textbf{Swaption} gives the holder the right but not the obligation to enter into a swap
+
+\textbf{Payer swaption}  is an option to enter a swap to pay the fixed-rate
+
+\textbf{Receiver swaption}  is an option to enter a swap to receive the fixed-rate
+
+\textbf{Annuity Discount Factor}
+
+Discounts an annuity of notional amount of 1:
+
+$$
+PVA  = \sum_{j=1}^N PV_{0,t}(1)
+$$
+
+\newpage
+
+\textbf{Greeks}
+
+Are 'static risk measures' - which capture movements in option value for a movement in the underlying, assuming other factors are hedged out.
+
+\textbf{Delta}
+
+$$
+\Delta = \dfrac{d S}{d P}
+$$
+
+\textbf{Gamma}
+
+$$
+\Gamma  = \dfrac{d^2S}{d P^2}
+$$
+
+\textbf{ Option Gamma}
+
+$$
+e^{-\delta T} N(d_1) / (S \sigma \sqrt{T})
+$$
+
+\textbf{Call Option Delta}
+
+$$
+e^{-\delta T} N(d_1)
+$$
+
+\textbf{Put Option Delta}
+
+$$
+- e^{-\delta T} N(- d_1)
+$$
+
+
+\textbf{Call Option Delta Plot}
+
+\textbf{Put Option Delta Plot}
+
+\textbf{Delta hedging}
+
+combines positions in options with positions in stocks to ensure that the combined positions are insulated from changes in the price of the underlying stock. 
+
+\textbf{Delta Neutral Portfolio}
+
+Is where the portfolio delta is set to zero. 
+
+\textbf{The optimal number of hedging units}
+
+$$
+N_H = - \dfrac{Portfolio delta}{Delta}
+$$
+
+\textbf{Theta}
+change in the value of the option with a small change in time
+$$
+Theta = \dfrac{d V}{d T}
+$$
+
+\textbf{Vega}
+
+$$
+Vega = \dfrac{d V}{d \sigma}
+$$
+
+\textbf{Rho}
+
+$$
+Vega = \dfrac{d V}{d r}
+$$
+
+\textbf{Future volatlity} is a BSM input that is not observable in the marketplace; it will not neccesarily be equal to the historical volatility
+
+\textbf{Implied volatlity} iis the volatility inferred from the market when using the BSM
+
+\textbf{term structure of volatility} the implied volatility with respect to the time to expiration
+
+\textbf{volatility smile or skew} is the implied volatility which you will obtain when considering options in the market post the 1984 crash
+
+\textbf{Volatility surface} is a plot of vol for time, expiration and price
+
+\textbf{Volatility indices} measure the collective opinions about vol from the broader market. 
+
+\textbf{VIX or Chicago Board Options Exchange S\&P 500 Volatility Index} is the most well known volatility index
+
+\newpage
+
+\textbf{What are the important times worth noting for an \underline{interest rate swap}?}
+
+1) Origination: note that there is no exchange of notional
+2) Each interest payment date: there is netting
+3: Termination: there is no exchange of notions
+
+\textbf{What are the important times worth noting for an \underline{interest rate swap}?}
+
+1) Origination: note that there is no exchange of notional
+2) Each interest payment date: there is netting
+3: Termination: there is no exchange of notions
+
+
+
+\textbf{Number of Futures Contracts to be hedged?}
+
+$$
+\text{Number of currency futures contracts} = \dfrac{\text{Size of equit portfolio to be hedged}}{\text{Futures multiplier} X \text{Stock Index Value}}
+$$
+
+
+
+\textbf{Put-Call parity?}
+
+$$
+\text{C + K = S + P} 
+$$
+$$
+{C_t + PV(X) = S_0 + P_t}
+$$
+
+
+\begin{framed}
+
+\textbf{Synthetic long asset}
+
+S - K = C - P
+\textbf{Synthetic short asset}
+K - S = P - C
+
+\textbf{Synthetic put}
+
+P -  K   = C - S
+
+\textbf{Synthetic call}
+	
+C + K = S + P
+
+\end{framed}
+
+
+\textbf{Covered Call}
+
+Covered Call = Long a call on the stock + short a call on the underlying stock 
+
+\textbf{Coverage from covered call}
+
+\textbf{What are the three reasons for a covered call?}
+
+1. Income generation - it is similar to receiving a cash dividend
+2. Improving on the market - capture the time value of the option of the stock is expected to remain steady and the option expires worthless
+3. Targe price realization: write calls with an exercise price near the target price of the stock 
+
+\textbf{Total premium income earned}
+
+Premium per option sold X Number of options per contract X Number of contracts
+
+\textbf{Protective Put}
+
+Protective put = long underlying stock + long a put on the stock
+
+\textbf{Coverage from protective put}
+
+\textbf{Collars}
+
+Collar = Long underlying stock + long a put + short a call
+
+\includegraphics[width=7in]{spreads_2.eps}
+\includegraphics[width=7in]{calendar.eps}
+\textbf{calendar spread,image}
+
+\textbf{calendar spread}
+
+Two calls or two puts but with different expiration dates. For example long the Feburary Call Option and Short the January Call Option. The costs, is the cost of purchasing the two options - the gain is theortically unlimited. 
+
+\textbf{Annualized standard deviation?}
+
+$$
+\sigma_{ANNUAL} = \sigma_{DAILY} \times \sqrt{\dfrac{\text{\# trading days in the year}}{\text{Days until option expires}}}
+$$
+
+\textbf{if, breakeven volatility < historical volatility?}
+
+A  straddle will not be profitable
+
+\textbf{if, breakeven volatility > historical volatility?}
+
+A long straddle will not be profitable
+
+\textbf{FRA Value}\\
+
+$$
+\dfrac{10 \times (FRA_{p,T} - FRA_{p,0}) \times (\Delta T_n / 360)}{1 + [FRA_T \times (\Delta T_n / 360)]}
+$$
+
+\textbf{FRA Price (no arbitrage)}\\
+
+$$
+\Bigr( \dfrac{1 + FRA_N \times (\Delta T_n / 360) }{1 + FRA_N \times (\Delta T_{90} / 360) } \Bigl) - 1
+$$
+
+\end{document}

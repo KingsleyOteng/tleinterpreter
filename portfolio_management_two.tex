@@ -1,0 +1,483 @@
+\documentclass[12pt]{article}
+\newlength{\rulelength}
+\setlength{\rulelength}{15cm}
+\usepackage[left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amscd}
+\usepackage[colorlinks]{hyperref}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{xparse}
+\usepackage{soul}
+\usepackage{graphicx}
+\usepackage{framed}
+
+
+\begin{document}
+\newpage
+\section{Portfolio Management}
+
+\begin{framed}
+
+\textbf{Portfolio standard deviation}
+$\sigma_p = \sqrt{w_i^2\sigma_i^2 + w_j^2\sigma_j^2 + 2 w_i w_j \sigma_i \sigma_j p_{i,j}}
+
+\textbf{Normalization formula}
+$$
+Z = \dfrac{R - \mu}{\sigma}
+$$
+\end{framed}
+
+\begin{framed}
+	
+	\textbf{Delta}
+	$$
+	\dfrac{\text{Change in the Value of an Option}}{\textbf{Change in the Value of an Underlying}}
+	$$
+	\textbf{Vega}
+	$$
+	\dfrac{\text{Change in Delta}}{\textbf{Change in the Value of an Underlying}}
+	$$
+	\textbf{Gamma}
+		\textbf{Vega}
+	$$
+	\dfrac{\text{Change in Value of an Option}}{\textbf{Change in the Value of the Volatility}}
+	$$
+\end{framed}
+
+\textbf{stress tests}
+
+Subject a portfolio to extreme negative market movements; in an attempt to determine the most significant exposures. 
+
+\textbf{reverse stress testing}
+
+identifies what the most significant market exposures are and then analyses these in detail: 1) what makes it risky, 2) under what scenarios would the hedges fail, 
+
+\textbf{What a the assumptions of APT?}
+
+1) That \define{\unsystematic risk} can be diversified away - and need not be modelled. Systematic risk, which is undiversified, needs to be modelled
+
+\textbf{What is the intercept in the APT model?}
+
+The risk-free rate
+
+\textbf{What is unique about the risk factors in the APT model?}
+
+They are all systematic factors
+
+\textbf{What are systematic factors?}
+
+i.e. risk that can not be diversified away ; such as some types of market risk factors or macroeconomic factors
+
+\textbf{Market Risk{}
+	
+\textbf{Value at risk}
+
+Is the minimum VaR that should be expected for 1) a certain percentage of time given the assumed market conditions. \underline{it only is used for held-for-sale or trading positions in the balance sheet}
+
+\textbf{In a plot of returns - where should we expect losses to fall? ************************}
+
+Fall to the left. Such that CVaR is the average of losses to the left
+
+\textbf{Which of the following would most likely be used to estimate changes in portfolio value based on changes to a particular risk factor? *************}
+
+Sensitivity analysis
+
+\textbf{What does a VaR of 12.5m, 5\% for one month mean}
+
+That the minimum loss over one month, in 95 percent of the cases will be 12.5m 
+
+\textbf{What is the $5\%$ VaR?}
+
+The VaR that accounts for a 5 percent negative movement. 
+
+\textbf{Parametric VaR}
+
+\textbf{Assumptions of Parameteric VaR?}
+
+1) that the distribution is normally distributed. Historical VaR does not make this assumptions
+
+\textbf{Historical VaR}
+
+It's the amount of loss at the 99 percent and 95 percental mark - for all portfolio of assets. It considers the current portfolio composition and their asset weights.
+
+\textbf{What is 'Relative VaR'?}
+
+It measures potential losses that might occur in a portfolio - due to deviations from a benchmark. It is equivalent to ex-ante portfolio risk
+
+\textbf{Condtitional VaR?}
+
+Also known as 'expected shortfall' or 'expected tail loss'. It describes the average loss expected outside of confidence limits. It is theoritically not a VaR measure
+
+\textbf{Incremental VaR?} 
+
+is the incremental impact an asset has on the VaR of a portfolio; $VAR_{incremental VAR} = VAR_{with asset} - VAR_{without asset}$.
+
+\textbf{marginal VaR}
+
+A measure on the change in VaR with a small change in a position size
+
+\textbf{Economic Capital} determines the total loss a company could suffer in one years time, for it's portfolio of credit, market and operational risk businesses. It is measured at the 99 percent level or the 99.99 percent level, for all instruments across the balance sheet. 
+
+\textbf{Scenario analysis}
+
+Determines how the full balance sheet might respond to interest rate changes, inflation effects and different credit environments. 
+
+\textbf{expected tail loss}
+
+It describes the average loss expected outside of confidence limits. It is theoritically not a VaR measure
+
+\textbf{expected shortfall}
+
+It describes the average loss expected outside of confidence limits. It is theoritically not a VaR measure
+
+\textbf{How do we calculate the Z-normalization}
+
+$$
+Z = \dfrac{R - \mu}{\sigma}
+$$
+
+\textbf{What is the Z-score for 1 percent VaR and 5 percent VaR?}
+
+1 percent VaR = 2.33 standard deviations
+5 percent VaR = 1.65 standard deviations
+
+\textbf{Out of regulators, potential investors and portfolio managers: who doesn't find VaR useful?}
+
+Portfolio managers are only interested in managing tail risk and active management. VaR does not tell them which factors to manage
+
+\begin{framed}
+	
+	\textbf{risk measures used by banks}
+	1) VaR
+	2) Economical capital
+	3) Leverage 
+	4) Liquidity gaps: i.e. asset/liability mismatch
+	5) Scenario analysis
+	
+		\textbf{risk measures used by asset managers}
+		at the asset-class level
+	1) volatility (sensitivities-including greeks, beta sensitives)
+	2) probability of loss (position limits, VaR )
+	3) probability of under performance (ex-post and ex-ante tracking error)
+	4) position limits (active share, redemption risk)
+	
+	NB: they do not use liquidity measures, as it is assumed that all holdings are liquid
+	
+		\textbf{risk measures used by alternative investors}
+		they aggregate up and consider
+	0) gross exposure
+	1) maximum drawdown 
+	2) sensitivities
+	3) leverage
+	4) VaR
+	5) scenarios
+	6) drawdown
+	
+			\textbf{risk measures used by pension funds}
+	they aggregate up and consider
+	0) surplus at risk
+	1) interest rate risk and curve risk
+	2) glide path
+	3) liability generating exposures vs return generating exposures
+	
+	
+	\textbf{risk measures used by casualty insurers }
+	they aggregate up and consider
+	0) sensitivities and exposures
+	1) economic capital and VaR
+	2) scenario analysis
+	
+	\textbf{risk measures used by life insurers }
+	they aggregate up and consider
+	0) sensitivities and exposures
+	1) asset and liability matching
+	2) scenario analysis
+	
+\end{framed}
+
+\testbf{What is the clearing time for the National Securities Clearing Corporation ********}
+
+T + 2 days
+
+
+\textbf{If inflation is expected to be lower than expected in the future - would you be long or short inflation?   ********}
+
+You would be long
+
+
+\textbf{maximum drawdown}
+
+is the worse return month or worse returning quarter
+
+\textbf{surplus at risk}
+
+for pension funds, it estimates how much the assets might underperform the liabilities. usually over one year. For examples if the assets were invested in fixed income and the liabilities were also from fixed income, then the surplus-at-risk would be zero.  The levels of confidence for the measure would be say 85 percent, through to say 99 percent. 
+
+\textbf{glide path}
+
+a tool for measuring surplus at risk.
+
+\textbf{What is 'risk decomposition'?}
+
+The set of risk factors that asset returns are correlated to
+
+\textbf{Risk decomposition}
+
+Is the process of converting holdings in a portfolio into risk factors
+
+\textbf{risk budgeting}
+
+allocation of the asset owners total risk appetite across groups, divisions, strategies and managers. 
+
+\textbf{stop-loss limit}
+
+\texbf{lookback period}
+
+is the time period used to gather a historical data set
+
+\textbf{Macroeconomic factor model}
+
+Macro_Factor_Model = R + 2.5 $\times$ $GDP_{forecast}$ - 1.5 $INFL_{forecast}$ + $\varepsilon_{specific}$
+
+R = expected return
+ $GDP_{forecast}$  =
+ $INFL_{forecast}$ =
+$\varepsilon_{specific}$  =
+
+\textbf{Economic factor models - what is requirement?}
+
+They must include the risk-free rate as the intercept factor - consistent with the APT.
+
+\textbf{Implicit ETF costs ************}
+
+Bid-ask spread
+
+\textbf{Explicit ETF costs ************}
+
+commissions
+management fees
+fund-account practices
+
+\textbf{income earned by ETFs   ************}
+
+Securities lending
+
+\textbf{What are considered portfolio 'operational activities'?}
+
+1) portfolio rebalancing
+2) managing cash flows
+
+\textbf{What are considered portfolio 'fund management activities'?}
+
+1) implementing strategic tilts
+
+\textbf{In a bond portfolio; what is the easiest way to capture correlation risk?}
+
+By applying non-parallel yield curve increase
+
+\textbf{What is the difference between the 'expected return' and the 'actual return'?}
+
+Expected return = is preforecasted; it does not include sensitivities
+Actual return = includes the impact of sensitivities
+
+\textbf{What is asset-liability gap modelling?}
+
+Models the difference between assets and liabilities. It is used for book value accounting. 
+
+\textbf{What models would you used to model risk, when an asset is exposed to risk factors?}
+
+VAR
+Economic Capital Modelling
+
+\textbf{Difference between VaR and Economic Capital Modelling?}
+
+VaR = used for market risk; this could be at the firm-level or the business-level
+Economic Capital Modelling = it is used for solvency and Basel IV type measures; this could be at the firm-level or the business-level
+
+\textbf{What type of risk measures are likely to be used by banks, insurers and hedge funds?}
+
+1) Banks = economic capital
+2) Insurers = economic capital
+3) Hedge funds = maximum drawdown
+
+\textbf{Which of the following ETF costs has a diminishing impact over time: 1) cashflow generation, 2) bid-ask spreads, 3) portfolio optimization? **********}
+
+Bid-ask spreads benefits from economies of scale
+
+\textbf{When do these securities trade actively (secondary or issuance): 1) US corporate A-rated bonds, 2) US corporate high-yield bonds, 3) US Treasury bonds? **********}
+
+1) US Corporate IG bonds - only trade actively on issuance
+2 US Corporate HY bonds  - only trade actively on issuance
+3) US Treasury bonds - trade actively on issuance and in the secondary market
+
+
+\textbf{How do you hedge out systematic risk in a portfolio?}
+
+By holding countercyclical stocks
+
+\textbf{What are the most significant factors to a trader who deals only in ETFS?}
+
+1) Discount fees
+2) Discounts and premiums to NAV
+
+\textbf{What are the least significant factors to a trader who deals only in ETFS?}
+
+1) Management fees
+
+\textbf{Why do regulators and potential investors like  VaR ?}
+
+It tells them about potential losses.
+
+\textbf{What is the iNAV?}
+
+provides an  indicative intraday value of an ETF based on the market values of its underlying constituents.
+
+\textbf{What is the NAV}
+
+provides an  end of day  value of an ETF based on the market values of its underlying constituents.
+
+\textbf{What risk measure is preferred by hedge fund managers but not considered by traditional asset managers?}
+
+leverage ratios
+
+\textbf{What is 'capital allocation'? **************}
+
+Helps to maintain returns that are commiserate with risk
+
+
+
+\newpage
+
+\textbf{How do we calculate IR?}
+
+$IR= IC \times BR \times TC$
+
+\textbf{Is IR ex-ante or predictive?}
+
+IR is predictive, although it is measured ex-ante
+
+\textbf{How do we calculate the IR from the t-stat?}
+
+$$
+t-stat = \dfrac{t-stat}{\sqrt{Years}}
+$$
+
+\textbf{How do we calculate 'Value Added'?}
+
+Value Added = (Ret_{actively managed} - Ret_{benchmark portfolio}
+
+\textbf{Value add from active allocation?}
+
+Value add from active allocation = $\Delta \text{Deviation relative to benchmark (overweight is negative) } \times \text{benchmark return}$
+
+\textbf{Value add from security selection?}
+
+Value add from security selection = $Sum of portfolio weights \times respective value add$
+
+\textbf{From the fundamental law, the more ambitious the forecasts - how relevant is the IC?}
+
+The more important the IC - i.e. the managers skill
+
+\textbf{active share}
+
+is the percentage of the portfolio that differs from the benchmark index
+
+\textbf{How do we calculate optimal residual risk?}
+
+$$
+w^{optimal residual risk} = \dfrac{IC \times \sqrt{BR}}{2 \lambda_R}
+$$
+
+where $\lambda_R$ residual risk
+
+\textbf{Optimal amount of aggressiveness  in a portfolio?}
+
+	$$
+	\sigma_{\text{taggressiveness}} = \dfrac{IR}{SR} \times \sigma_{\text{total risk}}
+	$$
+	
+\textbf{When will a portfolio achieve it's highest Sharpe ratio?}
+
+When the portfolio has it's optimal active risk
+
+Highest Sharpe Ratio = $\sqrt{(SR_B^2 + IR_B^2)}$
+
+\textbf{in terms of IR's; which individual out of an active manager, stock selector and specialist has the highest IC? How do each of these individuals increase their returns?}
+
+Active manager has the highest. Active manager may consider market timing to help improve his IR/IC. 
+
+Specialist and stock selector will only consider increasing the breadth. 
+
+\textbf{how would one increase the active risk to the optimal level while preserving the information ratio?}
+
+1) determine the optimal active risk
+2) increase the size of the active managed risk by (optimal active risk / active risk)
+3) short the the benchmark by (optimal active risk / active risk) - 1
+
+\textbf{Define: 'Tracking Risk'   ********************}
+
+Tracking Risk = $(R_p - R_B) \times \sigma_{time series}$
+
+\textbf{What is the transfer coefficient?}
+
+The correlation between forecasted active returns and active weights most likely reflects
+
+\textbf{how do credit spreads behave in a recession?}
+
+1) they initially go up in the early stages of recession
+2) they go down in the late stages of a recession
+
+\textbf{What are the risks associated with electronic trading systems?  *****************}
+
+1) Runaway algorithms 
+2) Oversized orders - they look good technically but swamp the market
+3) Order streams designed deliberately to disrupt markets
+
+\textbf{how does the information coefficient change with forecasting timelines?  *****************}
+
+It doesn't 
+
+\textbf{Holding period of a stock from the turnover rate? *******************}
+
+$$
+Holding Period in Years \approx \dfrac{1}{\% turnover annually}
+$$
+
+\textbf{What should be the characteristics of a benchmark? ****************}
+
+1) verifiable ex-ante
+2) it should be replicable at low-cost
+3) it should be representative of the assets individuals wish to invest in
+
+\textbf{What is 'consumption hedging'? ****************}
+
+It is the theory that an asset should payoff more in downtimes or basically that an asset/asset class should ideally be countercyclical. 
+
+\textbf{In terms of 'consumption hedging' - which is better bonds or stocks? ****************}
+
+Bonds are a better consumption hedger
+
+\textbf{When most is a PM with a high IC required?****************}
+
+When making the most ambitious forecasts
+
+\textbf{What is increasing a PM's 'aggresiveness'?}
+
+Increasing the level of optimal residual risk
+
+\textbf{Taylor Rule}
+
+$$
+\text{Taylor Rule, Inflation}_{domestic}  I = r_{neutral policy rate} +  i_{0} + \text{Mandate}_{inflation} (i_0 - i_T) +  \text{Mandate}_{output} (output_gap)  \\
+\text{Taylor Rule, Inflation}_{foreign}  I = r_{neutral policy rate} +  i_{0} + \text{Mandate}_{inflation} (i_0 - i_T) +  \text{Mandate}_{output} (output_gap)  \\
+\Delta I_d - \Delta I_f = \text{Taylor Output}
+$$
+
+where a $-$ve sign implies	 a depreciation of the domestic currency and a $+$ve sign implies an appreciation of the domestic currency.
+
+
+
+
+\end{document}
