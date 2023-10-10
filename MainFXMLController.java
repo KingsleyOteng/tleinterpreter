@@ -536,7 +536,7 @@ public class MainFXMLController implements Initializable {
             
             //// set current time
             
-            AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
+            AbsoluteDate date = new AbsoluteDate(years, months, days, hour, minute, 0.0, TimeScalesFactory.getUTC());
 
             
             //// obtain spacecraft state
