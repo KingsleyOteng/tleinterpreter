@@ -502,6 +502,9 @@ public class MainFXMLController implements Initializable {
             obsDayBox.setValue(String.valueOf(days));
             obsYearBox.setValue(String.valueOf( years));
             
+            
+            // set-up model
+            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
                     Constants.WGS84_EARTH_FLATTENING,
