@@ -492,64 +492,44 @@ public class MainFXMLController implements Initializable {
             System.out.println("differenceSunriseSunset" + differenceSunriseSunset);         
             System.out.println("Official Sunrise  " + officialSunrise + " and Sunset:" + officialSunset);
             
+            // build element boxes
             
-            //// build element boxes
-            
-           
-           
-            double x = Double.valueOf(minute);
-            x = (hour+(x/60.0) + 0.1667);
-            x = Math.floor(x);
-            int x_int = (int)x;
-
-            obsTimeHourBox.setValue(String.valueOf(x_int));
-            if (((minute+10)%60) < 10)
-            obsTimeMnBox.setValue(String.valueOf("0"+(minute+10)%60));
-            else
-            obsTimeMnBox.setValue(String.valueOf((minute+10)%60));  
+            obsTimeHourBox.setValue(String.valueOf((int)Math.floor(hour+0.1666)));
+            obsTimeMnBox.setValue(String.valueOf((minute+10)%60));
             obsTimeSecBox.setValue(String.valueOf("00"));
             
             obsMonBox.setValue(String.valueOf(months));
             obsDayBox.setValue(String.valueOf(days));
             obsYearBox.setValue(String.valueOf( years));
             
-            
-            //// set-up model
-            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
                     Constants.WGS84_EARTH_FLATTENING,
                     ITRF);
             
-            
-            //// set sensor location
+            // set sensor location
             
             GeodeticPoint aoiPoint = new GeodeticPoint(FastMath.toRadians(aoi_lat), FastMath.toRadians(aoi_lon), aoi_alt);
             
-            
-            //// determine topocentric frame of reference
+            // determine topocentric frame of reference
             
             aoiTopoFrame = new TopocentricFrame(earth, aoiPoint, "AOI");
             
-            
-            //// input  TLE
+            // input  TLE
             
             final String line1 = "1 54155U 22140A   22326.36465914  .00009471  00000+0  17282-3 0  9995";
             final String line2 = "2 54155  51.6438 272.9968 0007038 101.0576  43.4609 15.50137650369715";
             
             
-            //// create a TLE object
-            
+            // create a TLE object
             final TLE tle = new TLE(line1, line2);
             TLEPropagator propagator = TLEPropagator.selectExtrapolator(tle);
-                  
+                    
+            // set current time
             
-            //// set current time
-            
-            AbsoluteDate date = new AbsoluteDate(years, months, days, hour, minute, 0.0, TimeScalesFactory.getUTC());
+            AbsoluteDate date = new AbsoluteDate(2022, 9, 29, 10, 23, 0.0, TimeScalesFactory.getUTC());
 
-            
-            //// obtain spacecraft state
+            // obtain spacecraft state
             
             SpacecraftState spaceCraftState = propagator.propagate(date);
             Frame itrf = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
@@ -557,8 +537,7 @@ public class MainFXMLController implements Initializable {
             Vector3D satellitePositionInITRF = pvInITRF.getPosition();
             
             
-            //// determine PVCoordinates
-            
+            // determine PVCoordinates
             PVCoordinates coord = spaceCraftState.getPVCoordinates();
             Vector3D position = coord.getPosition();
             Vector3D velocity = coord.getVelocity();
