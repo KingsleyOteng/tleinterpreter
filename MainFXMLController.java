@@ -495,8 +495,11 @@ public class MainFXMLController implements Initializable {
             
             //// build element boxes
             
-            obsTimeHourBox.setValue(String.valueOf((int)Math.floor(hour+0.1666)));
-            obsTimeMnBox.setValue(String.valueOf((minute+10)%60));
+            obsTimeHourBox.setValue(String.valueOf((int)Math.floor(hour+(minute/60)+0.17)));
+            if ((minute+10) < 70)
+            obsTimeMnBox.setValue(String.valueOf("0"+(minute+10)%60));
+            else
+            obsTimeMnBox.setValue(String.valueOf((minute+10)%60));  
             obsTimeSecBox.setValue(String.valueOf("00"));
             
             obsMonBox.setValue(String.valueOf(months));
