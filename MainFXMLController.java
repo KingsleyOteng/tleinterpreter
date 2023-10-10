@@ -427,10 +427,15 @@ public class MainFXMLController implements Initializable {
             // set hour block data
             DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             LocalTime time 
-            = LocalTime.now(); 
+                    = LocalTime.now(); 
             int hour    = time.getHour();
             int minute  = time.getMinute();
-            int seconds = time.getSecond();
+            
+            LocalDate localDate 
+                    = LocalDate.now();
+            int years = localDate.getYear();
+            int months = localDate.getMonthValue();
+            int days = localDate.getDayOfMonth();
          
             // set sensor
             sensor_date.set(sensor_date_yyyy, sensor_date_mm, sensor_date_dd);
@@ -489,7 +494,12 @@ public class MainFXMLController implements Initializable {
             tleMonBox.setItems(obsDateMonList);
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
-            
+            obsTimeHourBox.setValue(String.valueOf((int)Math.floor(hour+0.1666)));
+            obsTimeMnBox.setValue(String.valueOf((minute+10)%60));
+            obsTimeSecBox.setValue(String.valueOf("00"));
+            obsMonBox.setValue(String.valueOf(months));
+            obsDayBox.setValue(String.valueOf(days));
+            obsYearBox.setValue(String.valueOf( years));
             
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
