@@ -490,6 +490,7 @@ public class MainFXMLController implements Initializable {
             tleDayBox.setItems(obsDateDayList);
             tleYearBox1.setItems(obsDateYearList);
             
+            
             FactoryManagedFrame ITRF = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
             OneAxisEllipsoid earth = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS,
                     Constants.WGS84_EARTH_FLATTENING,
