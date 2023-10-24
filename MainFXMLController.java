@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
+
 // to do: double occultation.
 //import java.io.Serializable;
 import java.io.File;
@@ -62,6 +63,7 @@ import org.orekit.propagation.events.ElevationDetector;
 import org.orekit.bodies.CelestialBodyFactory;
 import org.orekit.bodies.CelestialBodyFactory.*;
 
+
 // import java.io.IOException;
 import com.luckycatlabs.sunrisesunset.SunriseSunsetCalculator;
 import com.luckycatlabs.sunrisesunset.dto.Location;
@@ -119,6 +121,7 @@ import javafx.scene.control.Alert.AlertType;
 import org.hipparchus.util.MathUtils;
 // import javafx.stage.Stage;
 // import javax.swing.JOptionPane;
+
 
 /**
  * FXML Controller class
