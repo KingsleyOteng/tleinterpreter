@@ -16,7 +16,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-
 /**
  * Provides methods to determine the sunrise, sunset, civil twilight,
  * nautical twilight, and astronomical twilight times of a given
