@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+
 /**
  *
  * @date   May 26th 2022
@@ -12,9 +13,11 @@
  * @author kingsley oteng-amoako
  */
 
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
+
 
 /**
  * Provides methods to determine the sunrise, sunset, civil twilight,
@@ -29,6 +32,7 @@ import java.util.TimeZone;
  * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
  * 
  **/
+
 
 public final class SunriseSunset {
 
