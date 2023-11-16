@@ -1,4 +1,3 @@
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -13,7 +12,6 @@ import java.math.BigInteger;
  * @recent    july 20th 2023
  * @recent    september, 23rd, 2023
  */
-
 
 public class rosetta 
 {
