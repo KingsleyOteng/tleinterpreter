@@ -1028,10 +1028,14 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                     observation_year.setText("19" + String.valueOf(obs_y));
                 }
 
+            piece_num = (line_one_array[2]).substring(5,1);
+            System.out.println("hello>>>>>>>>>>>>>>>>>>>>" + piece_num +"\n");
+            System.out.println("hello>>>>>>>>>>>>>>>>>>>>" + line_one_array[2] +"\n");
+            
+            
             //day.setText((line_one_array[3]));
             //launch_number_1.setText((line_one_array[4]));
             //launch_number_2.setText((line_one_array[5]));
-            //piece_number.setText((line_one_array[6]));
             //epoch_date.setText((line_one_array[7]));
             //epoch_time.setText((line_one_array[8]));    
             // Let us attempt to determine the ephemeris type from the data
