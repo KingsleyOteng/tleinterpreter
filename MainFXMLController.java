@@ -863,7 +863,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
            // longitude = FastMath.toDegrees(geodetic.getLongitude());
             
             // from the sensor determine the observation parameters in azimuth-elevation
-            
            // azimuth = aoiTopoFrame.getAzimuth(coord.getPosition(), spaceCraftState.getFrame(), date);
            // azimuth = FastMath.toDegrees(azimuth); 
             //elevation = FastMath.toDegrees(aoiTopoFrame.getElevation(coord.getPosition(), spaceCraftState.getFrame(), date));
@@ -985,7 +984,7 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             subLen = tleLineOne.length();
             launch_y = (line_one_array[2].substring(0, 2));
             launch_num = (line_one_array[2].substring(2, 5));
-            piece_number = (line_one_array[2].substring(2, 5));
+            
             
             // String launch_catalogue_number = (line_one_array[2].substring(6,6));
             obs_y = Integer.parseInt(line_one_array[3].substring(0, 2));
