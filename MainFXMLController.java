@@ -137,6 +137,7 @@ public class MainFXMLController implements Initializable {
     String tleLineTwo;
     String launch_y;
     String launch_num;
+    String piece_num;
     String launch_catalogue_sequence;
     String[] ConstMonth = new String[] {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
 
@@ -984,6 +985,8 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             subLen = tleLineOne.length();
             launch_y = (line_one_array[2].substring(0, 2));
             launch_num = (line_one_array[2].substring(2, 5));
+            piece_number = (line_one_array[2].substring(2, 5));
+            
             // String launch_catalogue_number = (line_one_array[2].substring(6,6));
             obs_y = Integer.parseInt(line_one_array[3].substring(0, 2));
             obs_day = Integer.parseInt(line_one_array[3].substring(2, 5));
