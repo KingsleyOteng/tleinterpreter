@@ -1028,7 +1028,7 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                     observation_year.setText("19" + String.valueOf(obs_y));
                 }
 
-            piece_num = (line_one_array[2]).substring(5,1);
+            piece_num = (line_one_array[2]).substring(5,5);
             System.out.println("hello>>>>>>>>>>>>>>>>>>>>" + piece_num +"\n");
             System.out.println("hello>>>>>>>>>>>>>>>>>>>>" + line_one_array[2] +"\n");
             
