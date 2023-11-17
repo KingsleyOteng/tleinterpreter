@@ -961,7 +961,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                 }
 
             
-            
             //System.out.println("hello" + this.checkSum(tleLineOne));
             //trim both lines of text
             tleLineOne = tleLineOne.substring(3, tleLineOne.length());
