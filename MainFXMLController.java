@@ -961,11 +961,13 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                 }
 
             
+            
             //System.out.println("hello" + this.checkSum(tleLineOne));
             //trim both lines of text
             tleLineOne = tleLineOne.substring(3, tleLineOne.length());
             tleLineTwo = tleLineTwo.substring(3, tleLineTwo.length());
 
+            
             // extract from tle line 1
             Pattern pattern = Pattern.compile("((\\-)?(\\+)?(\\s)?[1234567890+][-1234567890+]+?)([.1234567890]+)");
             Matcher matcher = pattern.matcher(tleLineOne);
