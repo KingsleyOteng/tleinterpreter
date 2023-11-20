@@ -952,7 +952,6 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
             //String text    =
             // "This is the text to be searched " +
             // "for occurrences of the http:// pattern.";
-            
             tleLineOne = lf1.getText();
             tleLineTwo = lf2.getText();
 
