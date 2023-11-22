@@ -1030,6 +1030,7 @@ double sensor_azimuth = Math.toRadians(topoFrame.getAzimuth(coord.getPosition(),
                 }
 
             piece_num = (line_one_array[2]).substring(3,6);
+            /// line_one_array --> it only goes upto 5 characters
             System.out.println("hello>>>>>>>>>> >>>>>>>>>>" + piece_num +"\n");
             System.out.println("hello>>>>> >>>>>>>>> >>>>>>" + line_one_array[2] +"\n");
             
