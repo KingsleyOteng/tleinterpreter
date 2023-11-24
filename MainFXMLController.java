@@ -806,6 +806,8 @@ GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.to
 // Get the ECEF frame
 Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
+
+
 // Transform the Geodetic Point to ECEF:
 Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
 
