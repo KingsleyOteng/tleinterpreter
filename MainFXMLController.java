@@ -817,7 +817,6 @@ OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATOR
 TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
 double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
 
-
 OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
 CelestialBody sun = CelestialBodyFactory.getSun();
 Vector3D satToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition().subtract(spaceCraftState.getPVCoordinates(itrf).getPosition());
