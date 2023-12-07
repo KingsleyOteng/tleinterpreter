@@ -10,7 +10,6 @@ import java.io.IOException;
  */
 
 
-
 /**
  *
  * @author terra6partner
@@ -42,12 +41,14 @@ public class Tools
          }
    }
    public  void test() throws IOException
-   {// csv file to read
+   {
+      // csv file to read
       String csvFile = "norad_id_match.csv";
       Tools.read(csvFile);
    };
    
       public static void main(String[] args) throws IOException {
+      
       // csv file to read
       String csvFile = "norad_id_match.csv";
       Tools.read(csvFile);
