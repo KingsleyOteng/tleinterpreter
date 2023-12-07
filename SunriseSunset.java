@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
 /**
  *
  * @date   May 26th 2022
@@ -17,7 +16,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
-
 
 /**
  * Provides methods to determine the sunrise, sunset, civil twilight,
