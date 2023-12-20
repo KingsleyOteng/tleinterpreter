@@ -44,6 +44,7 @@ public class NewFXMain extends Application
                 stage.setScene(scene);
                 stage.show();
             }
+       
         
         
         /**
