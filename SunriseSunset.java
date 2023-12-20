@@ -70,6 +70,7 @@ public final class SunriseSunset {
 	private static final long   MILLISECONDS_IN_DAY = 60 * 60 * 24 * 1000;
 
         
+        
 	/**
 	 * Intermediate variables used in the sunrise equation
 	 * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
@@ -92,11 +93,13 @@ public final class SunriseSunset {
 		}
 	}
 
+        
 	private SunriseSunset() 
         {
 		// Prevent instantiation of this utility class
 	}
 
+        
 	/**
 	 * Convert a Gregorian calendar date to a Julian date. Accuracy is to the
 	 * second.

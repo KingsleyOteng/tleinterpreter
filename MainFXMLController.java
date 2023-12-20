@@ -803,34 +803,43 @@ Vector3D satellitePositionInITRF = pvInITRF.getPosition();
  // Define Washington D.C.'s geodetic point
 GeodeticPoint washingtonDC = new GeodeticPoint(Math.toRadians(latitude), Math.toRadians(longitude), 0.0);
 
+
 // Get the ECEF frame
 Frame ecef = FramesFactory.getITRF(IERSConventions.IERS_2010, true);
 
+
 // Transform the Geodetic Point to ECEF:
 Transform transform = ecef.getTransformTo(ecef, AbsoluteDate.J2000_EPOCH);
+
 
 //Extract and Print the ECEF Coordinates:
 Vector3D pvObservorCoordinates = transform.transformPosition(new Vector3D(washingtonDC.getLongitude(), washingtonDC.getLatitude(), washingtonDC.getAltitude()));
 Vector3D relativePosition = satellitePositionInITRF.subtract(pvObservorCoordinates);
 
+
 OneAxisEllipsoid earth_ecef = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
 TopocentricFrame topoFrame = new TopocentricFrame( earth_ecef, washingtonDC, "WashingtonDC");
 double elevation = Math.toRadians(topoFrame.getElevation(spaceCraftState.getPVCoordinates().getPosition(), itrf, spaceCraftState.getDate()));
+
 
 OneAxisEllipsoid earthShape = new OneAxisEllipsoid(Constants.WGS84_EARTH_EQUATORIAL_RADIUS, Constants.WGS84_EARTH_FLATTENING, itrf);
 CelestialBody sun = CelestialBodyFactory.getSun();
 Vector3D satToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition().subtract(spaceCraftState.getPVCoordinates(itrf).getPosition());
 
+
 Vector3D earthToSatellite = spaceCraftState.getPVCoordinates().getPosition();
 Vector3D earthToSun = sun.getPVCoordinates(spaceCraftState.getDate(), itrf).getPosition();
 double angle = Vector3D.angle(earthToSatellite, earthToSun);
 
+
 // If the angle is less than 90 degrees, then the observer is in darkness.
 boolean isSatelliteSunlit = angle < Math.PI / 2;
+
 
 // Angle between the observer location and the Sun as seen from the Earth's center
 Vector3D observerPositionInITRF = earthShape.transform(washingtonDC);
 double obsAngle = Vector3D.angle(observerPositionInITRF, earthToSun);
+
 
 // If the angle is greater than 90 degrees, then the observer is in darkness.
 boolean isObserverDark = obsAngle > Math.PI / 2;
