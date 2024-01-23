@@ -92,14 +92,12 @@ public final class SunriseSunset {
 			this.delta = delta;
 		}
 	}
-
         
 	private SunriseSunset() 
         {
 		// Prevent instantiation of this utility class
 	}
 
-        
 	/**
 	 * Convert a Gregorian calendar date to a Julian date. Accuracy is to the
 	 * second.
