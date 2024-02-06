@@ -14,7 +14,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.scene.layout.BorderPane;
 
 
 //import javafx.event.ActionEvent;
@@ -39,11 +41,15 @@ public class NewFXMain extends Application
         @Override
         public void start(Stage stage) throws Exception, InvocationTargetException
             {
+                //WebView webView = new WebView();
+                
                 Parent root = FXMLLoader.load(getClass().getResource("MainFXML.fxml"));
                 Scene scene = new Scene(root, 860, 880);
                 stage.setTitle("TLE Interpreter");
                 stage.setScene(scene);
                 stage.show();
+                
+                
             }
        
         
