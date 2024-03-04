@@ -246,19 +246,26 @@
       <Line endX="204.90850830078125" endY="-77.35916137695312" layoutX="524.0" layoutY="297.0" startX="204.90850830078125" startY="-49.51853942871094" stroke="#e40a0a" strokeWidth="5.0" />
       <ChoiceBox fx:id="choiceBox1" layoutX="682.0" layoutY="641.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="55.0" />
       <Label layoutX="664.0" layoutY="621.0" prefHeight="17.0" prefWidth="101.0" text="Tracking time:" textFill="#e31234" />
-      <Label layoutX="703.0" layoutY="533.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
-      <ChoiceBox fx:id="choiceBoxUV1" layoutX="696.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
-      <ChoiceBox fx:id="choiceBoxUV2" layoutX="772.0" layoutY="554.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="32.0" prefWidth="51.0" />
+      <Label layoutX="694.0" layoutY="520.0" prefHeight="17.0" prefWidth="101.0" text="UV index range:" textFill="#e31234" />
+      <ChoiceBox fx:id="choiceBoxUV1" layoutX="687.0" layoutY="541.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="16.0" prefWidth="51.0" />
+      <ChoiceBox fx:id="choiceBoxUV2" layoutX="763.0" layoutY="541.0" onDragDetected="#updateObserverStatus1" onDragDone="#updateObserverStatus1" onDragDropped="#updateObserverStatus1" onDragEntered="#updateObserverStatus1" onDragExited="#updateObserverStatus1" onDragOver="#updateObserverStatus1" prefHeight="21.0" prefWidth="51.0" />
       <TextArea fx:id="sen_longitude1" layoutX="277.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="59.0" />
       <Label layoutX="261.0" layoutY="411.0" text="ID:" textFill="#e32e12" />
       <TextArea fx:id="sen_longitude11" layoutX="441.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
       <Label layoutX="358.0" layoutY="411.0" text="Payload piece:" textFill="#e32e12" />
-      <Line endX="544.0" endY="-157.0" layoutX="217.0" layoutY="764.0" startX="544.0" startY="-37.3883056640625" />
+      <Line endX="544.3207397460938" endY="-164.0" layoutX="217.0" layoutY="764.0" startX="544.0" startY="-37.3883056640625" />
       <TextArea fx:id="bstardragexp1" layoutX="784.0" layoutY="631.0" prefHeight="41.0" prefWidth="69.0" />
       <TextArea fx:id="bstardragexp13" layoutX="785.0" layoutY="690.0" prefHeight="41.0" prefWidth="69.0" />
       <Label layoutX="796.0" layoutY="606.0" prefHeight="17.0" prefWidth="52.0" text="Sensor:" textFill="#e31234" />
-      <Label layoutX="774.0" layoutY="670.0" prefHeight="17.0" prefWidth="90.0" text="Right ascension" textFill="#e31234" />
-      <Label layoutX="786.0" layoutY="730.0" prefHeight="17.0" prefWidth="70.0" text="Declination:" textFill="#e31234" />
+      <Label layoutX="774.0" layoutY="670.0" prefHeight="17.0" prefWidth="90.0" text="right ascension" textFill="#e31234" />
+      <Label layoutX="786.0" layoutY="730.0" prefHeight="17.0" prefWidth="70.0" text="declination:" textFill="#e31234" />
+      <Label fx:id="mount_label_21" layoutX="692.0" layoutY="575.0" text="Cloudage: -" textFill="#b02d19">
+         <font>
+            <Font name="Optima Regular" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="544.0" endY="-157.0" layoutX="128.0" layoutY="678.0" startX="544.0" startY="-79.0" />
+      <Line endX="445.5" endY="-174.5" layoutX="227.0" layoutY="774.0" startX="533.8207397460938" startY="-174.5" />
       
       
    </children>
