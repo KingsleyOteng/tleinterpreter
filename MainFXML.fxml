@@ -254,8 +254,11 @@
       <TextArea fx:id="sen_longitude11" layoutX="441.0" layoutY="402.0" minHeight="-Infinity" prefHeight="36.0" prefWidth="109.0" />
       <Label layoutX="358.0" layoutY="411.0" text="Payload piece:" textFill="#e32e12" />
       <Line endX="544.0" endY="-157.0" layoutX="217.0" layoutY="764.0" startX="544.0" startY="-37.3883056640625" />
-      <TextArea fx:id="bstardragexp1" layoutX="785.0" layoutY="628.0" prefHeight="41.0" prefWidth="69.0" />
-      <TextArea fx:id="bstardragexp13" layoutX="785.0" layoutY="692.0" prefHeight="41.0" prefWidth="69.0" />
+      <TextArea fx:id="bstardragexp1" layoutX="784.0" layoutY="631.0" prefHeight="41.0" prefWidth="69.0" />
+      <TextArea fx:id="bstardragexp13" layoutX="785.0" layoutY="690.0" prefHeight="41.0" prefWidth="69.0" />
+      <Label layoutX="796.0" layoutY="590.0" prefHeight="17.0" prefWidth="52.0" text="Sensor:" textFill="#e31234" />
+      <Label layoutX="774.0" layoutY="670.0" prefHeight="17.0" prefWidth="90.0" text="Right ascension" textFill="#e31234" />
+      <Label layoutX="786.0" layoutY="730.0" prefHeight="17.0" prefWidth="70.0" text="Declination:" textFill="#e31234" />
       
       
    </children>
