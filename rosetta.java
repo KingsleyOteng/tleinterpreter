@@ -1,26 +1,19 @@
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
-
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
-
-
 /**
  * rosetta
- * @author  kingsley oteng-amoako
- * @recent    july 20th 2023
- * @recent    september, 23rd, 2023
- * @recent    march, 4th, 2024
+ * @author kingsley oteng-amoako
  */
 
 public class rosetta 
 {
-    
     // internal variable
     private static String           current_season;
     private static String           current_conjunctions;
@@ -55,7 +48,7 @@ public class rosetta
     private static final BigDecimal earth_to_uranus_big = new BigDecimal(2799000000.0);
     private static final BigDecimal earth_to_neptune_big  = new BigDecimal(4385700000.0);
     private static final BigDecimal earth_to_pluto_big = new BigDecimal(5195700.0);
-     
+    
     // radius in millions of kilometres
     private static final double radius_of_earth = 6371;
     private static final double radius_of_moon = 1737.4;
@@ -67,7 +60,6 @@ public class rosetta
     private static final double radius_of_uranus = 25362;
     private static final double radius_of_neptune = 24622;
     private static final double radius_of_pluto = 1188.3;
-    
     
     String 
      SEASON[], 
@@ -157,7 +149,6 @@ public class rosetta
     {
         return this.SEASON[season];
     };
-   
 }
     
      

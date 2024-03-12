@@ -3,31 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
-
-
-/*
-@Dates: May 26th 2022
-@recent: Feburary 1st 2024
-@author kingsley oteng-amoako
-*/
-
 import java.lang.reflect.InvocationTargetException;
 import javafx.application.Application;
+//import javafx.event.ActionEvent;
+//import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
-//import javafx.event.ActionEvent;
-//import javafx.event.EventHandler;
-
     /**
-     * @author  kingsley oteng-amoako
-     * @dated   july 19th 2023
+     * @author terra6partners
      */
-
-
 
 public class NewFXMain extends Application 
     {
@@ -37,7 +24,6 @@ public class NewFXMain extends Application
          * @throws java.lang.Exception
          * @throws java.lang.reflect.InvocationTargetException
          */ 
-    
         @Override
         public void start(Stage stage) throws Exception, InvocationTargetException
             {
@@ -47,9 +33,7 @@ public class NewFXMain extends Application
                 stage.setScene(scene);
                 stage.show();
             }
-       
-        
-        
+
         /**
          * @param args the command line arguments
          */
