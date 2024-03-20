@@ -1,0 +1,450 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{soul}
+\usepackage[font=itshape]{quoting}
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
+
+\begin{document}
+	
+	%\tableofcontents
+	%\title{Entropy: A Fundamental Concept in Information Theory}
+	%\author{Your Name}
+	%\date{\today}
+	%\maketitle
+	
+	\section{Introduction}
+	
+	Information theory is a mathematical framework for understanding information transmission, data processing, and for effective storage. In 1948, with the publication of his seminal paper, "A Mathematical Theory of Communication," Claude Shannon detailed his theory of information to the communication theory community. introducing a measure of uncertainty in a message, he named the term \emph{entropy}:
+	
+	\begin{quote}
+	{If a source can produce only one particular message its entropy is zero, and no channel is required. For example, a computing machine set up to calculate the successive digits of $\pi$ produces a definite sequence with no chance element. No channel is required to "transmit" this to another point. One could construct a second machine to compute the same sequence at the point. However, this may be impractical. In such a case we can choose to ignore some or all of the statistical knowledge we have of the source. We might consider the digits of $\pi$ to be a random sequence in that we construct a system capable of sending any sequence of digits.} (ref)
+	\end{quote}
+	
+	Shannon surmised his concept of entropy in an epigram that would birth the field of Information Theory: in a general theory of communication, \emph{"the fundamental problem of communication is that of reproducing at one point either exactly or approximately a message selected at another point."}
+	
+	 Shannon in developing Information Theory had demonstrated a practical relevance that  almost immediately transformed the entire communications industry. At the publication of his paper, "A Mathematical Theory of Communication," Shannon deconstructed his uncertainty measure into three different versions: entropy, conditional entropy and mutual information. Each type of result corresponding to" measures of information, choice and uncertainty".
+
+
+	 %Developed by Claude E. Shannon in the mid-20th century, it  revolutionized the fields of telecommunications, %computing, and information technology. This section provides an overview of its historical development and its %significance in the digital age. Claude Shannon's landmark paper, "A Mathematical Theory of Communication," %published in 1948, laid the foundation for information theory. Shannon introduced the concept of entropy, a %measure of the uncertainty in a message, which has become a key tool in understanding and designing %communication systems. The field has since expanded to include a wide range of applications, from coding %theory and cryptography to network theory and data compression.
+	
+	\section{Overview }
+
+	\subsection{Entropy}
+	In the 1930s, Hartley introduced the logarithm of the \emph{source alphabet} to quantify information. Shannon woul later define entropy; he concluded that random processes such as speech and images although quantifiable, have an irreducible limit beyond which no further compression can take place. The  \emph{Shannon entropy} or \emph{entropy} is a fundamental concept to Information Theory, underpinning the analysis of communication systems and data compression algorithms - but mainly it's implications  are rather simple. In a communication system, entropy quantifies the uncertainty or unpredictability of a random variable's outcomes, thereby detailing the bounds in  your systems performance. 
+	
+	The entropy $H$, measures the uncertainty or unpredictability taking values in a random variable $X$. Let $x_i$ be the information content (or surprise) of an outcome satisfying,
+	\begin{equation}
+		I(x_i) = -\log_2 p(x_i)
+	\end{equation}
+	Define entropy  $H(X)$ (also denoted as $H(p(x_i))$), for a discrete random variable $X$ with possible outcomes $(x_1, x_2, \ldots, x_n)$ and probability mass function $p(x_i)$. The entropy can be seen as the expected value of the information content across all possible outcomes of $X$:
+	\begin{align}
+		H(X) &= E[I(X)] 
+	\end{align}
+	%%%here
+	and therefore
+	\begin{equation}
+		H(X) = -\sum_{i=1}^{n} p(x_i) \log_2 p(x_i)
+	\end{equation}
+	where $p(x_i)$ is called the \emph{probability of occurrence} of the $i$-th outcome. This general formula calculates the average level of "information," "surprise," or "uncertainty" inherent in the variable's possible outcomes. Note  that entropy is always non-negative for  a discrete random variable as evidently $H(\mathcal{X}) \geq 0$. Furthermore, $H(X) \leq \log | \mathcal{X} |$ \st{applies here,} following from the rule of concavity of the logarithm function entropy is maximized when $ \log | \mathcal{X} |$ is maximized, where $|\mathcal{X} |$ denotes the size of $\mathcal{X}$.
+	
+	\subsubsection{Example: Entropy of a Coin Flip}
+	
+	Consider a fair coin toss with outcomes head (H) and tail (T), each having a probability of 0.5. The entropy of the coin toss, representing the uncertainty before the outcome is known, is calculated as:
+	\begin{align}
+		H(X) &= -\left( p(H) \log_2 p(H) + p(T) \log_2 p(T) \right) \\
+		&= -\left( 0.5 \log_2 0.5 + 0.5 \log_2 0.5 \right) \\
+		&= 1 \text{ bit}
+	\end{align}
+	This result signifies that, on average, we gain 1 bit of information every time we observe the outcome of a fair coin toss.
+
+		\section*{Conditional Entropy, Joint Entropy and Mutual Information}
+		In the previous section, the concept of entropy as it applies to a singular random variable was introduced. It may be shown that this definition may be broadened to encompass a pair of random variables, X and Y. The extension of this definition to joint entropy, while seemingly novel, is underpinned by the principle that the pair (X, Y), that may be partially correlated, can be interpreted as having a joint probability distribution \(p(x, y)\).
+		
+		\subsection{Conditional Entropy}
+		We may also define the \emph{conditional entropy}, denoted as \(H(X|Y)\), as a measure of the average uncertainty remaining about a random variable \(X\) given the knowledge of another random variable \(Y\).  It is defined as:
+		\[
+		H(X|Y) = -\sum_{x \in X, y \in Y} p(x, y) \log p(x|y)
+		\]
+		where \(p(x, y)\) is the joint probability of \(X=x\) and \(Y=y\), and \( p(x|y) \) is the conditional probability of \(X = x\) for a given \(Y = y\).  This entropy measure denotes how much additional information will be required 
+		to communicate Y given that the other party knows X.
+		
+		
+		\begin{theorem}
+			The conditional entropy $H(X|Y)$ of a noiseless channel is zero, which details that knowing $Y$ completely determines $X$ with no uncertainty.
+		\end{theorem}
+		\begin{proof}
+			Given a noiseless channel, the output $Y$ completely determines the input $X$, implying that for every $y$ there exists exactly one $x$ such that $Y = f(X)$. This means that the conditional probability $p(x|y) = 1$ for the $x$ that corresponds to $y$ and $p(x|y) = 0$ for all other $x$. Substituting these conditional probabilities into the formula for conditional entropy, we get:
+			\begin{equation}
+				H(X|Y) = -\sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x, y) \log p(x|y).
+			\end{equation}
+			For the pairs $(x, y)$ where $x$ corresponds to $y$ in the noiseless channel, $p(x|y) = 1$, and thus $\log p(x|y) = \log 1 = 0$. For all other pairs, $p(x, y) = 0$, making their contribution to the sum zero because $0 \log 0 = 0$ in the limit sense used in information theory. Therefore, every term in the sum is zero, leading to:
+			\begin{equation}
+				H(X|Y) = 0.
+			\end{equation}
+		\end{proof}
+		
+		\subsection{Joint Entropy}
+		Joint entropy also extends the concept of entropy to encompass multiple random variables, measuring the total uncertainty in their combined outcomes. The \emph{joint entropy} \(H(X, Y)\) measures the uncertainty associated with both random variables \(X\) and \(Y\) together. For discrete random variables \(X\) and \(Y\), the joint entropy \(H(X, Y)\) quantifies the uncertainty in their joint distribution and is defined as:
+		\begin{equation}
+			H(X, Y) = -\sum_{x \in X}\sum_{y \in Y} p(x, y) \log p(x, y),
+		\end{equation}
+		where \(p(x, y)\) denotes the joint probability mass function of \(X\) and \(Y\). Joint entropy is intricately linked to mutual information and conditional entropy. It can be expressed in terms of mutual information by the equation:
+		\begin{equation}
+			I(X; Y) = H(X) + H(Y) - H(X, Y),
+		\end{equation}
+		and in terms of conditional entropy as:
+		\begin{equation}
+			H(X, Y) = H(Y) + H(X|Y).
+		\end{equation}
+		This signifies the mean quantity of information requisite for determining the values of two discrete random variables.
+		Both conditional and joint entropy play crucial roles in information theory, especially in scenarios involving communication systems and data analysis. They are vital for understanding the efficiency of information encoding and transmission.
+		\subsubsection*{Example: Joint Entropy in a Communication Model}
+		Consider a communication model with transmitted signal \(X\) and received signal \(Y\), where each can take values from \{0, 1\} with equal probability in a noiseless channel. The joint entropy \(H(X, Y)\) is therefore:
+		\begin{equation}
+			H(X, Y) = -\sum_{x \in \{0,1\}}\sum_{y \in \{0,1\}} p(x, y) \log p(x, y),
+		\end{equation}
+		which simplifies to 1-bit, reflecting the uncertainty of the signal without noise. Joint entropy plays a crucial role in information theory, offering insight into the total uncertainty of a system of random variables and shedding light on the information capacity of communication systems.
+		
+		\subsection{Chain Rule of Entropy}
+		We can therefore apply the concepts of joint entropy and conditional entropy to determine the entropy of a collection of individual random variables. %The joint entropy \(H(X, Y)\) is defined as:
+		From the definition of joint probability \( p(x, y) = p(x) p(y|x) \), a joint entropy may be expressed as:
+		\begin{align}
+			H(X, Y) & = -\sum_{x, y} p(x, y) \log p(x, y), \\
+			&= -\sum_{x, y} p(x, y) \log \left(\frac{1}{p(x)p(y|x)}\right) \\
+			&= -\sum_{x, y} p(x, y) \log \left(\frac{1}{p(x)}\right) - \sum_{x, y} p(x, y) \log \left(\frac{1}{p(y|x)}\right).\\
+			&= \sum_{x} p(x) \log \left(\frac{1}{p(x)}\right) \left(\sum_{y} p(y|x)\right) + \sum_{x} p(x) \sum_{y} p(y|x) \log \left(\frac{1}{p(y|x)}\right) \\
+			& = -\sum_{x} p(x) \log p(x) - \sum_{x,y} p(x) p(y|x) \log p(y|x) \\
+			& = -\sum_{x,y} p(x) p(y|x) \log p(x) - \sum_{x,y} p(x) p(y|x) \log p(y|x) \\
+			& = -\sum_{x} p(x)  \log p(x) \Biggr( \sum_{y}  p(y|x)  \Biggr) - \sum_{x} p(x)  \sum_{y}  p(y|x)   \log p(y|x) \\
+			& =H(x) - \sum_{x} p(x)  \sum_{y}  p(y|x)   \log p(y|x) \\
+		\end{align}
+		We then define \st{obtain} the \emph{chain rule}, which relates the joint entropy, conditional entropy and individual entropies:
+		\begin{equation}
+			\begin{split}
+				H(X, Y) 
+				& =  H(X) - H(Y|X) \\
+			\end{split}
+		\end{equation}
+		Tshis illustrates that a joint entropy can be decomposed into the entropy of an individual variable and the conditional entropy of the other.
+		\begin{theorem}
+			for two independent random variables \(X\) and \(Y\), the joint entropy \(H(X, Y)\) is equal to the sum of their individual entropies \(H(X) + H(Y)\).
+		\end{theorem}
+		\begin{proof}
+			Given that \(X\) and \(Y\) are independent, the joint probability distribution \(p(x, y)\) can be expressed as the product of the marginal distributions:
+			\begin{equation}
+				p(x, y) = p(x)p(y).
+			\end{equation}
+			Substituting this into the definition of joint entropy, we get:
+			\begin{equation}
+				H(X, Y) = -\sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x)p(y) \log (p(x)p(y)).
+			\end{equation}
+			Using the property of logarithms that \(\log(ab) = \log a + \log b\), we can rewrite the above equation as:
+			\begin{equation}
+				H(X, Y) = -\sum_{x \in \mathcal{X}} \sum_{y \in \mathcal{Y}} p(x)p(y) (\log p(x) + \log p(y)).
+			\end{equation}
+			Expanding the summation, we separate it into two parts:
+			\begin{equation}
+				H(X, Y) = -\left(\sum_{x \in \mathcal{X}} p(x) \log p(x)\right) \left(\sum_{y \in \mathcal{Y}} p(y)\right) - \left(\sum_{y \in \mathcal{Y}} p(y) \log p(y)\right) \left(\sum_{x \in \mathcal{X}} p(x)\right).
+			\end{equation}
+			Since \(\sum_{y \in \mathcal{Y}} p(y) = 1\) and \(\sum_{x \in \mathcal{X}} p(x) = 1\), the equation simplifies to:
+			\begin{equation}
+				\begin{split}
+					H(X, Y) & =  -\left(\sum_{x \in \mathcal{X}} p(x) \log p(x)\right) - \left(\sum_{y \in \mathcal{Y}} p(y) \log p(y)\right) \\
+					& = H(X) + H(Y). 
+				\end{split}
+			\end{equation}
+		\end{proof}
+		
+		
+		
+		\subsection{Relative Entropy}
+		\emph{Relative entropy}, also known as \emph{Kullback-Leibler} (KL) divergence, is fundamental  in information theory in that it measures how one probability distribution diverges from a second, reference probability distribution. Also, whereas the concept of entropy is defined over discrete random variables, the KL divergence and also mutual information measure distances between distributions, which may therefore be defined over any distribution, discrete random variable or non-discrete random variables. We may define the KL-divergence over a discrete set \(X\) as:
+		\[ D_{KL}(p||q) = \sum_{x \in X} p(x) \log_2 \frac{p(x)}{q(x)} \]
+		%and for continuous variables by replacing the sum with an integral. %
+		We note however from applying Jensen's inequality to $-\log\Biggr[\dfrac{q(X)}{p(X)} \Biggl]$ where $X$ is distributed according to $P$, 
+		\begin{align}
+			D_{KL}(p||q) & = - \mathbb{E} \Biggr[-\log\dfrac{q(X)}{p(X)} \Biggl] \geq -\log  \mathbb{E}  \Biggr[\dfrac{q(X)}{p(X)} \Biggl] \\
+			& = - \log \Biggr(  \sum_{x \in X}  p(x) \dfrac{q(x)}{p(x)}\Biggl) \\
+			& = - \log(1) \\
+			& = 0
+		\end{align}
+		Given that log is strictly convex, therefore  $D_{KL}(p||q) > 0$, noting that this measure is  zero if and only if \(p(x) = q(x)\) \( \forall x\). This holds for any $p(x)$ and $q(x)$ and is termed the \emph{Gibbs inequality}, 
+		\[ D_{KL}(p||q) \geq 0 \]
+		Another key property of the KL divergence is  asymmetry, 
+		\begin{equation}
+			D_{KL}(p||q) \neq D_{KL}(q||p)
+		\end{equation}
+		which indicates that the divergence from \(q\) to \(p\) is not the same as from \(p\) to \(q\). This asymmetry is meaningful in contexts where one distribution represents a "true" or "empirical" distribution, and the other represents a "model" or "approximation". 
+		
+		The KL divergence has found widespread applications across machine learning, statistics, and signal processing. It is particularly useful in \st{Bayesian inference as a measure of information gain} in machine learning algorithms for model fitting and in various other statistical methodologies for measuring the "distance" between probability distributions. In Bayesian inference, the KL divergence measures the information gain obtained from updating the prior distribution \(q(x)\) to the posterior distribution \(p(x)\) upon observing new data. This quantification is crucial for understanding the impact of new information on our models or beliefs. In machine learning, particularly in algorithms like the Expectation-Maximization (EM) algorithm, minimizing the KL divergence between the model's distribution and the empirical distribution of the data leads to better model fitting and performance. Despite its utility, the KL divergence is not a true metric since it lacks symmetry and does not satisfy the triangle inequality. However, it remains a powerful tool for measuring statistical distance and information content between distributions. Relative entropy or KL divergence is applied to quantify the difference between probability distributions, offering insights into the information loss when one distribution approximates another. Its broad applicability across theoretical and applied domains underscores its importance in understanding probabilistic systems and modeling uncertainty and information.
+		
+		
+		
+		
+		\subsection{Mutual Information}
+		Having established the relative entropy, we may define the information content that exists between two random variables. The \emph{mutual information} $I(X; Y)$ quantifies the amount of information obtained about one random variable through another; it is the difference in the relative entropy between their joint distributions and the product of the marginal distributions. 
+		\[I(X; Y) = D_{KL} ( P_{XY} || P_{X} \times P_{Y}  ) \geq 0  \]
+		That is, $I(X; Y)$ measures the reduction in \emph{uncertainty}	about one random variable due to the knowledge of another,
+		%It is the measure of the amount of information that one random variable contains about another. Mutual %information can also be seen as the difference in entropy of $X$ before and after observing $Y$, or vice versa:
+		\[I(X; Y) = H(X) - H(X|Y)\]
+		where $H(X)$ is the entropy of $X$, and $H(X|Y)$ is the conditional entropy of $X$ given $Y$. The entropy of $X$ and the conditional entropy of $X$ given $Y$ are defined as:
+		\[H(X) = -\sum_{x} p(x) \log_2 p(x)\]
+		\[H(X|Y) = -\sum_{x,y} p(x,y) \log_2 p(x|y)\]
+		By Bayes' Rule, we relate joint probabilities and conditional probabilities:
+		\[p(x|y) = \frac{p(x,y)}{p(y)}\]
+		Substituting this into the expression for $H(X|Y)$ gives:
+		\[H(X|Y) = -\sum_{x,y} p(x,y) \log_2 \frac{p(x,y)}{p(y)}\]
+		Substituting $H(X)$ and $H(X|Y)$ into the mutual information definition, we obtain:
+		\[
+		\begin{aligned}
+			I(X; Y) &= H(X) - H(X|Y) \\
+			&= -\sum_{x} p(x) \log_2 p(x) + \sum_{x,y} p(x,y) \log_2 \frac{p(x,y)}{p(y)} 
+		\end{aligned}
+		\]
+		Therefore for two random variables $X$ and $Y$, 
+		\begin{equation}
+			I(X; Y) = \sum_{x,y} p(x,y) \log_2 \frac{p(x,y)}{p(x)p(y)},
+		\end{equation}
+		where $p(x,y)$ is the joint probability distribution of $X$ and $Y$, and $p(x)$ and $p(y)$ are the marginal probability distributions of $X$ and $Y$, respectively. This derivation highlights that mutual information quantifies the reduction in uncertainty about one variable given knowledge of another, encapsulating a fundamental concept in information theory.
+		\begin{theorem}
+			The mutual information \(I(X; Y)\) is always non-negative, i.e., \(I(X; Y) \geq 0\), which signifies that knowledge of one variable cannot increase the uncertainty of another.
+		\end{theorem}
+		\begin{proof}
+			This follows from the non-negativity of the Kullback-Leibler divergence, as mutual information can be viewed as the divergence between the joint distribution and the product of the marginal distributions.
+		\end{proof}
+		
+		\subsubsection*{Example: Mutual Information in a Communication Model}
+		Consider a binary symmetric channel with input \(X\) and output \(Y\), where the probability of a bit flip is \(p\). The mutual information between the input and output is given by:
+		\[ I(X; Y) = H(X) - H(X|Y) \]
+		For a fair binary input (\(p(X=0) = p(X=1) = 0.5\)), the entropy \(H(X)\) is 1 bit. The conditional entropy \(H(X|Y)\) can be calculated based on the crossover probability \(p\). The mutual information then quantifies the average information content received correctly per bit sent. Conditional entropy and mutual information provide a framework for quantifying the amount of information shared between two random variables. These concepts are fundamental in information theory and have widespread applications in coding, communication, and data analysis.
+		
+		\subsection{Conditional Mutual Information}
+		Let $X,Y,Z$ be random variables jointly distributed according to \st{a probability mass function,}  $p(x,y,z)$ The conditional mutual information $I(X; Y |Z)$ measures the average information that $X$ and $Y$ contain about each other given $Z$:
+		\begin{equation}
+			\begin{split}
+				I(X; Y |Z) & = - \sum_{x,y,z}  p(x,y,z) \log \dfrac{p(x,y|z)}{p(x|z)p(y|z)} \\
+				& = H(X|Z) - H(X|Y,Z) \\
+				& = H(X Z) + H(Y Z) - H(X Y Z) - H(Z) \\
+			\end{split}
+		\end{equation}
+		The relationship captures the amount of uncertainty shared between $X$ and $Y$ , but not with $Z$. An important relationship in many learning problems including conditional independence testing, graphical model inference, causal strength estimation and time-series problems. 
+		
+		%%include example
+		
+		\subsection{Channel Capacity}
+		Shannon's Channel Capacity Theorem is a fundamental result in information theory that describes the maximum rate of error-free communication over a noisy channel. This rate, known as the channel capacity \(C\), is given by:
+		\[ C = \max_{p(x)} I(X; Y) \]
+		where \(I(X; Y)\) is the mutual information between the channel input \(X\) and output \(Y\), and the maximization is over all possible input distributions \(p(x)\). For a binary symmetric channel with a crossover probability \(p\), the capacity is:
+		\[ C = 1 - H(p) \]
+		where \(H(p) = -p \log_2(p) - (1-p) \log_2(1-p)\) is the \emph{binary entropy} function, representing the uncertainty of a single bit. In the case of a binary erasure channel where a fraction \(\alpha\) of the bits are erased, the capacity is:
+		\[ C = 1 - \alpha \]
+		which reflects the proportion of the bits that are transmitted without being erased. We can extend the concept of channel capacity to a continuous, band-limited, white Gaussian noise channel. In this context, the channel capacity \(C\) can be expressed in terms of the channel bandwidth \(B_w\) and the signal-to-noise ratio (SNR):
+		\[ C = B_w \log_2 (1 + \text{SNR}) \]
+		This equation captures the trade-off between bandwidth, power, and noise in determining the capacity of a communication channel. To understand the derivation of this formula, we consider the following steps; 1) the channel's bandwidth \(B_w\) limits the rate at which signals can be sent through the channel, 2) the SNR is a measure of the signal power relative to the noise power within the bandwidth and is given by \(\text{SNR} = \frac{S}{N}\) and 3) using these definitions, we can maximize the mutual information \(I(X; Y)\) to find the channel capacity. The key insight is that as the SNR increases, the channel can reliably distinguish between more signal levels, which allows more information to be transmitted. The logarithmic relationship between capacity and SNR captures the diminishing returns of increasing SNR — doubling the SNR does not double the capacity. Shannon's theorem not only quantifies the limits of communication but also provides the foundation for modern digital communication systems. It demonstrates that reliable communication is possible up to a certain rate, dictated by the channel's physical properties. This theorem has profound implications for the design and analysis of communication systems, and it continues to guide engineers and scientists in the development of new technologies.
+		
+		
+		\subsection{Information Theory and Inequalities}
+		
+		In information theory applications, where we often deal with optimization and system efficiency, there has been necessitated the formulation of various \emph{inequalities}. These inequalities clarify the principle that a random variable is unlikely to significantly diverge from its expectation.  These inequalities are critical to tackling complex problems in information theory, such as defining the constraints on data transmission capacities or for example, delineating the bounds within which pattern recognition algorithms operate effectively. To develop inequalities to detail the algebraic structure underlying information systems,  comprehensive rules were  developed that govern the behaviour of entropy and the transmission of information.  Inequalities trace back to foundational work in information theory; it is noted that Shannon introduced seminal inequalities in 1948  including the entropy power inequality, which became an essential tool for estimating the limits of transmission channels plagued by non-Gaussian noise. Take for instance also \emph{Fano's inequality} which provides a ceiling for the likelihood of transmission errors contingent upon conditional entropy.
+		
+		In information theory, theorems and inequalities are typically initially developed around the definitive statement "$A = B$". Where, '$A$' represents a random variable  with operational significance, for example the performance of an encoder, and 'B' will typically have no such operational significance. To therefore establish a theorems within information theory based on the claim "$A=B$" ,the foundational inequalities "$A \geq B$" and "$A \leq B$" are typically considered; where one former will be known as the \emph{direct part} of the theorem, asserting the feasibility of a certain operational procedures up to a quantifiable limit and thereby establishing the practicability of 'B'. The other expression will then known as the \emph{converse part}, delineating the bounds of possibility, thereby affirming that beyond this stipulated bound,  operational are considered impractical, therefore establishing a non-practicability in 'B'. The nomenclature \emph{direct-versus-converse} will be contextually dependent on the specific theorems at hand. Generally, however, it is the demonstration of attainability or practicability that comprises a direct part, and the demonstration of the limits of it's unattainability will constitutes the converse.
+		
+			\subsubsection{Chebyshev's Inequality}
+		Let $X \in \mathcal{X}$ be a random variable such that $ \mathbb{E}  [X]]$ and $\sigma^2$ denote the expectation and variance of ${X}$ in the above inequality.  From the definition of an expectation we may obtain:
+		\begin{equation}
+			\begin{split}
+			\mathbb{E} [ X ] & = \int_{0}^{\infty} x p(x) dx  \\
+			& \geq   \int_{a}^{\infty} x p(x) dx  \\
+			& \geq a  \int_{a}^{\infty} p(x) dx \\
+			& = a P[X\geq a]
+			\end{split}
+		\end{equation}
+		Therefore for any $a \geq 0$, \emph{Markov's inequality} holds that,
+		\begin{equation}
+			\begin{split}
+				P[X\geq a \mathbb{E}  [X]] \leq \dfrac{1}{a}
+			\end{split}
+		\end{equation}
+		Let $X$ in the above inequality be generated by the random variable $g(X) = (X - \mathbb{E}  [X])^2$ such that $ \mathbb{E} [X]$ and given that $  \mathbb{E} ((X - \mathbb{E}  [X])^2) = \sigma$ it holds that, 
+				\begin{equation}
+			\begin{split}
+				P[g(X) > a^2 \sigma^2 ] \leq \dfrac{\sigma^2}{a^2 \sigma^2} = \dfrac{1}{a^2}
+			\end{split}
+		\end{equation}
+		Therefore, $|X - \mathbb{E}[x]| > a \sigma$ given that $g(X) > a^2 \sigma^2$, we obtain  \emph{Chebyshev's inequality}, where for any $a>0$ it holds, 
+						\begin{equation}
+			\begin{split}
+				P[|X - \mathbb{E}[X]| > a \sigma ] \leq  \dfrac{1}{a^2}
+			\end{split}
+		\end{equation}
+		\subsubsection{Jensen's Inequality}
+		Jensen's Inequality is a fundamental result in convex analysis that relates the value of a convex function applied to the mean of variables, to the mean of the function applied to those variables.  For discrete random variables, where $f$ is a convex function and $X$ a random variable, \emph{Jensen's Inequality} states,
+		\begin{align}
+			f\left(\sum_{x} x \cdot p(x)\right) \leq \sum_{x} f(x) \cdot p(x)
+		\end{align}
+		This states that the function \( f \), evaluated at the expected value of the random variable \( X \), is less than or equal to the expected value of the function \( f \) evaluated at \( X \). The inequality details  that for a convex function \(f\), the weighted average is less than or equal to the weighted average of the function values. The equality holds if \(f\) is linear or if all the points \(x_1, x_2, \ldots, x_n\) are equal. Therefore where a function \(f\) is convex on an interval \(a, b\) if, for any two points \(x_1, x_2 \in (a, b) \) and any \(t\) in \([0, 1]\), the following inequality holds:
+		\[
+		f(tx_1 + (1-t)x_2) \leq tf(x_1) + (1-t)f(x_2).
+		\]
+		We may prove Jensen's Inequality, using  induction on the number of terms \(n\).  Assuming the inequality holds for \(n-1\), Consider \(n\) terms \(x_1, x_2, \ldots, x_n\) with weights \(a_1, a_2, \ldots, a_n\) such that \(a_1 + a_2 + \ldots + a_n = 1\). Let \(x = \frac{a_1x_1 + a_2x_2 + \ldots + a_{n-1}x_{n-1}}{a_1 + a_2 + \ldots + a_{n-1}}\) and \(y = x_n\), and let \(t = a_1 + a_2 + \ldots + a_{n-1}\). Therefore applying the definition of convexity and the induction hypothesis, we arrive at Jensen's Inequality.
+		\subsubsection{Log-sum Inequality}
+		With information theory, the \emph{log-sum} inequality, is a pivotal theorem that details the  fundamental relationship between sequences of positive real numbers; the relationship underpins several key theorems in information theory, including the proofs of Shannon's entropy properties, the data processing inequality. efficiency in channel coding and the data transmission throughput rates. 
+		
+		Let us consider two sequences of positive real numbers \((a_1, a_2, \ldots, a_n)\) and \((b_1, b_2, \ldots, b_n)\). Leverage the known convexity of the logarithmic function, a technique that underpins the use of convex analysis in information theory. By applying Jensen's inequality to the negative logarithm, considered a convex function over the positive reals, we derive:
+		\begin{equation}
+			-\sum_{i=1}^{n} \frac{a_i}{\sum_{i=1}^{n} a_i} \log\left(\frac{b_i}{a_i}\right) \leq -\log\left(\sum_{i=1}^{n} \frac{a_i}{\sum_{i=1}^{n} a_i} \frac{b_i}{a_i}\right) = -\log\left(\frac{\sum_{i=1}^{n} b_i}{\sum_{i=1}^{n} a_i}\right).
+		\end{equation}
+		multiplying both sides by \(-\sum_{i=1}^{n} a_i \) and rearranging yields the log-sum inequality expressed as follows:
+		\begin{equation}
+			\sum_{i=1}^{n} a_i \log\left(\frac{a_i}{b_i}\right) \geq  \sum_{i=1}^{n} a_i \log\left(\frac{ \sum_{i=1}^{n} a_i}{ \sum_{i=1}^{n} b_i}\right),
+		\end{equation}
+		Note that the inequality details that the weighted sum of logarithms of ratios of the corresponding sequences, where it implies that the weighted sum surpasses or equals the logarithm of the ratio of their aggregate sums, weighted by the sum of the first sequence. 
+		\subsubsection{The Data Processing Inequality}
+		The Data Processing Inequality (DPI) is a  theorem in information theory that describes limitations on the flow of information through a system. It states that for a Markov chain \(X \rightarrow Y \rightarrow Z\), the mutual information between the input and output cannot be increased by any function of the output:
+		\[ I(X; Y) \geq I(X; Z) \]
+		The proof of DPI is rooted in the non-negativity of \emph{conditional mutual information} - given that:
+		\begin{equation}
+			I(X; Y, Z) = I(X; Z) + I(X; Y | Z) 
+		\end{equation}
+		and that,
+		\begin{equation}
+			I(X; Y | Z) \geq 0
+		\end{equation}
+		it immediately follows that,
+		\begin{equation}
+			I(X; Y) \geq I(X; Z)
+		\end{equation} 
+		The DPI has profound implications across various information systems: 1) In communication systems, it sets bounds on the effectiveness of error correction and 2) It highlights the inevitable information loss during data compression. The Data Processing Inequality is a cornerstone of information theory that enforces the concept that information cannot be increased through local operations in a system.
+		
+		\subsubsection{Fano's Inequality}
+		In the realm of information theory, Fano's Inequality stands as a cornerstone theorem that establishes a relationship between the probability of error in decoding a message and the conditional entropy of the original message given the received message. This inequality is fundamental in understanding the limitations inherent in the process of message transmission and decoding.  Let us consider a typical communication scenario where a message $X$  takes variables from an alphabet  or message space $\mathcal{X}$ and where we subsequently observe  a random variable $Y$, such that our guess of $X$ is given by $\hat{X} = g(Y)$ where $g$ is a deterministic function taking values also from an alphabet  $\mathcal{X}$. We therefore have the Markov chain,
+		\begin{equation}
+			X \rightarrow Y \rightarrow \hat{X}
+		\end{equation}
+		We therefore define an \emph{error event} \(E\) such that \(E = 1\) if \( \hat{X} \neq X\) , in such an instance an error is said to have occurred  and where \(E = 0\) otherwise  denotes a success. An error probability is thus given by \(P_{error} = P(E = 1)\). The {binary entropy} function $h(x) $ can then quantify the entropy associated with an error event as:
+		\begin{equation}
+			h(P_E) = -P_e \log_2 P_e - (1 - P_e) \log_2 (1 - P_e) \hspace{1.0cm} \forall \hspace{1.0cm} (0 \leq x \leq 1)
+		\end{equation}
+		Given that for \st{the} our Markov chain, the conditional entropy \(H(X|Y)\) can be rewritten as \(H(X, E|Y) - H(E|X, Y)\) and recognizing that knowledge of both \(X\) and \(Y\) precisely determines \(E\)  such that \(H(E|X, Y) = 0\), we determine that \(H(X|Y) = H(X, E|Y)\). From the chain rule of entropy, we obtain:
+		\begin{equation}
+			H(X, E|Y) = H(E|Y) + H(X|E, Y),
+		\end{equation}
+		given that \(H(E|Y) = h(P_E)\), it follows that:
+		\begin{equation}
+			H(X|Y) = h(P_E) + H(X|E, Y).
+		\end{equation}
+		We now consider the correct decoding scenario \(E = 0\), thus \(H(X|E=0, Y) = 0\). For the error event scenario \(E = 1\), the maximum uncertainty maybe given by \(\log_2 (|\mathcal{X}| - 1)\):
+		\begin{align*}
+			h(P_e) + P_e \log_2 (|\mathcal{X}| - 1)  \geq H(X|Y)  
+		\end{align*}
+		We then succinctly express Fano's Inequality  as:
+		\begin{align*}
+			h(P(X \neq \hat{X})) + P(X \neq \hat{X}) \log (|\mathcal{X}| - 1)  \geq H(X | \hat{X})
+		\end{align*}
+		where \(H(X|\hat{X})\) denotes the conditional entropy of the transmitted message \(X\) given a estimate message \(\hat{X}\), \( P(X \neq \hat{X})\) represents the probability of a decoding error, and \(|\mathcal{X}|\) signifies the total number of possible messages within the message space.
+	\end{document}
+	This template provides a structured introduction to Information Theory, incorporating a brief history, significance, and an overview of its key concepts. It's designed to be informative and accessible, suitable for a graduate-level audience interested in the theoretical underpinnings of information and communication technologies.
+	
+
+	
+	(finish this)
+	\newpage
+	
+	\section*{Introduction}
+	
+	Entropy, in the context of information theory, measures the unpredictability or uncertainty inherent in a random variable's possible outcomes. Originally introduced by Claude Shannon in his seminal work "A Mathematical Theory of Communication," entropy has become a cornerstone in understanding information processing, transmission, and compression.
+	
+	\section*{Definition and Calculation.}
+	
+	%%	For a discrete random variable \(X\) with a set of possible outcomes \(x_i\), each with probability \(p(x_i)\), the entropy \(H(X)\) is defined as:
+	%%	\begin{equation}
+		%%		H(X) = -\sum_{i} p(x_i) \log_2 p(x_i)
+		%%	\end{equation}
+	%%	The equation $H(X) = -\sum_{i} p(x_i) \log_2 p(x_i)$ defines the entropy $H(X)$ of a discrete random variable $X$, quantifying the expected information or uncertainty from the outcomes of $X$.
+	
+	Entropy measures the average information content per message received, quantifying the uncertainty in predicting the value of a random variable. The information content of an outcome $x_i$ is defined as 
+	\begin{equation}
+		I(x_i) = \log_2 \frac{1}{p(x_i)}
+	\end{equation}
+	where this indicates the number of bits needed to encode the outcome $x_i$. Entropy therefore is the expected value of the information content:
+	\[
+	H(X) = E[I(X)] = \sum_{i} p(x_i) \log_2 \frac{1}{p(x_i)}
+	\]
+	By substituting the expression for information content into the expected value formula, we obtain:
+	\[
+	\begin{aligned}
+		H(X) &= \sum_{i} p(x_i) \log_2 \frac{1}{p(x_i)} \\
+		&= -\sum_{i} p(x_i) \log_2 p(x_i)
+	\end{aligned}
+	\]
+	This formula captures the average amount of information or uncertainty in a random variable's outcomes. Note that, when $p(x_i) = 1$ for some $i$, $H(X) = 0$, this indicates there is no uncertainty. Entropy maybe maximized for a uniform distribution across all outcomes, reflecting the greatest uncertainty.
+	
+	\subsection*{Example: Entropy of a Fair Coin Flip Sequence.}
+	
+	Consider a fair coin flipped repeatedly until the first head (H) appears. Let \(X\) denote the number of flips required. The probability mass function (pmf) of \(X\) is given by a geometric distribution:
+	\begin{equation}
+		p(x) = \left(\frac{1}{2}\right)^x, \quad x = 1, 2, \ldots
+	\end{equation}
+	The entropy \(H(X)\) in this scenario quantifies the average information (in bits) we expect to gain about the outcome of this process. Using the definition of entropy, we calculate \(H(X)\) as follows:
+	\begin{align}
+		H(X) &= -\sum_{x=1}^{\infty} p(x) \log_2 p(x) \\
+		&= -\sum_{x=1}^{\infty} \frac{1}{2^x} \log_2 \frac{1}{2^x} \\
+		&= \sum_{x=1}^{\infty} \frac{x}{2^x} \\
+		&= 2
+	\end{align}
+	The result indicates that, on average, two bits of information are gained upon observing the outcome of this coin-flipping process. This reflects the fundamental property of entropy as a measure of uncertainty: for a fair coin flip, knowing the outcome (head or tail) reduces our uncertainty completely, which is quantified as 2 bits of information.
+	
+	\section*{Conclusion}
+	
+	Entropy serves as a fundamental measure in information theory, providing insights into the amount of uncertainty or information contained in a random process. The example above illustrates the practical computation and significance of entropy in quantifying information, highlighting its central role in the fields of data compression, cryptography, and communication theory.
+	
+	\newpage
+	
+	\section*{Introduction}
+	
+	Before exploring the core concepts of information theory, it's crucial to understand the mathematical preliminaries that form its basis. This section introduces the fundamental principles of probability theory, essential definitions, and notations used in information theory.
+	
+	\subsection*{Probability Theory Basics}
+	
+	Probability theory provides the framework for quantifying the likelihood of events in a random experiment. It's foundational for understanding information theory, which deals with the quantification, storage, and communication of information.
+	
+	\subsection*{Definition of Probability}
+	The probability of an event \(E\) in a sample space \(S\) is denoted as \(P(E)\) and is defined as the ratio of the number of favorable outcomes to the total number of possible outcomes, assuming each outcome is equally likely.
+	
+	\subsection*{Random Variables}
+	A random variable \(X\) is a function that assigns a real number to each outcome in a sample space. It can be discrete or continuous, depending on the nature of the outcomes.
+	
+	\subsection*{Probability Mass Function (PMF)}
+	For discrete random variables, the PMF \(p_X(x)\) gives the probability that \(X\) takes the value \(x\).
+	
+	\subsection*{Cumulative Distribution Function (CDF)}
+	The CDF \(F_X(x)\) of a random variable \(X\) gives the probability that \(X\) will take a value less than or equal to \(x\).
+	
+	\subsection*{Expected Value}
+	The expected value (or mean) of a random variable \(X\) is a measure of the central tendency and is defined as \(E[X] = \sum_{x} x \cdot p_X(x)\) for discrete variables or \(E[X] = \int_{-\infty}^{\infty} x \cdot f_X(x) dx\) for continuous variables.
+	
+	\subsection*{Examples}
+	
+	\subsection*{Coin Toss}
+	Consider a fair coin toss where the outcome can be either head (H) or tail (T). The sample space is \(S = \{H, T\}\). The probability of getting a head (or tail) is \(P(H) = P(T) = 0.5\).
+	
+	\subsection*{Dice Roll}
+	In a fair six-sided dice roll, the sample space is \(S = \{1, 2, 3, 4, 5, 6\}\). Each outcome has a probability of \(1/6\), and the expected value of the roll is \(E[X] = (1 + 2 + 3 + 4 + 5 + 6) / 6 = 3.5\).
+	
+	\subsection*{Notations and Definitions}
+	
+	In information theory, we frequently use specific notations to denote entropy (\(H(X)\)), mutual information (\(I(X; Y)\)), and conditional entropy (\(H(X|Y)\)), among others. Understanding these notations is key to grasping the deeper concepts discussed in subsequent sections.
+	
+	\subsection*{Conclusion}
+	
+	This overview of probability theory and foundational notations sets the stage for exploring the core concepts of information theory. With a solid grasp of these preliminaries, students are better prepared to understand how information is quantified, transmitted, and manipulated in various contexts.
+	
+	\newpage
+	
+	
+\end{document}
