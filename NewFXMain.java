@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
  */
 
-
-
 /*
 @Dates: May 26th 2022
 @recent: Feburary 1st 2024
