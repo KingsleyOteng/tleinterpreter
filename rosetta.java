@@ -8,8 +8,6 @@ import java.math.BigInteger;
  */
 
 
-
-
 /**
  * rosetta
  * @author  kingsley oteng-amoako
