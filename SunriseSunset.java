@@ -13,7 +13,10 @@
  * @recent January 1st 2024
  * @author kingsley oteng-amoako
  * 
+ * 
  */
+
+
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -34,6 +37,7 @@ import java.util.TimeZone;
  * @see <a href="http://en.wikipedia.org/wiki/Sunrise_equation">Sunrise equation on Wikipedia</a>
  * 
  **/
+
 
 
 public final class SunriseSunset {

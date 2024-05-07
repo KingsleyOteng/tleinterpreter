@@ -10,12 +10,10 @@ import java.io.IOException;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
 /**
  *
  * @author terra6partner
  */
-
 
 public class Tools 
 {
@@ -56,7 +54,6 @@ public class Tools
       Tools.read(csvFile);
    }
       
-
     void tools() throws IOException {
         String csvFile = "norad_id_match.csv";
       Tools.read(csvFile);
